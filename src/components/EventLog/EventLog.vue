@@ -2,51 +2,70 @@
 <!-- Also provides ability to show dev logs, to help verify other components are functioning while building them -->
 
 <script setup lang="ts">
+	import { parserOptions } from '@vue/compiler-dom';
+import { computed } from 'vue';
 	import { useLogComposable } from '../../composables/logComposable';
+	const props = defineProps<{
+		dev?: boolean; // optional prop to show all log lines
+	}>();
+
 	const { log, readFromLine } = useLogComposable();
+
+	const lines = computed(() => {
+		if (props.dev) {
+			return log;
+		}
+		return log.filter((lineObj) => lineObj.dev === false);
+	});
+
 </script>
 
 <template>
-	<div class="logContainer">
-		<div class="reverseContainer">
+	<div class="outerContainer">
+		<div class="innerContainer">
 			<p
-				v-for="(logLine, lineIndex) in log.slice(readFromLine, 20)"
+				v-for="(logLine, lineIndex) in lines.slice(readFromLine, 100)"
 				:key="`line-${lineIndex}`"
 				class="logLine">
-				&gt; {{ logLine }}
+				&gt; {{ logLine.line }}
 			</p>
 		</div>
 	</div>
 </template>
 
 <style scoped>
-	.reverseContainer {
-		display: flex;
-		flex-direction: column;
-	}
-
-	.logContainer {
-		height: 300px;
+	.outerContainer {
+		box-sizing: border-box;
 		width: 300px;
 		background-color: black;
 		color: white;
-		overflow-y: visible;
-		overflow-x: hidden;
+		border-radius: 1rem;
+		overflow: hidden;
+		border: 5px solid grey;
+	}
+	.innerContainer {
+		display: flex;
+		flex-direction: column-reverse;
+		align-items: flex-start;
+		height: 300px;
 		word-wrap: normal;
+		scrollbar-color: grey;
+		scrollbar-width: 12px;
+		overflow-y: scroll;
+		overflow-x: hidden;
 	}
 	.logLine {
 		font-family: 'Courier New', Courier, monospace;
-		padding-left: 5px;
+		padding: 0 0 2px 5px;
+		margin: 0;
 	}
 	/* WebKit and Chromiums */
 	::-webkit-scrollbar {
 		width: 12px;
-		/* height: 8px; */
 		background-color: black;
 	}
-
 	::-webkit-scrollbar-thumb {
-		background: blue;
-		border-radius: 5px;
+		background: grey;
+		border-radius: 3px;
 	}
 </style>
