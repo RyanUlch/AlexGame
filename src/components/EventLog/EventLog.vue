@@ -2,8 +2,7 @@
 <!-- Also provides ability to show dev logs, to help verify other components are functioning while building them -->
 
 <script setup lang="ts">
-	import { parserOptions } from '@vue/compiler-dom';
-import { computed } from 'vue';
+	import { computed } from 'vue';
 	import { useLogComposable } from '../../composables/logComposable';
 	const props = defineProps<{
 		dev?: boolean; // optional prop to show all log lines
@@ -17,7 +16,6 @@ import { computed } from 'vue';
 		}
 		return log.filter((lineObj) => lineObj.dev === false);
 	});
-
 </script>
 
 <template>
