@@ -1,13 +1,18 @@
 <script setup lang="ts">
-	import updateLog from './components/UpdateLog/UpdateLog.vue';
+	import EventLog from './components/EventLog/EventLog.vue';
 	import { useLogComposable } from './composables/logComposable';
 
 	const { addLogLine } = useLogComposable();
 	addLogLine('This is a new line');
+	let i = 0;
+	setInterval(() => {
+		addLogLine(`another one, ${i}`);
+		++i;
+	}, 500);
 </script>
 
 <template>
-	<updateLog />
+	<EventLog />
 </template>
 
 <style scoped></style>

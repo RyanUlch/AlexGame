@@ -1,24 +1,24 @@
-import { ref } from 'vue';
+import { reactive, ref } from 'vue';
 
 // log array contains all logs lines. Can be exported to file or saved in storage
-const log = ref<string[]>([]);
+const log = reactive<string[]>([]);
 // Which line to start log (after the log is cleared - log isn't deleted, just shows lines after clearing)
 const readFromLine = ref(0);
 
 // Composable handling UpdateLog
 export const useLogComposable = () => {
 	const addLogLine = (line: string) => {
-		log.value.push(line);
+		log.push(line);
 	};
 
 	// Empty log window of all lines, full log is still available
 	const clear = () => {
-		readFromLine.value = log.value.length;
+		readFromLine.value = log.length;
 	};
 
 	// Used in tests - should not be used in production code
 	const emptyLog = () => {
-		log.value = [];
+		log.length = 0;
 	};
 
 	return {
