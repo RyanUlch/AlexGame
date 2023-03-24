@@ -14,9 +14,7 @@ const readFromLine = ref(0);
 export const useLogComposable = () => {
 	const addLogLine = (line: string, dev: boolean = false) => log.unshift({ line: line, dev: dev });
 	const addLogLines = (lines: logLine[]) => {
-		lines.map((logLine) =>
-			log.unshift({ line: logLine.line, dev: logLine.dev ? logLine.dev : false }),
-		);
+		lines.map((logLine) => log.unshift({ line: logLine.line, dev: logLine.dev ? logLine.dev : false }));
 	};
 	// Empty log window of all lines, full log is still available
 	const clear = () => (readFromLine.value = log.length);

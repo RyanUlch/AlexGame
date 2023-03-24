@@ -2,16 +2,11 @@
 <!-- Also provides ability to show dev logs, to help verify other components are functioning while building them -->
 
 <script setup lang="ts">
-	import { computed } from 'vue';
+import { computed } from 'vue';
 	import { useLogComposable } from '../../composables/logComposable';
-	const props = defineProps<{
-		dev?: boolean; // optional prop to show all log lines
-	}>();
-
 	const { log, readFromLine } = useLogComposable();
-
 	const lines = computed(() => {
-		if (props.dev) {
+		if (import.meta.env.DEV) {
 			return log;
 		}
 		return log.filter((lineObj) => lineObj.dev === false);
