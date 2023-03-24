@@ -18,7 +18,7 @@
 			class="menuBtn"
 			:style="{ backgroundImage: `url('src/assets/UI/menuBtnIcons/${btn.imgFileName}.png')` }"
 			:title="btn.tooltip"
-			@click="btn.modalHandler"></button>
+			@click.prevent="btn.modalHandler"></button>
 	</div>
 </template>
 
