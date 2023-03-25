@@ -2,23 +2,16 @@
 <!-- Also provides ability to show dev logs, to help verify other components are functioning while building them -->
 
 <script setup lang="ts">
-import { computed } from 'vue';
 	import { useLogComposable } from '../../composables/logComposable';
-	const { log, readFromLine } = useLogComposable();
-	const lines = computed(() => {
-		if (import.meta.env.DEV) {
-			return log;
-		}
-		return log.filter((lineObj) => lineObj.dev === false);
-	});
+	const { logLines, readFromLine } = useLogComposable();
 </script>
 
 <template>
 	<div class="outerContainer">
 		<div class="innerContainer">
 			<p
-				v-for="(logLine, lineIndex) in lines.slice(readFromLine, 100)"
-				:key="`line-${lineIndex}`"
+				v-for="(logLine, lineIndex) in logLines.slice(readFromLine, 100)"
+				:key="lineIndex"
 				class="logLine">
 				&gt; {{ logLine.line }}
 			</p>
@@ -39,7 +32,6 @@ import { computed } from 'vue';
 	.innerContainer {
 		display: flex;
 		flex-direction: column-reverse;
-		align-items: flex-start;
 		height: 300px;
 		word-wrap: normal;
 		scrollbar-color: grey;
@@ -49,7 +41,7 @@ import { computed } from 'vue';
 	}
 	.logLine {
 		font-family: 'Courier New', Courier, monospace;
-		padding: 0 0 2px 5px;
+		padding: 2px 5px;
 		margin: 0;
 	}
 	/* WebKit and Chromiums */
