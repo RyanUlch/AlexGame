@@ -9,6 +9,7 @@
 	--menuBtnBackHover: hsl(var(--brandHue), 50%, 40%);
 	--menuBtnBackActive: hsl(var(--brandHue), 50%, 20%);
 	--menuSide: 3rem;
+	--menuColumnNumber: 2;
 }
 
 @media (prefers-color-scheme: dark) {

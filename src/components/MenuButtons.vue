@@ -25,8 +25,9 @@
 <style scoped>
 	/* Based on current design, buttons are in a 2x2 grid, can change grid-template-columns for adding/removing buttons */
 	.menuBtnContainer {
-		display: inline-grid;
-		grid-template-columns: 1fr 1fr;
+		display: inline-flex;
+		flex-wrap: wrap;
+		width: calc(var(--menuSide) * var(--menuColumnNumber));
 	}
 	.menuBtn {
 		height: var(--menuSide);
