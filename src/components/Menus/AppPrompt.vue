@@ -10,7 +10,10 @@ const { options, resolver } = storeToRefs(usePromptStore());
 
 <template>
 	<Teleport to="#prompt">
-		<AppModalVue v-if="options !== null && resolver !== null" title="Prompt">
+		<AppModalVue
+			v-if="options !== null && resolver !== null" 
+			title="Prompt"
+			no-close>
 			<div class="message">{{ options.message }}</div>
 			<div
 				class="options"
