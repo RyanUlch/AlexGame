@@ -12,7 +12,6 @@ export type PromptMultiOptions = {
 };
 
 export const usePromptStore = defineStore('prompt', () => {
-
 	const options = ref<PromptMultiOptions | null>(null);
 	const resolver = ref<((value: Symbol) => void) | null>(null);
 	function promptMulti(opts: PromptMultiOptions) {
@@ -34,5 +33,4 @@ export const usePromptStore = defineStore('prompt', () => {
 		promptMulti,
 		resolver,
 	};
-
 });
