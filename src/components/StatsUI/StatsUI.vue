@@ -1,46 +1,54 @@
 <script setup lang="ts">
-const props = defineProps<{
-	stats: {
-		type: string;
+	import { computed } from 'vue';
+	const props = defineProps<{
+		tooltip: string;
+		iconFileBase: string
+		isIconBased: boolean;
 		value: number;
 		maxValue: number;
-		iconAmount: number;
-		tooltip: string;
-		imgFileName: string;
-		hasPartialIcon?: boolean
-	}[];
-}>();
+		hasPartialIcons?: boolean;
+	}>();
 
-/* 
-<StatsUI :stats="[
-		{
-			type: 'health',
-			value: ,
-			maxValue: 10,
-			iconAmount: 5,
-			tooltip: 'This is your health',
-			imgFileName: 'heart',
+	const icons = computed(()=>{
+		const iconArr = [];
+		for (let i = 1; i <= props.maxValue; ++i) {
+			if (props.hasPartialIcons) {
+				console.log(props.value, i);
+				if (props.value >= i) {
+					if (props.value >= 1+i) {
+						iconArr.push(2);
+					} else {
+						iconArr.push(1);
+					}
+				} else {
+					iconArr.push(0);
+				}
+				++i;
+			} else {
+				iconArr.push(props.value >= i ? 1 : 0)
+			}
 		}
-	]" ></StatsUI>
-*/
+		return iconArr;
+	});
 
 </script>
 <template>
-	<ul>
-		<li 
-			v-for="(stat, index) in props.stats"
-			:key="index"
-			:title="stat.tooltip"
-		>
-			<img 
-				v-for="(icon, iconIndex) in stat.iconAmount"
-				:key="iconIndex"
-				:src="`src/assets/UI/statsIcons/${stat.imgFileName}-${icon < Math.floor((stat.value / stat.maxValue) * stat.iconAmount) ? 'full' : icon > ((stat.value / stat.maxValue) * stat.iconAmount) ? 'empty' : 'partial' }.png`"
-				/>
-		</li>
-	</ul>
+	<div v-if="props.isIconBased" :title="props.tooltip" class="stats">
+		<img v-for="(icon, index) in icons" :key="index" :src="`src/assets/UI/statsIcons/${props.iconFileBase}-${icon}.png`" alt="">
+	</div>
+	<div v-else :title="props.tooltip" class="stats">
+		<img :src="`src/assets/UI/statsIcons/${props.iconFileBase}.png`" alt=""/><p v-if="props.maxValue > 0">{{ props.value }} / {{ props.maxValue }}</p>
+	</div>
 </template>
-<style scoped>
-
+	<style scoped>
+	.stats {
+		display: inline-flex;
+		flex-direction: row;
+		cursor: default;
+		border: 1px solid black;
+		justify-content: center;
+		height: 20px;
+		padding: 1px;
+	}
 </style>
 
