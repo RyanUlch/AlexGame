@@ -27,12 +27,12 @@ export const useDragDropStore = defineStore('dragAndDropStore', () => {
 		const removalIndex = dropElements[dragType].findIndex((element) => element === dropIndex);
 		if (removalIndex > -1) {
 			dropElements[dragType].splice(removalIndex, 1);
-		}
-		if (dropElements[dragType].length === 0) {
-			delete dropElements[dragType];
 		} else {
 			throw new Error(`Tried to delete array of ${dragType}, in dropElements, that does not exist`);
 		}
+		if (dropElements[dragType].length === 0) {
+			delete dropElements[dragType];
+		} 
 	};
 
 	// Optional: Used when user passes in a hoverHandler in DragElement.vue
