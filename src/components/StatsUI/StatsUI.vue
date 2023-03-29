@@ -13,19 +13,18 @@
 		const iconArr = [];
 		for (let i = 1; i <= props.maxValue; ++i) {
 			if (props.hasPartialIcons) {
-				console.log(props.value, i);
 				if (props.value >= i) {
 					if (props.value >= 1+i) {
-						iconArr.push(2);
+						iconArr.push('full');
 					} else {
-						iconArr.push(1);
+						iconArr.push('partial');
 					}
 				} else {
-					iconArr.push(0);
+					iconArr.push('empty');
 				}
 				++i;
 			} else {
-				iconArr.push(props.value >= i ? 1 : 0)
+				iconArr.push(props.value >= i ? 'full' : 'empty')
 			}
 		}
 		return iconArr;
@@ -34,7 +33,12 @@
 </script>
 <template>
 	<div v-if="props.isIconBased" :title="props.tooltip" class="stats">
-		<img v-for="(icon, index) in icons" :key="index" :src="`src/assets/UI/statsIcons/${props.iconFileBase}-${icon}.png`" alt="">
+		<img
+			v-for="(icon, index) in icons"
+			:key="index"
+			:src="`src/assets/UI/statsIcons/${props.iconFileBase}-${icon}.png`"
+			alt=""
+		>
 	</div>
 	<div v-else :title="props.tooltip" class="stats">
 		<img :src="`src/assets/UI/statsIcons/${props.iconFileBase}.png`" alt=""/><p v-if="props.maxValue > 0">{{ props.value }} / {{ props.maxValue }}</p>
