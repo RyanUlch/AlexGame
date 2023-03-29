@@ -3,7 +3,7 @@
 	/* eslint-disable no-mixed-spaces-and-tabs */
 
 	// Vue Imports:
-	import { ref, reactive, onMounted, onBeforeUnmount } from 'vue';
+	import { ref, reactive, computed, onMounted, onBeforeUnmount } from 'vue';
 	// Drag Store Import:
 	import { useDragDropStore } from '../../stores/dragStore';
 
@@ -64,6 +64,9 @@
 	const dragStartingLocation = reactive<[string, string]>(['0px', '0px']);
 	const isBeingDragged = ref<boolean>(false);
 	const isCurrentlyDragged = ref<boolean>(false);
+	const hoveringClassArray = computed(() => {
+		return isValidHovering ? [props.hoverClass] : [];
+	});
 
 	// Update and prevent pointer events if user is currently dragging this element
 	const styleObject = reactive({
@@ -174,7 +177,7 @@
 <template>
 	<div
 		class="dragElement"
-		:class="{ [String(props.hoverClass)]: isValidHovering }"
+		:class="hoveringClassArray"
 		@mousedown.prevent="mouseDragStartHandler"
 		:style="styleObject"
 		:disabled="props.disabled">
