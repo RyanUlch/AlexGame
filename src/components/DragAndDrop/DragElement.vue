@@ -4,7 +4,6 @@
 
 	// Vue Imports:
 	import { ref, reactive, onMounted, onBeforeUnmount } from 'vue';
-	import type { VNodeRef } from 'vue';
 	// Drag Store Import:
 	import { useDragDropStore } from '../../stores/dragStore';
 

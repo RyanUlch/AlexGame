@@ -8,7 +8,7 @@ export const useDragDropStore = defineStore('dragAndDropStore', () => {
 	// References to each DropElements div to check bounding client
 	// index for easier comparisons and handling logic
 	const dropElements: {
-		[key: string]: (number | string)[];
+		[dragType: string]: (number | string)[];
 	} = {};
 
 	let hoveringOver: { dropId: number; dropType: number | string } | null = null;
@@ -16,9 +16,10 @@ export const useDragDropStore = defineStore('dragAndDropStore', () => {
 	// Methods:
 	// When Drop element is mounted, add ref to state for easy reference
 	const registerDropElement = (dragType: number | string, dropIndex: number | string): void => {
-		Object.prototype.hasOwnProperty.call(dropElements, dragType)
-			? dropElements[dragType].push(dropIndex)
-			: (dropElements[dragType] = [dropIndex]);
+		if(!dropElements[dragType]) {
+			dropElements[dragType] = [];
+		}		
+		dropElements[dragType].push(dropIndex);
 	};
 
 	// Remove element ref from state if the element unmounts (handled in DropElement.vue)
@@ -29,6 +30,8 @@ export const useDragDropStore = defineStore('dragAndDropStore', () => {
 		}
 		if (dropElements[dragType].length === 0) {
 			delete dropElements[dragType];
+		} else {
+			throw new Error(`Tried to delete array of ${dragType}, in dropElements, that does not exist`);
 		}
 	};
 

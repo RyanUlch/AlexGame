@@ -26,7 +26,7 @@
 	// Set store with the current DropElement ID and Type when a pointer enters the bounds of the element. Set to null when leaving.
 	const updateHoverHandler = (e: Event) => {
 		store.hoveringUpdateHandler(
-			e.type === 'mouseenter' || e.type === 'touchenter'
+			e.type === 'mouseenter'
 				? { dropId: props.dropElementIndex, dropType: props.dragElementType }
 				: null,
 		);
