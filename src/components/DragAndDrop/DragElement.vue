@@ -50,7 +50,7 @@
 	// props.startingOffset used to space elements manually from initialization
 	onMounted(() => {
 		dragCurrentLocation[0] = props.startingOffset ? props.startingOffset[0] : '0px';
-		dragCurrentLocation[1] = props.startingOffset ? props.startingOffset[1] : '0px'
+		dragCurrentLocation[1] = props.startingOffset ? props.startingOffset[1] : '0px';
 	});
 
 	// Clear any outstanding interval/timers/listeners before unmounting
@@ -108,7 +108,6 @@
 	const mouseHandle = (event: MouseEvent) => {
 		dragHandler(event.clientY, event.clientX);
 	};
-
 
 	// When user clicks and holds onto a DragElement, kick off listeners to handle everything else
 	const mouseDragStartHandler = (event: MouseEvent) => {
@@ -188,6 +187,7 @@
 <style scoped>
 	.dragElement {
 		position: v-bind('props.dragInit && !props.disabled ? "relative" : "absolute"');
+		position: relative;
 		top: v-bind('dragCurrentLocation[0]');
 		left: v-bind('dragCurrentLocation[1]');
 		transition: v-bind('!isBeingDragged ? "top 250ms, left 250ms" : "none"');
