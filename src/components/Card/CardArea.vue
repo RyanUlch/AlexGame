@@ -3,34 +3,46 @@
 	import { useCardStore } from '../../stores/cardInventoryStore';
 	import DropElement from '../DragAndDrop/DropElement.vue';
 	const cardStore = useCardStore();
+	const checkDraw = () => {
+		if (cardStore.characterDrawPile.length === 0) {
+			cardStore.refreshDrawPile();
+		}
+		cardStore.drawCards(3);
+	};
 </script>
 <template>
 	<div class="cardArea">
 		<div
-			class="cardBack"
+			@click="checkDraw"
+			class="cardBack draw"
 			:title="`You have ${cardStore.characterDrawPile.length} cards in your draw pile`"></div>
 		<DropElement
 			dragElementType="card"
-			:dropElementIndex="0"
+			dropElementIndex="playerHand"
 			class="hand">
 			<Card
-				v-for="(card, index) in cardStore.characterCardHand"
-				:key="index"
+				v-for="card in cardStore.characterCardHand"
+				:key="card.uniqueDeckId"
+				:cardImageBase="card.imgBase"
+				:cardText="card.cardText"
 				:dragInit="{
-				dragType: 'card',
-				dragId: index,
-				dropId: 0,
-				dropHandler: (dropType: string | number, dragID: number, droppedIntoId: string | number, droppedFromId: string | number) => {},
-			}"></Card>
+					dragType: 'card',
+					dragId: card.uniqueDeckId,
+					dropId: 0,
+					dropHandler: cardStore.useCard,
+				}"></Card>
 		</DropElement>
-		<div
-			class="cardBack"
-			:title="`You have ${cardStore.characterDiscard.length} cards in your discard`"></div>
+		<DropElement
+			dropElementIndex="discard"
+			dragElementType="card"
+			class="cardBack discard"
+			:title="`You have ${cardStore.characterDiscard.length} cards in your discard`">
+		</DropElement>
 	</div>
 </template>
 <style scoped>
 	.cardArea {
-		height: 10rem;
+		height: calc(var(--cardHeight) + 5px);
 		width: 100%;
 		background-color: lightgray;
 		display: flex;
@@ -43,8 +55,16 @@
 		flex-direction: row;
 	}
 	.cardBack {
-		height: 7rem;
-		width: 3rem;
+		height: var(--cardHeight);
+		width: calc(var(--cardWidth) / 2);
 		background-color: blue;
+	}
+
+	.draw {
+		border-radius: 0 var(--cardRadius) var(--cardRadius) 0;
+	}
+
+	.discard {
+		border-radius: var(--cardRadius) 0 0 var(--cardRadius);
 	}
 </style>

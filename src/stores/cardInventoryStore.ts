@@ -2,20 +2,25 @@
 import { defineStore } from 'pinia';
 import { reactive } from 'vue';
 import { useLogComposable } from '@/composables/logComposable';
+import { useDragDropStore } from './dragStore';
 const { addLogLine } = useLogComposable();
+
 export type Card = {
 	masterCardId: number;
+	uniqueDeckId: number;
+	imgBase: string;
+	cardText: string;
 };
 
 // Drag (and) Drop Store used to store drop elements references, and handle logic with dragging/dropping elements
 export const useCardStore = defineStore('cardInventoryStore', () => {
 	const characterCardInventory: Card[] = [
-		{ masterCardId: 0 },
-		{ masterCardId: 1 },
-		{ masterCardId: 2 },
-		{ masterCardId: 3 },
-		{ masterCardId: 4 },
-		{ masterCardId: 5 },
+		{ masterCardId: 0, uniqueDeckId: 0, imgBase: 'power-temp', cardText: 'Fire some anime blast' },
+		{ masterCardId: 1, uniqueDeckId: 1, imgBase: '', cardText: 'Some Text' },
+		{ masterCardId: 2, uniqueDeckId: 2, imgBase: '', cardText: 'Some Text' },
+		{ masterCardId: 3, uniqueDeckId: 3, imgBase: '', cardText: 'Some Text' },
+		{ masterCardId: 4, uniqueDeckId: 4, imgBase: '', cardText: 'Some Text' },
+		{ masterCardId: 5, uniqueDeckId: 5, imgBase: '', cardText: 'Some Text' },
 	];
 
 	let characterDrawPile: Card[] = reactive(characterCardInventory);
@@ -35,6 +40,21 @@ export const useCardStore = defineStore('cardInventoryStore', () => {
 			];
 		}
 		return shuffledDeck;
+	};
+
+	const useCard = (
+		dropType: string | number,
+		dragId: number,
+		droppedIntoId: string | number,
+		droppedFromId: string | number,
+	) => {
+		if (droppedIntoId === 'consumer') {
+			const cardIndex = characterCardHand.findIndex((card) => card.uniqueDeckId === dragId);
+			discardCard(cardIndex);
+		} else if (droppedIntoId === 'discard') {
+			const cardIndex = characterCardHand.findIndex((card) => card.uniqueDeckId === dragId);
+			discardCard(cardIndex);
+		}
 	};
 
 	const drawCards = (drawNumber: number) => {
@@ -62,6 +82,7 @@ export const useCardStore = defineStore('cardInventoryStore', () => {
 		characterDrawPile,
 		characterCardHand,
 		characterDiscard,
+		useCard,
 		drawCards,
 		refreshDrawPile,
 		discardCard,

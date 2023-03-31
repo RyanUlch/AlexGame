@@ -12,6 +12,8 @@
 				droppedFromId: number | string,
 			) => void;
 		};
+		cardImageBase: string;
+		cardText: string;
 	}>();
 </script>
 <template>
@@ -20,30 +22,39 @@
 		:dragInit="props.dragInit"
 		hoverClass="cardHover">
 		<img
-			src=""
+			:src="`src/assets/cards/cardImages/${props.cardImageBase}.jpg`"
 			alt=""
 			class="cardImage" />
-		<p class="text">This is the card text to explain how to use it</p>
+		<p class="text">{{ props.cardText }}</p>
 	</DragElement>
 </template>
 <style scoped>
 	.card {
-		height: 8.4rem;
-		width: 6rem;
+		height: var(--cardHeight);
+		width: var(--cardWidth);
 		background-color: blue;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
 		align-items: center;
-	}
-	.cardHover {
+		border-radius: var(--cardRadius);
+		padding: 5px;
+		transition: box-shadow 250ms;
 		border: 2px solid black;
 	}
 
+	.card:active {
+		box-shadow: 0 0 10px black;
+	}
+	.cardHover {
+		box-shadow: 0 0 15px gold !important;
+	}
+
 	.cardImage {
-		width: 5.5rem;
-		margin-top: 0.2rem;
+		width: 100%;
 		height: 4rem;
+		border-radius: var(--cardRadius);
+		border: 1px solid black;
 	}
 
 	.text {

@@ -3,6 +3,7 @@
 	import EventLog from './components/EventLog/EventLog.vue';
 	import StatsUi from './components/StatsUi/StatsUi.vue';
 	import MenuButton from './components/MenuButton/MenuButton.vue';
+	import DropElement from './components/DragAndDrop/DropElement.vue';
 	import { useCardStore } from './stores/cardInventoryStore';
 	import { useLogComposable } from './composables/logComposable';
 	const { addLogLine } = useLogComposable();
@@ -10,7 +11,12 @@
 </script>
 <template>
 	<div class="gameArea">
-		<div class="playArea">This is the play area (where the levels show up)</div>
+		<DropElement
+			dragElementType="card"
+			dropElementIndex="consumer"
+			class="playArea">
+			This is the play area (where the levels show up)
+		</DropElement>
 		<div class="upper-right">
 			<div class="statArea square">
 				<StatsUi
@@ -71,7 +77,6 @@
 		</div>
 		<CardArea />
 	</div>
-	<button @click="cardStore.drawCards(3)">Draw Cards</button>
 </template>
 <style scoped>
 	.square {

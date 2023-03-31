@@ -64,19 +64,11 @@
 	const dragStartingLocation = reactive<[string, string]>(['0px', '0px']);
 	const isBeingDragged = ref<boolean>(false);
 	const isCurrentlyDragged = ref<boolean>(false);
-	const hoveringClassArray = computed(() => {
-		return isValidHovering ? [props.hoverClass] : [];
-	});
-
-	// Update and prevent pointer events if user is currently dragging this element
-	const styleObject = reactive({
-		PointerEvent: isCurrentlyDragged.value ? 'none' : 'auto',
-	});
-
+	const hoveringClassArray = [props.hoverClass];
 	// Methods:
 	const cleanupSideEffects = () => {
 		document.removeEventListener('mouseup', dragStopHandler);
-		document.removeEventListener('mousemove', mouseHandle);
+		document.removeEventListener('mousemove', dragHandler);
 		isValidHovering.value = false;
 	};
 
@@ -105,21 +97,14 @@
 
 	// Listener Handlers:
 
-	const mouseHandle = (event: MouseEvent) => {
-		dragHandler(event.clientY, event.clientX);
-	};
-
 	// When user clicks and holds onto a DragElement, kick off listeners to handle everything else
 	const mouseDragStartHandler = (event: MouseEvent) => {
 		if (props.disabled === false) {
 			// Capture current location in case drop is unsuccessful
 			dragStartingLocation[0] = dragCurrentLocation[0];
 			dragStartingLocation[1] = dragCurrentLocation[1];
-			isBeingDragged.value = true;
-			dragHandler(event.clientY, event.clientX);
-
 			// Attach listeners to window to monitor movement/dropping
-			document.addEventListener('mousemove', mouseHandle);
+			document.addEventListener('mousemove', dragHandler);
 			document.addEventListener('mouseup', dragStopHandler);
 		}
 	};
@@ -127,15 +112,16 @@
 	const isValidHovering = ref(false);
 
 	// While moving Mouse:
-	const dragHandler = (vertical: number, horizontal: number) => {
+	const dragHandler = (event: MouseEvent) => {
+		isBeingDragged.value = true;
 		isValidHovering.value = store.draggingHandler(props.dragInit?.dragType);
 		if (props.bounds) {
-			const boundReturn = checkBounds(vertical, horizontal);
+			const boundReturn = checkBounds(event.clientY, event.clientX);
 			dragCurrentLocation[0] = boundReturn[0];
 			dragCurrentLocation[1] = boundReturn[1];
 		} else {
-			dragCurrentLocation[0] = `${props.preventY ? dragStartingLocation[0] : vertical + 'px'}`;
-			dragCurrentLocation[1] = `${props.preventX ? dragStartingLocation[1] : horizontal + 'px'}`;
+			dragCurrentLocation[0] = `${props.preventY ? dragStartingLocation[0] : event.clientY + 'px'}`;
+			dragCurrentLocation[1] = `${props.preventX ? dragStartingLocation[1] : event.clientX + 'px'}`;
 		}
 	};
 
@@ -176,9 +162,8 @@
 <template>
 	<div
 		class="dragElement"
-		:class="hoveringClassArray"
+		:class="isValidHovering ? hoverClass : ''"
 		@mousedown.prevent="mouseDragStartHandler"
-		:style="styleObject"
 		:disabled="props.disabled">
 		<slot></slot>
 	</div>
@@ -186,14 +171,16 @@
 
 <style scoped>
 	.dragElement {
-		position: v-bind('props.dragInit && !props.disabled ? "relative" : "absolute"');
-		position: relative;
+		position: v-bind(
+			'props.dragInit && !props.disabled && !isBeingDragged ? "relative" : "absolute"'
+		);
 		top: v-bind('dragCurrentLocation[0]');
 		left: v-bind('dragCurrentLocation[1]');
 		transition: v-bind('!isBeingDragged ? "top 250ms, left 250ms" : "none"');
+		pointer-events: v-bind('isBeingDragged ? "none" : "auto"');
 	}
 
 	.dragElement:active {
-		position: absolute;
+		/* position: absolute; */
 	}
 </style>

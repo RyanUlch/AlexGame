@@ -10,6 +10,11 @@
 	--menuBtnBackActive: hsl(var(--brandHue), 50%, 20%);
 	--menuSide: 74px;
 	--menuColumnNumber: 2;
+
+	/* Card Size */
+	--cardWidth: 7.5rem;
+	--cardHeight: 10.5rem;
+	--cardRadius: 0.5rem;
 }
 
 @media (prefers-color-scheme: dark) {
