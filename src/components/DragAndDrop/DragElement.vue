@@ -3,7 +3,7 @@
 	/* eslint-disable no-mixed-spaces-and-tabs */
 
 	// Vue Imports:
-	import { ref, reactive, computed, onMounted, onBeforeUnmount } from 'vue';
+	import { ref, reactive, onMounted, onBeforeUnmount } from 'vue';
 	// Drag Store Import:
 	import { useDragDropStore } from '../../stores/dragStore';
 
@@ -13,11 +13,11 @@
 			// If any below used; all are required: - These allow DragElement to be dropped into specific DropElements
 			dragInit?: {
 				dragType: number | string; // This Elements
-				dragId: number;
+				dragId: number | undefined;
 				dropId: number;
 				dropHandler: (
 					dropType: number | string,
-					dragID: number,
+					dragId: number | undefined,
 					droppedIntoId: number | string,
 					droppedFromId: number | string,
 				) => void;
@@ -33,7 +33,7 @@
 			preventX?: boolean;
 			preventY?: boolean;
 			hoverClass?: string;
-			canBeDropped?: (dragType: number | string, dragId: number | string) => boolean;
+			canBeDropped?: (dragType: number | string, dragId: number | string | undefined) => boolean;
 			disabled?: boolean;
 		}>(),
 		{

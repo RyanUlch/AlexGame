@@ -1,20 +1,27 @@
 <script setup lang="ts">
 	import DragElement from '../DragAndDrop/DragElement.vue';
+	import { computed } from 'vue';
 	const props = defineProps<{
 		dragInit: {
 			dragType: number | string;
-			dragId: number;
+			dragId: number | undefined;
 			dropId: number;
 			dropHandler: (
 				dropType: number | string,
-				dragID: number,
+				dragID: number | undefined,
 				droppedIntoId: number | string,
 				droppedFromId: number | string,
 			) => void;
 		};
 		cardImageBase: string;
 		cardText: string;
+		value: number;
 	}>();
+
+	const cardTextAltered = computed(() => {
+		let cardText = props.cardText.replace('*', String(props.value));
+		return cardText;
+	});
 </script>
 <template>
 	<DragElement
@@ -25,7 +32,7 @@
 			:src="`src/assets/cards/cardImages/${props.cardImageBase}.jpg`"
 			alt=""
 			class="cardImage" />
-		<p class="text">{{ props.cardText }}</p>
+		<p class="text">{{ cardTextAltered }}</p>
 	</DragElement>
 </template>
 <style scoped>

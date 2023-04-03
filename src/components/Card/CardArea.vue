@@ -2,20 +2,18 @@
 	import Card from './Card.vue';
 	import { useCardStore } from '../../stores/cardInventoryStore';
 	import DropElement from '../DragAndDrop/DropElement.vue';
+	import cardData from '../../assets/cards/MasterCardList.json';
 	const cardStore = useCardStore();
-	const checkDraw = () => {
-		if (cardStore.characterDrawPile.length === 0) {
-			cardStore.refreshDrawPile();
-		}
+	const drawCards = () => {
 		cardStore.drawCards(3);
 	};
 </script>
 <template>
 	<div class="cardArea">
 		<div
-			@click="checkDraw"
+			@click="drawCards"
 			class="cardBack draw"
-			:title="`You have ${cardStore.characterDrawPile.length} cards in your draw pile`"></div>
+			:title="cardStore.drawPileAmount"></div>
 		<DropElement
 			dragElementType="card"
 			dropElementIndex="playerHand"
@@ -23,8 +21,9 @@
 			<Card
 				v-for="card in cardStore.characterCardHand"
 				:key="card.uniqueDeckId"
-				:cardImageBase="card.imgBase"
-				:cardText="card.cardText"
+				:cardImageBase="cardData[card.masterCardId].imgBase"
+				:cardText="cardData[card.masterCardId].cardText"
+				:value="card.value"
 				:dragInit="{
 					dragType: 'card',
 					dragId: card.uniqueDeckId,

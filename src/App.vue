@@ -8,6 +8,14 @@
 	import { useLogComposable } from './composables/logComposable';
 	const { addLogLine } = useLogComposable();
 	const cardStore = useCardStore();
+
+	cardStore.addCardsToDeck([
+		{ masterCardId: 'power', value: 1 },
+		{ masterCardId: 'heal', value: 2 },
+		{ masterCardId: 'beam', value: 6 },
+		{ masterCardId: 'energy', value: 3 },
+		{ masterCardId: 'jump', value: 2 },
+	]);
 </script>
 <template>
 	<div class="gameArea">

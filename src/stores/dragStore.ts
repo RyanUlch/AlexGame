@@ -46,10 +46,8 @@ export const useDragDropStore = defineStore('dragAndDropStore', () => {
 	// On a successful drop, return identifier of the DropElement that DragElement is over
 	const droppingHandler = (dragType: number | string, fromDropId: number | string) => {
 		if (dragType === hoveringOver?.dropType && fromDropId !== hoveringOver.dropId) {
-			addLogLine(`Dropping Card into DropElement with ID: ${hoveringOver.dropId}`, true);
 			return hoveringOver.dropId;
 		} else {
-			addLogLine(`Returning card to original location`, true);
 			return null;
 		}
 	};
