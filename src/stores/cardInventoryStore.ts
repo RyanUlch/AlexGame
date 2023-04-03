@@ -2,7 +2,7 @@
 import { defineStore } from 'pinia';
 import { reactive } from 'vue';
 import { useLogComposable } from '@/composables/logComposable';
-import { useDragDropStore } from './dragStore';
+
 const { addLogLine } = useLogComposable();
 
 export type Card = {
@@ -78,6 +78,14 @@ export const useCardStore = defineStore('cardInventoryStore', () => {
 		characterDiscard.push(...characterCardHand.splice(0, Infinity));
 	};
 
+	const addCardToDeck = (newCard: Card) => {
+		characterDiscard.push(newCard);
+	};
+
+	const addCardsToDeck = (newCard: Card[]) => {
+		characterDiscard.push(...newCard);
+	};
+
 	return {
 		characterDrawPile,
 		characterCardHand,
@@ -85,6 +93,8 @@ export const useCardStore = defineStore('cardInventoryStore', () => {
 		useCard,
 		drawCards,
 		refreshDrawPile,
+		addCardToDeck,
+		addCardsToDeck,
 		discardCard,
 		discardHand,
 	};
