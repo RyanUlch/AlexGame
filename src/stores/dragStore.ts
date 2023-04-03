@@ -2,7 +2,7 @@
 // Pinia/Vue type Imports:
 import { defineStore } from 'pinia';
 import { useLogComposable } from '@/composables/logComposable';
-const { addLogLine } = useLogComposable();
+
 // Drag (and) Drop Store used to store drop elements references, and handle logic with dragging/dropping elements
 export const useDragDropStore = defineStore('dragAndDropStore', () => {
 	// State:
