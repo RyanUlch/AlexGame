@@ -1,9 +1,8 @@
 <script setup lang="ts">
 	import { useLevelStore } from './stores/levelStore';
-	const levelStore = useLevelStore();
-	levelStore.openLevel(0);
+	import PlayArea from './components/PlayArea/PlayArea.vue';
 </script>
 <template>
-	<p></p>
+	<PlayArea />
 </template>
 <style scoped></style>
