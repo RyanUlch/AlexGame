@@ -24,6 +24,7 @@
 				:cardImageBase="cardData[card.masterCardId].imgBase"
 				:cardText="cardData[card.masterCardId].cardText"
 				:value="card.value"
+				:energyCost="cardData[card.masterCardId].energyCost"
 				:dragInit="{
 					dragType: 'card',
 					dragId: card.uniqueDeckId,
@@ -43,7 +44,7 @@
 	.cardArea {
 		height: calc(var(--cardHeight) + 5px);
 		width: 100%;
-		background-color: lightgray;
+		background-color: darkslategrey;
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
@@ -56,7 +57,7 @@
 	.cardBack {
 		height: var(--cardHeight);
 		width: calc(var(--cardWidth) / 2);
-		background-color: blue;
+		background-color: lightgrey;
 	}
 
 	.draw {

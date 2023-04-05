@@ -10,6 +10,7 @@ export type Card = {
 	masterCardId: string;
 	uniqueDeckId?: number;
 	value: number;
+	effectHandler: () => boolean;
 };
 
 // Drag (and) Drop Store used to store drop elements references, and handle logic with dragging/dropping elements
@@ -43,16 +44,24 @@ export const useCardStore = defineStore('cardInventoryStore', () => {
 		dragId: number | undefined,
 		droppedIntoId: string | number,
 		droppedFromId: string | number,
-	) => {
+	): boolean => {
 		if (droppedIntoId === 'consumer') {
 			const cardIndex = characterCardHand.findIndex((card) => card.uniqueDeckId === dragId);
 			const playerCard = characterCardHand[cardIndex];
 			const masterCard = cardData[playerCard.masterCardId];
-			addLogLine(`${masterCard.effect} for ${playerCard.value}, to ${masterCard.target}`);
-			discardCard(cardIndex);
+			console.log(characterCardHand[cardIndex]);
+			if (characterCardHand[cardIndex].effectHandler()) {
+				addLogLine(`${masterCard.effect} for ${playerCard.value}, to ${masterCard.target}`);
+				discardCard(cardIndex);
+				return true;
+			}
+			return false;
 		} else if (droppedIntoId === 'discard') {
 			const cardIndex = characterCardHand.findIndex((card) => card.uniqueDeckId === dragId);
 			discardCard(cardIndex);
+			return true;
+		} else {
+			return false;
 		}
 	};
 
@@ -87,6 +96,7 @@ export const useCardStore = defineStore('cardInventoryStore', () => {
 			masterCardId: newCard.masterCardId,
 			uniqueDeckId: uniqueCardIndex,
 			value: newCard.value,
+			effectHandler: newCard.effectHandler,
 		});
 		++uniqueCardIndex;
 	};

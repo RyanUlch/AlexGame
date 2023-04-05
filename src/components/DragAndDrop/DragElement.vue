@@ -20,7 +20,7 @@
 					dragId: number | undefined,
 					droppedIntoId: number | string,
 					droppedFromId: number | string,
-				) => void;
+				) => boolean;
 			};
 			// Optional - Can be used regardless of if the above props are supplied
 			startingOffset?: [string, string];
@@ -145,12 +145,17 @@
 				props.dragInit.dropId,
 			);
 			if (intoDropElementIndex !== null) {
-				props.dragInit.dropHandler(
-					props.dragInit.dragType,
-					props.dragInit.dragId,
-					intoDropElementIndex,
-					props.dragInit.dropId,
-				);
+				if (
+					!props.dragInit.dropHandler(
+						props.dragInit.dragType,
+						props.dragInit.dragId,
+						intoDropElementIndex,
+						props.dragInit.dropId,
+					)
+				) {
+					dragCurrentLocation[0] = dragStartingLocation[0];
+					dragCurrentLocation[1] = dragStartingLocation[1];
+				}
 			} else {
 				dragCurrentLocation[0] = dragStartingLocation[0];
 				dragCurrentLocation[1] = dragStartingLocation[1];

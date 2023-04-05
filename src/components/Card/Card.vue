@@ -11,11 +11,12 @@
 				dragID: number | undefined,
 				droppedIntoId: number | string,
 				droppedFromId: number | string,
-			) => void;
+			) => boolean;
 		};
 		cardImageBase: string;
 		cardText: string;
 		value: number;
+		energyCost?: number;
 	}>();
 
 	const cardTextAltered = computed(() => {
@@ -32,14 +33,26 @@
 			:src="`src/assets/cards/cardImages/${props.cardImageBase}.jpg`"
 			alt=""
 			class="cardImage" />
+		<div
+			class="energyCost"
+			v-if="props.energyCost">
+			<p class="text energyIcon">{{ props.energyCost }}</p>
+			<img
+				class="energyIcon"
+				src="src/assets/UI/statsIcons/energy.png"
+				alt="" />
+		</div>
 		<p class="text">{{ cardTextAltered }}</p>
 	</DragElement>
 </template>
 <style scoped>
+	.energyIcon {
+		display: inline;
+	}
 	.card {
 		height: var(--cardHeight);
 		width: var(--cardWidth);
-		background-color: blue;
+		background-color: lightgrey;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;

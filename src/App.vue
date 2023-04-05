@@ -7,15 +7,48 @@
 	import DropElement from './components/DragAndDrop/DropElement.vue';
 	import { useCardStore } from './stores/cardInventoryStore';
 	import { useLogComposable } from './composables/logComposable';
+	import { usePlayerStore } from './stores/playerStore';
+	import { storeToRefs } from 'pinia';
 	const { addLogLine } = useLogComposable();
 	const cardStore = useCardStore();
-
+	const playerStore = usePlayerStore();
+	const { health, maxHealth, energy, maxEnergy } = storeToRefs(playerStore);
 	cardStore.addCardsToDeck([
-		{ masterCardId: 'power', value: 1 },
-		{ masterCardId: 'heal', value: 2 },
-		{ masterCardId: 'beam', value: 6 },
-		{ masterCardId: 'energy', value: 3 },
-		{ masterCardId: 'jump', value: 2 },
+		{
+			masterCardId: 'power',
+			value: 1,
+			effectHandler: () => {
+				return playerStore.useEnergy(2);
+			},
+		},
+		{
+			masterCardId: 'heal',
+			value: 2,
+			effectHandler: () => {
+				return playerStore.useEnergy(1) && playerStore.heal(2);
+			},
+		},
+		{
+			masterCardId: 'beam',
+			value: 6,
+			effectHandler: () => {
+				return playerStore.useEnergy(3);
+			},
+		},
+		{
+			masterCardId: 'energy',
+			value: 3,
+			effectHandler: () => {
+				return playerStore.energize(3);
+			},
+		},
+		{
+			masterCardId: 'jump',
+			value: 1,
+			effectHandler: () => {
+				return playerStore.useEnergy(1);
+			},
+		},
 	]);
 </script>
 <template>
@@ -29,24 +62,18 @@
 		<div class="upper-right">
 			<div class="statArea square">
 				<StatsUi
-					:value="5"
-					:maxValue="10"
+					:value="health"
+					:maxValue="maxHealth"
 					:isIconBased="true"
 					iconFileBase="heart"
 					:hasPartialIcons="true"
 					tooltip="This is your health" />
 				<StatsUi
-					:value="2"
-					:maxValue="4"
+					:value="energy"
+					:maxValue="maxEnergy"
 					:isIconBased="false"
 					iconFileBase="energy"
 					tooltip="This is your energy" />
-				<StatsUi
-					:value="0"
-					:maxValue="0"
-					:isIconBased="false"
-					iconFileBase="poison"
-					tooltip="You are poisoned!" />
 			</div>
 			<div class="menuArea square">
 				<MenuButton
@@ -96,10 +123,11 @@
 	}
 	.gameArea {
 		box-sizing: border-box;
-		width: 900px;
+		width: 910px;
 		margin: 0 auto;
 		display: flex;
 		flex-wrap: wrap;
+		border: 5px solid grey;
 	}
 
 	.playArea {

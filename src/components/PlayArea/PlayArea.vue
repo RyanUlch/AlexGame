@@ -93,6 +93,8 @@
 		height: 16px;
 	}
 	.full {
+		pointer-events: none;
+		user-select: none;
 		display: inline-flex;
 		flex-direction: column;
 		transform: scale(5);
