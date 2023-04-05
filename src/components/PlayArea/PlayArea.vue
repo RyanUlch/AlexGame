@@ -6,17 +6,20 @@
 	import PawnSprite from './PawnSprite.vue';
 	import { useKeyHandler } from '@/composables/useKeyHandler';
 	import { keyHandler } from '@/inputHandlers/keyInput';
+	import { useLogComposable } from '../../composables/logComposable';
 
 	// Set up level store and retrieve necessary values
 	const levelStore = useLevelStore();
 	const { levelMatrix } = storeToRefs(levelStore);
 	levelStore.openLevel(0);
 
+	const { addLogLine } = useLogComposable();
+
 	// Set up sprite store and register sprites
 	const spriteStore = useSpriteStore();
 	const { characterPosition, characterId } = storeToRefs(spriteStore);
 	spriteStore.registerSprite([2, 1, 's'], '', () => {
-		console.log(`it's locked`);
+		addLogLine(`It's locked`);
 	});
 	spriteStore.registerSprite([3, 4, 'n'], 'hat0', () => {
 		characterId.value = '0';
@@ -24,6 +27,7 @@
 		levelMatrix.value[3][4].impassible = false;
 		levelMatrix.value[3][4].layeredImageSrc = undefined;
 		levelMatrix.value[3][4].layeredImageCoord = undefined;
+		addLogLine(`You found your hat. cool.`);
 	});
 
 	// Compute whether level matrix is ready to be rendered

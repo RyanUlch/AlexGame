@@ -2,6 +2,7 @@
 	import CardArea from './components/Card/CardArea.vue';
 	import EventLog from './components/EventLog/EventLog.vue';
 	import StatsUi from './components/StatsUi/StatsUi.vue';
+	import PlayArea from './components/PlayArea/PlayArea.vue';
 	import MenuButton from './components/MenuButton/MenuButton.vue';
 	import DropElement from './components/DragAndDrop/DropElement.vue';
 	import { useCardStore } from './stores/cardInventoryStore';
@@ -23,7 +24,7 @@
 			dragElementType="card"
 			dropElementIndex="consumer"
 			class="playArea">
-			This is the play area (where the levels show up)
+			<PlayArea />
 		</DropElement>
 		<div class="upper-right">
 			<div class="statArea square">
@@ -105,7 +106,7 @@
 		display: inline-flex;
 		height: 600px;
 		width: 600px;
-		background-color: blueviolet;
+		background-color: black;
 		justify-content: center;
 		align-items: center;
 	}
