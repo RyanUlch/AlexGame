@@ -1,6 +1,7 @@
 /* eslint-disable no-mixed-spaces-and-tabs */
 // Pinia/Vue type Imports:
 import { defineStore } from 'pinia';
+import { useLogComposable } from '@/composables/logComposable';
 
 // Drag (and) Drop Store used to store drop elements references, and handle logic with dragging/dropping elements
 export const useDragDropStore = defineStore('dragAndDropStore', () => {
@@ -11,19 +12,19 @@ export const useDragDropStore = defineStore('dragAndDropStore', () => {
 		[dragType: string]: (number | string)[];
 	} = {};
 
-	let hoveringOver: { dropId: number; dropType: number | string } | null = null;
+	let hoveringOver: { dropId: number | string; dropType: number | string } | null = null;
 
 	// Methods:
 	// When Drop element is mounted, add ref to state for easy reference
 	const registerDropElement = (dragType: number | string, dropIndex: number | string): void => {
-		if(!dropElements[dragType]) {
+		if (!dropElements[dragType]) {
 			dropElements[dragType] = [];
-		}		
+		}
 		dropElements[dragType].push(dropIndex);
 	};
 
 	// Remove element ref from state if the element unmounts (handled in DropElement.vue)
-	const deregisterDropElement = (dragType: number | string, dropIndex: number): void => {
+	const deregisterDropElement = (dragType: number | string, dropIndex: number | string): void => {
 		const removalIndex = dropElements[dragType].findIndex((element) => element === dropIndex);
 		if (removalIndex > -1) {
 			dropElements[dragType].splice(removalIndex, 1);
@@ -32,7 +33,7 @@ export const useDragDropStore = defineStore('dragAndDropStore', () => {
 		}
 		if (dropElements[dragType].length === 0) {
 			delete dropElements[dragType];
-		} 
+		}
 	};
 
 	// Optional: Used when user passes in a hoverHandler in DragElement.vue
@@ -53,7 +54,7 @@ export const useDragDropStore = defineStore('dragAndDropStore', () => {
 
 	// Update which element, if any, is being hovered over currently
 	const hoveringUpdateHandler = (
-		dropOver: { dropId: number; dropType: number | string } | null,
+		dropOver: { dropId: number | string; dropType: number | string } | null,
 	) => {
 		hoveringOver = dropOver;
 	};
