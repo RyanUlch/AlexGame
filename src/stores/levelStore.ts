@@ -38,7 +38,7 @@ export const useLevelStore = defineStore('levelStore', () => {
 	const levelMatrix = reactive<Tile[][]>([]);
 	const req = new XMLHttpRequest();
 	req.addEventListener('load', reqListener);
-	function reqListener() {
+	function reqListener(this: XMLHttpRequest) {
 		levelMatrix.splice(0, levelMatrix.length);
 		const rows = this.responseText.split('\r\n');
 		for (let i = 0; i < rows.length; ++i) {
@@ -57,5 +57,9 @@ export const useLevelStore = defineStore('levelStore', () => {
 	};
 	openLevel(0);
 
-	return { levelMatrix, openLevel };
+	const isImpassible = (x: number, y: number) => {
+		return levelMatrix[x][y].impassible;
+	};
+
+	return { levelMatrix, isImpassible, openLevel };
 });

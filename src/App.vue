@@ -3,6 +3,16 @@
 	import PlayArea from './components/PlayArea/PlayArea.vue';
 </script>
 <template>
-	<PlayArea />
+	<div class="group">
+		<PlayArea />
+	</div>
 </template>
-<style scoped></style>
+<style scoped>
+	.group {
+		width: 100vw;
+		height: 100vh;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+</style>
