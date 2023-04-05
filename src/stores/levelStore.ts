@@ -5,12 +5,15 @@ import { ref, reactive } from 'vue';
 
 interface Tile {
 	tileset: number;
-	tileCoords: string;
+	tileCoord: string;
 	impassible: boolean;
+	layeredImageSrc?: string;
+	layeredImageCoord?: [number, number];
+	// layeredImageSize?:
 }
 
 // prettier-ignore
-export const autotileCoords: { [direction: string]: [number, number] } = {
+export const autotileCoord: { [direction: string]: [number, number] } = {
 	"none": [3, 0], // No sides touches
 	"all": 	[1, 2], // All sides touching
 	"n": 	[2, 1], // North (up)
@@ -32,7 +35,7 @@ export const autotileCoords: { [direction: string]: [number, number] } = {
 export const useLevelStore = defineStore('levelStore', () => {
 	// State:
 	const currentLevel = ref<number>(0);
-	let levelMatrix = reactive<Tile[][]>([]);
+	const levelMatrix = reactive<Tile[][]>([]);
 	const req = new XMLHttpRequest();
 	req.addEventListener('load', reqListener);
 	function reqListener() {

@@ -1,13 +1,13 @@
 <script setup lang="ts">
-	import { onBeforeMount, onUpdated, computed } from 'vue';
-	import { useLevelStore, autotileCoords } from '../../stores/levelStore';
+	import { computed } from 'vue';
+	import { useLevelStore, autotileCoord } from '../../stores/levelStore';
 	import { storeToRefs } from 'pinia';
 	const store = useLevelStore();
 	const { levelMatrix } = storeToRefs(store);
 	store.openLevel(0);
 
 	const matrixReady = computed(() => {
-		console.log(autotileCoords['n']);
+		console.log(autotileCoord);
 		return levelMatrix.value.length > 0;
 	});
 </script>
@@ -24,10 +24,15 @@
 					:key="colIndex"
 					:style="{
 						backgroundImage: `url('src/assets/levels/tilesets/${col.tileset}.png')`,
-						backgroundPosition: `-${autotileCoords[col.tileCoords][1] * 16}px -${
-							autotileCoords[col.tileCoords][0] * 16
+						backgroundPosition: `-${autotileCoord[col.tileCoord][1] * 16}px -${
+							autotileCoord[col.tileCoord][0] * 16
 						}px`,
-					}"></div>
+					}">
+					<img
+						v-if="col.layeredImageSrc"
+						class="objectLayer"
+						:src="`src/assets/levels/objects/${col.layeredImageSrc}.png`" />
+				</div>
 			</div>
 		</template>
 		<template v-else>
@@ -36,6 +41,10 @@
 	</div>
 </template>
 <style scoped>
+	.objectLayer {
+		width: 16px;
+		height: 16px;
+	}
 	.full {
 		display: inline-flex;
 		flex-direction: column;
