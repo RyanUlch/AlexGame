@@ -1,5 +1,5 @@
 <script setup lang="ts">
-	import { computed, ref } from 'vue';
+	import { computed, reactive } from 'vue';
 	import { useLevelStore, autotileCoord } from '../../stores/levelStore';
 	import { useSpriteStore } from '@/stores/spriteStore';
 	import { storeToRefs } from 'pinia';
@@ -14,6 +14,8 @@
 	levelStore.openLevel(0);
 
 	const { addLogLine } = useLogComposable();
+
+	
 
 	// Set up sprite store and register sprites
 	const spriteStore = useSpriteStore();
@@ -101,6 +103,9 @@
 		image-rendering: pixelated;
 		image-rendering: -moz-crisp-edges;
 		image-rendering: crisp-edges;
+		position: relative;
+		top: v-bind('`${screenPosition[0]}px`');
+		left: v-bind('`${screenPosition[1]}px`');
 	}
 	.row {
 		display: inline-flex;

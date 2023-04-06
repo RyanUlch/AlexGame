@@ -137,6 +137,7 @@
 		background-color: black;
 		justify-content: center;
 		align-items: center;
+		overflow: hidden;
 	}
 
 	.upper-right {

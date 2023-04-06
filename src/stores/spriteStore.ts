@@ -15,8 +15,8 @@ export const useSpriteStore = defineStore('spriteStore', () => {
 		}[]
 	>([]);
 
-	const characterPosition = reactive<[number, number, string]>([3, 1, 'e']);
-
+	const characterPosition = reactive<[number, number, string]>([5, 3, 's']);
+	const screenPosition = reactive<[number, number]>([0, 0]);
 	const registerSprite = (
 		startingPosition: [number, number, string],
 		filename: string,
@@ -90,6 +90,7 @@ export const useSpriteStore = defineStore('spriteStore', () => {
 		spriteList,
 		characterPosition,
 		characterId,
+		screenPosition,
 		playerMoveListener,
 		playerInteract,
 		registerSprite,
