@@ -11,24 +11,21 @@
 	// Set up level store and retrieve necessary values
 	const levelStore = useLevelStore();
 	const { levelMatrix } = storeToRefs(levelStore);
-	levelStore.openLevel(0);
 
 	const { addLogLine } = useLogComposable();
-
-	
-
+	levelStore.openLevel('level0');
 	// Set up sprite store and register sprites
 	const spriteStore = useSpriteStore();
-	const { characterPosition, characterId } = storeToRefs(spriteStore);
-	spriteStore.registerSprite([2, 1, 's'], '', () => {
+	const { characterPosition, characterId, screenPosition, scale } = storeToRefs(spriteStore);
+	spriteStore.registerSprite([2, 1, 's'], () => {
 		addLogLine(`It's locked`);
 	});
-	spriteStore.registerSprite([3, 4, 'n'], 'hat0', () => {
+	spriteStore.registerSprite([5, 2, 'n'], () => {
 		characterId.value = '0';
 		spriteStore.deregisterSprite(1);
-		levelMatrix.value[3][4].impassible = false;
-		levelMatrix.value[3][4].layeredImageSrc = undefined;
-		levelMatrix.value[3][4].layeredImageCoord = undefined;
+		levelMatrix.value[5][2].impassible = false;
+		levelMatrix.value[5][2].layeredImageSrc = undefined;
+		levelMatrix.value[5][2].layeredImageCoord = undefined;
 		addLogLine(`You found your hat. cool.`);
 	});
 
@@ -71,7 +68,9 @@
 						class="objectLayer"
 						:src="`src/assets/levels/objects/${col.layeredImageSrc}.png`"
 						:style="{
-							objectPosition: `-${col.layeredImageCoord[1]}px -${col.layeredImageCoord[0]}px`,
+							objectPosition: `-${col.layeredImageCoord[1] * 16}px -${
+								col.layeredImageCoord[0] * 16
+							}px`,
 							objectFit: 'none',
 						}" />
 				</div>
@@ -84,6 +83,9 @@
 </template>
 
 <style scoped>
+	.temp {
+		color: white;
+	}
 	.character {
 		width: 16px;
 		height: 20px;
@@ -99,7 +101,7 @@
 		user-select: none;
 		display: inline-flex;
 		flex-direction: column;
-		transform: scale(5);
+		transform: scale(v-bind(scale));
 		image-rendering: pixelated;
 		image-rendering: -moz-crisp-edges;
 		image-rendering: crisp-edges;

@@ -4,12 +4,16 @@ import { defineStore } from 'pinia';
 import { ref, reactive } from 'vue';
 
 interface Tile {
-	tileset: number;
+	tileset: string;
 	tileCoord: string;
 	impassible: boolean;
 	layeredImageSrc?: string;
 	layeredImageCoord?: [number, number];
 	// layeredImageSize?:
+}
+
+interface JSONTiles {
+	rows: { columns: Tile[] }[];
 }
 
 // prettier-ignore
@@ -34,28 +38,38 @@ export const autotileCoord: { [direction: string]: [number, number] } = {
 
 export const useLevelStore = defineStore('levelStore', () => {
 	// State:
-	const currentLevel = ref<number>(0);
 	const levelMatrix = reactive<Tile[][]>([]);
-	const req = new XMLHttpRequest();
-	req.addEventListener('load', reqListener);
-	function reqListener(this: XMLHttpRequest) {
-		levelMatrix.splice(0, levelMatrix.length);
-		const rows = this.responseText.split('\r\n');
-		for (let i = 0; i < rows.length; ++i) {
+
+	const openLevel = async (levelName: string) => {
+		convertToMatrix(
+			await fetch(`src/assets/levels/${levelName}.json`)
+				.then((response: Response) => response.json())
+				.then((json: JSONTiles) => {
+					console.log(json);
+					return json;
+				}),
+		);
+	};
+
+	const convertToMatrix = (jsonObj: { rows: { columns: any[] }[] }) => {
+		levelMatrix.splice(0, Infinity);
+		for (let i = 0; i < jsonObj.rows.length; ++i) {
 			levelMatrix.push([]);
-			const columns = rows[i].split('\t');
-			for (let j = 0; j < columns.length; ++j) {
-				levelMatrix[i].push(JSON.parse(columns[j]));
+			for (let j = 0; j < jsonObj.rows[i].columns.length; ++j) {
+				const obj = jsonObj.rows[i].columns[j];
+				console.log(obj.layeredImageSrc);
+				levelMatrix[i].push({
+					tileset: obj.tileset,
+					tileCoord: obj.tileCoord,
+					impassible: obj.impassible === 'true',
+					layeredImageSrc: obj.layeredImageSrc,
+					layeredImageCoord: obj.layeredImageCoord
+						? [+obj.layeredImageCoord[0], +obj.layeredImageCoord[1]]
+						: undefined,
+				});
 			}
 		}
-	}
-
-	const openLevel = (levelNum: number) => {
-		currentLevel.value = levelNum;
-		req.open('GET', `src/assets/levels/level-${levelNum}.tsv`);
-		req.send();
 	};
-	openLevel(0);
 
 	const isImpassible = (x: number, y: number) => {
 		return levelMatrix[x][y].impassible;

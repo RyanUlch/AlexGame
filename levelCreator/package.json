@@ -1,0 +1,14 @@
+{
+	"name": "levelCreater",
+	"version": "0.0.0",
+	"private": true,
+	"scripts": {
+		"build": "npx ts-node levelCreator.ts"
+	},
+	"dependencies": {
+		"node": "^19.8.1"
+	},
+	"devDependencies": {
+		"typescript": "~4.8.4"
+	}
+}

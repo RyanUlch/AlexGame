@@ -6,25 +6,21 @@ import { useLevelStore } from './levelStore';
 
 export const useSpriteStore = defineStore('spriteStore', () => {
 	const levelStore = useLevelStore();
+	const scale = ref(4);
 	// State:
 	const spriteList = reactive<
 		{
 			position: [number, number, string];
-			spriteFilename: string;
 			interactionHandler: () => void;
 		}[]
 	>([]);
 
 	const characterPosition = reactive<[number, number, string]>([5, 3, 's']);
 	const screenPosition = reactive<[number, number]>([0, 0]);
-	const registerSprite = (
-		startingPosition: [number, number, string],
-		filename: string,
-		interaction: () => void,
-	) => {
+
+	const registerSprite = (startingPosition: [number, number, string], interaction: () => void) => {
 		spriteList.push({
 			position: [...startingPosition],
-			spriteFilename: filename,
 			interactionHandler: interaction,
 		});
 	};
@@ -35,24 +31,32 @@ export const useSpriteStore = defineStore('spriteStore', () => {
 
 	const playerMoveListener = (direction: string) => {
 		const newPosition: [number, number, string] = [...characterPosition];
+		const newScreenPosition: [number, number] = [...screenPosition];
 		switch (direction) {
 			case 'n':
 				--newPosition[0];
+				newScreenPosition[0] += 16 * scale.value;
 				break;
 			case 'e':
 				++newPosition[1];
+				newScreenPosition[1] -= 16 * scale.value;
 				break;
 			case 's':
 				++newPosition[0];
+				newScreenPosition[0] -= 16 * scale.value;
 				break;
 			case 'w':
 				--newPosition[1];
+				newScreenPosition[1] += 16 * scale.value;
 				break;
 		}
 		if (!levelStore.isImpassible(newPosition[0], newPosition[1])) {
 			characterPosition[0] = newPosition[0];
 			characterPosition[1] = newPosition[1];
+			screenPosition[0] = newScreenPosition[0];
+			screenPosition[1] = newScreenPosition[1];
 		}
+		console.log(screenPosition);
 		characterPosition[2] = direction;
 	};
 
@@ -91,6 +95,7 @@ export const useSpriteStore = defineStore('spriteStore', () => {
 		characterPosition,
 		characterId,
 		screenPosition,
+		scale,
 		playerMoveListener,
 		playerInteract,
 		registerSprite,
