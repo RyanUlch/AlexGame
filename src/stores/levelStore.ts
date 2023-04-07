@@ -37,9 +37,9 @@ export const useLevelStore = defineStore('levelStore', () => {
 		);
 		console.log(startingPosition);
 		characterPosition[0] = +startingPosition[0];
-		//screenPosition[0] = +startingPosition[0];
+		screenPosition[0] = -startingPosition[0] / 2;
 		characterPosition[1] = +startingPosition[1];
-		//screenPosition[1] = +startingPosition[1];
+		screenPosition[1] = -startingPosition[1] / 2;
 		characterPosition[2] = `${startingPosition[2]}`;
 	};
 

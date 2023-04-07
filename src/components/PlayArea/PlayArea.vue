@@ -105,7 +105,8 @@
 		user-select: none;
 		display: inline-flex;
 		flex-direction: column;
-		transform: scale(v-bind(scale));
+		transform: scale(v-bind(scale))
+			translate(calc(v-bind(scale) * 16px), calc(v-bind(scale) * 16px));
 		image-rendering: pixelated;
 		image-rendering: -moz-crisp-edges;
 		image-rendering: crisp-edges;
