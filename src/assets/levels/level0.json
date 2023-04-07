@@ -1,1 +1,193 @@
-{"rows":[{"columns":[{"tileset":"0","tileCoord":"lr","impassible":"true","layeredImageSrc":"house1","layeredImageCoord":[0,0]},{"tileset":"0","tileCoord":"s","impassible":"true","layeredImageSrc":"house1","layeredImageCoord":[0,1]},{"tileset":"0","tileCoord":"s","impassible":"true","layeredImageSrc":"house1","layeredImageCoord":[0,2]},{"tileset":"0","tileCoord":"s","impassible":"true","layeredImageSrc":"house1","layeredImageCoord":[0,3]},{"tileset":"0","tileCoord":"s","impassible":"true"},{"tileset":"0","tileCoord":"s","impassible":"true"},{"tileset":"0","tileCoord":"ll","impassible":"true"}]},{"columns":[{"tileset":"0","tileCoord":"e","impassible":"true","layeredImageSrc":"house1","layeredImageCoord":[1,0]},{"tileset":"1","tileCoord":"none","impassible":"true","layeredImageSrc":"house1","layeredImageCoord":[1,1]},{"tileset":"1","tileCoord":"none","impassible":"true","layeredImageSrc":"house1","layeredImageCoord":[1,2]},{"tileset":"1","tileCoord":"none","impassible":"true","layeredImageSrc":"house1","layeredImageCoord":[1,3]},{"tileset":"1","tileCoord":"none","impassible":"false"},{"tileset":"1","tileCoord":"none","impassible":"false"},{"tileset":"0","tileCoord":"w","impassible":"true"}]},{"columns":[{"tileset":"0","tileCoord":"e","impassible":"true","layeredImageSrc":"house1","layeredImageCoord":[2,0]},{"tileset":"1","tileCoord":"none","impassible":"true","layeredImageSrc":"house1","layeredImageCoord":[2,1]},{"tileset":"1","tileCoord":"none","impassible":"true","layeredImageSrc":"house1","layeredImageCoord":[2,2]},{"tileset":"1","tileCoord":"none","impassible":"true","layeredImageSrc":"house1","layeredImageCoord":[2,3]},{"tileset":"1","tileCoord":"none","impassible":"false"},{"tileset":"1","tileCoord":"none","impassible":"false"},{"tileset":"0","tileCoord":"w","impassible":"true"}]},{"columns":[{"tileset":"0","tileCoord":"e","impassible":"true"},{"tileset":"1","tileCoord":"none","impassible":"false"},{"tileset":"1","tileCoord":"none","impassible":"false"},{"tileset":"1","tileCoord":"none","impassible":"false"},{"tileset":"1","tileCoord":"none","impassible":"false"},{"tileset":"1","tileCoord":"none","impassible":"false"},{"tileset":"0","tileCoord":"w","impassible":"true"}]},{"columns":[{"tileset":"0","tileCoord":"e","impassible":"true"},{"tileset":"1","tileCoord":"none","impassible":"false"},{"tileset":"1","tileCoord":"none","impassible":"false"},{"tileset":"1","tileCoord":"none","impassible":"false"},{"tileset":"1","tileCoord":"none","impassible":"false"},{"tileset":"1","tileCoord":"none","impassible":"false"},{"tileset":"0","tileCoord":"w","impassible":"true"}]},{"columns":[{"tileset":"0","tileCoord":"e","impassible":"true"},{"tileset":"1","tileCoord":"none","impassible":"false"},{"tileset":"1","tileCoord":"none","impassible":"true","layeredImageSrc":"hat1","layeredImageCoord":[0,0]},{"tileset":"1","tileCoord":"none","impassible":"false"},{"tileset":"1","tileCoord":"none","impassible":"false"},{"tileset":"1","tileCoord":"none","impassible":"false"},{"tileset":"0","tileCoord":"w","impassible":"true"}]},{"columns":[{"tileset":"0","tileCoord":"e","impassible":"true"},{"tileset":"1","tileCoord":"none","impassible":"false"},{"tileset":"1","tileCoord":"none","impassible":"false"},{"tileset":"1","tileCoord":"none","impassible":"false"},{"tileset":"1","tileCoord":"none","impassible":"false"},{"tileset":"1","tileCoord":"none","impassible":"false"},{"tileset":"0","tileCoord":"w","impassible":"true"}]},{"columns":[{"tileset":"0","tileCoord":"e","impassible":"true"},{"tileset":"1","tileCoord":"none","impassible":"false"},{"tileset":"1","tileCoord":"none","impassible":"false"},{"tileset":"0","tileCoord":"all","impassible":"true"},{"tileset":"1","tileCoord":"none","impassible":"false"},{"tileset":"1","tileCoord":"none","impassible":"false"},{"tileset":"0","tileCoord":"w","impassible":"true"}]},{"columns":[{"tileset":"0","tileCoord":"e","impassible":"true"},{"tileset":"1","tileCoord":"none","impassible":"false"},{"tileset":"1","tileCoord":"none","impassible":"false"},{"tileset":"1","tileCoord":"none","impassible":"false"},{"tileset":"1","tileCoord":"none","impassible":"false"},{"tileset":"1","tileCoord":"none","impassible":"false"},{"tileset":"0","tileCoord":"w","impassible":"true"}]},{"columns":[{"tileset":"0","tileCoord":"ur","impassible":"true"},{"tileset":"0","tileCoord":"n","impassible":"true"},{"tileset":"0","tileCoord":"n","impassible":"true"},{"tileset":"0","tileCoord":"n","impassible":"true"},{"tileset":"0","tileCoord":"n","impassible":"true"},{"tileset":"0","tileCoord":"n","impassible":"true"},{"tileset":"0","tileCoord":"ul","impassible":"true"}]}]}
+{
+	"rows": [
+		{ "columns": [], "startY": 3, "startX": 1, "startDir": "s" },
+		{
+			"columns": [
+				{
+					"tileset": "0",
+					"tileCoord": [3, 1],
+					"impassible": true,
+					"layeredImageSrc": "house1",
+					"layeredImageCoord": [0, 0]
+				},
+				{
+					"tileset": "0",
+					"tileCoord": [0, 3],
+					"impassible": true,
+					"layeredImageSrc": "house1",
+					"layeredImageCoord": [0, 1]
+				},
+				{
+					"tileset": "0",
+					"tileCoord": [0, 3],
+					"impassible": true,
+					"layeredImageSrc": "house1",
+					"layeredImageCoord": [0, 2]
+				},
+				{
+					"tileset": "0",
+					"tileCoord": [0, 3],
+					"impassible": true,
+					"layeredImageSrc": "house1",
+					"layeredImageCoord": [0, 3]
+				},
+				{ "tileset": "0", "tileCoord": [0, 3], "impassible": true },
+				{ "tileset": "0", "tileCoord": [0, 3], "impassible": true },
+				{ "tileset": "0", "tileCoord": [0, 0], "impassible": true }
+			]
+		},
+		{
+			"columns": [
+				{
+					"tileset": "0",
+					"tileCoord": [0, 1],
+					"impassible": true,
+					"layeredImageSrc": "house1",
+					"layeredImageCoord": [1, 0]
+				},
+				{
+					"tileset": "1",
+					"tileCoord": [3, 0],
+					"impassible": true,
+					"layeredImageSrc": "house1",
+					"layeredImageCoord": [1, 1]
+				},
+				{
+					"tileset": "1",
+					"tileCoord": [3, 0],
+					"impassible": true,
+					"layeredImageSrc": "house1",
+					"layeredImageCoord": [1, 2]
+				},
+				{
+					"tileset": "1",
+					"tileCoord": [3, 0],
+					"impassible": true,
+					"layeredImageSrc": "house1",
+					"layeredImageCoord": [1, 3]
+				},
+				{ "tileset": "1", "tileCoord": [3, 0], "impassible": false },
+				{ "tileset": "1", "tileCoord": [3, 0], "impassible": false },
+				{ "tileset": "0", "tileCoord": [2, 3], "impassible": true }
+			]
+		},
+		{
+			"columns": [
+				{
+					"tileset": "0",
+					"tileCoord": [0, 1],
+					"impassible": true,
+					"layeredImageSrc": "house1",
+					"layeredImageCoord": [2, 0]
+				},
+				{
+					"tileset": "1",
+					"tileCoord": [3, 0],
+					"impassible": true,
+					"layeredImageSrc": "house1",
+					"layeredImageCoord": [2, 1]
+				},
+				{
+					"tileset": "1",
+					"tileCoord": [3, 0],
+					"impassible": true,
+					"layeredImageSrc": "house1",
+					"layeredImageCoord": [2, 2]
+				},
+				{
+					"tileset": "1",
+					"tileCoord": [3, 0],
+					"impassible": true,
+					"layeredImageSrc": "house1",
+					"layeredImageCoord": [2, 3]
+				},
+				{ "tileset": "1", "tileCoord": [3, 0], "impassible": false },
+				{ "tileset": "1", "tileCoord": [3, 0], "impassible": false },
+				{ "tileset": "0", "tileCoord": [2, 3], "impassible": true }
+			]
+		},
+		{
+			"columns": [
+				{ "tileset": "0", "tileCoord": [0, 1], "impassible": true },
+				{ "tileset": "1", "tileCoord": [3, 0], "impassible": false },
+				{ "tileset": "1", "tileCoord": [3, 0], "impassible": false },
+				{ "tileset": "1", "tileCoord": [3, 0], "impassible": false },
+				{ "tileset": "1", "tileCoord": [3, 0], "impassible": false },
+				{ "tileset": "1", "tileCoord": [3, 0], "impassible": false },
+				{ "tileset": "0", "tileCoord": [2, 3], "impassible": true }
+			]
+		},
+		{
+			"columns": [
+				{ "tileset": "0", "tileCoord": [0, 1], "impassible": true },
+				{ "tileset": "1", "tileCoord": [3, 0], "impassible": false },
+				{ "tileset": "1", "tileCoord": [3, 0], "impassible": false },
+				{ "tileset": "1", "tileCoord": [3, 0], "impassible": false },
+				{ "tileset": "1", "tileCoord": [3, 0], "impassible": false },
+				{ "tileset": "1", "tileCoord": [3, 0], "impassible": false },
+				{ "tileset": "0", "tileCoord": [2, 3], "impassible": true }
+			]
+		},
+		{
+			"columns": [
+				{ "tileset": "0", "tileCoord": [0, 1], "impassible": true },
+				{ "tileset": "1", "tileCoord": [3, 0], "impassible": false },
+				{
+					"tileset": "1",
+					"tileCoord": [3, 0],
+					"impassible": true,
+					"layeredImageSrc": "hat1",
+					"layeredImageCoord": [0, 0]
+				},
+				{ "tileset": "1", "tileCoord": [3, 0], "impassible": false },
+				{ "tileset": "1", "tileCoord": [3, 0], "impassible": false },
+				{ "tileset": "1", "tileCoord": [3, 0], "impassible": false },
+				{ "tileset": "0", "tileCoord": [2, 3], "impassible": true }
+			]
+		},
+		{
+			"columns": [
+				{ "tileset": "0", "tileCoord": [0, 1], "impassible": true },
+				{ "tileset": "1", "tileCoord": [3, 0], "impassible": false },
+				{ "tileset": "1", "tileCoord": [3, 0], "impassible": false },
+				{ "tileset": "1", "tileCoord": [3, 0], "impassible": false },
+				{ "tileset": "1", "tileCoord": [3, 0], "impassible": false },
+				{ "tileset": "1", "tileCoord": [3, 0], "impassible": false },
+				{ "tileset": "0", "tileCoord": [2, 3], "impassible": true }
+			]
+		},
+		{
+			"columns": [
+				{ "tileset": "0", "tileCoord": [0, 1], "impassible": true },
+				{ "tileset": "1", "tileCoord": [3, 0], "impassible": false },
+				{ "tileset": "1", "tileCoord": [3, 0], "impassible": false },
+				{ "tileset": "0", "tileCoord": [1, 2], "impassible": true },
+				{ "tileset": "1", "tileCoord": [3, 0], "impassible": false },
+				{ "tileset": "1", "tileCoord": [3, 0], "impassible": false },
+				{ "tileset": "0", "tileCoord": [2, 3], "impassible": true }
+			]
+		},
+		{
+			"columns": [
+				{ "tileset": "0", "tileCoord": [0, 1], "impassible": true },
+				{ "tileset": "1", "tileCoord": [3, 0], "impassible": false },
+				{ "tileset": "1", "tileCoord": [3, 0], "impassible": false },
+				{ "tileset": "1", "tileCoord": [3, 0], "impassible": false },
+				{ "tileset": "1", "tileCoord": [3, 0], "impassible": false },
+				{ "tileset": "1", "tileCoord": [3, 0], "impassible": false },
+				{ "tileset": "0", "tileCoord": [2, 3], "impassible": true }
+			]
+		},
+		{
+			"columns": [
+				{ "tileset": "0", "tileCoord": [2, 0], "impassible": true },
+				{ "tileset": "0", "tileCoord": [2, 1], "impassible": true },
+				{ "tileset": "0", "tileCoord": [2, 1], "impassible": true },
+				{ "tileset": "0", "tileCoord": [2, 1], "impassible": true },
+				{ "tileset": "0", "tileCoord": [2, 1], "impassible": true },
+				{ "tileset": "0", "tileCoord": [2, 1], "impassible": true },
+				{ "tileset": "0", "tileCoord": [3, 3], "impassible": true }
+			]
+		}
+	]
+}

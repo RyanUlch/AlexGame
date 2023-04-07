@@ -2,10 +2,12 @@
 // Pinia/Vue type Imports:
 import { defineStore } from 'pinia';
 import { ref, reactive } from 'vue';
+// import { useSpriteStore } from './spriteStore';
+// const { characterPosition } = useSpriteStore();
 
 interface Tile {
 	tileset: string;
-	tileCoord: string;
+	tileCoord: [number, number];
 	impassible: boolean;
 	layeredImageSrc?: string;
 	layeredImageCoord?: [number, number];
@@ -13,62 +15,61 @@ interface Tile {
 }
 
 interface JSONTiles {
-	rows: { columns: Tile[] }[];
+	rows: { columns: Tile[]; startY?: number; startX?: number; startDir?: string }[];
 }
-
-// prettier-ignore
-export const autotileCoord: { [direction: string]: [number, number] } = {
-	"none": [3, 0], // No sides touches
-	"all": 	[1, 2], // All sides touching
-	"n": 	[2, 1], // North (up)
-	"e": 	[0, 1], // East (left)
-	"s": 	[0, 3], // South (down)
-	"w": 	[2, 3], // West (right)
-	"ne": 	[2, 2], // North-East (up and right)
-	"se": 	[1, 1], // South-East (down and right)
-	"sw": 	[0, 2], // South-West (down and left)
-	"nw": 	[1, 3], // North-West (up and left)
-	"ul": 	[3, 3], // Upper-Left corner
-	"ur": 	[2, 0], // Upper-Right corner
-	"ll": 	[0, 0], // Lower-Left corner
-	"lr": 	[3, 1], // Lower-Right corner
-	"ullr": [1, 0], // Upper-Left and Lower-Right corners
-	"urll": [3, 2], // Upper-Right and Lower-Left corners
-};
 
 export const useLevelStore = defineStore('levelStore', () => {
 	// State:
 	const levelMatrix = reactive<Tile[][]>([]);
 
-	const openLevel = async (levelName: string) => {
-		convertToMatrix(
+	const openLevel = async (
+		levelName: string,
+		characterPosition: [number, number, string],
+		screenPosition: [number, number],
+		scale: number,
+	) => {
+		const startingPosition = convertToMatrix(
 			await fetch(`src/assets/levels/${levelName}.json`)
 				.then((response: Response) => response.json())
-				.then((json: JSONTiles) => {
-					console.log(json);
+				.then((json: any) => {
 					return json;
 				}),
 		);
+		console.log(startingPosition);
+		characterPosition[0] = +startingPosition[0];
+		//screenPosition[0] = +startingPosition[0];
+		characterPosition[1] = +startingPosition[1];
+		//screenPosition[1] = +startingPosition[1];
+		characterPosition[2] = `${startingPosition[2]}`;
 	};
 
-	const convertToMatrix = (jsonObj: { rows: { columns: any[] }[] }) => {
+	const convertToMatrix = (jsonObj: JSONTiles) => {
 		levelMatrix.splice(0, Infinity);
+		const startPosition = [0, 0, 's'];
 		for (let i = 0; i < jsonObj.rows.length; ++i) {
+			const row = jsonObj.rows[i];
+
+			if (i === 0 && row.startY && row.startX && row.startDir) {
+				startPosition[0] = Number(jsonObj.rows[0].startY);
+				startPosition[1] = Number(jsonObj.rows[0].startX);
+				startPosition[2] = String(jsonObj.rows[0].startDir);
+				continue;
+			}
 			levelMatrix.push([]);
-			for (let j = 0; j < jsonObj.rows[i].columns.length; ++j) {
-				const obj = jsonObj.rows[i].columns[j];
-				console.log(obj.layeredImageSrc);
-				levelMatrix[i].push({
-					tileset: obj.tileset,
-					tileCoord: obj.tileCoord,
-					impassible: obj.impassible === 'true',
-					layeredImageSrc: obj.layeredImageSrc,
-					layeredImageCoord: obj.layeredImageCoord
-						? [+obj.layeredImageCoord[0], +obj.layeredImageCoord[1]]
+			for (let j = 0; j < row.columns.length; ++j) {
+				const column = jsonObj.rows[i].columns[j];
+				levelMatrix[i - 1].push({
+					tileset: column.tileset,
+					tileCoord: column.tileCoord,
+					impassible: column.impassible,
+					layeredImageSrc: column.layeredImageSrc,
+					layeredImageCoord: column.layeredImageCoord
+						? [+column.layeredImageCoord[0], +column.layeredImageCoord[1]]
 						: undefined,
 				});
 			}
 		}
+		return startPosition;
 	};
 
 	const isImpassible = (x: number, y: number) => {

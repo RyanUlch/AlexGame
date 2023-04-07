@@ -1,6 +1,6 @@
 <script setup lang="ts">
 	import { computed, reactive } from 'vue';
-	import { useLevelStore, autotileCoord } from '../../stores/levelStore';
+	import { useLevelStore } from '../../stores/levelStore';
 	import { useSpriteStore } from '@/stores/spriteStore';
 	import { storeToRefs } from 'pinia';
 	import PawnSprite from './PawnSprite.vue';
@@ -11,14 +11,20 @@
 	// Set up level store and retrieve necessary values
 	const levelStore = useLevelStore();
 	const { levelMatrix } = storeToRefs(levelStore);
-
-	const { addLogLine } = useLogComposable();
-	levelStore.openLevel('level0');
-	// Set up sprite store and register sprites
 	const spriteStore = useSpriteStore();
 	const { characterPosition, characterId, screenPosition, scale } = storeToRefs(spriteStore);
-	spriteStore.registerSprite([2, 1, 's'], () => {
-		addLogLine(`It's locked`);
+	const { addLogLine } = useLogComposable();
+	levelStore.openLevel('level0', characterPosition.value, screenPosition.value, scale.value);
+	// Set up sprite store and register sprites
+
+	spriteStore.registerSprite([2, 1, 's'], async () => {
+		// addLogLine(`It's locked`);
+		await levelStore.openLevel(
+			'level1',
+			characterPosition.value,
+			screenPosition.value,
+			scale.value,
+		);
 	});
 	spriteStore.registerSprite([5, 2, 'n'], () => {
 		characterId.value = '0';
@@ -51,9 +57,7 @@
 					:key="colIndex"
 					:style="{
 						backgroundImage: `url('src/assets/levels/tilesets/${col.tileset}.png')`,
-						backgroundPosition: `-${autotileCoord[col.tileCoord][1] * 16}px -${
-							autotileCoord[col.tileCoord][0] * 16
-						}px`,
+						backgroundPosition: `-${col.tileCoord[1] * 16}px -${col.tileCoord[0] * 16}px`,
 					}">
 					<!-- Render pawn sprite if present at this position -->
 					<PawnSprite
@@ -106,8 +110,8 @@
 		image-rendering: -moz-crisp-edges;
 		image-rendering: crisp-edges;
 		position: relative;
-		top: v-bind('`${screenPosition[0]}px`');
-		left: v-bind('`${screenPosition[1]}px`');
+		top: v-bind('`${screenPosition[0] * 16 * scale}px`');
+		left: v-bind('`${screenPosition[1] * 16 * scale}px`');
 	}
 	.row {
 		display: inline-flex;

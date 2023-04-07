@@ -6,7 +6,7 @@ import { useLevelStore } from './levelStore';
 
 export const useSpriteStore = defineStore('spriteStore', () => {
 	const levelStore = useLevelStore();
-	const scale = ref(4);
+	const scale = ref(3);
 	// State:
 	const spriteList = reactive<
 		{
@@ -35,28 +35,33 @@ export const useSpriteStore = defineStore('spriteStore', () => {
 		switch (direction) {
 			case 'n':
 				--newPosition[0];
-				newScreenPosition[0] += 16 * scale.value;
+				++newScreenPosition[0];
 				break;
 			case 'e':
 				++newPosition[1];
-				newScreenPosition[1] -= 16 * scale.value;
+				--newScreenPosition[1];
 				break;
 			case 's':
 				++newPosition[0];
-				newScreenPosition[0] -= 16 * scale.value;
+				--newScreenPosition[0];
 				break;
 			case 'w':
 				--newPosition[1];
-				newScreenPosition[1] += 16 * scale.value;
+				++newScreenPosition[1];
 				break;
 		}
-		if (!levelStore.isImpassible(newPosition[0], newPosition[1])) {
+		if (
+			!(newPosition[0] < 0) &&
+			!(newPosition[1] < 0) &&
+			!(newPosition[0] >= levelStore.levelMatrix.length) &&
+			!(newPosition[1] >= levelStore.levelMatrix[0].length) &&
+			!levelStore.isImpassible(newPosition[0], newPosition[1])
+		) {
 			characterPosition[0] = newPosition[0];
 			characterPosition[1] = newPosition[1];
 			screenPosition[0] = newScreenPosition[0];
 			screenPosition[1] = newScreenPosition[1];
 		}
-		console.log(screenPosition);
 		characterPosition[2] = direction;
 	};
 
