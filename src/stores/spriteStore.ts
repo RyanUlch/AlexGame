@@ -9,6 +9,10 @@ export const useSpriteStore = defineStore('spriteStore', () => {
 	const levelStore = useLevelStore();
 	const scale = ref(3);
 	// State:
+
+	const gridCellSize = 16;
+	const screenSize = gridCellSize * 41;
+
 	const spriteList = reactive<
 		{
 			position: [number, number, string];
@@ -99,6 +103,8 @@ export const useSpriteStore = defineStore('spriteStore', () => {
 		characterId,
 		screenPosition,
 		scale,
+		screenSize,
+		gridCellSize,
 		playerMoveListener,
 		playerInteract,
 		registerSprite,

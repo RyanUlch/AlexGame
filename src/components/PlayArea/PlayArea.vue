@@ -106,8 +106,6 @@
 	.screen {
 		pointer-events: none;
 		user-select: none;
-		width: 308px;
-		height: 308px;
 		transform: scale(v-bind(scale));
 		transform-origin: top left;
 	}
@@ -118,8 +116,8 @@
 		image-rendering: -moz-crisp-edges;
 		image-rendering: crisp-edges;
 		position: relative;
-		top: v-bind('`${((5 - characterPosition[0]) * 16)}px`');
-		left: v-bind('`${((5 - characterPosition[1]) * 16)}px`');
+		top: v-bind('`${(((20/scale) - characterPosition[0]) * 16)}px`');
+		left: v-bind('`${(((20/scale) - characterPosition[1]) * 16)}px`');
 	}
 	.row {
 		display: inline-flex;

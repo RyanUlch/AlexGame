@@ -9,10 +9,12 @@
 	import { useLogComposable } from './composables/logComposable';
 	import { usePlayerStore } from './stores/playerStore';
 	import { storeToRefs } from 'pinia';
+	import { useSpriteStore } from './stores/spriteStore';
 	const { addLogLine } = useLogComposable();
 	const cardStore = useCardStore();
 	const playerStore = usePlayerStore();
 	const { health, maxHealth, energy, maxEnergy } = storeToRefs(playerStore);
+	const { screenSize } = useSpriteStore();
 	cardStore.addCardsToDeck([
 		{
 			masterCardId: 'power',
@@ -59,7 +61,7 @@
 			class="playArea">
 			<PlayArea />
 		</DropElement>
-		<div class="upper-right">
+		<!-- <div class="upper-right">
 			<div class="statArea square">
 				<StatsUi
 					:value="health"
@@ -110,7 +112,7 @@
 					tooltip="Open credits" />
 			</div>
 			<EventLog />
-		</div>
+		</div> -->
 		<CardArea />
 	</div>
 </template>
@@ -131,12 +133,9 @@
 	}
 
 	.playArea {
-		/* display: inline-flex;a */
-		height: 608px;
-		width: 608px;
+		height: v-bind('`${screenSize}px`');
+		width: v-bind('`${screenSize}px`');
 		background-color: black;
-		/* justify-content: center; */
-		/* align-items: center; */
 		overflow: hidden;
 	}
 
