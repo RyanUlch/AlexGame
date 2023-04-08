@@ -2,8 +2,8 @@ import { defineStore } from 'pinia';
 import { ref } from 'vue';
 
 export type PromptChoice = {
-	text: string; 	// Visible text for the choice
-	id?: number;	// Optional ID for triggering a callback
+	text: string; // Visible text for the choice
+	id?: number; // Optional ID for triggering a callback
 };
 
 export type ChoicePromptOptions = {
@@ -12,7 +12,6 @@ export type ChoicePromptOptions = {
 };
 
 export const usePromptStore = defineStore('prompt', () => {
-
 	// These options will change every time a new prompt is created via choicePrompt()
 	const options = ref<ChoicePromptOptions | null>(null);
 
@@ -43,5 +42,4 @@ export const usePromptStore = defineStore('prompt', () => {
 		// Public utility function for creating a choice prompt
 		choicePrompt,
 	};
-
 });
