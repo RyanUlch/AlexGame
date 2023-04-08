@@ -3,6 +3,7 @@
 import { defineStore } from 'pinia';
 import { reactive, ref } from 'vue';
 import { useLevelStore } from './levelStore';
+import { watch } from 'vue';
 
 export const useSpriteStore = defineStore('spriteStore', () => {
 	const levelStore = useLevelStore();
@@ -16,6 +17,10 @@ export const useSpriteStore = defineStore('spriteStore', () => {
 	>([]);
 
 	const characterPosition = reactive<[number, number, string]>([5, 3, 's']);
+	watch([characterPosition], () => {
+		console.log(characterPosition[0], characterPosition[1]);
+	});
+
 	const screenPosition = reactive<[number, number]>([0, 0]);
 
 	const registerSprite = (startingPosition: [number, number, string], interaction: () => void) => {
@@ -31,23 +36,18 @@ export const useSpriteStore = defineStore('spriteStore', () => {
 
 	const playerMoveListener = (direction: string) => {
 		const newPosition: [number, number, string] = [...characterPosition];
-		const newScreenPosition: [number, number] = [...screenPosition];
 		switch (direction) {
 			case 'n':
 				--newPosition[0];
-				++newScreenPosition[0];
 				break;
 			case 'e':
 				++newPosition[1];
-				--newScreenPosition[1];
 				break;
 			case 's':
 				++newPosition[0];
-				--newScreenPosition[0];
 				break;
 			case 'w':
 				--newPosition[1];
-				++newScreenPosition[1];
 				break;
 		}
 		if (
@@ -59,8 +59,6 @@ export const useSpriteStore = defineStore('spriteStore', () => {
 		) {
 			characterPosition[0] = newPosition[0];
 			characterPosition[1] = newPosition[1];
-			screenPosition[0] = newScreenPosition[0];
-			screenPosition[1] = newScreenPosition[1];
 		}
 		characterPosition[2] = direction;
 	};

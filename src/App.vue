@@ -123,7 +123,7 @@
 	}
 	.gameArea {
 		box-sizing: border-box;
-		width: 910px;
+		width: 918px;
 		margin: 0 auto;
 		display: flex;
 		flex-wrap: wrap;
@@ -132,8 +132,8 @@
 
 	.playArea {
 		display: inline-flex;
-		height: 600px;
-		width: 600px;
+		height: 608px;
+		width: 608px;
 		background-color: black;
 		justify-content: center;
 		align-items: center;

@@ -12,19 +12,15 @@
 	const levelStore = useLevelStore();
 	const { levelMatrix } = storeToRefs(levelStore);
 	const spriteStore = useSpriteStore();
-	const { characterPosition, characterId, screenPosition, scale } = storeToRefs(spriteStore);
+	const { characterId, scale } = storeToRefs(spriteStore);
+	const { characterPosition } = useSpriteStore();
 	const { addLogLine } = useLogComposable();
-	levelStore.openLevel('level0', characterPosition.value, screenPosition.value, scale.value);
+	levelStore.openLevel('level0', characterPosition);
 	// Set up sprite store and register sprites
 
 	spriteStore.registerSprite([2, 1, 's'], async () => {
 		// addLogLine(`It's locked`);
-		await levelStore.openLevel(
-			'level1',
-			characterPosition.value,
-			screenPosition.value,
-			scale.value,
-		);
+		await levelStore.openLevel('level1', characterPosition);
 	});
 	spriteStore.registerSprite([5, 2, 'n'], () => {
 		characterId.value = '0';
@@ -38,6 +34,10 @@
 	// Compute whether level matrix is ready to be rendered
 	const matrixReady = computed(() => {
 		return levelMatrix.value.length > 0;
+	});
+
+	const screenPosition2 = computed(() => {
+		return [characterPosition[0], characterPosition[1]];
 	});
 
 	// Set up key handler
@@ -111,8 +111,8 @@
 		image-rendering: -moz-crisp-edges;
 		image-rendering: crisp-edges;
 		position: relative;
-		top: v-bind('`${screenPosition[0] * 16 * scale}px`');
-		left: v-bind('`${screenPosition[1] * 16 * scale}px`');
+		top: v-bind('`-${characterPosition[0] - 19 * 16 * scale}px`');
+		left: v-bind('`-${characterPosition[1] - 19 * 16 * scale}px`');
 	}
 	.row {
 		display: inline-flex;

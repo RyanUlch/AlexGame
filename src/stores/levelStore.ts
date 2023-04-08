@@ -22,12 +22,7 @@ export const useLevelStore = defineStore('levelStore', () => {
 	// State:
 	const levelMatrix = reactive<Tile[][]>([]);
 
-	const openLevel = async (
-		levelName: string,
-		characterPosition: [number, number, string],
-		screenPosition: [number, number],
-		scale: number,
-	) => {
+	const openLevel = async (levelName: string, characterPosition: [number, number, string]) => {
 		const startingPosition = convertToMatrix(
 			await fetch(`src/assets/levels/${levelName}.json`)
 				.then((response: Response) => response.json())
@@ -37,9 +32,7 @@ export const useLevelStore = defineStore('levelStore', () => {
 		);
 		console.log(startingPosition);
 		characterPosition[0] = +startingPosition[0];
-		screenPosition[0] = -startingPosition[0] / 2;
 		characterPosition[1] = +startingPosition[1];
-		screenPosition[1] = -startingPosition[1] / 2;
 		characterPosition[2] = `${startingPosition[2]}`;
 	};
 
