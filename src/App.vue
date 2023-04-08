@@ -1,15 +1,14 @@
 <script setup lang="ts">
 	import CardArea from './components/Card/CardArea.vue';
-	import EventLog from './components/EventLog/EventLog.vue';
-	import StatsUi from './components/StatsUi/StatsUi.vue';
 	import PlayArea from './components/PlayArea/PlayArea.vue';
-	import MenuButton from './components/MenuButton/MenuButton.vue';
 	import DropElement from './components/DragAndDrop/DropElement.vue';
 	import { useCardStore } from './stores/cardInventoryStore';
 	import { useLogComposable } from './composables/logComposable';
 	import { usePlayerStore } from './stores/playerStore';
 	import { storeToRefs } from 'pinia';
 	import { useSpriteStore } from './stores/spriteStore';
+	import AppPromptVue from './components/Menus/AppPrompt.vue';
+
 	const { addLogLine } = useLogComposable();
 	const cardStore = useCardStore();
 	const playerStore = usePlayerStore();
@@ -115,6 +114,8 @@
 		</div> -->
 		<CardArea />
 	</div>
+
+	<AppPromptVue />
 </template>
 <style scoped>
 	.square {
