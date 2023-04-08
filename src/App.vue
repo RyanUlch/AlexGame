@@ -131,12 +131,12 @@
 	}
 
 	.playArea {
-		display: inline-flex;
+		/* display: inline-flex;a */
 		height: 608px;
 		width: 608px;
 		background-color: black;
-		justify-content: center;
-		align-items: center;
+		/* justify-content: center; */
+		/* align-items: center; */
 		overflow: hidden;
 	}
 
