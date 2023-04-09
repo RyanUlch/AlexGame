@@ -52,6 +52,7 @@
 	.modal-root {
 		width: 50%;
 		min-width: 300px;
+		background: white;
 	}
 
 	header {

@@ -27,7 +27,7 @@
 				v-for="(choice, i) in options.choices"
 				:key="i"
 				@click="handleChoiceClick(choice)">
-				{{ choice }}
+				{{ choice.text }}
 			</div>
 		</AppModalVue>
 	</Teleport>

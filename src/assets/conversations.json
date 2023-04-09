@@ -1,0 +1,86 @@
+[
+    {
+        "name": "no nesting",
+        "prompt": {
+            "message": "this conversation has no nesting",
+            "choices": [
+                {
+                    "text": "option 1",
+                    "result": "result1"
+                },
+                {
+                    "text": "option 2",
+                    "result": "result2"
+                }
+            ]
+        }
+    },
+    {
+        "name": "with nesting",
+        "prompt": {
+            "message": "this conversation has nesting",
+            "choices": [
+                {
+                    "text": "nested result",
+                    "result": {
+                        "message": "this is a second message based on option 1",
+                        "choices": [
+                            {
+                                "text": "normal result 1",
+                                "result": "RESULT_2"
+                            },
+                            {
+                                "text": "normal result 2",
+                                "result": "RESULT_3"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "text": "normal result",
+                    "result": "RESULT_1"
+                }
+            ]
+        }
+    },
+    {
+        "name": "multi nesting",
+        "prompt": {
+            "message": "both options are nested",
+            "choices": [
+                {
+                    "text": "nest a",
+                    "result": {
+                        "message": "nested message 1",
+                        "choices": [
+                            {
+                                "text": "nest a-1",
+                                "result": "a-1"
+                            },
+                            {
+                                "text": "nest a-2",
+                                "result": "a-2"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "text": "nest b",
+                    "result": {
+                        "message": "nested message 2",
+                        "choices": [
+                            {
+                                "text": "nest b-1",
+                                "result": "b-1"
+                            },
+                            {
+                                "text": "nest b-2",
+                                "result": "b-2"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+]

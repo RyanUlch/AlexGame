@@ -1,9 +1,11 @@
 import { defineStore } from 'pinia';
 import { ref } from 'vue';
+import conversationsData from '../assets/conversations.json';
+import * as zod from 'zod';
 
 export type PromptChoice = {
-	text: string; // Visible text for the choice
-	id?: number; // Optional ID for triggering a callback
+	text: string;
+	result: string | ChoicePromptOptions;
 };
 
 export type ChoicePromptOptions = {
@@ -11,7 +13,48 @@ export type ChoicePromptOptions = {
 	message?: string;
 };
 
+interface Prompt {
+	message: string;
+	choices: { text: string; result: string | Prompt }[];
+}
+
+const zPrompt: zod.ZodType<Prompt> = zod.lazy(() =>
+	zod.object({
+		message: zod.string(),
+		choices: zod.array(
+			zod.object({
+				text: zod.string(),
+				result: zod.union([zod.string(), zPrompt]),
+			}),
+		),
+	}),
+);
+const zConversationData = zod.array(
+	zod.object({
+		name: zod.string(),
+		prompt: zPrompt,
+	}),
+);
+
 export const usePromptStore = defineStore('prompt', () => {
+	const conversations: { [name: string]: () => Promise<string> } = {};
+	zConversationData.parse(conversationsData).forEach((conversation) => {
+		conversations[conversation.name] = () => {
+			return new Promise((resolve) => {
+				(async function converse(prompt: ChoicePromptOptions): Promise<string> {
+					const { result } = await choicePrompt(prompt);
+					if (typeof result === 'string') return result;
+					return converse(result);
+				})(conversation.prompt).then(resolve);
+			});
+		};
+	});
+	function doConversation(name: string) {
+		const conversation = conversations[name];
+		if (!conversation) throw Error(`no conversation with name "${name}"`);
+		return conversation();
+	}
+
 	// These options will change every time a new prompt is created via choicePrompt()
 	const options = ref<ChoicePromptOptions | null>(null);
 
@@ -41,5 +84,8 @@ export const usePromptStore = defineStore('prompt', () => {
 
 		// Public utility function for creating a choice prompt
 		choicePrompt,
+
+		// Public utility for starting a conversation and getting a result
+		doConversation,
 	};
 });

@@ -8,6 +8,9 @@
 	import { storeToRefs } from 'pinia';
 	import { useSpriteStore } from './stores/spriteStore';
 	import AppPromptVue from './components/Menus/AppPrompt.vue';
+	import { usePromptStore } from './stores/prompt';
+
+	// usePromptStore().doConversation('multi nesting').then(console.log);
 
 	const { addLogLine } = useLogComposable();
 	const cardStore = useCardStore();
