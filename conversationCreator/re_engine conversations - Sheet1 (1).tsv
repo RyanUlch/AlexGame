@@ -19,3 +19,10 @@ multi nesting__Name Of Character
 			nested message 2		
 				nest b-1	b-1
 				nest b-2	b-2
+hat convo__Straw Hat					
+	Your straw hat sits quietly on the ground. Maybe it is contemplating the meaning of it's own existence. Maybe it likes it there.				
+		Leave the hat alone	hatLeaveAlone		
+		Disturb the hat			
+			"(Grumble) What's the point... I'm just a collection of straw... I'd prefer to be left alone, but I understand I am just an object. Do as you must"		
+				Pick up and wear Hat	hatWear
+				Leave them be.	hatLeaveAlone

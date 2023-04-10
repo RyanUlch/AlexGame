@@ -17,6 +17,7 @@ export type ChoicePromptOptions = {
 interface Prompt {
 	message: string;
 	title?: string;
+	imgSrc?: string;
 	choices: { text: string; result: string | Prompt }[];
 }
 
@@ -24,6 +25,7 @@ const zPrompt: zod.ZodType<Prompt> = zod.lazy(() =>
 	zod.object({
 		message: zod.string(),
 		title: zod.string().optional(),
+		imgSrc: zod.string().optional(),
 		choices: zod.array(
 			zod.object({
 				text: zod.string(),

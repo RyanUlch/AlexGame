@@ -49,7 +49,6 @@ export const useCardStore = defineStore('cardInventoryStore', () => {
 			const cardIndex = characterCardHand.findIndex((card) => card.uniqueDeckId === dragId);
 			const playerCard = characterCardHand[cardIndex];
 			const masterCard = cardData[playerCard.masterCardId];
-			console.log(characterCardHand[cardIndex]);
 			if (characterCardHand[cardIndex].effectHandler()) {
 				addLogLine(`${masterCard.effect} for ${playerCard.value}, to ${masterCard.target}`);
 				discardCard(cardIndex);

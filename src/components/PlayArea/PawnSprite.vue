@@ -23,12 +23,14 @@
 		}
 	});
 	let animation = ref(0);
+	let isLeft = false;
 	setInterval(() => {
-		let isLeft = false;
 		if (animation.value === 16 && isLeft) {
 			animation.value = 0;
+			isLeft = false;
 		} else if (animation.value === 16) {
 			animation.value = 32;
+			isLeft = true;
 		} else {
 			animation.value = 16;
 		}

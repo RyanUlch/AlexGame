@@ -3,6 +3,7 @@
 import { defineStore } from 'pinia';
 import { reactive } from 'vue';
 import openLevel0 from '../levels/level0';
+import openLevel1 from '../levels/level1';
 import { useSpriteStore } from './sprite';
 // const { characterPosition } = useSpriteStore();
 
@@ -21,6 +22,7 @@ interface JSONTiles {
 
 const levels: { [levelName: string]: () => void } = {
 	level0: openLevel0,
+	level1: openLevel1,
 };
 
 export const useLevelStore = defineStore('levelStore', () => {
@@ -37,10 +39,10 @@ export const useLevelStore = defineStore('levelStore', () => {
 					return json;
 				}),
 		);
-		levels[levelName]();
 		characterPosition[0] = +startingPosition[0];
 		characterPosition[1] = +startingPosition[1];
 		characterPosition[2] = `${startingPosition[2]}`;
+		levels[levelName]();
 	};
 
 	const convertToMatrix = (jsonObj: JSONTiles) => {

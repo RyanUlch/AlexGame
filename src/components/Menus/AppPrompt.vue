@@ -20,6 +20,7 @@
 		<AppModalVue
 			v-if="options !== null && resolver !== null"
 			:title="options.title ?? 'Prompt'"
+			:imgSrc="options.imgSrc"
 			no-close>
 			<div
 				v-if="options.message"
@@ -46,6 +47,7 @@
 <style scoped>
 	.message {
 		font-size: 0.8em;
+		line-height: 150%;
 	}
 	.choices {
 		padding: 12px;

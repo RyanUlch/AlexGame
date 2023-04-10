@@ -9,13 +9,11 @@ const openLevel1 = () => {
 	const levelStore = useLevelStore();
 	const { levelMatrix } = storeToRefs(levelStore);
 	const spriteStore = useSpriteStore();
-	const { characterId, scale } = storeToRefs(spriteStore);
 	const { characterPosition } = useSpriteStore();
-	const { addLogLine } = useLogComposable();
 
 	// Set up sprite store and register sprites
-	spriteStore.registerSprite([2, 1, 's'], async () => {
-		await levelStore.openLevel('level1', characterPosition);
+	spriteStore.registerSprite(true, [7, 4, 's'], async () => {
+		await levelStore.openLevel('level0', characterPosition);
 	});
 };
 

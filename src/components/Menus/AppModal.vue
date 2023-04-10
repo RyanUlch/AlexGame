@@ -2,6 +2,7 @@
 	type ModalProps = {
 		title: string;
 		noClose?: boolean;
+		imgSrc?: string;
 	};
 
 	const props = defineProps<ModalProps>();
@@ -19,6 +20,11 @@
 				class="modal-root"
 				@click.stop>
 				<header>
+					<img
+						v-if="props.imgSrc"
+						class="picture"
+						:src="`src/assets/prompt/${props.imgSrc}.png`"
+						alt="" />
 					<span class="title">{{ props.title }}</span>
 					<button
 						v-if="!noClose"
@@ -37,10 +43,21 @@
 </template>
 
 <style scoped>
+	.picture {
+		width: 50px;
+		height: 50px;
+		margin-right: 10px;
+		display: inline;
+		image-rendering: pixelated;
+		image-rendering: -moz-crisp-edges;
+		image-rendering: crisp-edges;
+		border: 3px solid black;
+		padding: 3px;
+	}
 	.background-blocker {
 		width: 100%;
 		height: 100%;
-		background: rgba(0, 0, 0, 0.3);
+		background: rgba(0, 0, 0, 0.6);
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -48,20 +65,18 @@
 		left: 0;
 		top: 0;
 	}
-
 	.modal-root {
 		width: calc(100% - 24px);
-		height: calc(100% - 24px);
 		background: white;
 	}
 
 	header {
 		border-radius: var(--space-large) var(--space-large) 0 0;
-
 		padding: var(--p-medium);
 		display: flex;
-		justify-content: space-between;
 		background-color: var(--modal-header-background);
+		justify-content: flex-start;
+		align-items: center;
 	}
 
 	main {

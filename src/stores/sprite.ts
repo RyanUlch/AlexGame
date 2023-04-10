@@ -14,6 +14,7 @@ export const useSpriteStore = defineStore('spriteStore', () => {
 
 	const spriteList = reactive<
 		{
+			isAutoInteract: boolean;
 			position: [number, number, string];
 			interactionHandler: () => void;
 		}[]
@@ -23,8 +24,13 @@ export const useSpriteStore = defineStore('spriteStore', () => {
 
 	const screenPosition = reactive<[number, number]>([0, 0]);
 
-	const registerSprite = (startingPosition: [number, number, string], interaction: () => void) => {
+	const registerSprite = (
+		isAutoInteract: boolean,
+		startingPosition: [number, number, string],
+		interaction: () => void,
+	) => {
 		spriteList.push({
+			isAutoInteract: isAutoInteract,
 			position: [...startingPosition],
 			interactionHandler: interaction,
 		});
@@ -61,6 +67,12 @@ export const useSpriteStore = defineStore('spriteStore', () => {
 			!(newPosition[1] >= levelStore.levelMatrix[0].length) &&
 			!levelStore.isImpassible(newPosition[0], newPosition[1])
 		) {
+			const actionCell = spriteList.findIndex((action) => {
+				return action.position[0] === newPosition[0] && action.position[1] === newPosition[1];
+			});
+			if (actionCell >= 0 && spriteList[actionCell].isAutoInteract) {
+				spriteList[actionCell].interactionHandler();
+			}
 			characterPosition[0] = newPosition[0];
 			characterPosition[1] = newPosition[1];
 		}
@@ -90,7 +102,7 @@ export const useSpriteStore = defineStore('spriteStore', () => {
 			(sprite) =>
 				sprite.position[0] === facingPosition[0] && sprite.position[1] === facingPosition[1],
 		);
-		if (interactingSprite > -1) {
+		if (interactingSprite > -1 && !spriteList[interactingSprite].isAutoInteract) {
 			if (typeof spriteList[interactingSprite].interactionHandler !== undefined) {
 				spriteList[interactingSprite].interactionHandler();
 			}

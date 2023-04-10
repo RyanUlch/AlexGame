@@ -9,24 +9,32 @@ const openLevel0 = () => {
 	const levelStore = useLevelStore();
 	const { levelMatrix } = storeToRefs(levelStore);
 	const spriteStore = useSpriteStore();
-	const { characterId, scale } = storeToRefs(spriteStore);
+	const { characterId } = storeToRefs(spriteStore);
 	const { characterPosition } = useSpriteStore();
 	const { addLogLine } = useLogComposable();
 
 	// Set up sprite store and register sprites
-	spriteStore.registerSprite([2, 1, 's'], async () => {
+	spriteStore.registerSprite(false, [2, 1, 's'], async () => {
 		await levelStore.openLevel('level1', characterPosition);
 	});
 
-	spriteStore.registerSprite([5, 2, 'n'], () => {
-		usePromptStore().doConversation('multi nesting').then(console.log);
-		characterId.value = '0';
-		spriteStore.deregisterSprite(1);
+	if (characterId.value === '1') {
+		spriteStore.registerSprite(false, [5, 2, 'n'], async () => {
+			const result = await usePromptStore().doConversation('hat convo');
+			if (result === 'hatWear') {
+				characterId.value = '0';
+				spriteStore.deregisterSprite(1);
+				levelMatrix.value[5][2].impassible = false;
+				levelMatrix.value[5][2].layeredImageSrc = undefined;
+				levelMatrix.value[5][2].layeredImageCoord = undefined;
+				addLogLine(`You found your hat..... cool.`);
+			}
+		});
+	} else {
 		levelMatrix.value[5][2].impassible = false;
 		levelMatrix.value[5][2].layeredImageSrc = undefined;
 		levelMatrix.value[5][2].layeredImageCoord = undefined;
-		addLogLine(`You found your hat. cool.`);
-	});
+	}
 };
 
 export default openLevel0;

@@ -33,21 +33,44 @@
 			:src="`src/assets/cards/cardImages/${props.cardImageBase}.jpg`"
 			alt=""
 			class="cardImage" />
-		<div
-			class="energyCost"
-			v-if="props.energyCost">
-			<p class="text energyIcon">{{ props.energyCost }}</p>
-			<img
-				class="energyIcon"
-				src="src/assets/UI/statsIcons/energy.png"
-				alt="" />
+		<div class="cardInfo">
+			<div
+				class="energyCost"
+				v-if="props.energyCost">
+				<p class="energyIcon">{{ props.energyCost }}</p>
+				<img
+					class="energyIcon"
+					src="src/assets/UI/statsIcons/energy.png"
+					alt="" />
+			</div>
+			<div class="textBox">
+				<p class="text">{{ cardTextAltered }}</p>
+			</div>
 		</div>
-		<p class="text">{{ cardTextAltered }}</p>
 	</DragElement>
 </template>
 <style scoped>
 	.energyIcon {
 		display: inline;
+		font-size: 0.8rem;
+	}
+
+	.energyCost {
+		position: absolute;
+		top: 0px;
+		right: 0px;
+		background-color: grey;
+		border-radius: 0.25rem;
+		padding: 2px;
+	}
+
+	.cardInfo {
+		height: 60%;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
 	}
 	.card {
 		height: var(--cardHeight);
@@ -69,6 +92,15 @@
 	.cardHover {
 		box-shadow: 0 0 15px gold !important;
 	}
+	.textBox {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border: 1px solid black;
+		height: 100%;
+		width: 100%;
+		border-radius: 0.5rem;
+	}
 
 	.cardImage {
 		width: 100%;
@@ -79,7 +111,7 @@
 
 	.text {
 		text-align: center;
-		font-size: small;
+		font-size: clamp(0.2rem, 2vw, 0.8rem);
 		pointer-events: none;
 	}
 </style>
