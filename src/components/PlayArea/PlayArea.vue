@@ -4,6 +4,7 @@
 	import { useSpriteStore } from '@/stores/sprite';
 	import { storeToRefs } from 'pinia';
 	import PawnSprite from './PawnSprite.vue';
+	import CharacterSprite from './CharacterSprite.vue';
 	import { useKeyHandler } from '@/composables/useKeyHandler';
 	import { keyHandler } from '@/inputHandlers/keyInput';
 
@@ -39,7 +40,7 @@
 							backgroundPosition: `-${col.tileCoord[1] * 16}px -${col.tileCoord[0] * 16}px`,
 						}">
 						<!-- Render pawn sprite if present at this position -->
-						<PawnSprite
+						<CharacterSprite
 							v-if="rowIndex === characterPosition[0] && colIndex === characterPosition[1]"
 							:characterFilename="characterId"
 							:direction="characterPosition[2]"
@@ -47,15 +48,21 @@
 
 						<!-- Render layer image if present at this position -->
 						<img
-							v-if="col.layeredImageCoord"
+							v-if="col.layeredImageCoord && !col.isCharacter"
 							class="objectLayer"
 							:src="`src/assets/objects/${col.layeredImageSrc}.png`"
 							:style="{
 								objectPosition: `-${col.layeredImageCoord[1] * 16}px -${
-									col.layeredImageCoord[0] * 16
+									col.layeredImageCoord[0] * (col.isCharacter ? 20 : 16)
 								}px`,
 								objectFit: 'none',
+								zIndex: col.isCharacter ? 5 : 0,
 							}" />
+						<PawnSprite
+							v-if="col.isCharacter"
+							class="npc"
+							:spriteName="col.layeredImageSrc"
+							:coords="col.layeredImageCoord" />
 					</div>
 				</div>
 			</template>
@@ -67,6 +74,13 @@
 </template>
 
 <style scoped>
+	.npc {
+		width: 16px;
+		height: 20px;
+		transform: translateY(-4px);
+		position: absolute;
+	}
+
 	.temp {
 		color: white;
 	}

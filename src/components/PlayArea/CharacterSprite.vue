@@ -4,28 +4,25 @@
 	/* Characters Sprites should be on their own sheets in a 3 x 4 grid, with a width of 16px, and a height of 20px. They should also have the still animation in the middle column */
 	/* All of this is to make it easier to have the correct displaying of all sprites */
 	const props = defineProps<{
-		spriteName: string | undefined;
-		coords: [number, number] | undefined;
+		characterFilename: string;
+		direction: string; // n = 60, e = 40, s = 0, w = 20
 	}>();
 
 	const facing = computed(() => {
-		if (props.coords) {
-			switch (props.coords[0]) {
-				case 3:
-					return 60;
-				case 2:
-					return 40;
-				case 0:
-					return 0;
-				case 1:
-					return 20;
-				default:
-					return 0;
-			}
+		switch (props.direction) {
+			case 'n':
+				return 60;
+			case 'e':
+				return 40;
+			case 's':
+				return 0;
+			case 'w':
+				return 20;
+			default:
+				return 0;
 		}
 	});
 	let animation = ref(0);
-
 	let isLeft = false;
 	setInterval(() => {
 		if (animation.value === 16 && isLeft) {
@@ -41,7 +38,7 @@
 </script>
 <template>
 	<img
-		:src="`src/assets/characters/${props.spriteName}.png`"
+		:src="`src/assets/characters/${props.characterFilename}.png`"
 		:style="{
 			objectFit: 'none',
 			objectPosition: `-${animation}px -${facing}px`,

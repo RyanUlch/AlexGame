@@ -59,7 +59,14 @@
 				{ "tileset": "floor1", "tileCoord": [0, 0], "impassible": false },
 				{ "tileset": "floor1", "tileCoord": [0, 1], "impassible": false },
 				{ "tileset": "floor1", "tileCoord": [0, 0], "impassible": false },
-				{ "tileset": "floor1", "tileCoord": [0, 0], "impassible": false },
+				{
+					"tileset": "floor1",
+					"tileCoord": [0, 0],
+					"impassible": true,
+					"layeredImageSrc": "ladyInHouse",
+					"layeredImageCoord": [0, 1],
+					"isCharacter": true
+				},
 				{ "tileset": "floor1", "tileCoord": [5, 6], "impassible": true },
 				{ "tileset": "floor1", "tileCoord": [5, 7], "impassible": true },
 				{ "tileset": "walls1", "tileCoord": [1, 2], "impassible": true }

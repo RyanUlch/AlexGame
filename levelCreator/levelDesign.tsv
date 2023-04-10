@@ -1,11 +1,9 @@
-s 3 1 s						
-a 0 lr true house1 0 0	a 0 s true house1 0 1	a 0 s true house1 0 2	a 0 s true house1 0 3	a 0 s true	a 0 s true	a 0 ll true
-a 0 e true house1 1 0	a 1 none true house1 1 1	a 1 none true house1 1 2	a 1 none true house1 1 3	a 1 none false	a 1 none false	a 0 w true
-a 0 e true house1 2 0	a 1 none true house1 2 1	a 1 none true house1 2 2	a 1 none true house1 2 3	a 1 none false	a 1 none false	a 0 w true
-a 0 e true	a 1 none false	a 1 none false	a 1 none false	a 1 none false	a 1 none false	a 0 w true
-a 0 e true	a 1 none false	a 1 none false	a 1 none false	a 1 none false	a 1 none false	a 0 w true
-a 0 e true	a 1 none false	a 1 none true hat1 0 0	a 1 none false	a 1 none false	a 1 none false	a 0 w true
-a 0 e true	a 1 none false	a 1 none false	a 1 none false	a 1 none false	a 1 none false	a 0 w true
-a 0 e true	a 1 none false	a 1 none false	a 0 all true	a 1 none false	a 1 none false	a 0 w true
-a 0 e true	a 1 none false	a 1 none false	a 1 none false	a 1 none false	a 1 none false	a 0 w true
-a 0 ur true	a 0 n true	a 0 n true	a 0 n true	a 0 n true	a 0 n true	a 0 ul true
+s 6 4 n											
+c walls1 0 0 true	c walls1 0 1 true	c walls1 0 1 true	c walls1 0 1 true	c walls1 0 1 true	c walls1 0 1 true	c walls1 0 1 true	c walls1 0 1 true	c walls1 0 1 true	c walls1 0 2 true	c walls1 1 1 true	c walls1 1 1 true
+c walls1 1 0 true	c floor1 5 7 true	c floor1 5 7 true	c floor1 5 7 true	c floor1 5 7 true	c floor1 5 7 true	c floor1 5 7 true	c floor1 5 7 true	c floor1 5 7 true	c walls1 1 2 true	c walls1 1 1 true	c walls1 1 1 true
+c walls1 1 0 true	c floor1 7 7 true	c floor1 7 7 true	c floor1 7 7 true	c floor1 7 7 true	c floor1 7 7 true	c floor1 7 7 true	c floor1 7 7 true	c floor1 7 7 true	c walls1 2 0 true	c walls1 0 1 true	c walls1 0 2 true
+c walls1 1 0 true	c floor1 0 2 false	c floor1 2 1 false	c floor1 1 0 false	c floor1 1 1 false	c floor1 0 0 false	c floor1 0 1 false	c floor1 0 0 false	c floor1 0 0 false ladyInHouse 0 1	c floor1 5 6 true	c floor1 5 7 true	c walls1 1 2 true
+c walls1 1 0 true	c floor1 1 1 false	c floor1 0 0 false	c floor1 0 0 false	c floor1 2 2 false	c floor1 1 2 false	c floor1 0 0 false	c floor1 1 3 false	c floor1 1 1 false	c floor1 7 6 true	c floor1 7 7 true	c walls1 1 2 true
+c walls1 1 0 true	c floor1 0 0 false	c floor1 1 2 false	c floor1 1 1 false	c floor1 0 0 false	c floor1 2 1 false	c floor1 1 0 false	c floor1 0 0 false	c floor1 1 0 false	c floor1 1 0 false	c floor1 0 0 false	c walls1 1 2 true
+c walls1 1 0 true	c floor1 0 1 false	c floor1 0 0 false	c floor1 0 0 false	c floor1 0 0 false	c floor1 1 1 false	c floor1 0 0 false	c floor1 1 2 false	c floor1 2 1 false	c floor1 0 0 false	c floor1 2 2 false	c walls1 1 2 true
+c walls1 2 0 true	c walls1 2 1 true	c walls1 2 1 true	c walls1 2 4 true	c floor1 0 0 false	c walls1 2 3 true	c walls1 2 1 true	c walls1 2 1 true	c walls1 2 1 true	c walls1 2 1 true	c walls1 2 1 true	c walls1 2 2 true

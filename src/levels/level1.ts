@@ -6,6 +6,7 @@ import { useSpriteStore } from '../stores/sprite';
 import { storeToRefs } from 'pinia';
 
 const openLevel1 = () => {
+	const { addLogLine } = useLogComposable();
 	// Set up level store and retrieve necessary values
 	const { dontUseAudio } = storeToRefs(useMenuStore());
 	const levelStore = useLevelStore();
@@ -20,6 +21,21 @@ const openLevel1 = () => {
 			openDoorSound.play();
 		}
 		await levelStore.openLevel('level0', characterPosition);
+	});
+
+	spriteStore.registerSprite(false, [3, 8, 's'], async () => {
+		if (levelMatrix.value[3][8].layeredImageCoord) {
+			if (characterPosition[2] === 'e') {
+				levelMatrix.value[3][8].layeredImageCoord[0] = 1;
+			} else if (characterPosition[2] === 'n') {
+				levelMatrix.value[3][8].layeredImageCoord[0] = 0;
+			}
+		}
+		const result = await usePromptStore().doConversation('lady in house');
+		if (result === 'leave') {
+			characterPosition[2] = 'w';
+			addLogLine(`That was awkward...`);
+		}
 	});
 };
 

@@ -13,6 +13,7 @@ interface Tile {
 	impassible: boolean;
 	layeredImageSrc?: string;
 	layeredImageCoord?: [number, number];
+	isCharacter?: boolean;
 	// layeredImageSize?:
 }
 
@@ -68,6 +69,7 @@ export const useLevelStore = defineStore('levelStore', () => {
 					layeredImageCoord: column.layeredImageCoord
 						? [+column.layeredImageCoord[0], +column.layeredImageCoord[1]]
 						: undefined,
+					isCharacter: column.isCharacter,
 				});
 			}
 		}

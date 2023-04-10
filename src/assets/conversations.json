@@ -124,5 +124,106 @@
 				}
 			]
 		}
+	},
+	{
+		"name": "lady in house",
+		"title": "Joan",
+		"prompt": {
+			"message": "\"Oh, hi. Is this your house?\"",
+			"title": "Joan",
+			"imgSrc": "joan",
+			"choices": [
+				{
+					"text": "Yes",
+					"result": {
+						"message": "\"Wow.... It's... Nice. Is there something weird about that tile there?\"",
+						"title": "Joan",
+						"imgSrc": "joan",
+						"choices": [
+							{
+								"text": "Please leave that alone.",
+								"result": {
+									"message": "\"Wow... Ok... Touchy\"",
+									"title": "Joan",
+									"imgSrc": "joan",
+									"choices": [
+										{
+											"text": "Leave",
+											"result": "leave"
+										}
+									]
+								}
+							},
+							{
+								"text": "No...",
+								"result": {
+									"message": "\"Ok then...\"",
+									"title": "Joan",
+									"imgSrc": "joan",
+									"choices": [
+										{
+											"text": "Leave",
+											"result": "leave"
+										}
+									]
+								}
+							}
+						]
+					}
+				},
+				{
+					"text": "No",
+					"result": {
+						"message": "\"Yeah, it seems like it was abandoned\"",
+						"title": "Joan",
+						"imgSrc": "joan",
+						"choices": [
+							{
+								"text": "\"HEY!\"",
+								"result": {
+									"message": "\"I thought you said it wasn't yours...\"",
+									"title": "Joan",
+									"imgSrc": "joan",
+									"choices": [
+										{
+											"text": "leave (angrily)",
+											"result": "leave"
+										}
+									]
+								}
+							},
+							{
+								"text": "\"Yeah a real dump...\"",
+								"result": {
+									"message": "This is your house... You could probably do a better job at decorating.",
+									"title": "Your Mind",
+									"imgSrc": "player",
+									"choices": [
+										{
+											"text": "Stare Blankly",
+											"result": {
+												"message": "\"Ok then... Nice meeting you....\"",
+												"title": "Joan",
+												"imgSrc": "joan",
+												"choices": [
+													{
+														"text": "leave (dejected)",
+														"result": "leave"
+													}
+												]
+											}
+										},
+										{
+											"text": "Leave",
+											"result": "leave"
+										}
+									]
+								}
+							}
+						]
+					}
+				}
+			]
+		}
 	}
 ]
