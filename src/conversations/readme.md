@@ -5,8 +5,8 @@
 - place TSV file(s) in @/src/conversations
 - install ts-node if necessary
   - `npm i -g ts-node`
-- run the ingest script with ts-node
-  - `ts-node src/conversations/ingest.ts`
+- run the ingest script from package.json from the project root
+  - `npm run conversations`
   - this will update `@/assets/conversations.json`
 - you can now do this:
 

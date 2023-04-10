@@ -7,6 +7,7 @@ const zConversationData = zod.array(zod.array(zod.string()));
 
 export type Conversation = {
 	name: string;
+	title?: string;
 	prompt?: ChoicePromptOptions;
 };
 
@@ -15,7 +16,6 @@ const getRowDetails = (row: string[]) => {
 	if (firstDataIndex === -1) return null; // empty line
 	const promptIndex = Math.ceil(firstDataIndex / 2) - 1;
 	const rowType = firstDataIndex % 2 === 0 ? 'choice' : 'message';
-	console.log('prompt index', promptIndex);
 	return { promptIndex, rowType, data: row[firstDataIndex], result: row[firstDataIndex + 1] };
 };
 
@@ -40,8 +40,10 @@ readdirSync('.')
 		result.forEach((row, i) => {
 			if (row[0]) {
 				if (currentConversation) conversations.push(currentConversation);
+				const [name, title] = row[0].split('__');
 				currentConversation = {
-					name: row[0],
+					name,
+					title,
 				};
 				promptStack.length = 0;
 				currentChoice = null;
@@ -56,6 +58,7 @@ readdirSync('.')
 			if (rowType === 'message') {
 				const prompt = {
 					message: data,
+					title: currentConversation.title,
 					choices: [],
 				};
 				if (currentChoice && currentChoice.result === '') {
@@ -69,7 +72,6 @@ readdirSync('.')
 					throw Error(i + ': discovered choice without discovering a prompt message');
 				if (promptIndex !== promptStack.length - 1) {
 					const deleteIndex = promptIndex + 1;
-					console.log('delete index', deleteIndex);
 					promptStack.splice(deleteIndex, promptStack.length - deleteIndex);
 				}
 				const choice: PromptChoice = {
@@ -88,3 +90,4 @@ readdirSync('.')
 writeFileSync('../assets/conversations.json', JSON.stringify(conversations, undefined, 4), {
 	encoding: 'utf8',
 });
+console.log(`${conversations.length} conversations ingested`);

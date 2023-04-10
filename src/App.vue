@@ -60,7 +60,8 @@
 		<DropElement
 			dragElementType="card"
 			dropElementIndex="consumer"
-			class="playArea">
+			class="playArea"
+			id="modal-target">
 			<PlayArea />
 		</DropElement>
 		<!-- <div class="upper-right">
@@ -134,6 +135,10 @@
 		display: flex;
 		flex-wrap: wrap;
 		border: 5px solid grey;
+	}
+
+	#modal-target {
+		position: relative; /* necessary for modal absolute positioning */
 	}
 
 	.playArea {

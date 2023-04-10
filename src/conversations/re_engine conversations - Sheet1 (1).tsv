@@ -1,15 +1,15 @@
-no nesting					
+no nesting__title					
 	this conversation has no nesting				
 		option 1	result1		
 		option 2	result2		
-with nesting					
+with nesting__Some Random Guy					
 	this conversation has nesting				
 		nested result			
 			this is a second message based on option 1		
 				normal result 1	RESULT_2
 				normal result 2	RESULT_3
 		normal result	RESULT_1		
-multi nesting					
+multi nesting__Name Of Character					
 	both options are nested				
 		nest a			
 			nested message 1		

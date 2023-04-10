@@ -1,3 +1,4 @@
+import { usePromptStore } from '@/stores/prompt';
 import { useSpriteStore } from '@/stores/spriteStore';
 
 type KeyHandlerMap = {
@@ -5,11 +6,28 @@ type KeyHandlerMap = {
 };
 
 const move = (direction: string) => {
+	// If a prompt is open, capture input and handle it
+	const promptStore = usePromptStore();
+	if (promptStore.promptIsOpen) {
+		if (direction !== 'n' && direction !== 's') return;
+		promptStore.changeSelection(direction);
+		return;
+	}
+
+	// Normal behaviour
 	const store = useSpriteStore();
 	store.playerMoveListener(direction);
 };
 
 const interact = () => {
+	// If a prompt is open, capture input and handle it
+	const promptStore = usePromptStore();
+	if (promptStore.promptIsOpen) {
+		promptStore.selectChoice();
+		return;
+	}
+
+	// Normal behaviour
 	const store = useSpriteStore();
 	store.playerInteract();
 };

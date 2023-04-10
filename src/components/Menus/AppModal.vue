@@ -11,7 +11,7 @@
 </script>
 
 <template>
-	<Teleport to="#modals">
+	<Teleport to="#modal-target">
 		<div
 			class="background-blocker"
 			@click="emit('close')">
@@ -38,20 +38,20 @@
 
 <style scoped>
 	.background-blocker {
-		width: 100vw;
-		height: 100vh;
+		width: 100%;
+		height: 100%;
 		background: rgba(0, 0, 0, 0.3);
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		position: fixed;
+		position: absolute;
 		left: 0;
 		top: 0;
 	}
 
 	.modal-root {
-		width: 50%;
-		min-width: 300px;
+		width: calc(100% - 24px);
+		height: calc(100% - 24px);
 		background: white;
 	}
 
@@ -66,7 +66,7 @@
 
 	main {
 		border-radius: 0 0 var(--space-large) var(--space-large);
-		padding: var(--p-medium);
+		padding: var(--p-large);
 		background-color: var(--modal-main-background);
 	}
 
