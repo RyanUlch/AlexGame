@@ -3,10 +3,13 @@ import { usePromptStore } from '../stores/prompt';
 import { useLevelStore } from '../stores/level';
 import { useSpriteStore } from '../stores/sprite';
 import { storeToRefs } from 'pinia';
+import { useMenuStore } from '../stores/menus';
 
 const openLevel0 = () => {
 	// Set up level store and retrieve necessary values
+	const { dontUseAudio } = storeToRefs(useMenuStore());
 	const levelStore = useLevelStore();
+
 	const { levelMatrix } = storeToRefs(levelStore);
 	const spriteStore = useSpriteStore();
 	const { characterId } = storeToRefs(spriteStore);
@@ -15,6 +18,10 @@ const openLevel0 = () => {
 
 	// Set up sprite store and register sprites
 	spriteStore.registerSprite(false, [2, 1, 's'], async () => {
+		const openDoorSound = new Audio('src/assets/audio/doorOpen.mp3');
+		if (!dontUseAudio.value) {
+			openDoorSound.play();
+		}
 		await levelStore.openLevel('level1', characterPosition);
 	});
 

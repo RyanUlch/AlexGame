@@ -75,7 +75,7 @@
 	.card {
 		height: var(--cardHeight);
 		width: var(--cardWidth);
-		background-color: lightgrey;
+		background-color: var(--cardColor);
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
@@ -96,17 +96,18 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		border: 1px solid black;
+		border: 1px solid var(--borderColor);
 		height: 100%;
 		width: 100%;
 		border-radius: 0.5rem;
+		background-color: var(--cardTextboxColor);
 	}
 
 	.cardImage {
 		width: 100%;
 		height: 4rem;
 		border-radius: var(--cardRadius);
-		border: 1px solid black;
+		border: 1px solid var(--borderColor);
 	}
 
 	.text {

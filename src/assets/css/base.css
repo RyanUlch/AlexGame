@@ -1,13 +1,13 @@
 @font-face {
 	font-family: 'Press Start 2P';
-	src: url(./fonts/PressStart2P-Regular.ttf);
+	src: url(fonts/PressStart2P-Regular.ttf);
 }
 
 /* semantic color variables for this project */
 :root {
 	/* Colors */ /* Colors */ /* Colors */ /* Colors */ /* Colors */
 	/* General Colors */
-	--brandHue: 200;
+	--brandHue: 100;
 
 	/* MenuButtons */
 	--menuBtnBack: hsl(var(--brandHue), 50%, 50%);
@@ -20,6 +20,12 @@
 	--cardWidth: 7.5rem;
 	--cardHeight: 10.5rem;
 	--cardRadius: 0.5rem;
+
+	--cardColor: hsl(var(--brandHue), 50%, 50%);
+	--cardTextboxColor: hsl(var(--brandHue), 50%, 90%);
+
+	--borderColor: hsl(var(--brandHue), 20%, 20%);
+	--borderSize: 5px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -43,6 +49,7 @@
 body {
 	overflow: hidden;
 	font-family: 'Press Start 2P', monospace;
+	/* background-color: hsl(var(--brandHue), 80%, 80%); */
 }
 
 #app {

@@ -51,7 +51,7 @@
 		image-rendering: pixelated;
 		image-rendering: -moz-crisp-edges;
 		image-rendering: crisp-edges;
-		border: 3px solid black;
+		border: var(--borderSize) solid var(--borderColor);
 		padding: 3px;
 	}
 	.background-blocker {

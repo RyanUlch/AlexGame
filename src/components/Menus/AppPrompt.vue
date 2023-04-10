@@ -57,6 +57,7 @@
 	}
 	.choice {
 		font-family: 'Press Start 2P', monospace;
+		padding: 6px;
 	}
 	.choice.selected {
 		background-color: red;

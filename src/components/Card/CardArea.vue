@@ -42,6 +42,7 @@
 </template>
 <style scoped>
 	.cardArea {
+		border-top: var(--borderSize) solid var(--borderColor);
 		height: calc(var(--cardHeight) + 5px);
 		width: 100%;
 		background-color: darkslategrey;
@@ -53,6 +54,7 @@
 	.hand {
 		display: flex;
 		flex-direction: row;
+		gap: 4px;
 	}
 	.cardBack {
 		height: var(--cardHeight);

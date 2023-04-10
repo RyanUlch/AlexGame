@@ -2,6 +2,8 @@ import { defineStore } from 'pinia';
 import { ref } from 'vue';
 
 export const useMenuStore = defineStore('menus', () => {
+	const dontUseAudio = ref(false);
+
 	// Game settings
 	const settingsMenuIsOpen = ref(false);
 	function openSettingsMenu() {
@@ -15,6 +17,8 @@ export const useMenuStore = defineStore('menus', () => {
 	const someGameSetting = ref(1);
 
 	return {
+		// Settings
+		dontUseAudio,
 		// Game settings
 		settingsMenuIsOpen,
 		openSettingsMenu,

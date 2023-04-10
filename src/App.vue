@@ -9,8 +9,10 @@
 	import { usePlayerStore } from './stores/player';
 	import { storeToRefs } from 'pinia';
 	import { useSpriteStore } from './stores/sprite';
-	import AppPromptVue from './components/Menus/AppPrompt.vue';
-
+	import AppPrompt from './components/Menus/AppPrompt.vue';
+	import AppSettingsMenu from './components/Menus/AppSettingsMenu.vue';
+	import { useMenuStore } from './stores/menus';
+	const settings = useMenuStore();
 	const cardStore = useCardStore();
 	const playerStore = usePlayerStore();
 	const { health, maxHealth, energy, maxEnergy } = storeToRefs(playerStore);
@@ -89,7 +91,7 @@
 					imgFileName="LevelUp"
 					tooltip="Open your Stats" />
 				<MenuButton
-					:modalHandler="() => {}"
+					:modalHandler="settings.openSettingsMenu"
 					imgFileName="Menu"
 					tooltip="Open the settings" />
 				<MenuButton
@@ -101,11 +103,13 @@
 		</div>
 		<CardArea />
 	</div>
-	<AppPromptVue />
+	<AppPrompt />
+	<AppSettingsMenu />
 </template>
 <style scoped>
 	.square {
 		width: 150px;
+		height: 146px;
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -116,7 +120,7 @@
 		margin: 0 auto;
 		display: flex;
 		flex-wrap: wrap;
-		border: 5px solid grey;
+		border: var(--borderSize) solid var(--borderColor);
 	}
 
 	#modal-target {
@@ -133,13 +137,15 @@
 	.upper-right {
 		width: 298px;
 		height: 656px;
-		background-color: aquamarine;
+		background-color: grey;
 		display: inline-block;
 	}
 
 	.statArea {
 		display: inline-flex;
 		flex-direction: column;
+		border-left: var(--borderSize) solid var(--borderColor);
+		border-right: var(--borderSize) solid var(--borderColor);
 	}
 
 	.menuArea {
