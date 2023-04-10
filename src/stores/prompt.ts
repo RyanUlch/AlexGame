@@ -100,6 +100,7 @@ export const usePromptStore = defineStore('prompt', () => {
 			selectedChoiceIndex.value = 0;
 			resolver.value = (choice: PromptChoice) => {
 				resolver.value = null;
+				options.value = null;
 				resolve(choice);
 			};
 		});

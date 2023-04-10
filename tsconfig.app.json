@@ -5,7 +5,8 @@
 		"src/**/*",
 		"src/**/*.vue",
 		"src/assets/cards/MasterCardList.json",
-		"src/assets/conversations.json"
+		"src/assets/conversations.json",
+		"conversationCreator"
 	],
 	"exclude": ["src/**/__tests__/*"],
 	"compilerOptions": {

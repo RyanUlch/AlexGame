@@ -69,11 +69,7 @@ fs.readFile('./levelDesign.tsv', (err: Error, data) => {
 			}
 		}
 	}
-	fs.writeFile(
-		'../src/assets/levels/newLevel-RENAME.json',
-		JSON.stringify(jsonFile),
-		(err: Error) => {
-			err ? console.error(err) : console.log('succeeded');
-		},
-	);
+	fs.writeFile('../src/levels/newLevel-RENAME.json', JSON.stringify(jsonFile), (err: Error) => {
+		err ? console.error(err) : console.log('succeeded');
+	});
 });

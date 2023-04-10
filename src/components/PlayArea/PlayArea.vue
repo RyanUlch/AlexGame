@@ -1,43 +1,21 @@
 <script setup lang="ts">
-	import { computed, reactive } from 'vue';
-	import { useLevelStore } from '../../stores/levelStore';
-	import { useSpriteStore } from '@/stores/spriteStore';
+	import { computed } from 'vue';
+	import { useLevelStore } from '../../stores/level';
+	import { useSpriteStore } from '@/stores/sprite';
 	import { storeToRefs } from 'pinia';
 	import PawnSprite from './PawnSprite.vue';
 	import { useKeyHandler } from '@/composables/useKeyHandler';
 	import { keyHandler } from '@/inputHandlers/keyInput';
-	import { useLogComposable } from '../../composables/logComposable';
 
-	// Set up level store and retrieve necessary values
+	const { characterPosition } = useSpriteStore();
 	const levelStore = useLevelStore();
 	const { levelMatrix } = storeToRefs(levelStore);
 	const spriteStore = useSpriteStore();
 	const { characterId, scale } = storeToRefs(spriteStore);
-	const { characterPosition } = useSpriteStore();
-	const { addLogLine } = useLogComposable();
 	levelStore.openLevel('level0', characterPosition);
-	// Set up sprite store and register sprites
-
-	spriteStore.registerSprite([2, 1, 's'], async () => {
-		// addLogLine(`It's locked`);
-		await levelStore.openLevel('level1', characterPosition);
-	});
-	spriteStore.registerSprite([5, 2, 'n'], () => {
-		characterId.value = '0';
-		spriteStore.deregisterSprite(1);
-		levelMatrix.value[5][2].impassible = false;
-		levelMatrix.value[5][2].layeredImageSrc = undefined;
-		levelMatrix.value[5][2].layeredImageCoord = undefined;
-		addLogLine(`You found your hat. cool.`);
-	});
-
 	// Compute whether level matrix is ready to be rendered
 	const matrixReady = computed(() => {
 		return levelMatrix.value.length > 0;
-	});
-	console.log(characterPosition);
-	const screenPosition2 = computed(() => {
-		return [characterPosition[0], characterPosition[1]];
 	});
 
 	// Set up key handler
@@ -57,7 +35,7 @@
 						v-for="(col, colIndex) in row"
 						:key="colIndex"
 						:style="{
-							backgroundImage: `url('src/assets/levels/tilesets/${col.tileset}.png')`,
+							backgroundImage: `url('src/assets/tilesets/${col.tileset}.png')`,
 							backgroundPosition: `-${col.tileCoord[1] * 16}px -${col.tileCoord[0] * 16}px`,
 						}">
 						<!-- Render pawn sprite if present at this position -->
@@ -71,7 +49,7 @@
 						<img
 							v-if="col.layeredImageCoord"
 							class="objectLayer"
-							:src="`src/assets/levels/objects/${col.layeredImageSrc}.png`"
+							:src="`src/assets/objects/${col.layeredImageSrc}.png`"
 							:style="{
 								objectPosition: `-${col.layeredImageCoord[1] * 16}px -${
 									col.layeredImageCoord[0] * 16

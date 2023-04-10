@@ -1,6 +1,6 @@
 <script setup lang="ts">
 	import Card from './Card.vue';
-	import { useCardStore } from '../../stores/cardInventoryStore';
+	import { useCardStore } from '../../stores/card';
 	import DropElement from '../DragAndDrop/DropElement.vue';
 	import cardData from '../../assets/cards/MasterCardList.json';
 	const cardStore = useCardStore();

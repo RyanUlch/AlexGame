@@ -1,5 +1,5 @@
 import { usePromptStore } from '@/stores/prompt';
-import { useSpriteStore } from '@/stores/spriteStore';
+import { useSpriteStore } from '@/stores/sprite';
 
 type KeyHandlerMap = {
 	[key: string]: (event: KeyboardEvent) => void;
@@ -7,6 +7,7 @@ type KeyHandlerMap = {
 
 const move = (direction: string) => {
 	// If a prompt is open, capture input and handle it
+
 	const promptStore = usePromptStore();
 	if (promptStore.promptIsOpen) {
 		if (direction !== 'n' && direction !== 's') return;

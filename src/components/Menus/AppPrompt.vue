@@ -7,7 +7,7 @@
 	const { options, resolver, selectedChoiceIndex } = storeToRefs(promptStore);
 
 	function handleChoiceClick(choice: PromptChoice) {
-		if (resolver.value === null) throw Error('no resolver registered for choicen prompt');
+		if (resolver.value === null) throw Error('no resolver registered for choice prompt');
 		resolver.value(choice);
 	}
 	function handleChoiceMouseIn(index: number) {

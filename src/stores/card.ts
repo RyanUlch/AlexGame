@@ -1,7 +1,7 @@
 // Pinia/Vue type Imports:
 import { defineStore } from 'pinia';
 import { reactive, computed } from 'vue';
-import { useLogComposable } from '@/composables/logComposable';
+import { useLogComposable } from '../composables/logComposable';
 import cardData from '../assets/cards/MasterCardList.json';
 
 const { addLogLine } = useLogComposable();

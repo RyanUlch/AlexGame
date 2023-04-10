@@ -1,8 +1,9 @@
 /* eslint-disable no-mixed-spaces-and-tabs */
 // Pinia/Vue type Imports:
 import { defineStore } from 'pinia';
-import { ref, reactive } from 'vue';
-// import { useSpriteStore } from './spriteStore';
+import { reactive } from 'vue';
+import openLevel0 from '../levels/level0';
+import { useSpriteStore } from './sprite';
 // const { characterPosition } = useSpriteStore();
 
 interface Tile {
@@ -18,19 +19,25 @@ interface JSONTiles {
 	rows: { columns: Tile[]; startY?: number; startX?: number; startDir?: string }[];
 }
 
+const levels: { [levelName: string]: () => void } = {
+	level0: openLevel0,
+};
+
 export const useLevelStore = defineStore('levelStore', () => {
 	// State:
 	const levelMatrix = reactive<Tile[][]>([]);
+	const spriteStore = useSpriteStore();
 
 	const openLevel = async (levelName: string, characterPosition: [number, number, string]) => {
+		spriteStore.cleanupSprites();
 		const startingPosition = convertToMatrix(
-			await fetch(`src/assets/levels/${levelName}.json`)
+			await fetch(`src/levels/${levelName}.json`)
 				.then((response: Response) => response.json())
 				.then((json: any) => {
 					return json;
 				}),
 		);
-		console.log(startingPosition);
+		levels[levelName]();
 		characterPosition[0] = +startingPosition[0];
 		characterPosition[1] = +startingPosition[1];
 		characterPosition[2] = `${startingPosition[2]}`;

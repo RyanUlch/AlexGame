@@ -1,7 +1,6 @@
 import { setActivePinia, createPinia } from 'pinia';
-import { ref } from 'vue';
-import { useCardStore } from '../stores/cardInventoryStore';
-import { test, describe, expect, beforeEach, expectTypeOf } from 'vitest';
+import { useCardStore } from '../stores/card';
+import { test, describe, expect, beforeEach } from 'vitest';
 
 describe('Card Inventory Store', () => {
 	let store: any;

@@ -1,15 +1,22 @@
 import { describe, test, expect, beforeEach } from 'vitest';
 import type { Ref } from 'vue';
 import { useLogComposable } from '@/composables/logComposable';
-import type { logLine } from '@/composables/logComposable';
+import type { LogLine } from '../composables/logComposable';
+import type { ComputedRef } from 'vue';
 describe('Event Log', () => {
 	let composable: {
-		log: logLine[];
+		log: LogLine[];
 		readFromLine: Ref<number>;
-		clear: () => number;
-		addLogLine: (line: string, dev?: boolean) => number;
-		addLogLines: (lines: logLine[]) => void;
-		emptyLog: () => number;
+		logLines: ComputedRef<
+			{
+				line: string;
+				dev?: boolean | undefined;
+			}[]
+		>;
+		clear: () => void;
+		addLogLine: (line: string, dev?: boolean) => void;
+		addLogLines: (lines: LogLine[]) => void;
+		emptyLog: () => void;
 	};
 
 	beforeEach(() => {
@@ -42,7 +49,7 @@ describe('Event Log', () => {
 		expect(composable.log.length).toEqual(3);
 	});
 
-	test('multiple logs are added in the correct order', ()=> {
+	test('multiple logs are added in the correct order', () => {
 		composable.addLogLines([
 			{ line: 'Testing Line 1' },
 			{ line: 'Testing Line 2' },
@@ -53,7 +60,7 @@ describe('Event Log', () => {
 		expect(composable.log[2].line).toEqual('Testing Line 1');
 	});
 
-	test('adding multiple log sets dev lines separately when provided', ()=> {
+	test('adding multiple log sets dev lines separately when provided', () => {
 		composable.addLogLines([
 			{ line: 'Testing Line 1' },
 			{ line: 'Testing Line 2' },

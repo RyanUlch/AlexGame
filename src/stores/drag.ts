@@ -1,7 +1,6 @@
 /* eslint-disable no-mixed-spaces-and-tabs */
 // Pinia/Vue type Imports:
 import { defineStore } from 'pinia';
-import { useLogComposable } from '@/composables/logComposable';
 
 // Drag (and) Drop Store used to store drop elements references, and handle logic with dragging/dropping elements
 export const useDragDropStore = defineStore('dragAndDropStore', () => {

@@ -1,7 +1,6 @@
 <script setup lang="ts">
 	import { computed, ref } from 'vue';
 
-	import { storeToRefs } from 'pinia';
 	/* Characters Sprites should be on their own sheets in a 3 x 4 grid, with a width of 16px, and a height of 20px. They should also have the still animation in the middle column */
 	/* All of this is to make it easier to have the correct displaying of all sprites */
 	const props = defineProps<{
@@ -37,7 +36,7 @@
 </script>
 <template>
 	<img
-		:src="`src/assets/levels/characters/${props.characterFilename}.png`"
+		:src="`src/assets/characters/${props.characterFilename}.png`"
 		:style="{
 			objectFit: 'none',
 			objectPosition: `-${animation}px -${facing}px`,

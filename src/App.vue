@@ -2,21 +2,20 @@
 	import CardArea from './components/Card/CardArea.vue';
 	import PlayArea from './components/PlayArea/PlayArea.vue';
 	import DropElement from './components/DragAndDrop/DropElement.vue';
-	import { useCardStore } from './stores/cardInventoryStore';
-	import { useLogComposable } from './composables/logComposable';
-	import { usePlayerStore } from './stores/playerStore';
+	import MenuButton from './components/MenuButton/MenuButton.vue';
+	import StatsUi from './components/StatsUi/StatsUI.vue';
+	import { useCardStore } from './stores/card';
+	import EventLog from './components/EventLog/EventLog.vue';
+	import { usePlayerStore } from './stores/player';
 	import { storeToRefs } from 'pinia';
-	import { useSpriteStore } from './stores/spriteStore';
+	import { useSpriteStore } from './stores/sprite';
 	import AppPromptVue from './components/Menus/AppPrompt.vue';
-	import { usePromptStore } from './stores/prompt';
 
-	// usePromptStore().doConversation('multi nesting').then(console.log);
-
-	const { addLogLine } = useLogComposable();
 	const cardStore = useCardStore();
 	const playerStore = usePlayerStore();
 	const { health, maxHealth, energy, maxEnergy } = storeToRefs(playerStore);
 	const { screenSize } = useSpriteStore();
+	// Starting Deck
 	cardStore.addCardsToDeck([
 		{
 			masterCardId: 'power',
@@ -64,7 +63,7 @@
 			id="modal-target">
 			<PlayArea />
 		</DropElement>
-		<!-- <div class="upper-right">
+		<div class="upper-right">
 			<div class="statArea square">
 				<StatsUi
 					:value="health"
@@ -82,43 +81,26 @@
 			</div>
 			<div class="menuArea square">
 				<MenuButton
-					:modalHandler="
-						() => {
-							addLogLine('Opening Inventory Modal', true);
-						}
-					"
+					:modalHandler="() => {}"
 					imgFileName="Inventory"
 					tooltip="Open your inventory" />
 				<MenuButton
-					:modalHandler="
-						() => {
-							addLogLine('Opening Stats Modal', true);
-						}
-					"
+					:modalHandler="() => {}"
 					imgFileName="LevelUp"
 					tooltip="Open your Stats" />
 				<MenuButton
-					:modalHandler="
-						() => {
-							addLogLine('Opening Settings Modal', true);
-						}
-					"
+					:modalHandler="() => {}"
 					imgFileName="Menu"
 					tooltip="Open the settings" />
 				<MenuButton
-					:modalHandler="
-						() => {
-							addLogLine('Opening Credits Modal', true);
-						}
-					"
+					:modalHandler="() => {}"
 					imgFileName="Credits"
 					tooltip="Open credits" />
 			</div>
 			<EventLog />
-		</div> -->
+		</div>
 		<CardArea />
 	</div>
-
 	<AppPromptVue />
 </template>
 <style scoped>
@@ -130,7 +112,7 @@
 	}
 	.gameArea {
 		box-sizing: border-box;
-		width: 918px;
+		width: 964px;
 		margin: 0 auto;
 		display: flex;
 		flex-wrap: wrap;
@@ -150,7 +132,7 @@
 
 	.upper-right {
 		width: 298px;
-		height: 600px;
+		height: 656px;
 		background-color: aquamarine;
 		display: inline-block;
 	}

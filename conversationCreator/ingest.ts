@@ -1,4 +1,4 @@
-import type { ChoicePromptOptions, PromptChoice } from '../stores/prompt';
+import type { ChoicePromptOptions, PromptChoice } from '../src/stores/prompt';
 import { readdirSync, readFileSync, writeFileSync } from 'fs';
 import { extname } from 'path';
 import * as zod from 'zod';
@@ -87,7 +87,7 @@ readdirSync('.')
 		if (currentConversation) conversations.push(currentConversation);
 	});
 
-writeFileSync('../assets/conversations.json', JSON.stringify(conversations, undefined, 4), {
+writeFileSync('../src/assets/conversations.json', JSON.stringify(conversations, undefined, 4), {
 	encoding: 'utf8',
 });
 console.log(`${conversations.length} conversations ingested`);

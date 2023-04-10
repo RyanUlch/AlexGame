@@ -1,8 +1,6 @@
 import { setActivePinia, createPinia } from 'pinia';
-import { ref } from 'vue';
-import { useDragDropStore } from '../stores/dragStore';
-import { test, describe, expect, beforeEach, expectTypeOf } from 'vitest';
-import type { Ref } from 'vue';
+import { useDragDropStore } from '../stores/drag';
+import { test, describe, expect, beforeEach } from 'vitest';
 describe('Drag Drop Store', () => {
 	beforeEach(() => {
 		setActivePinia(createPinia());

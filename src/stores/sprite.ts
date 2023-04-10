@@ -2,8 +2,7 @@
 // Pinia/Vue type Imports:
 import { defineStore } from 'pinia';
 import { reactive, ref } from 'vue';
-import { useLevelStore } from './levelStore';
-import { watch } from 'vue';
+import { useLevelStore } from './level';
 
 export const useSpriteStore = defineStore('spriteStore', () => {
 	const levelStore = useLevelStore();
@@ -21,9 +20,6 @@ export const useSpriteStore = defineStore('spriteStore', () => {
 	>([]);
 
 	const characterPosition = reactive<[number, number, string]>([5, 3, 's']);
-	watch([characterPosition], () => {
-		console.log(characterPosition[0], characterPosition[1]);
-	});
 
 	const screenPosition = reactive<[number, number]>([0, 0]);
 
@@ -36,6 +32,10 @@ export const useSpriteStore = defineStore('spriteStore', () => {
 
 	const deregisterSprite = (spriteIndex: number) => {
 		spriteList.splice(spriteIndex, 1);
+	};
+
+	const cleanupSprites = () => {
+		spriteList.splice(0, Infinity);
 	};
 
 	const playerMoveListener = (direction: string) => {
@@ -109,5 +109,6 @@ export const useSpriteStore = defineStore('spriteStore', () => {
 		playerInteract,
 		registerSprite,
 		deregisterSprite,
+		cleanupSprites,
 	};
 });

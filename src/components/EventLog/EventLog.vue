@@ -30,7 +30,7 @@
 	.innerContainer {
 		display: flex;
 		flex-direction: column-reverse;
-		height: 442px;
+		height: 498px;
 		/* height: 100%; */
 		word-wrap: normal;
 		scrollbar-color: grey;

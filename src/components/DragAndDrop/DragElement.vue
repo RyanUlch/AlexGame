@@ -5,7 +5,7 @@
 	// Vue Imports:
 	import { ref, reactive, onMounted, onBeforeUnmount } from 'vue';
 	// Drag Store Import:
-	import { useDragDropStore } from '../../stores/dragStore';
+	import { useDragDropStore } from '../../stores/drag';
 
 	// Props: NOTE: All props are optional - Some props if provided, require other props
 	const props = withDefaults(
