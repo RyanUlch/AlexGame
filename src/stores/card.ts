@@ -39,12 +39,7 @@ export const useCardStore = defineStore('cardInventoryStore', () => {
 		}
 	};
 
-	const useCard = (
-		dropType: string | number,
-		dragId: number | undefined,
-		droppedIntoId: string | number,
-		droppedFromId: string | number,
-	): boolean => {
+	const useCard = (dragId: number | undefined, droppedIntoId: string | number): boolean => {
 		if (droppedIntoId === 'consumer') {
 			const cardIndex = characterCardHand.findIndex((card) => card.uniqueDeckId === dragId);
 			const playerCard = characterCardHand[cardIndex];

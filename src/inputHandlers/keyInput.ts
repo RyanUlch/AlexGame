@@ -1,6 +1,6 @@
 import { usePromptStore } from '@/stores/prompt';
 import { useSpriteStore } from '@/stores/sprite';
-import { useMenuStore } from '@/stores/menus';
+import { useSettingsStore } from '@/stores/settings';
 import { storeToRefs } from 'pinia';
 
 type KeyHandlerMap = {
@@ -11,11 +11,11 @@ const blip = new Audio('src/assets/audio/menuBlip.wav');
 
 const move = (direction: string) => {
 	// If a prompt is open, capture input and handle it
-	const { dontUseAudio } = storeToRefs(useMenuStore());
+	const { isNoAudio } = storeToRefs(useSettingsStore());
 	const promptStore = usePromptStore();
 	if (promptStore.promptIsOpen) {
 		if (direction !== 'n' && direction !== 's') return;
-		if (!dontUseAudio.value) {
+		if (!isNoAudio.value) {
 			blip.play();
 		}
 		promptStore.changeSelection(direction);

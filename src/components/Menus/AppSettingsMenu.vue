@@ -1,9 +1,9 @@
 <script setup lang="ts">
-	import { useMenuStore } from '@/stores/menus';
+	import { useSettingsStore } from '@/stores/settings';
 	import { storeToRefs } from 'pinia';
 	import AppModal from './AppModal.vue';
-	const { settingsMenuIsOpen, dontUseAudio } = storeToRefs(useMenuStore());
-	const { closeSettingsMenu } = useMenuStore();
+	const { settingsMenuIsOpen, isNoAudio } = storeToRefs(useSettingsStore());
+	const { closeSettingsMenu } = useSettingsStore();
 </script>
 
 <template>
@@ -18,7 +18,7 @@
 					<td>
 						<input
 							type="checkbox"
-							v-model.boolean="dontUseAudio" />
+							v-model.boolean="isNoAudio" />
 					</td>
 				</tr>
 			</table>

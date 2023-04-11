@@ -4,6 +4,7 @@ import { defineStore } from 'pinia';
 import { reactive } from 'vue';
 import openLevel0 from '../levels/level0';
 import openLevel1 from '../levels/level1';
+import openTestLevel from '../levels/testLevel';
 import { useSpriteStore } from './sprite';
 // const { characterPosition } = useSpriteStore();
 
@@ -14,7 +15,6 @@ interface Tile {
 	layeredImageSrc?: string;
 	layeredImageCoord?: [number, number];
 	isCharacter?: boolean;
-	// layeredImageSize?:
 }
 
 interface JSONTiles {
@@ -22,6 +22,7 @@ interface JSONTiles {
 }
 
 const levels: { [levelName: string]: () => void } = {
+	test_level: openTestLevel,
 	level0: openLevel0,
 	level1: openLevel1,
 };
@@ -33,8 +34,9 @@ export const useLevelStore = defineStore('levelStore', () => {
 
 	const openLevel = async (levelName: string, characterPosition: [number, number, string]) => {
 		spriteStore.cleanupSprites();
+		console.log(levelName);
 		const startingPosition = convertToMatrix(
-			await fetch(`src/levels/${levelName}.json`)
+			await fetch(`../levels/${levelName}.json`)
 				.then((response: Response) => response.json())
 				.then((json: any) => {
 					return json;

@@ -11,8 +11,8 @@
 	import { useSpriteStore } from './stores/sprite';
 	import AppPrompt from './components/Menus/AppPrompt.vue';
 	import AppSettingsMenu from './components/Menus/AppSettingsMenu.vue';
-	import { useMenuStore } from './stores/menus';
-	const settings = useMenuStore();
+	import { useSettingsStore } from './stores/settings';
+	const settings = useSettingsStore();
 	const cardStore = useCardStore();
 	const playerStore = usePlayerStore();
 	const { health, maxHealth, energy, maxEnergy } = storeToRefs(playerStore);
@@ -30,7 +30,7 @@
 			masterCardId: 'heal',
 			value: 2,
 			effectHandler: () => {
-				return playerStore.useEnergy(1) && playerStore.heal(2);
+				return playerStore.useEnergy(1);
 			},
 		},
 		{
@@ -44,7 +44,7 @@
 			masterCardId: 'energy',
 			value: 3,
 			effectHandler: () => {
-				return playerStore.energize(3);
+				return true;
 			},
 		},
 		{

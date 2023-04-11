@@ -44,6 +44,12 @@ export const useSpriteStore = defineStore('spriteStore', () => {
 		spriteList.splice(0, Infinity);
 	};
 
+	const teleportPlayer = (teleportTo: [number, number, string]) => {
+		characterPosition[0] = teleportTo[0];
+		characterPosition[1] = teleportTo[1];
+		characterPosition[2] = teleportTo[2];
+	};
+
 	const playerMoveListener = (direction: string) => {
 		const newPosition: [number, number, string] = [...characterPosition];
 		switch (direction) {
@@ -97,7 +103,6 @@ export const useSpriteStore = defineStore('spriteStore', () => {
 				--facingPosition[1];
 				break;
 		}
-
 		const interactingSprite = spriteList.findIndex(
 			(sprite) =>
 				sprite.position[0] === facingPosition[0] && sprite.position[1] === facingPosition[1],
@@ -105,8 +110,10 @@ export const useSpriteStore = defineStore('spriteStore', () => {
 		if (interactingSprite > -1 && !spriteList[interactingSprite].isAutoInteract) {
 			if (typeof spriteList[interactingSprite].interactionHandler !== undefined) {
 				spriteList[interactingSprite].interactionHandler();
+				return true;
 			}
 		}
+		return false;
 	};
 
 	return {
@@ -119,6 +126,7 @@ export const useSpriteStore = defineStore('spriteStore', () => {
 		gridCellSize,
 		playerMoveListener,
 		playerInteract,
+		teleportPlayer,
 		registerSprite,
 		deregisterSprite,
 		cleanupSprites,

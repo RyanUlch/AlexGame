@@ -1,24 +1,38 @@
 import { describe, test, expect, beforeEach } from 'vitest';
-import { useMenuStore } from '../stores/menus';
-import { storeToRefs, setActivePinia, createPinia } from 'pinia';
+import { useSettingsStore } from '../stores/settings';
+import { setActivePinia, createPinia } from 'pinia';
 
-describe('menus store', () => {
+// Note: Settings store is most likely to change during game development, new tests will most likely need to be added as development continues
+
+/* STORE INFO
+State:
+	isNoAudio: Ref<boolean>,
+	settingsMenuIsOpen: Ref<boolean>
+
+Methods:
+	openSettingsMenu,
+	closeSettingsMenu,
+*/
+
+describe('Settings Store', () => {
 	let store: any;
-	// const { settingsMenuIsOpen } = storeToRefs(useMenuStore());
 	beforeEach(() => {
 		setActivePinia(createPinia());
-		store = useMenuStore();
+		store = useSettingsStore();
 	});
 
+	// Initial
 	test('settings menu is initially closed', () => {
 		expect(store.settingsMenuIsOpen).equals(false);
 	});
 
+	// openSettingsMenu
 	test('settings menu is open after function call', () => {
 		store.openSettingsMenu();
 		expect(store.settingsMenuIsOpen).toEqual(true);
 	});
 
+	// closeSettingsMenu
 	test('settings menu is closed after function call', () => {
 		store.openSettingsMenu();
 		expect(store.settingsMenuIsOpen).toEqual(true);

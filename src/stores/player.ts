@@ -7,9 +7,9 @@ import { useLogComposable } from '@/composables/logComposable';
 export const usePlayerStore = defineStore('playerStore', () => {
 	const { addLogLine } = useLogComposable();
 
-	const health = ref(3);
+	const health = ref(10);
 	const maxHealth = ref(10);
-	const energy = ref(2);
+	const energy = ref(5);
 	const maxEnergy = ref(5);
 
 	const heal = (amount: number) => {
@@ -18,7 +18,6 @@ export const usePlayerStore = defineStore('playerStore', () => {
 		} else {
 			health.value += amount;
 		}
-		return true;
 	};
 
 	const takeDamage = (amount: number) => {
@@ -38,7 +37,6 @@ export const usePlayerStore = defineStore('playerStore', () => {
 		} else {
 			energy.value += amount;
 		}
-		return true;
 	};
 
 	const useEnergy = (amount: number) => {

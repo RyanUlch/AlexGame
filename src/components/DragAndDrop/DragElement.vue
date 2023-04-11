@@ -12,15 +12,10 @@
 		defineProps<{
 			// If any below used; all are required: - These allow DragElement to be dropped into specific DropElements
 			dragInit?: {
-				dragType: number | string; // This Elements
+				dragType: string;
 				dragId: number | undefined;
 				dropId: number;
-				dropHandler: (
-					dropType: number | string,
-					dragId: number | undefined,
-					droppedIntoId: number | string,
-					droppedFromId: number | string,
-				) => boolean;
+				dropHandler: (dragId: number | undefined, droppedIntoId: number | string) => boolean;
 			};
 			// Optional - Can be used regardless of if the above props are supplied
 			startingOffset?: [string, string];
@@ -145,14 +140,7 @@
 				props.dragInit.dropId,
 			);
 			if (intoDropElementIndex !== null) {
-				if (
-					!props.dragInit.dropHandler(
-						props.dragInit.dragType,
-						props.dragInit.dragId,
-						intoDropElementIndex,
-						props.dragInit.dropId,
-					)
-				) {
+				if (!props.dragInit.dropHandler(props.dragInit.dragId, intoDropElementIndex)) {
 					dragCurrentLocation[0] = dragStartingLocation[0];
 					dragCurrentLocation[1] = dragStartingLocation[1];
 				}
@@ -183,9 +171,5 @@
 		left: v-bind('dragCurrentLocation[1]');
 		transition: v-bind('!isBeingDragged ? "top 250ms, left 250ms" : "none"');
 		pointer-events: v-bind('isBeingDragged ? "none" : "auto"');
-	}
-
-	.dragElement:active {
-		/* position: absolute; */
 	}
 </style>

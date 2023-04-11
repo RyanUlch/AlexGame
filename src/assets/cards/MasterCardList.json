@@ -1,4 +1,11 @@
 {
+	"test": {
+		"imgBase": "img-test",
+		"cardText": "Use test attack for * damage",
+		"energyCost": 2,
+		"target": "front",
+		"effect": "damage"
+	},
 	"power": {
 		"imgBase": "power-temp",
 		"cardText": "Use a power attack for * damage",
