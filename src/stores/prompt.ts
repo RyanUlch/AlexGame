@@ -12,6 +12,7 @@ export type ChoicePromptOptions = {
 	choices: PromptChoice[];
 	message?: string;
 	title?: string;
+	imgSrc?: string;
 };
 
 interface Prompt {

@@ -16,6 +16,7 @@
 		"levels": "cd levelCreator && npx ts-node levelCreator.ts"
 	},
 	"dependencies": {
+		"@vueuse/core": "^9.13.0",
 		"node": "^19.8.1",
 		"pinia": "^2.0.32",
 		"vue": "^3.2.47",

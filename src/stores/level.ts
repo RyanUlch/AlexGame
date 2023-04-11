@@ -36,7 +36,7 @@ export const useLevelStore = defineStore('levelStore', () => {
 		spriteStore.cleanupSprites();
 		console.log(levelName);
 		const startingPosition = convertToMatrix(
-			await fetch(`../levels/${levelName}.json`)
+			await fetch(`src/levels/${levelName}.json`)
 				.then((response: Response) => response.json())
 				.then((json: any) => {
 					return json;

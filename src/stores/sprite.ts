@@ -17,6 +17,7 @@ export const useSpriteStore = defineStore('spriteStore', () => {
 			isAutoInteract: boolean;
 			position: [number, number, string];
 			interactionHandler: () => void;
+			pawnIndex?: number;
 		}[]
 	>([]);
 
@@ -28,12 +29,30 @@ export const useSpriteStore = defineStore('spriteStore', () => {
 		isAutoInteract: boolean,
 		startingPosition: [number, number, string],
 		interaction: () => void,
+		registerPawnIndex?: number,
 	) => {
 		spriteList.push({
 			isAutoInteract: isAutoInteract,
 			position: [...startingPosition],
 			interactionHandler: interaction,
+			pawnIndex: registerPawnIndex,
 		});
+	};
+
+	const affectedCells = (type: string) => {
+		switch (type) {
+			case 'front':
+				const frontPosition = movePosition(characterPosition[2]);
+				return spriteList.findIndex((sprite) => {
+					return sprite.position[0] === frontPosition[0] && sprite.position[1] === frontPosition[1];
+				});
+
+			case 'line':
+				const linePosition = movePosition(characterPosition[2]);
+				return spriteList.findIndex((sprite) => {
+					return sprite.position[0] === frontPosition[0] && sprite.position[1] === frontPosition[1];
+				});
+		}
 	};
 
 	const deregisterSprite = (spriteIndex: number) => {
@@ -50,7 +69,7 @@ export const useSpriteStore = defineStore('spriteStore', () => {
 		characterPosition[2] = teleportTo[2];
 	};
 
-	const playerMoveListener = (direction: string) => {
+	const movePosition = (direction: string) => {
 		const newPosition: [number, number, string] = [...characterPosition];
 		switch (direction) {
 			case 'n':
@@ -66,6 +85,11 @@ export const useSpriteStore = defineStore('spriteStore', () => {
 				--newPosition[1];
 				break;
 		}
+		return newPosition;
+	};
+
+	const playerMoveListener = (direction: string) => {
+		const newPosition = movePosition(direction);
 		if (
 			!(newPosition[0] < 0) &&
 			!(newPosition[1] < 0) &&
@@ -124,6 +148,7 @@ export const useSpriteStore = defineStore('spriteStore', () => {
 		scale,
 		screenSize,
 		gridCellSize,
+		movePosition,
 		playerMoveListener,
 		playerInteract,
 		teleportPlayer,

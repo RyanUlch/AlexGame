@@ -6,7 +6,7 @@
 	import StatsUi from './components/StatsUi/StatsUI.vue';
 	import { useCardStore } from './stores/card';
 	import EventLog from './components/EventLog/EventLog.vue';
-	import { usePlayerStore } from './stores/player';
+	import { usePawnStore } from './stores/pawn';
 	import { storeToRefs } from 'pinia';
 	import { useSpriteStore } from './stores/sprite';
 	import AppPrompt from './components/Menus/AppPrompt.vue';
@@ -14,7 +14,7 @@
 	import { useSettingsStore } from './stores/settings';
 	const settings = useSettingsStore();
 	const cardStore = useCardStore();
-	const playerStore = usePlayerStore();
+	const playerStore = usePawnStore();
 	const { health, maxHealth, energy, maxEnergy } = storeToRefs(playerStore);
 	const { screenSize } = useSpriteStore();
 	// Starting Deck
@@ -45,13 +45,6 @@
 			value: 3,
 			effectHandler: () => {
 				return true;
-			},
-		},
-		{
-			masterCardId: 'jump',
-			value: 1,
-			effectHandler: () => {
-				return playerStore.useEnergy(1);
 			},
 		},
 	]);

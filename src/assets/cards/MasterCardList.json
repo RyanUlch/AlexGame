@@ -32,18 +32,5 @@
 		"energyCost": 1,
 		"target": "self",
 		"effect": "heal"
-	},
-	"jump": {
-		"imgBase": "jump",
-		"cardText": "Jump!",
-		"energyCost": 1,
-		"target": "self",
-		"effect": "jump"
-	},
-	"chop": {
-		"imgBase": "chop",
-		"cardText": "Chop!",
-		"target": "front",
-		"effect": "chop"
 	}
 }

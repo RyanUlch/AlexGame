@@ -1,5 +1,5 @@
 import { setActivePinia, createPinia } from 'pinia';
-import { usePlayerStore } from '../stores/player';
+import { usePawnStore } from '../stores/pawn';
 import { test, describe, expect, beforeEach } from 'vitest';
 import { useLogComposable } from '@/composables/logComposable';
 
@@ -23,7 +23,7 @@ describe('Player Store', () => {
 
 	beforeEach(() => {
 		setActivePinia(createPinia());
-		store = usePlayerStore();
+		store = usePawnStore();
 	});
 
 	// Initial
