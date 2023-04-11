@@ -1,9 +1,19 @@
 <script setup lang="ts">
 	import { useSettingsStore } from '@/stores/settings';
+	import { ref, onUpdated } from 'vue';
 	import { storeToRefs } from 'pinia';
 	import AppModal from './AppModal.vue';
-	const { settingsMenuIsOpen, isNoAudio } = storeToRefs(useSettingsStore());
-	const { closeSettingsMenu } = useSettingsStore();
+	import { AudioPlayer } from '@/Audio/Audio';
+	const { settingsMenuIsOpen } = storeToRefs(useSettingsStore());
+	const { closeSettingsMenu, setVolume, setMuted } = useSettingsStore();
+
+	const volume = ref<number>(100);
+	const muted = ref<boolean>(false);
+
+	onUpdated(() => {
+		AudioPlayer.isMuted = muted.value;
+		AudioPlayer.volume = volume.value / 100;
+	});
 </script>
 
 <template>
@@ -18,7 +28,19 @@
 					<td>
 						<input
 							type="checkbox"
-							v-model.boolean="isNoAudio" />
+							id="muted"
+							name="muted"
+							v-model.boolean="muted" />
+					</td>
+					<td>Set Volume:</td>
+					<td>
+						<input
+							type="range"
+							id="vol"
+							name="vol"
+							min="0"
+							max="100"
+							v-model.number="volume" />
 					</td>
 				</tr>
 			</table>

@@ -1,23 +1,19 @@
 import { usePromptStore } from '@/stores/prompt';
 import { useSpriteStore } from '@/stores/sprite';
-import { useSettingsStore } from '@/stores/settings';
-import { storeToRefs } from 'pinia';
+import { AudioPlayer } from '../Audio/Audio';
 
 type KeyHandlerMap = {
 	[key: string]: (event: KeyboardEvent) => void;
 };
 
-const blip = new Audio('src/assets/audio/menuBlip.wav');
+const blip = new AudioPlayer('src/assets/audio/menuBlip.wav');
 
 const move = (direction: string) => {
 	// If a prompt is open, capture input and handle it
-	const { isNoAudio } = storeToRefs(useSettingsStore());
 	const promptStore = usePromptStore();
 	if (promptStore.promptIsOpen) {
 		if (direction !== 'n' && direction !== 's') return;
-		if (!isNoAudio.value) {
-			blip.play();
-		}
+		blip.play();
 		promptStore.changeSelection(direction);
 		return;
 	}

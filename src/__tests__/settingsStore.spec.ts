@@ -6,7 +6,6 @@ import { setActivePinia, createPinia } from 'pinia';
 
 /* STORE INFO
 State:
-	isNoAudio: Ref<boolean>,
 	settingsMenuIsOpen: Ref<boolean>
 
 Methods:

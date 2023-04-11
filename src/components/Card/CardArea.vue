@@ -18,7 +18,7 @@
 			dragElementType="card"
 			dropElementIndex="playerHand"
 			class="hand">
-			<Card
+			<!-- <Card
 				v-for="card in cardStore.characterCardHand"
 				:key="card.uniqueDeckId"
 				:cardImageBase="cardData[card.masterCardId].imgBase"
@@ -30,7 +30,7 @@
 					dragId: card.uniqueDeckId,
 					dropId: 0,
 					dropHandler: cardStore.useCard,
-				}"></Card>
+				}"></Card> -->
 		</DropElement>
 		<DropElement
 			dropElementIndex="discard"
