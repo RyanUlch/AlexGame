@@ -1,8 +1,6 @@
-import type { ComputedRef } from 'vue';
-
 export class AudioPlayer {
-	static isMuted: boolean;
-	static volume: number;
+	static isMuted: boolean = false;
+	static volume: number = 1;
 	audio: HTMLAudioElement;
 
 	getVolume = () => {};
@@ -13,7 +11,7 @@ export class AudioPlayer {
 
 	play = () => {
 		if (!AudioPlayer.isMuted) {
-			this.audio.volume = AudioPlayer.volume;
+			this.audio.volume = AudioPlayer.volume / 100;
 			this.audio.play();
 		}
 	};

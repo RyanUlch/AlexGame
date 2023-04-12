@@ -3,8 +3,6 @@ import { defineStore } from 'pinia';
 import { reactive, computed } from 'vue';
 import { useLogComposable } from '../composables/logComposable';
 import cardData from '../assets/cards/MasterCardList.json';
-import { useStorage } from '@vueuse/core';
-import type { RemovableRef } from '@vueuse/core';
 import { usePawnStore } from './pawn';
 import { useSpriteStore } from './sprite';
 
@@ -30,56 +28,41 @@ const masterCardList: {
 export const useCardStore = defineStore('cardInventoryStore', () => {
 	let uniqueCardIndex = 0;
 
-	const characterDrawPile: RemovableRef<Card[]> = useStorage('characterDrawPile', []);
-	const characterCardHand: RemovableRef<Card[]> = useStorage('characterCardHand', []);
-	const characterDiscard: RemovableRef<Card[]> = useStorage('characterDiscard', []);
+	const characterDrawPile: Card[] = reactive([]);
+	const characterCardHand: Card[] = reactive([]);
+	const characterDiscard: Card[] = reactive([]);
 
 	const drawPileAmount = computed(() => {
-		return `You have ${characterDrawPile.value.length} cards in your draw pile`;
+		return `You have ${characterDrawPile.length} cards in your draw pile`;
 	});
 
 	const shuffleDrawPile = () => {
-		let currentIndex = characterDrawPile.value.length;
+		let currentIndex = characterDrawPile.length;
 		let randomIndex: number;
 		while (currentIndex !== 0) {
 			randomIndex = Math.floor(Math.random() * currentIndex);
 			--currentIndex;
-			[characterDrawPile.value[currentIndex], characterDrawPile.value[randomIndex]] = [
-				characterDrawPile.value[randomIndex],
-				characterDrawPile.value[currentIndex],
+			[characterDrawPile[currentIndex], characterDrawPile[randomIndex]] = [
+				characterDrawPile[randomIndex],
+				characterDrawPile[currentIndex],
 			];
-		}
-	};
-
-	const targetPawn = (target: string) => {
-		const spriteStore = useSpriteStore();
-		spriteStore.characterPosition;
-		switch (target) {
-			case 'self':
-				return -1;
-			case 'front':
-				const frontPosition = spriteStore.movePosition(spriteStore.characterPosition[2]);
-
-				return;
-			default:
-				throw new Error(`Add ${target} to target switch`);
 		}
 	};
 
 	const cardEffect = (cardEffect: string, value: number, target: string) => {
 		const pawnStore = usePawnStore();
-		const pawnIndex = targetPawn(target);
+		const spiritStore = useSpriteStore();
+		const affectedPawns = spiritStore.affectedSprites(target);
 		switch (cardEffect) {
 			case 'heal':
-				if (pawnIndex) {
-					pawnStore.heal(value, pawnIndex);
-					return true;
+				for (const pawn of affectedPawns) {
+					pawnStore.heal(value, pawn);
 				}
 				return false;
 
 			case 'damage':
-				if (pawnIndex) {
-					pawnStore.takeDamage(value, pawnIndex);
+				for (const pawn of affectedPawns) {
+					pawnStore.takeDamage(value, pawn);
 					return true;
 				}
 				return false;
@@ -94,8 +77,8 @@ export const useCardStore = defineStore('cardInventoryStore', () => {
 
 	const useCard = (dragId: number | undefined, droppedIntoId: string | number): boolean => {
 		if (droppedIntoId === 'consumer') {
-			const cardIndex = characterCardHand.value.findIndex((card) => card.uniqueDeckId === dragId);
-			const playerCard = characterCardHand.value[cardIndex];
+			const cardIndex = characterCardHand.findIndex((card) => card.uniqueDeckId === dragId);
+			const playerCard = characterCardHand[cardIndex];
 			const masterCard = masterCardList[playerCard.masterCardId];
 			if (cardEffect(masterCard.effect, playerCard.value, masterCard.target)) {
 				addLogLine(`${masterCard.effect} for ${playerCard.value}, to ${masterCard.target}`);
@@ -104,7 +87,7 @@ export const useCardStore = defineStore('cardInventoryStore', () => {
 			}
 			return false;
 		} else if (droppedIntoId === 'discard') {
-			const cardIndex = characterCardHand.value.findIndex((card) => card.uniqueDeckId === dragId);
+			const cardIndex = characterCardHand.findIndex((card) => card.uniqueDeckId === dragId);
 			discardCard(cardIndex);
 			return true;
 		} else {
@@ -113,33 +96,33 @@ export const useCardStore = defineStore('cardInventoryStore', () => {
 	};
 
 	const drawCards = (drawNumber: number) => {
-		const drawnCards = characterDrawPile.value.splice(0, drawNumber);
-		if (drawnCards.length < drawNumber && characterDiscard.value.length > 0) {
+		const drawnCards = characterDrawPile.splice(0, drawNumber);
+		if (drawnCards.length < drawNumber && characterDiscard.length > 0) {
 			addLogLine('Shuffling discards back into Draw Pile');
 			refreshDrawPile();
-			drawnCards.push(...characterDrawPile.value.splice(0, drawNumber - drawnCards.length));
+			drawnCards.push(...characterDrawPile.splice(0, drawNumber - drawnCards.length));
 		}
 		if (drawnCards.length < drawNumber) {
 			addLogLine('No Cards left to draw');
 		}
-		characterCardHand.value.push(...drawnCards);
+		characterCardHand.push(...drawnCards);
 	};
 
 	const refreshDrawPile = () => {
-		characterDrawPile.value.push(...characterDiscard.value.splice(0, Infinity));
+		characterDrawPile.push(...characterDiscard.splice(0, Infinity));
 		shuffleDrawPile();
 	};
 
 	const discardCard = (cardHandIndex: number) => {
-		characterDiscard.value.push(...characterCardHand.value.splice(cardHandIndex, 1));
+		characterDiscard.push(...characterCardHand.splice(cardHandIndex, 1));
 	};
 
 	const discardHand = () => {
-		characterDiscard.value.push(...characterCardHand.value.splice(0, Infinity));
+		characterDiscard.push(...characterCardHand.splice(0, Infinity));
 	};
 
 	const addCardToDeck = (newCard: Card) => {
-		characterDiscard.value.push({
+		characterDiscard.push({
 			masterCardId: newCard.masterCardId,
 			uniqueDeckId: uniqueCardIndex,
 			value: newCard.value,

@@ -5,14 +5,13 @@
 	import AppModal from './AppModal.vue';
 	import { AudioPlayer } from '@/Audio/Audio';
 	const { settingsMenuIsOpen } = storeToRefs(useSettingsStore());
-	const { closeSettingsMenu, setVolume, setMuted } = useSettingsStore();
+	const { closeSettingsMenu } = useSettingsStore();
 
 	const volume = ref<number>(100);
 	const muted = ref<boolean>(false);
-
 	onUpdated(() => {
 		AudioPlayer.isMuted = muted.value;
-		AudioPlayer.volume = volume.value / 100;
+		AudioPlayer.volume = volume.value;
 	});
 </script>
 

@@ -3,6 +3,7 @@
 import { defineStore } from 'pinia';
 import { reactive, ref } from 'vue';
 import { useLevelStore } from './level';
+import { usePawnStore } from './pawn';
 
 export const useSpriteStore = defineStore('spriteStore', () => {
 	const levelStore = useLevelStore();
@@ -29,33 +30,63 @@ export const useSpriteStore = defineStore('spriteStore', () => {
 		isAutoInteract: boolean,
 		startingPosition: [number, number, string],
 		interaction: () => void,
-		registerPawnIndex?: number,
+		pawnIndex?: number,
 	) => {
 		spriteList.push({
 			isAutoInteract: isAutoInteract,
 			position: [...startingPosition],
 			interactionHandler: interaction,
-			pawnIndex: registerPawnIndex,
+			pawnIndex: pawnIndex,
 		});
+		return spriteList.length - 1;
 	};
 
-	const affectedCells = (type: string) => {
+	const affectedSprites = (type: string) => {
+		const affectedSpritesList: number[] = [];
 		switch (type) {
 			case 'front':
-				const frontPosition = movePosition(characterPosition[2]);
-				return spriteList.findIndex((sprite) => {
+				const frontPosition = movePosition(characterPosition[2], characterPosition);
+				const frontSprite = spriteList.find((sprite) => {
 					return sprite.position[0] === frontPosition[0] && sprite.position[1] === frontPosition[1];
-				});
-
+				})?.pawnIndex;
+				if (frontSprite && frontSprite > -1) {
+					affectedSpritesList.push(frontSprite);
+				}
+				break;
 			case 'line':
-				const linePosition = movePosition(characterPosition[2]);
-				return spriteList.findIndex((sprite) => {
-					return sprite.position[0] === frontPosition[0] && sprite.position[1] === frontPosition[1];
-				});
+				const linePosition1 = movePosition(characterPosition[2], characterPosition);
+				const linePosition2 = movePosition(characterPosition[2], linePosition1);
+				const linePosition3 = movePosition(characterPosition[2], linePosition2);
+				const sprite1 = spriteList.find((sprite) => {
+					return sprite.position[0] === linePosition1[0] && sprite.position[1] === linePosition1[1];
+				})?.pawnIndex;
+				const sprite2 = spriteList.find(
+					(sprite) =>
+						sprite.position[0] === linePosition2[0] && sprite.position[1] === linePosition2[1],
+				)?.pawnIndex;
+				const sprite3 = spriteList.find(
+					(sprite) =>
+						sprite.position[0] === linePosition3[0] && sprite.position[1] === linePosition3[1],
+				)?.pawnIndex;
+				if (sprite1 !== undefined && sprite1 > -1) {
+					affectedSpritesList.push(sprite1);
+				}
+				if (sprite2 !== undefined && sprite2 > -1) {
+					affectedSpritesList.push(sprite2);
+				}
+				if (sprite3 !== undefined && sprite3 > -1) {
+					affectedSpritesList.push(sprite3);
+				}
+				break;
 		}
+		return affectedSpritesList;
 	};
 
 	const deregisterSprite = (spriteIndex: number) => {
+		const spritePos = spriteList[spriteIndex].position;
+		levelStore.levelMatrix[spritePos[0]][spritePos[1]].layeredImageSrc = undefined;
+		levelStore.levelMatrix[spritePos[0]][spritePos[1]].layeredImageCoord = undefined;
+		levelStore.levelMatrix[spritePos[0]][spritePos[1]].impassible = false;
 		spriteList.splice(spriteIndex, 1);
 	};
 
@@ -69,8 +100,8 @@ export const useSpriteStore = defineStore('spriteStore', () => {
 		characterPosition[2] = teleportTo[2];
 	};
 
-	const movePosition = (direction: string) => {
-		const newPosition: [number, number, string] = [...characterPosition];
+	const movePosition = (direction: string, startingPosition: [number, number, string]) => {
+		const newPosition: [number, number, string] = [...startingPosition];
 		switch (direction) {
 			case 'n':
 				--newPosition[0];
@@ -89,7 +120,7 @@ export const useSpriteStore = defineStore('spriteStore', () => {
 	};
 
 	const playerMoveListener = (direction: string) => {
-		const newPosition = movePosition(direction);
+		const newPosition = movePosition(direction, characterPosition);
 		if (
 			!(newPosition[0] < 0) &&
 			!(newPosition[1] < 0) &&
@@ -148,6 +179,7 @@ export const useSpriteStore = defineStore('spriteStore', () => {
 		scale,
 		screenSize,
 		gridCellSize,
+		affectedSprites,
 		movePosition,
 		playerMoveListener,
 		playerInteract,

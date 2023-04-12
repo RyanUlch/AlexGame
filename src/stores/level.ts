@@ -34,7 +34,6 @@ export const useLevelStore = defineStore('levelStore', () => {
 
 	const openLevel = async (levelName: string, characterPosition: [number, number, string]) => {
 		spriteStore.cleanupSprites();
-		console.log(levelName);
 		const startingPosition = convertToMatrix(
 			await fetch(`src/levels/${levelName}.json`)
 				.then((response: Response) => response.json())

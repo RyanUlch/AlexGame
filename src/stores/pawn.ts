@@ -1,7 +1,7 @@
 /* eslint-disable no-mixed-spaces-and-tabs */
 // Pinia/Vue type Imports:
 import { defineStore } from 'pinia';
-import { ref } from 'vue';
+import { ref, reactive } from 'vue';
 import { useLogComposable } from '@/composables/logComposable';
 
 export const usePawnStore = defineStore('pawnStore', () => {
@@ -12,15 +12,16 @@ export const usePawnStore = defineStore('pawnStore', () => {
 	const energy = ref(5);
 	const maxEnergy = ref(5);
 
-	const npcList: { id: string; health: number }[] = [];
+	const npcList: { id: number; health: number; onZeroHealth: () => void }[] = reactive([]);
 
-	const registerNpc = (npcId: string, startingHealth: number) => {
-		npcList.push({ id: npcId, health: startingHealth });
+	const registerNpc = (spriteIndex: number, startingHealth: number, deathHandler: () => void) => {
+		npcList.push({ id: spriteIndex, health: startingHealth, onZeroHealth: deathHandler });
 	};
 
-	const deregisterNpc = (npcIndex: number) => {
-		if (npcIndex > -1) {
-			npcList.splice(npcIndex, 1);
+	const deregisterNpc = (spriteId: number) => {
+		const index = npcList.findIndex((npc) => npc.id === spriteId);
+		if (index > -1) {
+			npcList.splice(index, 1);
 		}
 	};
 
@@ -49,7 +50,8 @@ export const usePawnStore = defineStore('pawnStore', () => {
 		} else {
 			npcList[index].health -= amount;
 			if (npcList[index].health <= 0) {
-				deregisterNpc(index);
+				console.log(index);
+				npcList[index].onZeroHealth();
 			}
 		}
 	};

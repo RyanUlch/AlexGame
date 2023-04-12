@@ -1,5 +1,6 @@
 <script setup lang="ts">
 	import Card from './Card.vue';
+	import { reactive } from 'vue';
 	import { useCardStore } from '../../stores/card';
 	import DropElement from '../DragAndDrop/DropElement.vue';
 	import cardData from '../../assets/cards/MasterCardList.json';
@@ -7,6 +8,15 @@
 	const drawCards = () => {
 		cardStore.drawCards(3);
 	};
+	const masterCardList: {
+		[key: string]: {
+			effect: string;
+			imgBase: string;
+			cardText: string;
+			target: string;
+			energyCost?: number;
+		};
+	} = reactive(cardData);
 </script>
 <template>
 	<div class="cardArea">
@@ -18,19 +28,19 @@
 			dragElementType="card"
 			dropElementIndex="playerHand"
 			class="hand">
-			<!-- <Card
+			<Card
 				v-for="card in cardStore.characterCardHand"
 				:key="card.uniqueDeckId"
-				:cardImageBase="cardData[card.masterCardId].imgBase"
-				:cardText="cardData[card.masterCardId].cardText"
+				:cardImageBase="masterCardList[card.masterCardId].imgBase"
+				:cardText="masterCardList[card.masterCardId].cardText"
 				:value="card.value"
-				:energyCost="cardData[card.masterCardId].energyCost"
+				:energyCost="masterCardList[card.masterCardId].energyCost"
 				:dragInit="{
 					dragType: 'card',
 					dragId: card.uniqueDeckId,
 					dropId: 0,
 					dropHandler: cardStore.useCard,
-				}"></Card> -->
+				}"></Card>
 		</DropElement>
 		<DropElement
 			dropElementIndex="discard"
