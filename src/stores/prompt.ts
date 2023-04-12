@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
 import { computed, ref } from 'vue';
-import conversationsData from '../assets/conversations.json';
+import conversationsData from '../assets/conversations/conversations.json';
 import * as zod from 'zod';
 
 export type PromptChoice = {

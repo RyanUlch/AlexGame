@@ -2,9 +2,9 @@
 // Pinia/Vue type Imports:
 import { defineStore } from 'pinia';
 import { reactive } from 'vue';
-import openLevel0 from '../levels/level0';
-import openLevel1 from '../levels/level1';
-import openTestLevel from '../levels/testLevel';
+import openLevel0 from '../assets/levels/level0';
+import openLevel1 from '../assets/levels/level1';
+import openTestLevel from '../assets/levels/testLevel';
 import { usePawnStore } from './pawn';
 
 interface Tile {
@@ -31,18 +31,18 @@ export const useLevelStore = defineStore('levelStore', () => {
 	const levelMatrix = reactive<Tile[][]>([]);
 	const pawnStore = usePawnStore();
 
-	const openLevel = async (levelName: string, characterPosition: [number, number, string]) => {
+	const openLevel = async (levelName: string) => {
 		pawnStore.cleanupSprites();
 		const startingPosition = convertToMatrix(
-			await fetch(`src/levels/${levelName}.json`)
+			await fetch(`src/assets/levels/${levelName}.json`)
 				.then((response: Response) => response.json())
 				.then((json: any) => {
 					return json;
 				}),
 		);
-		characterPosition[0] = +startingPosition[0];
-		characterPosition[1] = +startingPosition[1];
-		characterPosition[2] = `${startingPosition[2]}`;
+		pawnStore.characterPosition[0] = +startingPosition[0];
+		pawnStore.characterPosition[1] = +startingPosition[1];
+		pawnStore.characterPosition[2] = `${startingPosition[2]}`;
 		levels[levelName]();
 	};
 

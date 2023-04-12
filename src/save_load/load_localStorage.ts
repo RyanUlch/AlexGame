@@ -5,7 +5,7 @@ const load = () => {
 		'pawn',
 	)},"level": ${localStorage.getItem('level')},"AudioPlayer": ${localStorage.getItem(
 		'AudioPlayer',
-	)}}`;
+	)}, "timeline": ${localStorage.getItem('timeline')}}`;
 	loadState(file);
 	return true;
 };

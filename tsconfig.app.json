@@ -4,8 +4,9 @@
 		"env.d.ts",
 		"src/**/*",
 		"src/**/*.vue",
+		"src/assets/interactions/interactions.ts",
 		"src/assets/cards/MasterCardList.json",
-		"src/assets/conversations.json",
+		"src/assets/conversations/conversations.json",
 		"conversationCreator"
 	],
 	"exclude": ["src/**/__tests__/*"],

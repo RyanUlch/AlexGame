@@ -1,12 +1,14 @@
 import { useCardStore } from '@/stores/card';
 import { usePawnStore } from '@/stores/pawn';
 import { useLevelStore } from '@/stores/level';
+import { useTimelineStore } from '@/stores/timeline';
 import { AudioPlayer } from '@/Audio/Audio';
 
 const saveState = () => {
 	const cardStore = useCardStore();
 	const pawnStore = usePawnStore();
 	const levelStore = useLevelStore();
+	const timelineStore = useTimelineStore();
 
 	// prettier-ignore
 	const statesToSave: {[store: string]: {[state: string]: any}} = {
@@ -27,6 +29,9 @@ const saveState = () => {
 		"level": {
 			"levelMatrix": levelStore.levelMatrix
 		},
+		"timeline": {
+			"characterStatus": timelineStore.characterStatus,
+		}
 	}
 
 	// prettier-ignore

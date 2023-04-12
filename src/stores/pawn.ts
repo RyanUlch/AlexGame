@@ -4,6 +4,7 @@ import { defineStore } from 'pinia';
 import { ref, reactive } from 'vue';
 import { useLogComposable } from '@/composables/logComposable';
 import { useLevelStore } from './level';
+import { runInteraction } from '../assets/interactions/interactions';
 
 export const usePawnStore = defineStore('pawnStore', () => {
 	const { addLogLine } = useLogComposable();
@@ -14,7 +15,6 @@ export const usePawnStore = defineStore('pawnStore', () => {
 	const characterPosition = reactive<[number, number, string]>([5, 3, 's']);
 	const screenPosition = reactive<[number, number]>([0, 0]);
 	const characterId = ref('1');
-
 	const health = ref(10);
 	const maxHealth = ref(10);
 	const energy = ref(5);
@@ -25,9 +25,11 @@ export const usePawnStore = defineStore('pawnStore', () => {
 			spriteId: number | string;
 			isAutoInteract: boolean;
 			position: [number, number, string];
-			interactionHandler: () => void;
-			health: number;
-			onZeroHealth: () => void;
+			interactionName: string;
+			interactionArgs: any[];
+			health?: number;
+			deathInteraction?: string;
+			deathInteractionArgs?: any[];
 		}[]
 	>([]);
 
@@ -35,19 +37,22 @@ export const usePawnStore = defineStore('pawnStore', () => {
 		id: number | string,
 		isAutoInteract: boolean,
 		startingPosition: [number, number, string],
-		interaction: () => void,
-		startingHealth: number,
-		deathHandler: () => void,
+		interactionName: string,
+		interactionArgs: any[],
+		startingHealth?: number,
+		deathInteraction?: string,
+		deathInteractionArgs?: any[],
 	) => {
 		spriteList.push({
 			spriteId: id,
 			isAutoInteract: isAutoInteract,
 			position: [...startingPosition],
-			interactionHandler: interaction,
+			interactionName: interactionName,
+			interactionArgs: interactionArgs,
 			health: startingHealth,
-			onZeroHealth: deathHandler,
+			deathInteraction: deathInteraction,
+			deathInteractionArgs: deathInteractionArgs,
 		});
-		return spriteList.length - 1;
 	};
 
 	const deregisterSprite = (spriteIndex: number) => {
@@ -72,7 +77,11 @@ export const usePawnStore = defineStore('pawnStore', () => {
 				health.value += amount;
 			}
 		} else {
-			spriteList[index].health += amount;
+			if (typeof spriteList[index].health === 'number') {
+				// Bug: getting "Object is possibly 'null'.ts(2531)" even with checks
+				//@ts-ignore
+				spriteList[index].health += amount;
+			}
 		}
 	};
 
@@ -87,9 +96,20 @@ export const usePawnStore = defineStore('pawnStore', () => {
 				return true;
 			}
 		} else {
-			spriteList[index].health -= amount;
-			if (spriteList[index].health <= 0) {
-				spriteList[index].onZeroHealth();
+			if (typeof spriteList[index].health === 'number') {
+				// Bug: getting "Object is possibly 'null'.ts(2531)" even with checks
+				//@ts-ignore
+				spriteList[index].health -= amount;
+				//@ts-ignore
+				if (spriteList[index].health <= 0) {
+					if (spriteList[index].deathInteraction) {
+						runInteraction(
+							//@ts-ignore
+							spriteList[index].deathInteraction,
+							spriteList[index].deathInteractionArgs,
+						);
+					}
+				}
 			}
 		}
 	};
@@ -139,8 +159,11 @@ export const usePawnStore = defineStore('pawnStore', () => {
 				sprite.position[0] === facingPosition[0] && sprite.position[1] === facingPosition[1],
 		);
 		if (interactingSprite > -1 && !spriteList[interactingSprite].isAutoInteract) {
-			if (typeof spriteList[interactingSprite].interactionHandler !== undefined) {
-				spriteList[interactingSprite].interactionHandler();
+			if (spriteList[interactingSprite].interactionName) {
+				runInteraction(
+					spriteList[interactingSprite].interactionName,
+					spriteList[interactingSprite].interactionArgs,
+				);
 				return true;
 			}
 		}
@@ -179,7 +202,10 @@ export const usePawnStore = defineStore('pawnStore', () => {
 				return action.position[0] === newPosition[0] && action.position[1] === newPosition[1];
 			});
 			if (actionCell >= 0 && spriteList[actionCell].isAutoInteract) {
-				spriteList[actionCell].interactionHandler();
+				runInteraction(
+					spriteList[actionCell].interactionName,
+					spriteList[actionCell].interactionArgs,
+				);
 			}
 			characterPosition[0] = newPosition[0];
 			characterPosition[1] = newPosition[1];
