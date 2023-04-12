@@ -49,29 +49,33 @@ export const useCardStore = defineStore('cardInventoryStore', () => {
 		}
 	};
 
-	const cardEffect = (cardEffect: string, value: number, target: string) => {
+	const cardEffect = (cardEffect: string, value: number, target: string, cost: number = 0) => {
 		const pawnStore = usePawnStore();
 		const spiritStore = useSpriteStore();
 		const affectedPawns = spiritStore.affectedSprites(target);
-		switch (cardEffect) {
-			case 'heal':
-				for (const pawn of affectedPawns) {
-					pawnStore.heal(value, pawn);
-				}
-				break;
-			case 'damage':
-				for (const pawn of affectedPawns) {
-					pawnStore.takeDamage(value, pawn);
-				}
-				break;
-			case 'recharge':
-				pawnStore.energize(value);
-				break;
-			case 'test':
-				break;
-			default:
-				throw new Error(`Add ${cardEffect} card effect handler to card.ts store`);
+		if (pawnStore.useEnergy(cost)) {
+			switch (cardEffect) {
+				case 'heal':
+					for (const pawn of affectedPawns) {
+						pawnStore.heal(value, pawn);
+					}
+					break;
+				case 'damage':
+					for (const pawn of affectedPawns) {
+						pawnStore.takeDamage(value, pawn);
+					}
+					break;
+				case 'recharge':
+					pawnStore.energize(value);
+					break;
+				case 'test':
+					break;
+				default:
+					throw new Error(`Add ${cardEffect} card effect handler to card.ts store`);
+			}
+			return true;
 		}
+		return false;
 	};
 
 	const useCard = (dragId: number | undefined, droppedIntoId: string | number): boolean => {
@@ -79,10 +83,14 @@ export const useCardStore = defineStore('cardInventoryStore', () => {
 			const cardIndex = characterCardHand.findIndex((card) => card.uniqueDeckId === dragId);
 			const playerCard = characterCardHand[cardIndex];
 			const masterCard = masterCardList[playerCard.masterCardId];
-			cardEffect(masterCard.effect, playerCard.value, masterCard.target);
-			addLogLine(`${masterCard.effect} for ${playerCard.value}, to ${masterCard.target}`);
-			discardCard(cardIndex);
-			return true;
+			if (
+				cardEffect(masterCard.effect, playerCard.value, masterCard.target, masterCard.energyCost)
+			) {
+				addLogLine(`${masterCard.effect} for ${playerCard.value}, to ${masterCard.target}`);
+				discardCard(cardIndex);
+				return true;
+			}
+			return false;
 		} else if (droppedIntoId === 'discard') {
 			const cardIndex = characterCardHand.findIndex((card) => card.uniqueDeckId === dragId);
 			discardCard(cardIndex);
