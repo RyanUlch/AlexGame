@@ -30,21 +30,21 @@ describe('Sprite Store', () => {
 
 	// registerSprite
 	test('registers spirit to interact with', () => {
-		store.registerSprite(false, [0, 0, 'n'], () => {});
+		store.registerSprite(false, [-1, -1, 'n'], () => {});
 		expect(store.spriteList).toHaveLength(1);
 	});
 
 	// deregisterSprite
 	test('deregisters specific spirit to interact with', () => {
-		store.registerSprite(false, [0, 0, 'n'], () => {});
+		store.registerSprite(false, [-1, -1, 'n'], () => {});
 		store.deregisterSprite(0);
 		expect(store.spriteList).toHaveLength(0);
 	});
 
 	// cleanupSprites
 	test('Remove all sprites (used to clean up level for new load)', () => {
-		store.registerSprite(false, [0, 0, 'n'], () => {});
-		store.registerSprite(true, [1, 1, 's'], () => {});
+		store.registerSprite(false, [-1, -1, 'n'], () => {});
+		store.registerSprite(true, [-1, -1, 'n'], () => {});
 		store.cleanupSprites();
 		expect(store.spriteList).toHaveLength(0);
 	});

@@ -2,8 +2,7 @@
 	"test": {
 		"imgBase": "img-test",
 		"cardText": "Use test attack for * damage",
-		"energyCost": 2,
-		"target": "front",
+		"target": "self",
 		"effect": "damage"
 	},
 	"power": {

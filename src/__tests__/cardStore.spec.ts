@@ -215,7 +215,7 @@ describe('Card Inventory Store', () => {
 		store.refreshDrawPile();
 		store.drawCards(2);
 		expect(store.useCard(0, 'consumer')).toEqual(true);
-		expect(log).length(1);
+		expect(log).toHaveLength(1);
 		expect(store.characterDiscard).toHaveLength(1);
 		expect(store.characterCardHand).toHaveLength(1);
 	});
@@ -245,32 +245,6 @@ describe('Card Inventory Store', () => {
 		expect(store.useCard(0, 'discard')).toEqual(true);
 		expect(store.characterDiscard).toHaveLength(1);
 		expect(store.characterCardHand).toHaveLength(1);
-	});
-
-	// useCard - 'consumer' - Failure
-	test('Returns false when effect handler return false in consumer', () => {
-		store.addCardsToDeck([
-			{
-				masterCardId: 'test',
-				uniqueDeckId: 0,
-				value: 0,
-				effectHandler: () => {
-					return false;
-				},
-			},
-			{
-				masterCardId: 'test',
-				uniqueDeckId: 1,
-				value: 0,
-				effectHandler: () => {
-					return false;
-				},
-			},
-		]);
-		store.refreshDrawPile();
-		store.drawCards(2);
-		expect(store.useCard(0, 'consumer')).toEqual(false);
-		expect(store.characterCardHand).toHaveLength(2);
 	});
 
 	// useCard - 'discard' - Failure

@@ -78,15 +78,20 @@ export const useSpriteStore = defineStore('spriteStore', () => {
 					affectedSpritesList.push(sprite3);
 				}
 				break;
+			case 'self':
+				affectedSpritesList.push(-1);
+				break;
 		}
 		return affectedSpritesList;
 	};
 
 	const deregisterSprite = (spriteIndex: number) => {
 		const spritePos = spriteList[spriteIndex].position;
-		levelStore.levelMatrix[spritePos[0]][spritePos[1]].layeredImageSrc = undefined;
-		levelStore.levelMatrix[spritePos[0]][spritePos[1]].layeredImageCoord = undefined;
-		levelStore.levelMatrix[spritePos[0]][spritePos[1]].impassible = false;
+		if (spritePos[0] > -1) {
+			levelStore.levelMatrix[spritePos[0]][spritePos[1]].layeredImageSrc = undefined;
+			levelStore.levelMatrix[spritePos[0]][spritePos[1]].layeredImageCoord = undefined;
+			levelStore.levelMatrix[spritePos[0]][spritePos[1]].impassible = false;
+		}
 		spriteList.splice(spriteIndex, 1);
 	};
 

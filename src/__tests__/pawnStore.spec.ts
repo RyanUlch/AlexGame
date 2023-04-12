@@ -34,28 +34,28 @@ describe('Player Store', () => {
 
 	// takeDamage - Health left
 	test('taking damages lowers players health', () => {
-		expect(store.takeDamage(4)).toEqual(true);
+		expect(store.takeDamage(4, -1)).toEqual(true);
 		expect(store.health).toEqual(store.maxHealth - 4);
 	});
 
 	// takeDamage - No More Health
 	test('taking damage more than maxHealth kills player', () => {
-		expect(store.takeDamage(store.maxHealth + 1)).toEqual(false);
+		expect(store.takeDamage(store.maxHealth + 1, -1)).toEqual(false);
 		expect(store.health).toEqual(0);
 		expect(log).toHaveLength(1);
 	});
 
 	// heal - Under maxHealth
 	test('healing after damage sets the players health to the correct value', () => {
-		store.takeDamage(store.maxHealth - 1);
-		store.heal(1);
+		store.takeDamage(store.maxHealth - 1, -1);
+		store.heal(1, -1);
 		expect(store.health).toEqual(2);
 	});
 
 	// heal - over maxHealth
 	test('healing after damage sets the players health to maxHealth', () => {
-		store.takeDamage(store.maxHealth - 1);
-		store.heal(store.maxHealth + 1);
+		store.takeDamage(store.maxHealth - 1, -1);
+		store.heal(store.maxHealth + 1, -1);
 		expect(store.health).toEqual(store.maxHealth);
 	});
 

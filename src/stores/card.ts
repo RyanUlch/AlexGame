@@ -58,18 +58,17 @@ export const useCardStore = defineStore('cardInventoryStore', () => {
 				for (const pawn of affectedPawns) {
 					pawnStore.heal(value, pawn);
 				}
-				return false;
-
+				break;
 			case 'damage':
 				for (const pawn of affectedPawns) {
 					pawnStore.takeDamage(value, pawn);
-					return true;
 				}
-				return false;
-
+				break;
 			case 'recharge':
 				pawnStore.energize(value);
-				return true;
+				break;
+			case 'test':
+				break;
 			default:
 				throw new Error(`Add ${cardEffect} card effect handler to card.ts store`);
 		}
@@ -80,12 +79,10 @@ export const useCardStore = defineStore('cardInventoryStore', () => {
 			const cardIndex = characterCardHand.findIndex((card) => card.uniqueDeckId === dragId);
 			const playerCard = characterCardHand[cardIndex];
 			const masterCard = masterCardList[playerCard.masterCardId];
-			if (cardEffect(masterCard.effect, playerCard.value, masterCard.target)) {
-				addLogLine(`${masterCard.effect} for ${playerCard.value}, to ${masterCard.target}`);
-				discardCard(cardIndex);
-				return true;
-			}
-			return false;
+			cardEffect(masterCard.effect, playerCard.value, masterCard.target);
+			addLogLine(`${masterCard.effect} for ${playerCard.value}, to ${masterCard.target}`);
+			discardCard(cardIndex);
+			return true;
 		} else if (droppedIntoId === 'discard') {
 			const cardIndex = characterCardHand.findIndex((card) => card.uniqueDeckId === dragId);
 			discardCard(cardIndex);

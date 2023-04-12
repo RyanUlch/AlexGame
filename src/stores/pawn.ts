@@ -50,7 +50,6 @@ export const usePawnStore = defineStore('pawnStore', () => {
 		} else {
 			npcList[index].health -= amount;
 			if (npcList[index].health <= 0) {
-				console.log(index);
 				npcList[index].onZeroHealth();
 			}
 		}
