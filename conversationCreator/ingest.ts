@@ -8,6 +8,7 @@ const zConversationData = zod.array(zod.array(zod.string()));
 export type Conversation = {
 	name: string;
 	title?: string;
+	imgSrc?: string;
 	prompt?: ChoicePromptOptions;
 };
 
@@ -34,46 +35,90 @@ readdirSync('.')
 			while (row.length < maxRowLength) row.push('');
 		});
 
+		// These will track where we are as we parse the rows
 		let currentConversation: Conversation | null = null;
 		const promptStack: ChoicePromptOptions[] = [];
 		let currentChoice: PromptChoice | null = null;
+
+		// Loop over rows of TSV
 		result.forEach((row, i) => {
+			const error = (message: string) => {
+				throw Error(`row ${i + 1}: ${message}`);
+			};
 			if (row[0]) {
+				// Current conversation ended, track it
 				if (currentConversation) conversations.push(currentConversation);
-				const [name, title] = row[0].split('__');
+
+				// Parse the "title__imgSrc__name" ("name" also valid without separators)
+				const split = row[0].split('__');
+				const name = split.pop();
+				if (!name) error('conversation must define a name');
+				if (conversations.some((c) => c.name === name))
+					error('conversations must have unique names');
+				const imgSrc = split.pop();
+				const title = split.pop();
+				if (!!imgSrc !== !!title) error('either imgSrc and title or neither must be provided');
+
+				// Create new conversation and intialize prompt/choice data
 				currentConversation = {
-					name,
+					name: name!,
 					title,
+					imgSrc,
 				};
 				promptStack.length = 0;
 				currentChoice = null;
 				return;
 			}
-			if (!currentConversation)
-				throw Error(i + ': found non conversation row when there was no active conversation');
 
+			// Ensure we found a conversation row before a message/choice row
+			if (!currentConversation)
+				error(i + ': found non conversation row when there was no active conversation');
+
+			// Get details about this row
 			const rowDetails = getRowDetails(row);
 			if (rowDetails === null) return;
 			const { promptIndex, rowType, data, result } = rowDetails;
+
+			// Handle message or choice row
 			if (rowType === 'message') {
+				// Parse message like "title__imgSrc__message" or "message" without separators
+				const split = data.split('__');
+				const message = split.pop();
+				const imgSrc = split.pop();
+				const title = split.pop();
+
+				// Create new prompt
 				const prompt = {
-					message: data,
-					title: currentConversation.title,
+					message,
+					imgSrc: imgSrc ?? currentConversation!.imgSrc,
+					title: title ?? currentConversation!.title,
 					choices: [],
 				};
+
 				if (currentChoice && currentChoice.result === '') {
+					// If previous choice didn't have a result, this prompt is the result of that choice
 					currentChoice.result = prompt;
 				} else if (!currentChoice) {
-					currentConversation.prompt = prompt;
+					// If there hasn't been any choices yet, this must be the root prompt for the conversation
+					currentConversation!.prompt = prompt;
 				}
+
+				// Track this prompt
 				promptStack.push(prompt);
 			} else if (rowType === 'choice') {
+				// Ensure we haven't discovered a choice row before creating a prompt to contain it
 				if (promptStack.length === 0)
-					throw Error(i + ': discovered choice without discovering a prompt message');
+					error(i + ': discovered choice without discovering a prompt message');
+
+				// If this choice doesn't belong to the most recent prompt, remove all prompts
+				// after the one it does belong to.  This happens when two choice rows
+				// belonging to different prompts are consecutive (because of nesting)
 				if (promptIndex !== promptStack.length - 1) {
 					const deleteIndex = promptIndex + 1;
 					promptStack.splice(deleteIndex, promptStack.length - deleteIndex);
 				}
+
+				// Create choice and track it in both the current prompt and as the current choice
 				const choice: PromptChoice = {
 					text: data,
 					result,
@@ -81,9 +126,11 @@ readdirSync('.')
 				promptStack[promptIndex]!.choices.push(choice);
 				currentChoice = choice;
 			} else {
-				throw Error(i + ': invalid conversation row type');
+				error(i + ': invalid conversation row type');
 			}
 		});
+
+		// Track the final conversation
 		if (currentConversation) conversations.push(currentConversation);
 	});
 

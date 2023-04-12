@@ -9,10 +9,10 @@ export type PromptChoice = {
 };
 
 export type ChoicePromptOptions = {
-	choices: PromptChoice[];
 	message?: string;
 	title?: string;
 	imgSrc?: string;
+	choices: PromptChoice[];
 };
 
 interface Prompt {
@@ -38,7 +38,6 @@ const zPrompt: zod.ZodType<Prompt> = zod.lazy(() =>
 const zConversationData = zod.array(
 	zod.object({
 		name: zod.string(),
-		title: zod.string().optional(),
 		prompt: zPrompt,
 	}),
 );
