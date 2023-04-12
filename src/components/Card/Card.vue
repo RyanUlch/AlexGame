@@ -6,7 +6,10 @@
 			dragType: number | string;
 			dragId: number | undefined;
 			dropId: number;
-			dropHandler: (dragID: number | undefined, droppedIntoId: number | string) => boolean;
+			dropHandler?: (
+				dragID: number | undefined,
+				droppedIntoId: number | string | undefined,
+			) => boolean;
 		};
 		cardImageBase: string;
 		cardText: string;

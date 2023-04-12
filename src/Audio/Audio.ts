@@ -1,9 +1,7 @@
 export class AudioPlayer {
-	static isMuted: boolean = false;
-	static volume: number = 1;
+	static isMuted: boolean = false; // Save
+	static volume: number = 1; // Save
 	audio: HTMLAudioElement;
-
-	getVolume = () => {};
 
 	constructor(audioSrc: string) {
 		this.audio = new Audio(audioSrc);

@@ -4,7 +4,6 @@ import { reactive, computed } from 'vue';
 import { useLogComposable } from '../composables/logComposable';
 import cardData from '../assets/cards/MasterCardList.json';
 import { usePawnStore } from './pawn';
-import { useSpriteStore } from './sprite';
 
 const { addLogLine } = useLogComposable();
 
@@ -12,7 +11,6 @@ export type Card = {
 	masterCardId: string;
 	uniqueDeckId?: number;
 	value: number;
-	effectHandler: () => boolean;
 };
 
 const masterCardList: {
@@ -51,8 +49,7 @@ export const useCardStore = defineStore('cardInventoryStore', () => {
 
 	const cardEffect = (cardEffect: string, value: number, target: string, cost: number = 0) => {
 		const pawnStore = usePawnStore();
-		const spiritStore = useSpriteStore();
-		const affectedPawns = spiritStore.affectedSprites(target);
+		const affectedPawns = pawnStore.affectedSprites(target);
 		if (pawnStore.useEnergy(cost)) {
 			switch (cardEffect) {
 				case 'heal':
@@ -78,7 +75,10 @@ export const useCardStore = defineStore('cardInventoryStore', () => {
 		return false;
 	};
 
-	const useCard = (dragId: number | undefined, droppedIntoId: string | number): boolean => {
+	const useCard = (
+		dragId: number | undefined,
+		droppedIntoId: string | number | undefined,
+	): boolean => {
 		if (droppedIntoId === 'consumer') {
 			const cardIndex = characterCardHand.findIndex((card) => card.uniqueDeckId === dragId);
 			const playerCard = characterCardHand[cardIndex];
@@ -131,7 +131,6 @@ export const useCardStore = defineStore('cardInventoryStore', () => {
 			masterCardId: newCard.masterCardId,
 			uniqueDeckId: uniqueCardIndex,
 			value: newCard.value,
-			effectHandler: newCard.effectHandler,
 		});
 		++uniqueCardIndex;
 	};
@@ -142,10 +141,11 @@ export const useCardStore = defineStore('cardInventoryStore', () => {
 		}
 	};
 
+	// prettier-ignore
 	return {
-		characterDrawPile,
-		characterCardHand,
-		characterDiscard,
+		characterDrawPile,	// Save
+		characterCardHand,	// Save
+		characterDiscard,	// Save
 		drawPileAmount,
 		useCard,
 		drawCards,

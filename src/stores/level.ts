@@ -5,8 +5,7 @@ import { reactive } from 'vue';
 import openLevel0 from '../levels/level0';
 import openLevel1 from '../levels/level1';
 import openTestLevel from '../levels/testLevel';
-import { useSpriteStore } from './sprite';
-// const { characterPosition } = useSpriteStore();
+import { usePawnStore } from './pawn';
 
 interface Tile {
 	tileset: string;
@@ -30,10 +29,10 @@ const levels: { [levelName: string]: () => void } = {
 export const useLevelStore = defineStore('levelStore', () => {
 	// State:
 	const levelMatrix = reactive<Tile[][]>([]);
-	const spriteStore = useSpriteStore();
+	const pawnStore = usePawnStore();
 
 	const openLevel = async (levelName: string, characterPosition: [number, number, string]) => {
-		spriteStore.cleanupSprites();
+		pawnStore.cleanupSprites();
 		const startingPosition = convertToMatrix(
 			await fetch(`src/levels/${levelName}.json`)
 				.then((response: Response) => response.json())
@@ -81,5 +80,10 @@ export const useLevelStore = defineStore('levelStore', () => {
 		return levelMatrix[x][y].impassible;
 	};
 
-	return { levelMatrix, isImpassible, openLevel };
+	// prettier-ignore
+	return { 
+		levelMatrix, // Save
+		isImpassible, 
+		openLevel 
+	};
 });

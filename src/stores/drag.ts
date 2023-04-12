@@ -1,8 +1,7 @@
 /* eslint-disable no-mixed-spaces-and-tabs */
 // Pinia/Vue type Imports:
 import { defineStore } from 'pinia';
-import { ref } from 'vue';
-import type { Ref } from 'vue';
+import { reactive } from 'vue';
 
 // Drag (and) Drop Store used to store drop elements references, and handle logic with dragging/dropping elements
 export const useDragDropStore = defineStore('dragAndDropStore', () => {
@@ -13,8 +12,8 @@ export const useDragDropStore = defineStore('dragAndDropStore', () => {
 		[dragType: string]: (number | string)[];
 	} = {};
 
-	let hoveringOver: Ref<{ dropId: number | string; dropType: number | string }> | Ref<null> =
-		ref(null);
+	let hoveringOver: { dropId: number | string | undefined; dropType: number | string | undefined } =
+		reactive({ dropId: undefined, dropType: undefined });
 
 	// Methods:
 	// When Drop element is mounted, add ref to state for easy reference
@@ -41,33 +40,35 @@ export const useDragDropStore = defineStore('dragAndDropStore', () => {
 	// Optional: Used when user passes in a hoverHandler in DragElement.vue
 	// Use-Case: User wants a Card to glow when being held over a valid dropElement
 	const draggingHandler = (dragType: number | string | undefined) => {
-		return dragType === hoveringOver.value?.dropType;
+		return dragType === hoveringOver?.dropType;
 	};
 
 	// Check if the location the DragElement is being dropped is within a valid DropElement
 	// On a successful drop, return identifier of the DropElement that DragElement is over
 	const droppingHandler = (dragType: number | string, fromDropId: number | string) => {
-		if (dragType === hoveringOver.value?.dropType && fromDropId !== hoveringOver.value.dropId) {
-			return hoveringOver.value.dropId;
+		if (dragType === hoveringOver?.dropType && fromDropId !== hoveringOver.dropId) {
+			return hoveringOver.dropId;
 		} else {
 			return null;
 		}
 	};
 
 	// Update which element, if any, is being hovered over currently
-	const hoveringUpdateHandler = (
-		dropOver: { dropId: number | string; dropType: number | string } | null,
-	) => {
-		hoveringOver.value = dropOver;
+	const hoveringUpdateHandler = (dropOver: {
+		dropId: number | string | undefined;
+		dropType: number | string | undefined;
+	}) => {
+		hoveringOver = dropOver;
 	};
 
+	// prettier-ignore
 	return {
 		dropElements,
-		hoveringOver, // Test Only
+		hoveringOver, 			// Test Only
 		hoveringUpdateHandler,
-		registerDropElement, // Mandatory in DropElement.vue
-		deregisterDropElement, // Mandatory in DropElement.vue
-		draggingHandler, // Optional: If user wants to know when DragElement is hovering over valid Drop Element
-		droppingHandler, // Optional: If user wants to limit the area that DragElement can be dropped
+		registerDropElement, 	// Mandatory in DropElement.vue
+		deregisterDropElement, 	// Mandatory in DropElement.vue
+		draggingHandler, 		// Optional: If user wants to know when DragElement is hovering over valid Drop Element
+		droppingHandler, 		// Optional: If user wants to limit the area that DragElement can be dropped
 	};
 });

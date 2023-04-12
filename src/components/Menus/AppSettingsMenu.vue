@@ -4,6 +4,14 @@
 	import { storeToRefs } from 'pinia';
 	import AppModal from './AppModal.vue';
 	import { AudioPlayer } from '@/Audio/Audio';
+	import exportSave from '../../save_load/save_export';
+	// import importSave from '../../save_load/save_import';
+	import save from '../../save_load/save_localStorage';
+	import load from '../../save_load/load_localStorage';
+	import { useLogComposable } from '@/composables/logComposable';
+
+	const { addLogLine } = useLogComposable();
+
 	const { settingsMenuIsOpen } = storeToRefs(useSettingsStore());
 	const { closeSettingsMenu } = useSettingsStore();
 
@@ -13,6 +21,38 @@
 		AudioPlayer.isMuted = muted.value;
 		AudioPlayer.volume = volume.value;
 	});
+
+	const loadFromStorage = () => {
+		if (load()) {
+			addLogLine('Loaded Save');
+		} else {
+			addLogLine('Failed to load Save');
+		}
+	};
+
+	const importFromFile = () => {
+		// if (importSave()) {
+		addLogLine('Imported Save');
+		// } else {
+		addLogLine('Failed to import Save');
+		// }
+	};
+
+	const saveToStorage = () => {
+		if (save()) {
+			addLogLine('Game Saved!');
+		} else {
+			addLogLine('Failed to save');
+		}
+	};
+
+	const exportToFile = () => {
+		if (exportSave('file')) {
+			addLogLine('Game Saved!');
+		} else {
+			addLogLine('Failed to export Save');
+		}
+	};
 </script>
 
 <template>
@@ -21,6 +61,14 @@
 		title="Settings"
 		@close="closeSettingsMenu">
 		<template v-slot="modal">
+			<label for="load">Import Save</label>
+			<input
+				id="load"
+				type="file"
+				title="Load Save" />
+			<button :onClick="exportToFile">Export Save</button>
+			<button :onClick="saveToStorage">Save</button>
+			<button :onClick="loadFromStorage">Load</button>
 			<table>
 				<tr>
 					<td>Mute All Sounds:</td>

@@ -3,26 +3,65 @@
 import { defineStore } from 'pinia';
 import { ref, reactive } from 'vue';
 import { useLogComposable } from '@/composables/logComposable';
+import { useLevelStore } from './level';
 
 export const usePawnStore = defineStore('pawnStore', () => {
 	const { addLogLine } = useLogComposable();
+	const levelStore = useLevelStore();
+	const scale = ref(3);
+	const gridCellSize = 16;
+	const screenSize = gridCellSize * 41;
+	const characterPosition = reactive<[number, number, string]>([5, 3, 's']);
+	const screenPosition = reactive<[number, number]>([0, 0]);
+	const characterId = ref('1');
 
 	const health = ref(10);
 	const maxHealth = ref(10);
 	const energy = ref(5);
 	const maxEnergy = ref(5);
 
-	const npcList: { id: number; health: number; onZeroHealth: () => void }[] = reactive([]);
+	const spriteList = reactive<
+		{
+			spriteId: number | string;
+			isAutoInteract: boolean;
+			position: [number, number, string];
+			interactionHandler: () => void;
+			health: number;
+			onZeroHealth: () => void;
+		}[]
+	>([]);
 
-	const registerNpc = (spriteIndex: number, startingHealth: number, deathHandler: () => void) => {
-		npcList.push({ id: spriteIndex, health: startingHealth, onZeroHealth: deathHandler });
+	const registerSprite = (
+		id: number | string,
+		isAutoInteract: boolean,
+		startingPosition: [number, number, string],
+		interaction: () => void,
+		startingHealth: number,
+		deathHandler: () => void,
+	) => {
+		spriteList.push({
+			spriteId: id,
+			isAutoInteract: isAutoInteract,
+			position: [...startingPosition],
+			interactionHandler: interaction,
+			health: startingHealth,
+			onZeroHealth: deathHandler,
+		});
+		return spriteList.length - 1;
 	};
 
-	const deregisterNpc = (spriteId: number) => {
-		const index = npcList.findIndex((npc) => npc.id === spriteId);
-		if (index > -1) {
-			npcList.splice(index, 1);
+	const deregisterSprite = (spriteIndex: number) => {
+		const spritePos = spriteList[spriteIndex].position;
+		if (spritePos[0] > -1) {
+			levelStore.levelMatrix[spritePos[0]][spritePos[1]].layeredImageSrc = undefined;
+			levelStore.levelMatrix[spritePos[0]][spritePos[1]].layeredImageCoord = undefined;
+			levelStore.levelMatrix[spritePos[0]][spritePos[1]].impassible = false;
 		}
+		spriteList.splice(spriteIndex, 1);
+	};
+
+	const cleanupSprites = () => {
+		spriteList.splice(0, Infinity);
 	};
 
 	const heal = (amount: number, index: number) => {
@@ -33,7 +72,7 @@ export const usePawnStore = defineStore('pawnStore', () => {
 				health.value += amount;
 			}
 		} else {
-			npcList[index].health += amount;
+			spriteList[index].health += amount;
 		}
 	};
 
@@ -48,9 +87,9 @@ export const usePawnStore = defineStore('pawnStore', () => {
 				return true;
 			}
 		} else {
-			npcList[index].health -= amount;
-			if (npcList[index].health <= 0) {
-				npcList[index].onZeroHealth();
+			spriteList[index].health -= amount;
+			if (spriteList[index].health <= 0) {
+				spriteList[index].onZeroHealth();
 			}
 		}
 	};
@@ -73,20 +112,151 @@ export const usePawnStore = defineStore('pawnStore', () => {
 		}
 	};
 
+	const teleportPlayer = (teleportTo: [number, number, string]) => {
+		characterPosition[0] = teleportTo[0];
+		characterPosition[1] = teleportTo[1];
+		characterPosition[2] = teleportTo[2];
+	};
+
+	const playerInteract = () => {
+		const facingPosition: [number, number, string] = [...characterPosition];
+		switch (facingPosition[2]) {
+			case 'n':
+				--facingPosition[0];
+				break;
+			case 'e':
+				++facingPosition[1];
+				break;
+			case 's':
+				++facingPosition[0];
+				break;
+			case 'w':
+				--facingPosition[1];
+				break;
+		}
+		const interactingSprite = spriteList.findIndex(
+			(sprite) =>
+				sprite.position[0] === facingPosition[0] && sprite.position[1] === facingPosition[1],
+		);
+		if (interactingSprite > -1 && !spriteList[interactingSprite].isAutoInteract) {
+			if (typeof spriteList[interactingSprite].interactionHandler !== undefined) {
+				spriteList[interactingSprite].interactionHandler();
+				return true;
+			}
+		}
+		return false;
+	};
+
+	const movePosition = (direction: string, startingPosition: [number, number, string]) => {
+		const newPosition: [number, number, string] = [...startingPosition];
+		switch (direction) {
+			case 'n':
+				--newPosition[0];
+				break;
+			case 'e':
+				++newPosition[1];
+				break;
+			case 's':
+				++newPosition[0];
+				break;
+			case 'w':
+				--newPosition[1];
+				break;
+		}
+		return newPosition;
+	};
+
+	const playerMoveListener = (direction: string) => {
+		const newPosition = movePosition(direction, characterPosition);
+		if (
+			!(newPosition[0] < 0) &&
+			!(newPosition[1] < 0) &&
+			!(newPosition[0] >= levelStore.levelMatrix.length) &&
+			!(newPosition[1] >= levelStore.levelMatrix[0].length) &&
+			!levelStore.isImpassible(newPosition[0], newPosition[1])
+		) {
+			const actionCell = spriteList.findIndex((action) => {
+				return action.position[0] === newPosition[0] && action.position[1] === newPosition[1];
+			});
+			if (actionCell >= 0 && spriteList[actionCell].isAutoInteract) {
+				spriteList[actionCell].interactionHandler();
+			}
+			characterPosition[0] = newPosition[0];
+			characterPosition[1] = newPosition[1];
+		}
+		characterPosition[2] = direction;
+	};
+
+	const affectedSprites = (type: string) => {
+		const affectedSpritesList: number[] = [];
+		switch (type) {
+			case 'front':
+				const frontPosition = movePosition(characterPosition[2], characterPosition);
+				const frontSprite = spriteList.findIndex(
+					(sprite) =>
+						sprite.position[0] === frontPosition[0] && sprite.position[1] === frontPosition[1],
+				);
+				if (frontSprite >= 0) {
+					affectedSpritesList.push(frontSprite);
+				}
+				break;
+			case 'line':
+				const linePosition1 = movePosition(characterPosition[2], characterPosition);
+				const linePosition2 = movePosition(characterPosition[2], linePosition1);
+				const linePosition3 = movePosition(characterPosition[2], linePosition2);
+				const sprite1 = spriteList.findIndex(
+					(sprite) =>
+						sprite.position[0] === linePosition1[0] && sprite.position[1] === linePosition1[1],
+				);
+				const sprite2 = spriteList.findIndex(
+					(sprite) =>
+						sprite.position[0] === linePosition2[0] && sprite.position[1] === linePosition2[1],
+				);
+				const sprite3 = spriteList.findIndex(
+					(sprite) =>
+						sprite.position[0] === linePosition3[0] && sprite.position[1] === linePosition3[1],
+				);
+				if (sprite1 >= 0) {
+					affectedSpritesList.push(sprite1);
+				}
+				if (sprite2 >= 0) {
+					affectedSpritesList.push(sprite2);
+				}
+				if (sprite3 >= 0) {
+					affectedSpritesList.push(sprite3);
+				}
+				break;
+			case 'self':
+				affectedSpritesList.push(-1);
+				break;
+		}
+		return affectedSpritesList;
+	};
+
+	// prettier-ignore
 	return {
-		health,
-		maxHealth,
-		energy,
-		maxEnergy,
-
-		npcList,
-
+		characterPosition,	// Save
+		characterId,		// Save
+		health,				// Save
+		maxHealth,			// Save
+		energy,				// Save
+		maxEnergy,			// Save
 		heal,
 		takeDamage,
 		energize,
 		useEnergy,
-
-		registerNpc,
-		deregisterNpc,
+		spriteList,			// Save
+		screenPosition,
+		scale,
+		screenSize,
+		gridCellSize,
+		affectedSprites,
+		movePosition,
+		playerMoveListener,
+		playerInteract,
+		teleportPlayer,
+		registerSprite,
+		deregisterSprite,
+		cleanupSprites,
 	};
 });

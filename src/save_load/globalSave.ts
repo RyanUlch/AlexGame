@@ -1,0 +1,53 @@
+import { useCardStore } from '@/stores/card';
+import { usePawnStore } from '@/stores/pawn';
+import { useLevelStore } from '@/stores/level';
+import { AudioPlayer } from '@/Audio/Audio';
+
+const saveState = () => {
+	const cardStore = useCardStore();
+	const pawnStore = usePawnStore();
+	const levelStore = useLevelStore();
+
+	// prettier-ignore
+	const statesToSave: {[store: string]: {[state: string]: any}} = {
+		"card": {
+			"characterDrawPile": cardStore.characterDrawPile,
+			"characterCardHand": cardStore.characterCardHand,
+			"characterDiscard": cardStore.characterDiscard
+		},
+		"pawn": {
+			"health": pawnStore.health,
+			"maxHealth": pawnStore.maxHealth,
+			"energy": pawnStore.energy,
+			"maxEnergy": pawnStore.maxEnergy,
+			"characterPosition": pawnStore.characterPosition,
+			"characterId": pawnStore.characterId,
+			"spriteList": pawnStore.spriteList,
+		},
+		"level": {
+			"levelMatrix": levelStore.levelMatrix
+		},
+	}
+
+	// prettier-ignore
+	const settingsToSave: { [key: string]: {[state: string]: any} } = {
+		"AudioPlayer": {"isMuted": AudioPlayer.isMuted, "volume": AudioPlayer.volume},
+	};
+
+	const saveJson: { [store: string]: { [state: string]: any } } = {};
+	for (const store in statesToSave) {
+		saveJson[store] = {};
+		for (const state in statesToSave[store]) {
+			saveJson[store][state] = statesToSave[store][state];
+		}
+	}
+
+	for (const settingType in settingsToSave) {
+		saveJson[settingType] = {};
+		for (const setting in settingsToSave[settingType]) {
+			saveJson[settingType][setting] = settingsToSave[settingType][setting];
+		}
+	}
+	return saveJson;
+};
+export default saveState;

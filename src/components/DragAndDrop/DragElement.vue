@@ -12,10 +12,13 @@
 		defineProps<{
 			// If any below used; all are required: - These allow DragElement to be dropped into specific DropElements
 			dragInit?: {
-				dragType: string;
+				dragType: number | string;
 				dragId: number | undefined;
 				dropId: number;
-				dropHandler: (dragId: number | undefined, droppedIntoId: number | string) => boolean;
+				dropHandler?: (
+					dragId: number | undefined,
+					droppedIntoId: number | string | undefined,
+				) => boolean;
 			};
 			// Optional - Can be used regardless of if the above props are supplied
 			startingOffset?: [string, string];
@@ -139,7 +142,7 @@
 				props.dragInit.dragType,
 				props.dragInit.dropId,
 			);
-			if (intoDropElementIndex !== null) {
+			if (intoDropElementIndex !== null && props.dragInit.dropHandler) {
 				if (!props.dragInit.dropHandler(props.dragInit.dragId, intoDropElementIndex)) {
 					dragCurrentLocation[0] = dragStartingLocation[0];
 					dragCurrentLocation[1] = dragStartingLocation[1];

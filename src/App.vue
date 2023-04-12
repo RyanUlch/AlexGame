@@ -8,46 +8,22 @@
 	import EventLog from './components/EventLog/EventLog.vue';
 	import { usePawnStore } from './stores/pawn';
 	import { storeToRefs } from 'pinia';
-	import { useSpriteStore } from './stores/sprite';
 	import AppPrompt from './components/Menus/AppPrompt.vue';
 	import AppSettingsMenu from './components/Menus/AppSettingsMenu.vue';
 	import { useSettingsStore } from './stores/settings';
+	import saveJSON from './save_load/globalSave';
 	const settings = useSettingsStore();
 	const cardStore = useCardStore();
 	const playerStore = usePawnStore();
 	const { health, maxHealth, energy, maxEnergy } = storeToRefs(playerStore);
-	const { screenSize } = useSpriteStore();
 	// Starting Deck
 	cardStore.addCardsToDeck([
-		{
-			masterCardId: 'power',
-			value: 1,
-			effectHandler: () => {
-				return playerStore.useEnergy(2);
-			},
-		},
-		{
-			masterCardId: 'heal',
-			value: 2,
-			effectHandler: () => {
-				return playerStore.useEnergy(1);
-			},
-		},
-		{
-			masterCardId: 'beam',
-			value: 6,
-			effectHandler: () => {
-				return playerStore.useEnergy(3);
-			},
-		},
-		{
-			masterCardId: 'energy',
-			value: 3,
-			effectHandler: () => {
-				return true;
-			},
-		},
+		{ masterCardId: 'power', value: 1 },
+		{ masterCardId: 'heal', value: 2 },
+		{ masterCardId: 'beam', value: 6 },
+		{ masterCardId: 'energy', value: 3 },
 	]);
+	saveJSON();
 </script>
 <template>
 	<div class="gameArea">
@@ -121,8 +97,8 @@
 	}
 
 	.playArea {
-		height: v-bind('`${screenSize}px`');
-		width: v-bind('`${screenSize}px`');
+		height: v-bind('`${playerStore.screenSize}px`');
+		width: v-bind('`${playerStore.screenSize}px`');
 		background-color: black;
 		overflow: hidden;
 	}

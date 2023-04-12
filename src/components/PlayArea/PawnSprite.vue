@@ -41,6 +41,7 @@
 </script>
 <template>
 	<img
+		v-if="props.spriteName"
 		:src="`src/assets/characters/${props.spriteName}.png`"
 		:style="{
 			objectFit: 'none',

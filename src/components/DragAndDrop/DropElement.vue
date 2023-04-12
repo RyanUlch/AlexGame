@@ -28,7 +28,7 @@
 		store.hoveringUpdateHandler(
 			e.type === 'mouseenter'
 				? { dropId: props.dropElementIndex, dropType: props.dragElementType }
-				: null,
+				: { dropId: undefined, dropType: undefined },
 		);
 	};
 </script>

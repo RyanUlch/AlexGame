@@ -1,5 +1,5 @@
 import { usePromptStore } from '@/stores/prompt';
-import { useSpriteStore } from '@/stores/sprite';
+import { usePawnStore } from '@/stores/pawn';
 import { AudioPlayer } from '../Audio/Audio';
 
 type KeyHandlerMap = {
@@ -19,8 +19,7 @@ const move = (direction: string) => {
 	}
 
 	// Normal behaviour
-	const store = useSpriteStore();
-	store.playerMoveListener(direction);
+	usePawnStore().playerMoveListener(direction);
 };
 
 const interact = () => {
@@ -32,8 +31,7 @@ const interact = () => {
 	}
 
 	// Normal behaviour
-	const store = useSpriteStore();
-	store.playerInteract();
+	usePawnStore().playerInteract();
 };
 
 const handlers: KeyHandlerMap = {

@@ -17,6 +17,8 @@
 			energyCost?: number;
 		};
 	} = reactive(cardData);
+	console.log(cardStore.characterCardHand);
+	console.log(masterCardList);
 </script>
 <template>
 	<div class="cardArea">

@@ -1,22 +1,18 @@
 <script setup lang="ts">
 	import { computed } from 'vue';
 	import { useLevelStore } from '../../stores/level';
-	import { useSpriteStore } from '@/stores/sprite';
-	import { storeToRefs } from 'pinia';
+	import { usePawnStore } from '@/stores/pawn';
 	import PawnSprite from './PawnSprite.vue';
 	import CharacterSprite from './CharacterSprite.vue';
 	import { useKeyHandler } from '@/composables/useKeyHandler';
 	import { keyHandler } from '@/inputHandlers/keyInput';
 
-	const { characterPosition } = useSpriteStore();
+	const pawnStore = usePawnStore();
 	const levelStore = useLevelStore();
-	const { levelMatrix } = storeToRefs(levelStore);
-	const spriteStore = useSpriteStore();
-	const { characterId, scale } = storeToRefs(spriteStore);
-	levelStore.openLevel('level0', characterPosition);
+	levelStore.openLevel('level0', pawnStore.characterPosition);
 	// Compute whether level matrix is ready to be rendered
 	const matrixReady = computed(() => {
-		return levelMatrix.value.length > 0;
+		return levelStore.levelMatrix.length > 0;
 	});
 
 	// Set up key handler
@@ -29,7 +25,7 @@
 			<template v-if="matrixReady">
 				<div
 					class="row"
-					v-for="(row, rowIndex) in levelMatrix"
+					v-for="(row, rowIndex) in levelStore.levelMatrix"
 					:key="rowIndex">
 					<div
 						class="column"
@@ -41,9 +37,12 @@
 						}">
 						<!-- Render pawn sprite if present at this position -->
 						<CharacterSprite
-							v-if="rowIndex === characterPosition[0] && colIndex === characterPosition[1]"
-							:characterFilename="characterId"
-							:direction="characterPosition[2]"
+							v-if="
+								rowIndex === pawnStore.characterPosition[0] &&
+								colIndex === pawnStore.characterPosition[1]
+							"
+							:characterFilename="pawnStore.characterId"
+							:direction="pawnStore.characterPosition[2]"
 							class="character" />
 
 						<!-- Render layer image if present at this position -->
@@ -98,7 +97,7 @@
 	.screen {
 		pointer-events: none;
 		user-select: none;
-		transform: scale(v-bind(scale));
+		transform: scale(v-bind('`${pawnStore.scale}`'));
 		transform-origin: top left;
 	}
 	.camera {
@@ -108,8 +107,8 @@
 		image-rendering: -moz-crisp-edges;
 		image-rendering: crisp-edges;
 		position: relative;
-		top: v-bind('`${(((20/scale) - characterPosition[0]) * 16)}px`');
-		left: v-bind('`${(((20/scale) - characterPosition[1]) * 16)}px`');
+		top: v-bind('`${(((20/pawnStore.scale) - pawnStore.characterPosition[0]) * 16)}px`');
+		left: v-bind('`${(((20/pawnStore.scale) - pawnStore.characterPosition[1]) * 16)}px`');
 	}
 	.row {
 		display: inline-flex;
