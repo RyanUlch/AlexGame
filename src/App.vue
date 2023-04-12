@@ -10,6 +10,9 @@
 	import { storeToRefs } from 'pinia';
 	import AppPrompt from './components/Menus/AppPrompt.vue';
 	import AppSettingsMenu from './components/Menus/AppSettingsMenu.vue';
+	import AppCreditsMenu from './components/Menus/AppCreditsMenu.vue';
+	import AppInventoryMenu from './components/Menus/AppInventoryMenu.vue';
+	import AppSkillsMenu from './components/Menus/AppSkillsMenu.vue';
 	import { useSettingsStore } from './stores/settings';
 	import saveJSON from './save_load/globalSave';
 	const settings = useSettingsStore();
@@ -52,11 +55,11 @@
 			</div>
 			<div class="menuArea square">
 				<MenuButton
-					:modalHandler="() => {}"
+					:modalHandler="settings.openInventoryMenu"
 					imgFileName="Inventory"
 					tooltip="Open your inventory" />
 				<MenuButton
-					:modalHandler="() => {}"
+					:modalHandler="settings.openSkillsMenu"
 					imgFileName="LevelUp"
 					tooltip="Open your Stats" />
 				<MenuButton
@@ -64,7 +67,7 @@
 					imgFileName="Menu"
 					tooltip="Open the settings" />
 				<MenuButton
-					:modalHandler="() => {}"
+					:modalHandler="settings.openCreditsMenu"
 					imgFileName="Credits"
 					tooltip="Open credits" />
 			</div>
@@ -73,7 +76,10 @@
 		<CardArea />
 	</div>
 	<AppPrompt />
+	<AppInventoryMenu />
+	<AppSkillsMenu />
 	<AppSettingsMenu />
+	<AppCreditsMenu />
 </template>
 <style scoped>
 	.square {

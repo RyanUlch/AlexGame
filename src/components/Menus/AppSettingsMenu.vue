@@ -12,8 +12,7 @@
 
 	const { addLogLine } = useLogComposable();
 
-	const { settingsMenuIsOpen } = storeToRefs(useSettingsStore());
-	const { closeSettingsMenu } = useSettingsStore();
+	const settingStore = useSettingsStore();
 
 	const volume = ref<number>(100);
 	const muted = ref<boolean>(false);
@@ -57,9 +56,9 @@
 
 <template>
 	<AppModal
-		v-if="settingsMenuIsOpen"
+		v-if="settingStore.settingsMenuIsOpen"
 		title="Settings"
-		@close="closeSettingsMenu">
+		@close="settingStore.closeSettingsMenu">
 		<template v-slot="modal">
 			<label for="load">Import Save</label>
 			<input
