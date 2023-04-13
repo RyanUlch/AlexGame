@@ -2,7 +2,7 @@
 <script setup lang="ts">
 	// Vue Imports:
 	import { onMounted, onBeforeUnmount } from 'vue';
-	import { useDragDropStore } from '../../stores/dragStore';
+	import { useDragDropStore } from '../../stores/drag';
 
 	// Props
 	const props = defineProps<{
@@ -28,7 +28,7 @@
 		store.hoveringUpdateHandler(
 			e.type === 'mouseenter'
 				? { dropId: props.dropElementIndex, dropType: props.dragElementType }
-				: null,
+				: { dropId: undefined, dropType: undefined },
 		);
 	};
 </script>

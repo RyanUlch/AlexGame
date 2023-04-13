@@ -2,84 +2,74 @@
 	import { useLevelStore } from './stores/levelStore';
 	import PlayArea from './components/PlayArea/PlayArea.vue';
 	import CardArea from './components/Card/CardArea.vue';
-	import EventLog from './components/EventLog/EventLog.vue';
-	import StatsUi from './components/StatsUi/StatsUi.vue';
-	import MenuButton from './components/MenuButton/MenuButton.vue';
+	import PlayArea from './components/PlayArea/PlayArea.vue';
 	import DropElement from './components/DragAndDrop/DropElement.vue';
-	import { useCardStore } from './stores/cardInventoryStore';
-	import { useLogComposable } from './composables/logComposable';
-	const { addLogLine } = useLogComposable();
+	import MenuButton from './components/MenuButton/MenuButton.vue';
+	import StatsUi from './components/StatsUi/StatsUI.vue';
+	import { useCardStore } from './stores/card';
+	import EventLog from './components/EventLog/EventLog.vue';
+	import { usePawnStore } from './stores/pawn';
+	import { storeToRefs } from 'pinia';
+	import AppPrompt from './components/Menus/AppPrompt.vue';
+	import AppSettingsMenu from './components/Menus/AppSettingsMenu.vue';
+	import AppCreditsMenu from './components/Menus/AppCreditsMenu.vue';
+	import AppInventoryMenu from './components/Menus/AppInventoryMenu.vue';
+	import AppSkillsMenu from './components/Menus/AppSkillsMenu.vue';
+	import { useSettingsStore } from './stores/settings';
+	import saveJSON from './save_load/globalSave';
+	const settings = useSettingsStore();
 	const cardStore = useCardStore();
-
+	const playerStore = usePawnStore();
+	const { health, maxHealth, energy, maxEnergy } = storeToRefs(playerStore);
+	// Starting Deck
 	cardStore.addCardsToDeck([
 		{ masterCardId: 'power', value: 1 },
 		{ masterCardId: 'heal', value: 2 },
 		{ masterCardId: 'beam', value: 6 },
 		{ masterCardId: 'energy', value: 3 },
-		{ masterCardId: 'jump', value: 2 },
 	]);
+	saveJSON();
 </script>
 <template>
 	<div class="gameArea">
 		<DropElement
 			dragElementType="card"
 			dropElementIndex="consumer"
-			class="playArea">
-			This is the play area (where the levels show up)
+			class="playArea"
+			id="modal-target">
+			<PlayArea />
 		</DropElement>
 		<div class="upper-right">
 			<div class="statArea square">
 				<StatsUi
-					:value="5"
-					:maxValue="10"
+					:value="health"
+					:maxValue="maxHealth"
 					:isIconBased="true"
 					iconFileBase="heart"
 					:hasPartialIcons="true"
 					tooltip="This is your health" />
 				<StatsUi
-					:value="2"
-					:maxValue="4"
+					:value="energy"
+					:maxValue="maxEnergy"
 					:isIconBased="false"
 					iconFileBase="energy"
 					tooltip="This is your energy" />
-				<StatsUi
-					:value="0"
-					:maxValue="0"
-					:isIconBased="false"
-					iconFileBase="poison"
-					tooltip="You are poisoned!" />
 			</div>
 			<div class="menuArea square">
 				<MenuButton
-					:modalHandler="
-						() => {
-							addLogLine('Opening Inventory Modal', true);
-						}
-					"
+					:modalHandler="settings.openInventoryMenu"
 					imgFileName="Inventory"
 					tooltip="Open your inventory" />
 				<MenuButton
-					:modalHandler="
-						() => {
-							addLogLine('Opening Stats Modal', true);
-						}
-					"
+					:modalHandler="settings.openSkillsMenu"
 					imgFileName="LevelUp"
 					tooltip="Open your Stats" />
 				<MenuButton
-					:modalHandler="
-						() => {
-							addLogLine('Opening Settings Modal', true);
-						}
-					"
+					:modalHandler="settings.openSettingsMenu"
 					imgFileName="Menu"
 					tooltip="Open the settings" />
 				<MenuButton
-					:modalHandler="
-						() => {
-							addLogLine('Opening Credits Modal', true);
-						}
-					"
+					:modalHandler="settings.openCreditsMenu"
 					imgFileName="Credits"
 					tooltip="Open credits" />
 			</div>
@@ -87,41 +77,52 @@
 		</div>
 		<CardArea />
 	</div>
+	<AppPrompt />
+	<AppInventoryMenu />
+	<AppSkillsMenu />
+	<AppSettingsMenu />
+	<AppCreditsMenu />
 </template>
 <style scoped>
 	.square {
 		width: 150px;
+		height: 146px;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 	}
 	.gameArea {
 		box-sizing: border-box;
-		width: 900px;
+		width: 964px;
 		margin: 0 auto;
 		display: flex;
 		flex-wrap: wrap;
+		border: var(--borderSize) solid var(--borderColor);
+	}
+
+	#modal-target {
+		position: relative; /* necessary for modal absolute positioning */
 	}
 
 	.playArea {
-		display: inline-flex;
-		height: 600px;
-		width: 600px;
-		background-color: blueviolet;
-		justify-content: center;
-		align-items: center;
+		height: v-bind('`${playerStore.screenSize}px`');
+		width: v-bind('`${playerStore.screenSize}px`');
+		background-color: black;
+		overflow: hidden;
 	}
 
 	.upper-right {
 		width: 298px;
-		height: 600px;
-		background-color: aquamarine;
+		height: 656px;
+		background-color: grey;
 		display: inline-block;
 	}
 
 	.statArea {
 		display: inline-flex;
 		flex-direction: column;
+		border-left: var(--borderSize) solid var(--borderColor);
+		border-right: var(--borderSize) solid var(--borderColor);
 	}
 
 	.menuArea {

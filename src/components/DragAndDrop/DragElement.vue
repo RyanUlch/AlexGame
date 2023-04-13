@@ -5,22 +5,20 @@
 	// Vue Imports:
 	import { ref, reactive, onMounted, onBeforeUnmount } from 'vue';
 	// Drag Store Import:
-	import { useDragDropStore } from '../../stores/dragStore';
+	import { useDragDropStore } from '../../stores/drag';
 
 	// Props: NOTE: All props are optional - Some props if provided, require other props
 	const props = withDefaults(
 		defineProps<{
 			// If any below used; all are required: - These allow DragElement to be dropped into specific DropElements
 			dragInit?: {
-				dragType: number | string; // This Elements
+				dragType: number | string;
 				dragId: number | undefined;
 				dropId: number;
-				dropHandler: (
-					dropType: number | string,
+				dropHandler?: (
 					dragId: number | undefined,
-					droppedIntoId: number | string,
-					droppedFromId: number | string,
-				) => void;
+					droppedIntoId: number | string | undefined,
+				) => boolean;
 			};
 			// Optional - Can be used regardless of if the above props are supplied
 			startingOffset?: [string, string];
@@ -144,13 +142,11 @@
 				props.dragInit.dragType,
 				props.dragInit.dropId,
 			);
-			if (intoDropElementIndex !== null) {
-				props.dragInit.dropHandler(
-					props.dragInit.dragType,
-					props.dragInit.dragId,
-					intoDropElementIndex,
-					props.dragInit.dropId,
-				);
+			if (intoDropElementIndex !== null && props.dragInit.dropHandler) {
+				if (!props.dragInit.dropHandler(props.dragInit.dragId, intoDropElementIndex)) {
+					dragCurrentLocation[0] = dragStartingLocation[0];
+					dragCurrentLocation[1] = dragStartingLocation[1];
+				}
 			} else {
 				dragCurrentLocation[0] = dragStartingLocation[0];
 				dragCurrentLocation[1] = dragStartingLocation[1];
@@ -178,9 +174,5 @@
 		left: v-bind('dragCurrentLocation[1]');
 		transition: v-bind('!isBeingDragged ? "top 250ms, left 250ms" : "none"');
 		pointer-events: v-bind('isBeingDragged ? "none" : "auto"');
-	}
-
-	.dragElement:active {
-		/* position: absolute; */
 	}
 </style>

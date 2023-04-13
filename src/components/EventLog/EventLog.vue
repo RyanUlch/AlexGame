@@ -25,12 +25,13 @@
 		background-color: black;
 		color: white;
 		overflow: hidden;
-		border: 5px solid grey;
+		border-left: var(--borderSize) solid var(--borderColor);
+		border-top: var(--borderSize) solid var(--borderColor);
 	}
 	.innerContainer {
 		display: flex;
 		flex-direction: column-reverse;
-		height: 442px;
+		height: 506px;
 		/* height: 100%; */
 		word-wrap: normal;
 		scrollbar-color: grey;

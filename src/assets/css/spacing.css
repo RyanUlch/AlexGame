@@ -1,0 +1,20 @@
+:root {
+
+	/* Sizes */
+	--space-small: 3px;
+	--space-medium: 6px;
+	--space-large: 12px;
+	--space-extra-large: 24px;
+
+	/* Padding */
+	--p-small: var(--space-small);
+	--p-medium: var(--space-medium);
+	--p-large: var(--space-large);
+	--p-extra-large: var(--space-extra-large);
+	
+	/* Margin */
+	--m-small: var(--space-small);
+	--m-medium: var(--space-medium);
+	--m-large: var(--space-large);
+	--m-extra-large: var(--space-extra-large);
+}

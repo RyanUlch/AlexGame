@@ -1,12 +1,22 @@
 <script setup lang="ts">
 	import Card from './Card.vue';
-	import { useCardStore } from '../../stores/cardInventoryStore';
+	import { reactive } from 'vue';
+	import { useCardStore } from '../../stores/card';
 	import DropElement from '../DragAndDrop/DropElement.vue';
 	import cardData from '../../assets/cards/MasterCardList.json';
 	const cardStore = useCardStore();
 	const drawCards = () => {
 		cardStore.drawCards(3);
 	};
+	const masterCardList: {
+		[key: string]: {
+			effect: string;
+			imgBase: string;
+			cardText: string;
+			target: string;
+			energyCost?: number;
+		};
+	} = reactive(cardData);
 </script>
 <template>
 	<div class="cardArea">
@@ -21,9 +31,10 @@
 			<Card
 				v-for="card in cardStore.characterCardHand"
 				:key="card.uniqueDeckId"
-				:cardImageBase="cardData[card.masterCardId].imgBase"
-				:cardText="cardData[card.masterCardId].cardText"
+				:cardImageBase="masterCardList[card.masterCardId].imgBase"
+				:cardText="masterCardList[card.masterCardId].cardText"
 				:value="card.value"
+				:energyCost="masterCardList[card.masterCardId].energyCost"
 				:dragInit="{
 					dragType: 'card',
 					dragId: card.uniqueDeckId,
@@ -41,9 +52,10 @@
 </template>
 <style scoped>
 	.cardArea {
+		border-top: var(--borderSize) solid var(--borderColor);
 		height: calc(var(--cardHeight) + 5px);
 		width: 100%;
-		background-color: lightgray;
+		background-color: darkslategrey;
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
@@ -52,11 +64,12 @@
 	.hand {
 		display: flex;
 		flex-direction: row;
+		gap: 4px;
 	}
 	.cardBack {
 		height: var(--cardHeight);
 		width: calc(var(--cardWidth) / 2);
-		background-color: blue;
+		background-color: lightgrey;
 	}
 
 	.draw {

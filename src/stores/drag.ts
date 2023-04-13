@@ -1,7 +1,7 @@
 /* eslint-disable no-mixed-spaces-and-tabs */
 // Pinia/Vue type Imports:
 import { defineStore } from 'pinia';
-import { useLogComposable } from '@/composables/logComposable';
+import { reactive } from 'vue';
 
 // Drag (and) Drop Store used to store drop elements references, and handle logic with dragging/dropping elements
 export const useDragDropStore = defineStore('dragAndDropStore', () => {
@@ -12,7 +12,8 @@ export const useDragDropStore = defineStore('dragAndDropStore', () => {
 		[dragType: string]: (number | string)[];
 	} = {};
 
-	let hoveringOver: { dropId: number | string; dropType: number | string } | null = null;
+	let hoveringOver: { dropId: number | string | undefined; dropType: number | string | undefined } =
+		reactive({ dropId: undefined, dropType: undefined });
 
 	// Methods:
 	// When Drop element is mounted, add ref to state for easy reference
@@ -53,18 +54,21 @@ export const useDragDropStore = defineStore('dragAndDropStore', () => {
 	};
 
 	// Update which element, if any, is being hovered over currently
-	const hoveringUpdateHandler = (
-		dropOver: { dropId: number | string; dropType: number | string } | null,
-	) => {
+	const hoveringUpdateHandler = (dropOver: {
+		dropId: number | string | undefined;
+		dropType: number | string | undefined;
+	}) => {
 		hoveringOver = dropOver;
 	};
 
+	// prettier-ignore
 	return {
 		dropElements,
+		hoveringOver, 			// Test Only
 		hoveringUpdateHandler,
-		registerDropElement, // Mandatory in DropElement.vue
-		deregisterDropElement, // Mandatory in DropElement.vue
-		draggingHandler, // Optional: If user wants to know when DragElement is hovering over valid Drop Element
-		droppingHandler, // Optional: If user wants to limit the area that DragElement can be dropped
+		registerDropElement, 	// Mandatory in DropElement.vue
+		deregisterDropElement, 	// Mandatory in DropElement.vue
+		draggingHandler, 		// Optional: If user wants to know when DragElement is hovering over valid Drop Element
+		droppingHandler, 		// Optional: If user wants to limit the area that DragElement can be dropped
 	};
 });

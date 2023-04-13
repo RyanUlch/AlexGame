@@ -1,8 +1,9 @@
 // Pinia/Vue type Imports:
 import { defineStore } from 'pinia';
 import { reactive, computed } from 'vue';
-import { useLogComposable } from '@/composables/logComposable';
+import { useLogComposable } from '../composables/logComposable';
 import cardData from '../assets/cards/MasterCardList.json';
+import { usePawnStore } from './pawn';
 
 const { addLogLine } = useLogComposable();
 
@@ -12,12 +13,20 @@ export type Card = {
 	value: number;
 };
 
-// Drag (and) Drop Store used to store drop elements references, and handle logic with dragging/dropping elements
+const masterCardList: {
+	[key: string]: {
+		effect: string;
+		imgBase: string;
+		cardText: string;
+		target: string;
+		energyCost?: number;
+	};
+} = cardData;
+
 export const useCardStore = defineStore('cardInventoryStore', () => {
-	const characterCardInventory: Card[] = [];
 	let uniqueCardIndex = 0;
 
-	const characterDrawPile: Card[] = reactive(characterCardInventory);
+	const characterDrawPile: Card[] = reactive([]);
 	const characterCardHand: Card[] = reactive([]);
 	const characterDiscard: Card[] = reactive([]);
 
@@ -38,21 +47,56 @@ export const useCardStore = defineStore('cardInventoryStore', () => {
 		}
 	};
 
+	const cardEffect = (cardEffect: string, value: number, target: string, cost: number = 0) => {
+		const pawnStore = usePawnStore();
+		const affectedPawns = pawnStore.affectedSprites(target);
+		if (pawnStore.useEnergy(cost)) {
+			switch (cardEffect) {
+				case 'heal':
+					for (const pawn of affectedPawns) {
+						pawnStore.heal(value, pawn);
+					}
+					break;
+				case 'damage':
+					for (const pawn of affectedPawns) {
+						pawnStore.takeDamage(value, pawn);
+					}
+					break;
+				case 'recharge':
+					pawnStore.energize(value);
+					break;
+				case 'test':
+					break;
+				default:
+					throw new Error(`Add ${cardEffect} card effect handler to card.ts store`);
+			}
+			return true;
+		}
+		return false;
+	};
+
 	const useCard = (
-		dropType: string | number,
 		dragId: number | undefined,
-		droppedIntoId: string | number,
-		droppedFromId: string | number,
-	) => {
+		droppedIntoId: string | number | undefined,
+	): boolean => {
 		if (droppedIntoId === 'consumer') {
 			const cardIndex = characterCardHand.findIndex((card) => card.uniqueDeckId === dragId);
 			const playerCard = characterCardHand[cardIndex];
-			const masterCard = cardData[playerCard.masterCardId];
-			addLogLine(`${masterCard.effect} for ${playerCard.value}, to ${masterCard.target}`);
-			discardCard(cardIndex);
+			const masterCard = masterCardList[playerCard.masterCardId];
+			if (
+				cardEffect(masterCard.effect, playerCard.value, masterCard.target, masterCard.energyCost)
+			) {
+				addLogLine(`${masterCard.effect} for ${playerCard.value}, to ${masterCard.target}`);
+				discardCard(cardIndex);
+				return true;
+			}
+			return false;
 		} else if (droppedIntoId === 'discard') {
 			const cardIndex = characterCardHand.findIndex((card) => card.uniqueDeckId === dragId);
 			discardCard(cardIndex);
+			return true;
+		} else {
+			return false;
 		}
 	};
 
@@ -97,10 +141,11 @@ export const useCardStore = defineStore('cardInventoryStore', () => {
 		}
 	};
 
+	// prettier-ignore
 	return {
-		characterDrawPile,
-		characterCardHand,
-		characterDiscard,
+		characterDrawPile,	// Save
+		characterCardHand,	// Save
+		characterDiscard,	// Save
 		drawPileAmount,
 		useCard,
 		drawCards,

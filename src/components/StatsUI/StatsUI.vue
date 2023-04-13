@@ -56,7 +56,7 @@
 		display: inline-flex;
 		flex-direction: row;
 		cursor: default;
-		border: 1px solid black;
+		/* border: var(--borderSize) solid var(--borderColor); */
 		justify-content: center;
 		height: 20px;
 		padding: 1px;

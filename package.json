@@ -7,14 +7,20 @@
 		"build": "run-p type-check build-only",
 		"preview": "vite preview",
 		"test": "vitest",
+		"coverage": "vitest run --coverage",
 		"build-only": "vite build",
 		"type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
 		"lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
-		"format": "prettier --write src/"
+		"format": "prettier --write src/",
+		"conversations": "cd conversationCreator && npx ts-node ingest.ts",
+		"levels": "cd levelCreator && npx ts-node levelCreator.ts"
 	},
 	"dependencies": {
+		"@vueuse/core": "^9.13.0",
+		"node": "^19.8.1",
 		"pinia": "^2.0.32",
-		"vue": "^3.2.47"
+		"vue": "^3.2.47",
+		"zod": "^3.21.4"
 	},
 	"devDependencies": {
 		"@rushstack/eslint-patch": "^1.2.0",

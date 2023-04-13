@@ -1,34 +1,18 @@
 <script setup lang="ts">
-	import { computed, ref } from 'vue';
-	import { useLevelStore, autotileCoord } from '../../stores/levelStore';
-	import { useSpriteStore } from '@/stores/spriteStore';
-	import { storeToRefs } from 'pinia';
+	import { computed } from 'vue';
+	import { useLevelStore } from '../../stores/level';
+	import { usePawnStore } from '@/stores/pawn';
 	import PawnSprite from './PawnSprite.vue';
+	import CharacterSprite from './CharacterSprite.vue';
 	import { useKeyHandler } from '@/composables/useKeyHandler';
 	import { keyHandler } from '@/inputHandlers/keyInput';
 
-	// Set up level store and retrieve necessary values
+	const pawnStore = usePawnStore();
 	const levelStore = useLevelStore();
-	const { levelMatrix } = storeToRefs(levelStore);
-	levelStore.openLevel(0);
-
-	// Set up sprite store and register sprites
-	const spriteStore = useSpriteStore();
-	const { characterPosition, characterId } = storeToRefs(spriteStore);
-	spriteStore.registerSprite([2, 1, 's'], '', () => {
-		console.log(`it's locked`);
-	});
-	spriteStore.registerSprite([3, 4, 'n'], 'hat0', () => {
-		characterId.value = '0';
-		spriteStore.deregisterSprite(1);
-		levelMatrix.value[3][4].impassible = false;
-		levelMatrix.value[3][4].layeredImageSrc = undefined;
-		levelMatrix.value[3][4].layeredImageCoord = undefined;
-	});
-
+	levelStore.openLevel('level0', pawnStore.characterPosition);
 	// Compute whether level matrix is ready to be rendered
 	const matrixReady = computed(() => {
-		return levelMatrix.value.length > 0;
+		return levelStore.levelMatrix.length > 0;
 	});
 
 	// Set up key handler
@@ -36,48 +20,69 @@
 </script>
 
 <template>
-	<div class="full">
-		<template v-if="matrixReady">
-			<div
-				class="row"
-				v-for="(row, rowIndex) in levelMatrix"
-				:key="rowIndex">
+	<div class="screen">
+		<div class="camera">
+			<template v-if="matrixReady">
 				<div
-					class="column"
-					v-for="(col, colIndex) in row"
-					:key="colIndex"
-					:style="{
-						backgroundImage: `url('src/assets/levels/tilesets/${col.tileset}.png')`,
-						backgroundPosition: `-${autotileCoord[col.tileCoord][1] * 16}px -${
-							autotileCoord[col.tileCoord][0] * 16
-						}px`,
-					}">
-					<!-- Render pawn sprite if present at this position -->
-					<PawnSprite
-						v-if="rowIndex === characterPosition[0] && colIndex === characterPosition[1]"
-						:characterFilename="characterId"
-						:direction="characterPosition[2]"
-						class="character" />
-
-					<!-- Render layer image if present at this position -->
-					<img
-						v-if="col.layeredImageCoord"
-						class="objectLayer"
-						:src="`src/assets/levels/objects/${col.layeredImageSrc}.png`"
+					class="row"
+					v-for="(row, rowIndex) in levelStore.levelMatrix"
+					:key="rowIndex">
+					<div
+						class="column"
+						v-for="(col, colIndex) in row"
+						:key="colIndex"
 						:style="{
-							objectPosition: `-${col.layeredImageCoord[1]}px -${col.layeredImageCoord[0]}px`,
-							objectFit: 'none',
-						}" />
+							backgroundImage: `url('src/assets/tilesets/${col.tileset}.png')`,
+							backgroundPosition: `-${col.tileCoord[1] * 16}px -${col.tileCoord[0] * 16}px`,
+						}">
+						<!-- Render pawn sprite if present at this position -->
+						<CharacterSprite
+							v-if="
+								rowIndex === pawnStore.characterPosition[0] &&
+								colIndex === pawnStore.characterPosition[1]
+							"
+							:characterFilename="pawnStore.characterId"
+							:direction="pawnStore.characterPosition[2]"
+							class="character" />
+
+						<!-- Render layer image if present at this position -->
+						<img
+							v-if="col.layeredImageCoord && !col.isCharacter"
+							class="objectLayer"
+							:src="`src/assets/objects/${col.layeredImageSrc}.png`"
+							:style="{
+								objectPosition: `-${col.layeredImageCoord[1] * 16}px -${
+									col.layeredImageCoord[0] * (col.isCharacter ? 20 : 16)
+								}px`,
+								objectFit: 'none',
+								zIndex: col.isCharacter ? 5 : 0,
+							}" />
+						<PawnSprite
+							v-if="col.isCharacter"
+							class="npc"
+							:spriteName="col.layeredImageSrc"
+							:coords="col.layeredImageCoord" />
+					</div>
 				</div>
-			</div>
-		</template>
-		<template v-else>
-			<div>Loading...</div>
-		</template>
-	</div>
+			</template>
+			<template v-else>
+				<div>Loading...</div>
+			</template>
+		</div>
 </template>
 
 <style scoped>
+	.npc {
+		width: 16px;
+		height: 20px;
+		transform: translateY(-4px);
+		position: absolute;
+	}
+
+	.temp {
+		color: white;
+	}
+
 	.character {
 		width: 16px;
 		height: 20px;
@@ -88,6 +93,23 @@
 		width: 16px;
 		height: 16px;
 	}
+
+	.screen {
+		pointer-events: none;
+		user-select: none;
+		transform: scale(v-bind('`${pawnStore.scale}`'));
+		transform-origin: top left;
+	}
+	.camera {
+		display: inline-flex;
+		flex-direction: column;
+		image-rendering: pixelated;
+		image-rendering: -moz-crisp-edges;
+		image-rendering: crisp-edges;
+		position: relative;
+		top: v-bind('`${(((20/pawnStore.scale) - pawnStore.characterPosition[0]) * 16)}px`');
+		left: v-bind('`${(((20/pawnStore.scale) - pawnStore.characterPosition[1]) * 16)}px`');
+
 	.full {
 		display: inline-flex;
 		flex-direction: column;
@@ -95,6 +117,7 @@
 		image-rendering: pixelated;
 		image-rendering: -moz-crisp-edges;
 		image-rendering: crisp-edges;
+
 	}
 	.row {
 		display: inline-flex;

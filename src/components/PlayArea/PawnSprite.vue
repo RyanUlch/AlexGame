@@ -1,35 +1,39 @@
 <script setup lang="ts">
 	import { computed, ref } from 'vue';
 
-	import { storeToRefs } from 'pinia';
 	/* Characters Sprites should be on their own sheets in a 3 x 4 grid, with a width of 16px, and a height of 20px. They should also have the still animation in the middle column */
 	/* All of this is to make it easier to have the correct displaying of all sprites */
 	const props = defineProps<{
-		characterFilename: string;
-		direction: string; // n = 60, e = 40, s = 0, w = 20
+		spriteName: string | undefined;
+		coords: [number, number] | undefined;
 	}>();
 
 	const facing = computed(() => {
-		switch (props.direction) {
-			case 'n':
-				return 60;
-			case 'e':
-				return 40;
-			case 's':
-				return 0;
-			case 'w':
-				return 20;
-			default:
-				return 0;
+		if (props.coords) {
+			switch (props.coords[0]) {
+				case 3:
+					return 60;
+				case 2:
+					return 40;
+				case 0:
+					return 0;
+				case 1:
+					return 20;
+				default:
+					return 0;
+			}
 		}
 	});
 	let animation = ref(0);
+
+	let isLeft = false;
 	setInterval(() => {
-		let isLeft = false;
 		if (animation.value === 16 && isLeft) {
 			animation.value = 0;
+			isLeft = false;
 		} else if (animation.value === 16) {
 			animation.value = 32;
+			isLeft = true;
 		} else {
 			animation.value = 16;
 		}
@@ -37,7 +41,8 @@
 </script>
 <template>
 	<img
-		:src="`src/assets/levels/characters/${props.characterFilename}.png`"
+		v-if="props.spriteName"
+		:src="`src/assets/characters/${props.spriteName}.png`"
 		:style="{
 			objectFit: 'none',
 			objectPosition: `-${animation}px -${facing}px`,
