@@ -1,0 +1,38 @@
+{
+	"power": {
+		"imgBase": "power-temp",
+		"cardText": "Use a power attack for * damage",
+		"target": "front",
+		"effect": "damage"
+	},
+	"energy": {
+		"imgBase": "energy",
+		"cardText": "Refresh your energy * points",
+		"target": "self",
+		"effect": "recharge"
+	},
+	"beam": {
+		"imgBase": "beam",
+		"cardText": "Fire a beam of energy for * damage!",
+		"target": "line",
+		"effect": "damage"
+	},
+	"heal": {
+		"imgBase": "heal",
+		"cardText": "Heal * points",
+		"target": "self",
+		"effect": "heal"
+	},
+	"jump": {
+		"imgBase": "jump",
+		"cardText": "Jump!",
+		"target": "self",
+		"effect": "jump"
+	},
+	"chop": {
+		"imgBase": "chop",
+		"cardText": "Chop!",
+		"target": "front",
+		"effect": "chop"
+	}
+}

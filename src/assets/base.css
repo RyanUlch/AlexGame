@@ -8,8 +8,13 @@
 	--menuBtnBack: hsl(var(--brandHue), 50%, 50%);
 	--menuBtnBackHover: hsl(var(--brandHue), 50%, 40%);
 	--menuBtnBackActive: hsl(var(--brandHue), 50%, 20%);
-	--menuSide: 3rem;
+	--menuSide: 74px;
 	--menuColumnNumber: 2;
+
+	/* Card Size */
+	--cardWidth: 7.5rem;
+	--cardHeight: 10.5rem;
+	--cardRadius: 0.5rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -27,4 +32,8 @@
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
+}
+
+body {
+	overflow: hidden;
 }
