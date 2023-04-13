@@ -1,4 +1,6 @@
 <script setup lang="ts">
+	import { useLevelStore } from './stores/levelStore';
+	import PlayArea from './components/PlayArea/PlayArea.vue';
 	import CardArea from './components/Card/CardArea.vue';
 	import EventLog from './components/EventLog/EventLog.vue';
 	import StatsUi from './components/StatsUi/StatsUi.vue';
