@@ -6,7 +6,7 @@
 
 	// Props
 	const props = defineProps<{
-		dropElementIndex: number;
+		dropElementIndex: number | string;
 		dragElementType: string;
 	}>();
 
@@ -36,9 +36,7 @@
 <template>
 	<div
 		@mouseenter="updateHoverHandler"
-		@mouseleave="updateHoverHandler"
-		@touchenter="updateHoverHandler"
-		@touchleave="updateHoverHandler">
+		@mouseleave="updateHoverHandler">
 		<slot></slot>
 	</div>
 </template>

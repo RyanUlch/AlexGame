@@ -21,18 +21,17 @@
 
 <style scoped>
 	.outerContainer {
-		box-sizing: border-box;
 		width: 300px;
 		background-color: black;
 		color: white;
-		border-radius: 1rem;
 		overflow: hidden;
 		border: 5px solid grey;
 	}
 	.innerContainer {
 		display: flex;
 		flex-direction: column-reverse;
-		height: 300px;
+		height: 442px;
+		/* height: 100%; */
 		word-wrap: normal;
 		scrollbar-color: grey;
 		scrollbar-width: 12px;
