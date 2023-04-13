@@ -69,7 +69,6 @@
 				<div>Loading...</div>
 			</template>
 		</div>
-	</div>
 </template>
 
 <style scoped>
@@ -83,6 +82,7 @@
 	.temp {
 		color: white;
 	}
+
 	.character {
 		width: 16px;
 		height: 20px;
@@ -109,6 +109,15 @@
 		position: relative;
 		top: v-bind('`${(((20/pawnStore.scale) - pawnStore.characterPosition[0]) * 16)}px`');
 		left: v-bind('`${(((20/pawnStore.scale) - pawnStore.characterPosition[1]) * 16)}px`');
+
+	.full {
+		display: inline-flex;
+		flex-direction: column;
+		transform: scale(5);
+		image-rendering: pixelated;
+		image-rendering: -moz-crisp-edges;
+		image-rendering: crisp-edges;
+
 	}
 	.row {
 		display: inline-flex;
