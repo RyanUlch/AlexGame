@@ -2,34 +2,8 @@
 	"test": {
 		"imgBase": "img-test",
 		"cardText": "Use test attack for * damage",
+		"energyCost": 0,
 		"target": "self",
 		"effect": "damage"
-	},
-	"power": {
-		"imgBase": "power-temp",
-		"cardText": "Use a power attack for * damage",
-		"energyCost": 2,
-		"target": "front",
-		"effect": "damage"
-	},
-	"energy": {
-		"imgBase": "energy",
-		"cardText": "Refresh your energy * points",
-		"target": "self",
-		"effect": "recharge"
-	},
-	"beam": {
-		"imgBase": "beam",
-		"cardText": "Fire a beam of energy for * damage!",
-		"energyCost": 3,
-		"target": "line",
-		"effect": "damage"
-	},
-	"heal": {
-		"imgBase": "heal",
-		"cardText": "Heal * points",
-		"energyCost": 1,
-		"target": "self",
-		"effect": "heal"
 	}
 }

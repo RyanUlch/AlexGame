@@ -2,8 +2,6 @@
 // Pinia/Vue type Imports:
 import { defineStore } from 'pinia';
 import { reactive } from 'vue';
-import openLevel0 from '../assets/levels/level0';
-import openLevel1 from '../assets/levels/level1';
 import openTestLevel from '../assets/levels/testLevel';
 import { usePawnStore } from './pawn';
 
@@ -22,8 +20,6 @@ interface JSONTiles {
 
 const levels: { [levelName: string]: () => void } = {
 	test_level: openTestLevel,
-	level0: openLevel0,
-	level1: openLevel1,
 };
 
 export const useLevelStore = defineStore('levelStore', () => {

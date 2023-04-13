@@ -1,7 +1,6 @@
 import { usePromptStore } from '@/stores/prompt';
 import { usePawnStore } from '@/stores/pawn';
 import { AudioPlayer } from '../Audio/Audio';
-import { useSpriteStore } from '@/stores/spriteStore';
 
 type KeyHandlerMap = {
 	[key: string]: (event: KeyboardEvent) => void;
@@ -33,7 +32,7 @@ const interact = () => {
 
 	// Normal behaviour
 	usePawnStore().playerInteract();
-
+};
 
 const handlers: KeyHandlerMap = {
 	Enter() {

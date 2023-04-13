@@ -2,33 +2,23 @@
 	import { useLevelStore } from './stores/levelStore';
 	import PlayArea from './components/PlayArea/PlayArea.vue';
 	import CardArea from './components/Card/CardArea.vue';
-	import PlayArea from './components/PlayArea/PlayArea.vue';
 	import DropElement from './components/DragAndDrop/DropElement.vue';
 	import MenuButton from './components/MenuButton/MenuButton.vue';
 	import StatsUi from './components/StatsUi/StatsUI.vue';
 	import { useCardStore } from './stores/card';
 	import EventLog from './components/EventLog/EventLog.vue';
 	import { usePawnStore } from './stores/pawn';
-	import { storeToRefs } from 'pinia';
 	import AppPrompt from './components/Menus/AppPrompt.vue';
 	import AppSettingsMenu from './components/Menus/AppSettingsMenu.vue';
 	import AppCreditsMenu from './components/Menus/AppCreditsMenu.vue';
 	import AppInventoryMenu from './components/Menus/AppInventoryMenu.vue';
 	import AppSkillsMenu from './components/Menus/AppSkillsMenu.vue';
 	import { useSettingsStore } from './stores/settings';
-	import saveJSON from './save_load/globalSave';
 	const settings = useSettingsStore();
 	const cardStore = useCardStore();
 	const playerStore = usePawnStore();
-	const { health, maxHealth, energy, maxEnergy } = storeToRefs(playerStore);
 	// Starting Deck
-	cardStore.addCardsToDeck([
-		{ masterCardId: 'power', value: 1 },
-		{ masterCardId: 'heal', value: 2 },
-		{ masterCardId: 'beam', value: 6 },
-		{ masterCardId: 'energy', value: 3 },
-	]);
-	saveJSON();
+	cardStore.addCardsToDeck([]);
 </script>
 <template>
 	<div class="gameArea">
@@ -41,19 +31,13 @@
 		</DropElement>
 		<div class="upper-right">
 			<div class="statArea square">
-				<StatsUi
-					:value="health"
-					:maxValue="maxHealth"
+				<!-- <StatsUi
+					:value=""
+					:maxValue=""
 					:isIconBased="true"
-					iconFileBase="heart"
+					iconFileBase="fileName"
 					:hasPartialIcons="true"
-					tooltip="This is your health" />
-				<StatsUi
-					:value="energy"
-					:maxValue="maxEnergy"
-					:isIconBased="false"
-					iconFileBase="energy"
-					tooltip="This is your energy" />
+					tooltip="" /> -->
 			</div>
 			<div class="menuArea square">
 				<MenuButton

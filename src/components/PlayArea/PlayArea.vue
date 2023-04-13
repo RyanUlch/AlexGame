@@ -9,7 +9,7 @@
 
 	const pawnStore = usePawnStore();
 	const levelStore = useLevelStore();
-	levelStore.openLevel('level0', pawnStore.characterPosition);
+
 	// Compute whether level matrix is ready to be rendered
 	const matrixReady = computed(() => {
 		return levelStore.levelMatrix.length > 0;
@@ -69,6 +69,7 @@
 				<div>Loading...</div>
 			</template>
 		</div>
+	</div>
 </template>
 
 <style scoped>
@@ -109,7 +110,7 @@
 		position: relative;
 		top: v-bind('`${(((20/pawnStore.scale) - pawnStore.characterPosition[0]) * 16)}px`');
 		left: v-bind('`${(((20/pawnStore.scale) - pawnStore.characterPosition[1]) * 16)}px`');
-
+	}
 	.full {
 		display: inline-flex;
 		flex-direction: column;
@@ -117,7 +118,6 @@
 		image-rendering: pixelated;
 		image-rendering: -moz-crisp-edges;
 		image-rendering: crisp-edges;
-
 	}
 	.row {
 		display: inline-flex;
