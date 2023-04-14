@@ -1,5 +1,5 @@
 <script setup lang="ts">
-	import { useLevelStore } from './stores/levelStore';
+	import { useLevelStore } from './stores/level';
 	import PlayArea from './components/PlayArea/PlayArea.vue';
 	import CardArea from './components/Card/CardArea.vue';
 	import DropElement from './components/DragAndDrop/DropElement.vue';
@@ -19,6 +19,8 @@
 	const playerStore = usePawnStore();
 	// Starting Deck
 	cardStore.addCardsToDeck([]);
+	const levelStore = useLevelStore();
+	levelStore.openLevel('bluffs');
 </script>
 <template>
 	<div class="gameArea">

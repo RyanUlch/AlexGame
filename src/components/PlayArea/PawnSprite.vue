@@ -42,7 +42,7 @@
 <template>
 	<img
 		v-if="props.spriteName"
-		:src="`src/assets/characters/${props.spriteName}.png`"
+		:src="`src/assets/pixelAssets/${props.spriteName}.png`"
 		:style="{
 			objectFit: 'none',
 			objectPosition: `-${animation}px -${facing}px`,

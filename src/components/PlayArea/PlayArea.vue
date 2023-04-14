@@ -32,7 +32,7 @@
 						v-for="(col, colIndex) in row"
 						:key="colIndex"
 						:style="{
-							backgroundImage: `url('src/assets/tilesets/${col.tileset}.png')`,
+							backgroundImage: `url('src/assets/pixelAssets/${col.tileset}.png')`,
 							backgroundPosition: `-${col.tileCoord[1] * 16}px -${col.tileCoord[0] * 16}px`,
 						}">
 						<!-- Render pawn sprite if present at this position -->
@@ -49,7 +49,7 @@
 						<img
 							v-if="col.layeredImageCoord && !col.isCharacter"
 							class="objectLayer"
-							:src="`src/assets/objects/${col.layeredImageSrc}.png`"
+							:src="`src/assets/pixelAssets/${col.layeredImageSrc}.png`"
 							:style="{
 								objectPosition: `-${col.layeredImageCoord[1] * 16}px -${
 									col.layeredImageCoord[0] * (col.isCharacter ? 20 : 16)

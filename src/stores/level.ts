@@ -3,6 +3,7 @@
 import { defineStore } from 'pinia';
 import { reactive } from 'vue';
 import openTestLevel from '../assets/levels/testLevel';
+import openBluffLevel from '@/assets/levels/bluffs';
 import { usePawnStore } from './pawn';
 
 interface Tile {
@@ -20,6 +21,7 @@ interface JSONTiles {
 
 const levels: { [levelName: string]: () => void } = {
 	test_level: openTestLevel,
+	bluff_level: openBluffLevel,
 };
 
 export const useLevelStore = defineStore('levelStore', () => {

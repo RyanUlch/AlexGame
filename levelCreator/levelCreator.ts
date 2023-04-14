@@ -37,8 +37,8 @@ export const autotileCoord: { [direction: string]: [number, number] } = {
 	"ullr": [1, 0], // Upper-Left and Lower-Right corners
 	"urll": [3, 2], // Upper-Right and Lower-Left corners
 };
-
-// Reads cells in the format - type tilesetSource (tileCoord string || [tileCoord0, tileCoord1]) impassible layeredImageSrc layeredImageCoord0 layeredImageCoord1
+// Need to implement rotate
+// Reads cells in the format - type tilesetSource (tileCoord string || [tileCoord0, tileCoord1, rotate]) impassible layeredImageSrc layeredImageCoord0 layeredImageCoord1
 // type: a = Auto Floor Tiles, c = Coordinate based
 fs.readFile('./levelDesign.tsv', (err: Error, data) => {
 	const stringFile = data.toString();
@@ -69,7 +69,11 @@ fs.readFile('./levelDesign.tsv', (err: Error, data) => {
 			}
 		}
 	}
-	fs.writeFile('../src/levels/newLevel-RENAME.json', JSON.stringify(jsonFile), (err: Error) => {
-		err ? console.error(err) : console.log('succeeded');
-	});
+	fs.writeFile(
+		'../src/assets/levels/newLevel-RENAME.json',
+		JSON.stringify(jsonFile),
+		(err: Error) => {
+			err ? console.error(err) : console.log('succeeded');
+		},
+	);
 });
