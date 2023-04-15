@@ -1,1 +1,0 @@
-const openchar3_house0Level = () => {}; export default openchar3_house0Level;

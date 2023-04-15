@@ -1,3 +1,1 @@
-const openBluffLevel = () => {};
-
-export default openBluffLevel;
+const openBluffsLevel = () => {}; export default openBluffsLevel;

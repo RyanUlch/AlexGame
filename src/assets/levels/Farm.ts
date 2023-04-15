@@ -1,0 +1,1 @@
+const openFarmLevel = () => {}; export default openFarmLevel;

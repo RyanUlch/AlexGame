@@ -1,0 +1,1 @@
+const openVillageLevel = () => {}; export default openVillageLevel;

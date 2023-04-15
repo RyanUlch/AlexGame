@@ -3,16 +3,18 @@
 import { defineStore } from 'pinia';
 import { reactive } from 'vue';
 import openTestLevel from '../assets/levels/testLevel';
-import openBluffLevel from '@/assets/levels/bluffs';
+import openBluffLevel from '@/assets/levels/Bluffs';
 import { usePawnStore } from './pawn';
-import openChar1_HouseLevel from '@/assets/levels/char1_house';
-import openChar2_House0Level from '@/assets/levels/char2_house0';
-import openchar2_house1Level from '@/assets/levels/char2_house1';
-import openchar4_houseLevel from '@/assets/levels/char4_house';
-import openchar3_house0Level from '@/assets/levels/char3_house0';
-import openchar3_house1Level from '@/assets/levels/char3_house1';
-import openchar5_houseLevel from '@/assets/levels/char5_house';
-import opentavernLevel from '@/assets/levels/tavern';
+import openChar1_HouseLevel from '@/assets/levels/Char1_House';
+import openChar2_House_LowerLevel from '@/assets/levels/Char2_House_Lower';
+import openChar2_House_UpperLevel from '@/assets/levels/Char2_House_Upper';
+import openChar4_HouseLevel from '@/assets/levels/Char4_House';
+import openChar3_House_LowerLevel from '@/assets/levels/Char3_House_Lower';
+import openChar3_House_UpperLevel from '@/assets/levels/Char3_House_Upper';
+import openChar5_HouseLevel from '@/assets/levels/Char5_House';
+import openTavernLevel from '@/assets/levels/Tavern';
+import openFarmLevel from '@/assets/levels/Farm';
+import openVillageLevel from '@/assets/levels/Village';
 
 interface Tile {
 	tileset: string;
@@ -29,15 +31,17 @@ interface JSONTiles {
 // Register Levels Here:
 const levels: { [levelName: string]: () => void } = {
 	test: openTestLevel,
-	bluff: openBluffLevel,
-	char1_house: openChar1_HouseLevel,
-	char2_house0: openChar2_House0Level,
-	char2_house1: openchar2_house1Level,
-	char3_house0: openchar3_house0Level,
-	char3_house1: openchar3_house1Level,
-	char4_house: openchar4_houseLevel,
-	char5_house: openchar5_houseLevel,
-	tavern: opentavernLevel,
+	Bluff: openBluffLevel,
+	Char1_House: openChar1_HouseLevel,
+	Char2_House_Lower: openChar2_House_LowerLevel,
+	Char2_House_Upper: openChar2_House_UpperLevel,
+	Char3_House_Lower: openChar3_House_LowerLevel,
+	Char3_House_Upper: openChar3_House_UpperLevel,
+	Char4_House: openChar4_HouseLevel,
+	Char5_House: openChar5_HouseLevel,
+	Tavern: openTavernLevel,
+	Farm: openFarmLevel,
+	Village: openVillageLevel,
 };
 
 export const useLevelStore = defineStore('levelStore', () => {

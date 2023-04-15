@@ -3,11 +3,21 @@
         {
             "columns": [],
             "startY": 6,
-            "startX": 3,
+            "startX": 4,
             "startDir": "n"
         },
         {
             "columns": [
+                {
+                    "tileset": "Farm2",
+                    "tileCoord": [
+                        14,
+                        0
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
                 {
                     "tileset": "WoodEdge0",
                     "tileCoord": [
@@ -92,6 +102,16 @@
         },
         {
             "columns": [
+                {
+                    "tileset": "Farm2",
+                    "tileCoord": [
+                        14,
+                        0
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
                 {
                     "tileset": "WoodEdge0",
                     "tileCoord": [
@@ -184,6 +204,16 @@
         },
         {
             "columns": [
+                {
+                    "tileset": "Farm2",
+                    "tileCoord": [
+                        14,
+                        0
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
                 {
                     "tileset": "WoodEdge0",
                     "tileCoord": [
@@ -301,6 +331,16 @@
         {
             "columns": [
                 {
+                    "tileset": "Farm2",
+                    "tileCoord": [
+                        14,
+                        0
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
                     "tileset": "WoodEdge0",
                     "tileCoord": [
                         0,
@@ -419,7 +459,17 @@
                 {
                     "tileset": "WoodEdge0",
                     "tileCoord": [
-                        0,
+                        3,
+                        1
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "WoodEdge0",
+                    "tileCoord": [
+                        1,
                         1
                     ],
                     "impassible": true,
@@ -541,6 +591,24 @@
                     "impassible": true,
                     "isCharacter": false,
                     "layers": []
+                },
+                {
+                    "tileset": "Beach_Indoor",
+                    "tileCoord": [
+                        5,
+                        10
+                    ],
+                    "impassible": false,
+                    "isCharacter": false,
+                    "layers": [
+                        {
+                            "src": "Special",
+                            "coord": [
+                                1,
+                                2
+                            ]
+                        }
+                    ]
                 },
                 {
                     "tileset": "Beach_Indoor",
@@ -659,8 +727,18 @@
                 {
                     "tileset": "WoodEdge0",
                     "tileCoord": [
-                        0,
-                        1
+                        2,
+                        0
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "WoodEdge0",
+                    "tileCoord": [
+                        2,
+                        2
                     ],
                     "impassible": true,
                     "isCharacter": false,
@@ -781,6 +859,16 @@
         {
             "columns": [
                 {
+                    "tileset": "Farm2",
+                    "tileCoord": [
+                        14,
+                        0
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
                     "tileset": "WoodEdge0",
                     "tileCoord": [
                         2,
@@ -872,6 +960,16 @@
         },
         {
             "columns": [
+                {
+                    "tileset": "Farm2",
+                    "tileCoord": [
+                        14,
+                        0
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
                 {
                     "tileset": "Farm2",
                     "tileCoord": [

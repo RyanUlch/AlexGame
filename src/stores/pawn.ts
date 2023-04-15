@@ -9,7 +9,7 @@ import { runInteraction } from '../assets/interactions/interactions';
 export const usePawnStore = defineStore('pawnStore', () => {
 	const { addLogLine } = useLogComposable();
 	const levelStore = useLevelStore();
-	const scale = ref(3);
+	const scale = ref(1);
 	const gridCellSize = 16;
 	const screenSize = gridCellSize * 41;
 	const characterPosition = reactive<[number, number, string]>([5, 3, 's']);
@@ -195,8 +195,8 @@ export const usePawnStore = defineStore('pawnStore', () => {
 			!(newPosition[0] < 0) &&
 			!(newPosition[1] < 0) &&
 			!(newPosition[0] >= levelStore.levelMatrix.length) &&
-			!(newPosition[1] >= levelStore.levelMatrix[0].length) &&
-			!levelStore.isImpassible(newPosition[0], newPosition[1])
+			!(newPosition[1] >= levelStore.levelMatrix[0].length)
+			//&& !levelStore.isImpassible(newPosition[0], newPosition[1])
 		) {
 			const actionCell = spriteList.findIndex((action) => {
 				return action.position[0] === newPosition[0] && action.position[1] === newPosition[1];

@@ -24,15 +24,17 @@
 	// levelStore.openLevel('char1_house');
 
 	const levels = [
-		'bluffs',
-		'char1_house',
-		'char2_house0',
-		'char2_house1',
-		'char3_house0',
-		'char3_house1',
-		'char4_house',
-		'char5_house',
-		'tavern',
+		'Village',
+		'Bluffs',
+		'Char1_House',
+		'Char2_House_Lower',
+		'Char2_House_Upper',
+		'Char3_House_Lower',
+		'Char3_House_Upper',
+		'Char4_House',
+		'Char5_House',
+		'Tavern',
+		'Farm',
 	];
 
 	const onLevel = ref(0);

@@ -1,3 +1,1 @@
-const openChar1_HouseLevel = () => {};
-
-export default openChar1_HouseLevel;
+const openChar1_HouseLevel = () => {}; export default openChar1_HouseLevel;

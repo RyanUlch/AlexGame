@@ -74,17 +74,13 @@ folder
 						isCharacter: cell[4] === 'true',
 						layers: [],
 					});
-					if (cell[5]) {
+					let indexMarker = 5;
+					while (cell[indexMarker]) {
 						jsonFile.rows[i].columns[j].layers.push({
-							src: cell[5],
-							coord: [+cell[6], +cell[7]],
+							src: cell[indexMarker],
+							coord: [+cell[indexMarker + 1], +cell[indexMarker + 2]],
 						});
-						if (cell[8]) {
-							jsonFile.rows[i].columns[j].layers.push({
-								src: cell[8],
-								coord: [+cell[9], +cell[10]],
-							});
-						}
+						indexMarker += 3;
 					}
 				} else if (cell[0] === 'c') {
 					jsonFile.rows[i].columns.push({
@@ -94,17 +90,13 @@ folder
 						isCharacter: cell[5] === 'true',
 						layers: [],
 					});
-					if (cell[6]) {
+					let indexMarker = 6;
+					while (cell[indexMarker]) {
 						jsonFile.rows[i].columns[j].layers.push({
-							src: cell[6],
-							coord: [+cell[7], +cell[8]],
+							src: cell[indexMarker],
+							coord: [+cell[indexMarker + 1], +cell[indexMarker + 2]],
 						});
-						if (cell[9]) {
-							jsonFile.rows[i].columns[j].layers.push({
-								src: cell[9],
-								coord: [+cell[10], +cell[11]],
-							});
-						}
+						indexMarker += 3;
 					}
 				} else if (cell[0] === 's') {
 					jsonFile.rows[0] = { columns: [], startY: +cell[1], startX: +cell[2], startDir: cell[3] };

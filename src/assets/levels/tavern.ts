@@ -1,1 +1,1 @@
-const opentavernLevel = () => {}; export default opentavernLevel;
+const openTavernLevel = () => {}; export default openTavernLevel;
