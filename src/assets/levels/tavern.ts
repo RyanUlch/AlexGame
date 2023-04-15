@@ -1,0 +1,1 @@
+const opentavernLevel = () => {}; export default opentavernLevel;

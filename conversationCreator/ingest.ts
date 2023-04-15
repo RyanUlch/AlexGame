@@ -134,7 +134,11 @@ readdirSync('.')
 		if (currentConversation) conversations.push(currentConversation);
 	});
 
-writeFileSync('../src/assets/conversations.json', JSON.stringify(conversations, undefined, 4), {
-	encoding: 'utf8',
-});
+writeFileSync(
+	'../src/assets/conversations/conversations.json',
+	JSON.stringify(conversations, undefined, 4),
+	{
+		encoding: 'utf8',
+	},
+);
 console.log(`${conversations.length} conversations ingested`);

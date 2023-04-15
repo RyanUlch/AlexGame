@@ -1,0 +1,730 @@
+{
+    "rows": [
+        {
+            "columns": [],
+            "startY": 5,
+            "startX": 5,
+            "startDir": "n"
+        },
+        {
+            "columns": [
+                {
+                    "tileset": "WoodEdge0",
+                    "tileCoord": [
+                        3,
+                        1
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "WoodEdge0",
+                    "tileCoord": [
+                        0,
+                        3
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "WoodEdge0",
+                    "tileCoord": [
+                        0,
+                        3
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "WoodEdge0",
+                    "tileCoord": [
+                        0,
+                        3
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "WoodEdge0",
+                    "tileCoord": [
+                        0,
+                        3
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "WoodEdge0",
+                    "tileCoord": [
+                        0,
+                        3
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "WoodEdge0",
+                    "tileCoord": [
+                        0,
+                        0
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                }
+            ]
+        },
+        {
+            "columns": [
+                {
+                    "tileset": "WoodEdge0",
+                    "tileCoord": [
+                        0,
+                        1
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "HouseWall3",
+                    "tileCoord": [
+                        0,
+                        1
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "HouseWall3",
+                    "tileCoord": [
+                        0,
+                        1
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": [
+                        {
+                            "src": "FireDungeon",
+                            "coord": [
+                                12,
+                                8
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "tileset": "HouseWall3",
+                    "tileCoord": [
+                        0,
+                        1
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": [
+                        {
+                            "src": "FireDungeon",
+                            "coord": [
+                                12,
+                                9
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "tileset": "HouseWall3",
+                    "tileCoord": [
+                        0,
+                        1
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "HouseWall3",
+                    "tileCoord": [
+                        0,
+                        1
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "WoodEdge0",
+                    "tileCoord": [
+                        2,
+                        3
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                }
+            ]
+        },
+        {
+            "columns": [
+                {
+                    "tileset": "WoodEdge0",
+                    "tileCoord": [
+                        0,
+                        1
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "HouseWall3",
+                    "tileCoord": [
+                        2,
+                        1
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": [
+                        {
+                            "src": "Torches",
+                            "coord": [
+                                8,
+                                3
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "tileset": "HouseWall3",
+                    "tileCoord": [
+                        2,
+                        1
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": [
+                        {
+                            "src": "FireDungeon",
+                            "coord": [
+                                13,
+                                8
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "tileset": "HouseWall3",
+                    "tileCoord": [
+                        2,
+                        1
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": [
+                        {
+                            "src": "FireDungeon",
+                            "coord": [
+                                13,
+                                9
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "tileset": "HouseWall3",
+                    "tileCoord": [
+                        2,
+                        1
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": [
+                        {
+                            "src": "FireDungeon",
+                            "coord": [
+                                13,
+                                10
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "tileset": "HouseWall3",
+                    "tileCoord": [
+                        2,
+                        1
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": [
+                        {
+                            "src": "Torches",
+                            "coord": [
+                                8,
+                                3
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "tileset": "WoodEdge0",
+                    "tileCoord": [
+                        2,
+                        3
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                }
+            ]
+        },
+        {
+            "columns": [
+                {
+                    "tileset": "WoodEdge0",
+                    "tileCoord": [
+                        0,
+                        1
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "HouseBases",
+                    "tileCoord": [
+                        8.5,
+                        0.5
+                    ],
+                    "impassible": false,
+                    "isCharacter": false,
+                    "layers": [
+                        {
+                            "src": "Torches",
+                            "coord": [
+                                9,
+                                3
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "tileset": "HouseBases",
+                    "tileCoord": [
+                        8.5,
+                        0.5
+                    ],
+                    "impassible": false,
+                    "isCharacter": false,
+                    "layers": [
+                        {
+                            "src": "FireDungeon",
+                            "coord": [
+                                14,
+                                8
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "tileset": "HouseBases",
+                    "tileCoord": [
+                        8.5,
+                        0.5
+                    ],
+                    "impassible": false,
+                    "isCharacter": false,
+                    "layers": [
+                        {
+                            "src": "FireDungeon",
+                            "coord": [
+                                14,
+                                9
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "tileset": "HouseBases",
+                    "tileCoord": [
+                        8.5,
+                        0.5
+                    ],
+                    "impassible": false,
+                    "isCharacter": false,
+                    "layers": [
+                        {
+                            "src": "FireDungeon",
+                            "coord": [
+                                14,
+                                10
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "tileset": "HouseBases",
+                    "tileCoord": [
+                        8.5,
+                        0.5
+                    ],
+                    "impassible": false,
+                    "isCharacter": false,
+                    "layers": [
+                        {
+                            "src": "Torches",
+                            "coord": [
+                                9,
+                                3
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "tileset": "WoodEdge0",
+                    "tileCoord": [
+                        2,
+                        3
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                }
+            ]
+        },
+        {
+            "columns": [
+                {
+                    "tileset": "WoodEdge0",
+                    "tileCoord": [
+                        0,
+                        1
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "HouseBases",
+                    "tileCoord": [
+                        8.5,
+                        0.5
+                    ],
+                    "impassible": false,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "HouseBases",
+                    "tileCoord": [
+                        8.5,
+                        0.5
+                    ],
+                    "impassible": false,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "HouseBases",
+                    "tileCoord": [
+                        8.5,
+                        0.5
+                    ],
+                    "impassible": false,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "HouseBases",
+                    "tileCoord": [
+                        8.5,
+                        0.5
+                    ],
+                    "impassible": false,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "HouseBases",
+                    "tileCoord": [
+                        8.5,
+                        0.5
+                    ],
+                    "impassible": false,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "WoodEdge0",
+                    "tileCoord": [
+                        2,
+                        3
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                }
+            ]
+        },
+        {
+            "columns": [
+                {
+                    "tileset": "WoodEdge0",
+                    "tileCoord": [
+                        0,
+                        1
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "HouseBases",
+                    "tileCoord": [
+                        8.5,
+                        0.5
+                    ],
+                    "impassible": false,
+                    "isCharacter": false,
+                    "layers": [
+                        {
+                            "src": "FireDungeon",
+                            "coord": [
+                                0,
+                                9
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "tileset": "HouseBases",
+                    "tileCoord": [
+                        8.5,
+                        0.5
+                    ],
+                    "impassible": false,
+                    "isCharacter": false,
+                    "layers": [
+                        {
+                            "src": "FireDungeon",
+                            "coord": [
+                                0,
+                                10
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "tileset": "HouseBases",
+                    "tileCoord": [
+                        8.5,
+                        0.5
+                    ],
+                    "impassible": false,
+                    "isCharacter": false,
+                    "layers": [
+                        {
+                            "src": "FireDungeon",
+                            "coord": [
+                                0,
+                                11
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "tileset": "HouseBases",
+                    "tileCoord": [
+                        8.5,
+                        0.5
+                    ],
+                    "impassible": false,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "HouseBases",
+                    "tileCoord": [
+                        8.5,
+                        0.5
+                    ],
+                    "impassible": false,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "WoodEdge0",
+                    "tileCoord": [
+                        2,
+                        3
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                }
+            ]
+        },
+        {
+            "columns": [
+                {
+                    "tileset": "WoodEdge0",
+                    "tileCoord": [
+                        2,
+                        0
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "WoodEdge0",
+                    "tileCoord": [
+                        2,
+                        1
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "WoodEdge0",
+                    "tileCoord": [
+                        2,
+                        1
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "WoodEdge0",
+                    "tileCoord": [
+                        2,
+                        1
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "WoodEdge0",
+                    "tileCoord": [
+                        2,
+                        2
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "HouseBases",
+                    "tileCoord": [
+                        8.5,
+                        0.5
+                    ],
+                    "impassible": false,
+                    "isCharacter": false,
+                    "layers": [
+                        {
+                            "src": "Special",
+                            "coord": [
+                                0,
+                                2
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "tileset": "WoodEdge0",
+                    "tileCoord": [
+                        2,
+                        3
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                }
+            ]
+        },
+        {
+            "columns": [
+                {
+                    "tileset": "Farm2",
+                    "tileCoord": [
+                        14,
+                        0
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "Farm2",
+                    "tileCoord": [
+                        14,
+                        0
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "Farm2",
+                    "tileCoord": [
+                        14,
+                        0
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "Farm2",
+                    "tileCoord": [
+                        14,
+                        0
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "WoodEdge0",
+                    "tileCoord": [
+                        2,
+                        0
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "WoodEdge0",
+                    "tileCoord": [
+                        2,
+                        1
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "WoodEdge0",
+                    "tileCoord": [
+                        3,
+                        3
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                }
+            ]
+        }
+    ]
+}

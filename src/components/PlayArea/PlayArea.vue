@@ -47,21 +47,21 @@
 
 						<!-- Render layer image if present at this position -->
 						<img
-							v-if="col.layeredImageCoord && !col.isCharacter"
+							v-for="layer of col.layers"
 							class="objectLayer"
-							:src="`src/assets/pixelAssets/${col.layeredImageSrc}.png`"
+							:src="`src/assets/pixelAssets/${layer.src}.png`"
 							:style="{
-								objectPosition: `-${col.layeredImageCoord[1] * 16}px -${
-									col.layeredImageCoord[0] * (col.isCharacter ? 20 : 16)
+								objectPosition: `-${layer.coord[1] * 16}px -${
+									layer.coord[0] * (col.isCharacter ? 20 : 16)
 								}px`,
 								objectFit: 'none',
 								zIndex: col.isCharacter ? 5 : 0,
 							}" />
-						<PawnSprite
+						<!-- <PawnSprite
 							v-if="col.isCharacter"
 							class="npc"
 							:spriteName="col.layeredImageSrc"
-							:coords="col.layeredImageCoord" />
+							:coords="col.layeredImageCoord" /> -->
 					</div>
 				</div>
 			</template>
@@ -93,6 +93,7 @@
 	.objectLayer {
 		width: 16px;
 		height: 16px;
+		position: absolute;
 	}
 
 	.screen {

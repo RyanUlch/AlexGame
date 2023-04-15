@@ -14,13 +14,35 @@
 	import AppInventoryMenu from './components/Menus/AppInventoryMenu.vue';
 	import AppSkillsMenu from './components/Menus/AppSkillsMenu.vue';
 	import { useSettingsStore } from './stores/settings';
+	import { ref } from 'vue';
 	const settings = useSettingsStore();
 	const cardStore = useCardStore();
 	const playerStore = usePawnStore();
 	// Starting Deck
 	cardStore.addCardsToDeck([]);
 	const levelStore = useLevelStore();
-	levelStore.openLevel('bluffs');
+	// levelStore.openLevel('char1_house');
+
+	const levels = [
+		'bluffs',
+		'char1_house',
+		'char2_house0',
+		'char2_house1',
+		'char3_house0',
+		'char3_house1',
+		'char4_house',
+		'char5_house',
+		'tavern',
+	];
+
+	const onLevel = ref(0);
+	const cycleLevel = () => {
+		if (onLevel.value === levels.length) {
+			onLevel.value = 0;
+		}
+		levelStore.openLevel(levels[onLevel.value]);
+		++onLevel.value;
+	};
 </script>
 <template>
 	<div class="gameArea">
@@ -68,6 +90,7 @@
 	<AppSkillsMenu />
 	<AppSettingsMenu />
 	<AppCreditsMenu />
+	<button :onClick="cycleLevel">Cycle Levels</button>
 </template>
 <style scoped>
 	.square {

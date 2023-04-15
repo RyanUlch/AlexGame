@@ -5,23 +5,39 @@ import { reactive } from 'vue';
 import openTestLevel from '../assets/levels/testLevel';
 import openBluffLevel from '@/assets/levels/bluffs';
 import { usePawnStore } from './pawn';
+import openChar1_HouseLevel from '@/assets/levels/char1_house';
+import openChar2_House0Level from '@/assets/levels/char2_house0';
+import openchar2_house1Level from '@/assets/levels/char2_house1';
+import openchar4_houseLevel from '@/assets/levels/char4_house';
+import openchar3_house0Level from '@/assets/levels/char3_house0';
+import openchar3_house1Level from '@/assets/levels/char3_house1';
+import openchar5_houseLevel from '@/assets/levels/char5_house';
+import opentavernLevel from '@/assets/levels/tavern';
 
 interface Tile {
 	tileset: string;
 	tileCoord: [number, number];
 	impassible: boolean;
-	layeredImageSrc?: string;
-	layeredImageCoord?: [number, number];
-	isCharacter?: boolean;
+	isCharacter: boolean;
+	layers: { src: string; coord: [number, number] }[];
 }
 
 interface JSONTiles {
 	rows: { columns: Tile[]; startY?: number; startX?: number; startDir?: string }[];
 }
 
+// Register Levels Here:
 const levels: { [levelName: string]: () => void } = {
-	test_level: openTestLevel,
-	bluff_level: openBluffLevel,
+	test: openTestLevel,
+	bluff: openBluffLevel,
+	char1_house: openChar1_HouseLevel,
+	char2_house0: openChar2_House0Level,
+	char2_house1: openchar2_house1Level,
+	char3_house0: openchar3_house0Level,
+	char3_house1: openchar3_house1Level,
+	char4_house: openchar4_houseLevel,
+	char5_house: openchar5_houseLevel,
+	tavern: opentavernLevel,
 };
 
 export const useLevelStore = defineStore('levelStore', () => {
@@ -63,12 +79,12 @@ export const useLevelStore = defineStore('levelStore', () => {
 					tileset: column.tileset,
 					tileCoord: column.tileCoord,
 					impassible: column.impassible,
-					layeredImageSrc: column.layeredImageSrc,
-					layeredImageCoord: column.layeredImageCoord
-						? [+column.layeredImageCoord[0], +column.layeredImageCoord[1]]
-						: undefined,
 					isCharacter: column.isCharacter,
+					layers: [],
 				});
+				for (const layer of column.layers) {
+					levelMatrix[i - 1][j].layers.push({ src: layer.src, coord: layer.coord });
+				}
 			}
 		}
 		return startPosition;
