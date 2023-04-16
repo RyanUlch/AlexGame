@@ -1,9 +1,0 @@
-s 5 5 n						
-a WoodEdge0 lr true false	a WoodEdge0 s true false	a WoodEdge0 s true false	a WoodEdge0 s true false	a WoodEdge0 s true false	a WoodEdge0 s true false	a WoodEdge0 ll true false
-a WoodEdge0 e true false	c HouseWall3 0 1 true false	c HouseWall3 0 1 true false FireDungeon 12 8	c HouseWall3 0 1 true false FireDungeon 12 9	c HouseWall3 0 1 true false	c HouseWall3 0 1 true false	a WoodEdge0 w true false
-a WoodEdge0 e true false	c HouseWall3 2 1 true false Torches 8 3	c HouseWall3 2 1 true false FireDungeon 13 8	c HouseWall3 2 1 true false FireDungeon 13 9	c HouseWall3 2 1 true false FireDungeon 13 10	c HouseWall3 2 1 true false Torches 8 3	a WoodEdge0 w true false
-a WoodEdge0 e true false	c HouseBases 8.5 0.5 false false Torches 9 3	c HouseBases 8.5 0.5 false false FireDungeon 14 8	c HouseBases 8.5 0.5 false false FireDungeon 14 9	c HouseBases 8.5 0.5 false false FireDungeon 14 10	c HouseBases 8.5 0.5 false false Torches 9 3	a WoodEdge0 w true false
-a WoodEdge0 e true false	c HouseBases 8.5 0.5 false false	c HouseBases 8.5 0.5 false false	c HouseBases 8.5 0.5 false false	c HouseBases 8.5 0.5 false false	c HouseBases 8.5 0.5 false false	a WoodEdge0 w true false
-a WoodEdge0 e true false	c HouseBases 8.5 0.5 false false FireDungeon 0 9	c HouseBases 8.5 0.5 false false FireDungeon 0 10	c HouseBases 8.5 0.5 false false FireDungeon 0 11	c HouseBases 8.5 0.5 false false	c HouseBases 8.5 0.5 false false	a WoodEdge0 w true false
-a WoodEdge0 ur true false	a WoodEdge0 n true false	a WoodEdge0 n true false	a WoodEdge0 n true false	a WoodEdge0 ne true false	c HouseBases 8.5 0.5 false false Special 0 2	a WoodEdge0 w true false
-c Farm2 14 0 true false	c Farm2 14 0 true false	c Farm2 14 0 true false	c Farm2 14 0 true false	a WoodEdge0 ur true false	a WoodEdge0 n true false	a WoodEdge0 ul true false

@@ -24,6 +24,7 @@
 	// levelStore.openLevel('char1_house');
 
 	const levels = [
+		'Market',
 		'Village',
 		'Bluffs',
 		'Char1_House',

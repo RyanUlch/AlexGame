@@ -15,6 +15,7 @@ import openChar5_HouseLevel from '@/assets/levels/Char5_House';
 import openTavernLevel from '@/assets/levels/Tavern';
 import openFarmLevel from '@/assets/levels/Farm';
 import openVillageLevel from '@/assets/levels/Village';
+import openMarketLevel from '@/assets/levels/Market';
 
 interface Tile {
 	tileset: string;
@@ -42,6 +43,7 @@ const levels: { [levelName: string]: () => void } = {
 	Tavern: openTavernLevel,
 	Farm: openFarmLevel,
 	Village: openVillageLevel,
+	Market: openMarketLevel,
 };
 
 export const useLevelStore = defineStore('levelStore', () => {
