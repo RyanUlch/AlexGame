@@ -1,3 +1,4 @@
+import { AudioPlayer } from '@/Audio/Audio';
 import { defineStore } from 'pinia';
 import { reactive, ref } from 'vue';
 import { useLevelStore } from './level';
@@ -88,6 +89,9 @@ export const useCutsceneStore = defineStore('cutscene', () => {
 			await wait(stepMs);
 		}
 	};
+	const playAudio = (audioName: string) => {
+		return new AudioPlayer(`src/assets/audio/${audioName}`).play();
+	};
 	const runCutscene = async (
 		levelName: string,
 		cutsceneScript: (tools: {
@@ -96,6 +100,7 @@ export const useCutsceneStore = defineStore('cutscene', () => {
 			addSprite: typeof addSprite;
 			removeSprite: typeof removeSprite;
 			walkSprite: typeof walkSprite;
+			playAudio: typeof playAudio;
 		}) => Promise<void>,
 	) => {
 		const levelStore = useLevelStore();
@@ -107,6 +112,7 @@ export const useCutsceneStore = defineStore('cutscene', () => {
 			addSprite,
 			removeSprite,
 			walkSprite,
+			playAudio,
 		});
 		curtainOpacity.value = 0; // Ensure curtain is up after cutscene
 		cutsceneActive.value = false;
@@ -123,33 +129,36 @@ export const useCutsceneStore = defineStore('cutscene', () => {
 });
 
 export const exampleCutscene = () => {
-	useCutsceneStore().runCutscene('Village', async ({ camera, wait, addSprite, walkSprite }) => {
-		const sprite: CutsceneSprite = {
-			imgSrc: 'Char00',
-			coords: [0, 0],
-			position: [10, 11],
-		};
-		addSprite(sprite);
-		const promptStore = usePromptStore();
-		await camera.move([0, 0]);
-		const introLength = 5000;
-		await Promise.all([camera.fade('in', introLength), camera.move([10, 11], introLength)]);
-		await wait(1000);
-		await promptStore.choicePrompt({
-			imgSrc: 'Char00',
-			title: 'Some Rando',
-			message:
-				'This is an example of dialogue during a cutscene from some rando, who is about to take a little stroll.',
-			choices: [{ text: 'Weird...', result: '' }],
-		});
-		await wait(1000);
-		const speed = 300;
-		await Promise.all([
-			walkSprite(sprite, [15, 11], speed),
-			camera.move([15, 11], speed * 5, 'linear'),
-		]);
-		await wait(1000);
-		const outroLength = 5000;
-		await Promise.all([camera.fade('out', outroLength), camera.move([0, 0], outroLength)]);
-	});
+	useCutsceneStore().runCutscene(
+		'Village',
+		async ({ camera, wait, addSprite, walkSprite, playAudio }) => {
+			const sprite: CutsceneSprite = {
+				imgSrc: 'Char00',
+				coords: [0, 0],
+				position: [10, 11],
+			};
+			addSprite(sprite);
+			const promptStore = usePromptStore();
+			await camera.move([0, 0]);
+			const introLength = 5000;
+			await Promise.all([camera.fade('in', introLength), camera.move([10, 11], introLength)]);
+			await wait(1000);
+			await promptStore.choicePrompt({
+				imgSrc: 'Char00',
+				title: 'Some Rando',
+				message:
+					'This is an example of dialogue during a cutscene from some rando, who is about to take a little stroll.',
+				choices: [{ text: 'Weird...', result: '' }],
+			});
+			await wait(1000);
+			const speed = 300;
+			await Promise.all([
+				walkSprite(sprite, [15, 11], speed),
+				camera.move([15, 11], speed * 5, 'linear'),
+			]);
+			await playAudio('yeah.wav');
+			const outroLength = 5000;
+			await Promise.all([camera.fade('out', outroLength), camera.move([0, 0], outroLength)]);
+		},
+	);
 };

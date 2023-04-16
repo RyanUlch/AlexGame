@@ -16,6 +16,7 @@
 	import { useSettingsStore } from './stores/settings';
 	import { ref } from 'vue';
 	import { exampleCutscene } from './stores/cutscene';
+	import { AudioPlayer } from './Audio/Audio';
 	const settings = useSettingsStore();
 	const cardStore = useCardStore();
 	const playerStore = usePawnStore();
