@@ -47,9 +47,9 @@
 		++onLevel.value;
 	};
 
-	setTimeout(() => {
-		exampleCutscene();
-	}, 1000);
+	// setTimeout(() => {
+	// 	exampleCutscene();
+	// }, 1000);
 </script>
 <template>
 	<div class="gameArea">
