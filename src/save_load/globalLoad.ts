@@ -1,4 +1,3 @@
-import { useCardStore } from '@/stores/card';
 import { usePawnStore } from '@/stores/pawn';
 import { useLevelStore } from '@/stores/level';
 import { useTimelineStore } from '@/stores/timeline';
@@ -6,22 +5,12 @@ import { AudioPlayer } from '@/Audio/Audio';
 
 const loadState = (state: string) => {
 	const json = JSON.parse(state);
-	const cardStore = useCardStore();
 	const pawnStore = usePawnStore();
 	const levelStore = useLevelStore();
 	const timelineStore = useTimelineStore();
 
 	AudioPlayer.isMuted = json.AudioPlayer.isMuted;
 	AudioPlayer.volume = json.AudioPlayer.volume;
-
-	cardStore.characterCardHand.splice(0, Infinity);
-	cardStore.characterCardHand.push(...json.card.characterCardHand);
-
-	cardStore.characterDrawPile.splice(0, Infinity);
-	cardStore.characterDrawPile.push(...json.card.characterDrawPile);
-
-	cardStore.characterDiscard.splice(0, Infinity);
-	cardStore.characterDiscard.push(...json.card.characterDiscard);
 
 	pawnStore.characterId = json.pawn.characterId;
 	pawnStore.characterPosition[0] = json.pawn.characterPosition[0];

@@ -1,9 +1,0 @@
-{
-	"test": {
-		"imgBase": "img-test",
-		"cardText": "Use test attack for * damage",
-		"energyCost": 0,
-		"target": "self",
-		"effect": "damage"
-	}
-}
