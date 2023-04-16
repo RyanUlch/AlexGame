@@ -14,6 +14,7 @@
 	import { ref } from 'vue';
 	import { exampleCutscene, openingCutscene } from './stores/cutscene';
 	import { AudioPlayer } from './Audio/Audio';
+	import { useFilterStore } from './stores/filters';
 
 	const settings = useSettingsStore();
 	const playerStore = usePawnStore();
@@ -45,6 +46,10 @@
 	// 	++onLevel.value;
 	// };
 
+	// setTimeout(() => {
+	// 	exampleCutscene();
+	// }, 1000);
+	// useFilterStore().enableFilter('night');
 	setTimeout(() => {
 		openingCutscene();
 	}, 1000);

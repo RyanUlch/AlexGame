@@ -7,10 +7,12 @@
 	import CharacterSprite from './CharacterSprite.vue';
 	import { useKeyHandler } from '@/composables/useKeyHandler';
 	import { keyHandler } from '@/inputHandlers/keyInput';
+	import { useFilterStore } from '@/stores/filters';
 
 	const pawnStore = usePawnStore();
 	const levelStore = useLevelStore();
 	const cutsceneStore = useCutsceneStore();
+	const filterStore = useFilterStore();
 
 	const matrixToUse = computed(() => {
 		if (levelStore.cutsceneMatrix.length > 0) return levelStore.cutsceneMatrix;
@@ -103,14 +105,15 @@
 			<template v-else>
 				<div>Loading...</div>
 			</template>
-			<div id="curtain"></div>
 		</div>
 	</div>
+	<div id="night-filter"></div>
 	<div id="cutscene-image">
 		<img
 			v-if="cutsceneStore.image !== null"
 			:src="'src/assets/images/' + cutsceneStore.image" />
 	</div>
+	<div id="curtain"></div>
 </template>
 
 <style scoped>
@@ -177,6 +180,16 @@
 		top: 0;
 		left: 0;
 		opacity: v-bind('cutsceneStore.imageOpacity');
+	}
+	#night-filter {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		pointer-events: none;
+		background: v-bind('filterStore.background');
+		opacity: v-bind('filterStore.enabledFilter === "" ? 0 : 1');
 	}
 	.full {
 		display: inline-flex;
