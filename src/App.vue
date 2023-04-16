@@ -1,11 +1,8 @@
 <script setup lang="ts">
 	import { useLevelStore } from './stores/level';
 	import PlayArea from './components/PlayArea/PlayArea.vue';
-	import CardArea from './components/Card/CardArea.vue';
-	import DropElement from './components/DragAndDrop/DropElement.vue';
 	import MenuButton from './components/MenuButton/MenuButton.vue';
 	import StatsUi from './components/StatsUi/StatsUI.vue';
-	import { useCardStore } from './stores/card';
 	import EventLog from './components/EventLog/EventLog.vue';
 	import { usePawnStore } from './stores/pawn';
 	import AppPrompt from './components/Menus/AppPrompt.vue';
@@ -15,55 +12,55 @@
 	import AppSkillsMenu from './components/Menus/AppSkillsMenu.vue';
 	import { useSettingsStore } from './stores/settings';
 	import { ref } from 'vue';
-	import { exampleCutscene } from './stores/cutscene';
+	import { exampleCutscene, openingCutscene } from './stores/cutscene';
 	import { AudioPlayer } from './Audio/Audio';
 	import { useFilterStore } from './stores/filters';
+
 	const settings = useSettingsStore();
-	const cardStore = useCardStore();
 	const playerStore = usePawnStore();
 	// Starting Deck
-	cardStore.addCardsToDeck([]);
 	const levelStore = useLevelStore();
 	// levelStore.openLevel('char1_house');
 
-	const levels = [
-		'Market',
-		'Village',
-		'Bluffs',
-		'Char1_House',
-		'Char2_House_Lower',
-		'Char2_House_Upper',
-		'Char3_House_Lower',
-		'Char3_House_Upper',
-		'Char4_House',
-		'Char5_House',
-		'Tavern',
-		'Farm',
-	];
+	// const levels = [
+	// 	'Market',
+	// 	'Village',
+	// 	'Bluffs',
+	// 	'Char1_House',
+	// 	'Char2_House_Lower',
+	// 	'Char2_House_Upper',
+	// 	'Char3_House_Lower',
+	// 	'Char3_House_Upper',
+	// 	'Char4_House',
+	// 	'Char5_House',
+	// 	'Tavern',
+	// 	'Farm',
+	// ];
 
-	const onLevel = ref(0);
-	const cycleLevel = () => {
-		if (onLevel.value === levels.length) {
-			onLevel.value = 0;
-		}
-		levelStore.openLevel(levels[onLevel.value]);
-		++onLevel.value;
-	};
+	// const onLevel = ref(0);
+	// const cycleLevel = () => {
+	// 	if (onLevel.value === levels.length) {
+	// 		onLevel.value = 0;
+	// 	}
+	// 	levelStore.openLevel(levels[onLevel.value]);
+	// 	++onLevel.value;
+	// };
 
 	// setTimeout(() => {
 	// 	exampleCutscene();
 	// }, 1000);
 	// useFilterStore().enableFilter('night');
+	setTimeout(() => {
+		openingCutscene();
+	}, 1000);
 </script>
 <template>
 	<div class="gameArea">
-		<DropElement
-			dragElementType="card"
-			dropElementIndex="consumer"
+		<div
 			class="playArea"
 			id="modal-target">
 			<PlayArea />
-		</DropElement>
+		</div>
 		<div class="upper-right">
 			<div class="statArea square">
 				<!-- <StatsUi
@@ -94,7 +91,6 @@
 			</div>
 			<EventLog />
 		</div>
-		<CardArea />
 	</div>
 	<AppPrompt />
 	<AppInventoryMenu />

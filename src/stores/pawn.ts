@@ -58,8 +58,7 @@ export const usePawnStore = defineStore('pawnStore', () => {
 	const deregisterSprite = (spriteIndex: number) => {
 		const spritePos = spriteList[spriteIndex].position;
 		if (spritePos[0] > -1) {
-			levelStore.levelMatrix[spritePos[0]][spritePos[1]].layeredImageSrc = undefined;
-			levelStore.levelMatrix[spritePos[0]][spritePos[1]].layeredImageCoord = undefined;
+			levelStore.levelMatrix[spritePos[0]][spritePos[1]].layers = [];
 			levelStore.levelMatrix[spritePos[0]][spritePos[1]].impassible = false;
 		}
 		spriteList.splice(spriteIndex, 1);
