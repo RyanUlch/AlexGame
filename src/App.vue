@@ -17,6 +17,7 @@
 	import { ref } from 'vue';
 	import { exampleCutscene } from './stores/cutscene';
 	import { AudioPlayer } from './Audio/Audio';
+	import { useFilterStore } from './stores/filters';
 	const settings = useSettingsStore();
 	const cardStore = useCardStore();
 	const playerStore = usePawnStore();
@@ -52,6 +53,7 @@
 	// setTimeout(() => {
 	// 	exampleCutscene();
 	// }, 1000);
+	// useFilterStore().enableFilter('night');
 </script>
 <template>
 	<div class="gameArea">
