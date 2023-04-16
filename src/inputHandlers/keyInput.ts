@@ -1,6 +1,7 @@
 import { usePromptStore } from '@/stores/prompt';
 import { usePawnStore } from '@/stores/pawn';
 import { AudioPlayer } from '../Audio/Audio';
+import { useCutsceneStore } from '@/stores/cutscene';
 
 type KeyHandlerMap = {
 	[key: string]: (event: KeyboardEvent) => void;
@@ -17,6 +18,7 @@ const move = (direction: string) => {
 		promptStore.changeSelection(direction);
 		return;
 	}
+	if (useCutsceneStore().cutsceneActive) return;
 
 	// Normal behaviour
 	usePawnStore().playerMoveListener(direction);
@@ -29,6 +31,7 @@ const interact = () => {
 		promptStore.selectChoice();
 		return;
 	}
+	if (useCutsceneStore().cutsceneActive) return;
 
 	// Normal behaviour
 	usePawnStore().playerInteract();

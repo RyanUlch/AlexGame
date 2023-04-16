@@ -49,9 +49,10 @@ const levels: { [levelName: string]: () => void } = {
 export const useLevelStore = defineStore('levelStore', () => {
 	// State:
 	const levelMatrix = reactive<Tile[][]>([]);
+	const cutsceneMatrix = reactive<Tile[][]>([]);
 	const pawnStore = usePawnStore();
 
-	const openLevel = async (levelName: string) => {
+	const openLevel = async (levelName: string, cutscene: boolean = false) => {
 		pawnStore.cleanupSprites();
 		const startingPosition = convertToMatrix(
 			await fetch(`src/assets/levels/${levelName}.json`)
@@ -59,15 +60,18 @@ export const useLevelStore = defineStore('levelStore', () => {
 				.then((json: any) => {
 					return json;
 				}),
+			cutscene ? cutsceneMatrix : levelMatrix,
 		);
-		pawnStore.characterPosition[0] = +startingPosition[0];
-		pawnStore.characterPosition[1] = +startingPosition[1];
-		pawnStore.characterPosition[2] = `${startingPosition[2]}`;
-		levels[levelName]();
+		if (!cutscene) {
+			pawnStore.characterPosition[0] = +startingPosition[0];
+			pawnStore.characterPosition[1] = +startingPosition[1];
+			pawnStore.characterPosition[2] = `${startingPosition[2]}`;
+			levels[levelName]();
+		}
 	};
 
-	const convertToMatrix = (jsonObj: JSONTiles) => {
-		levelMatrix.splice(0, Infinity);
+	const convertToMatrix = (jsonObj: JSONTiles, matrix: Tile[][]) => {
+		matrix.splice(0, Infinity);
 		const startPosition = [0, 0, 's'];
 		for (let i = 0; i < jsonObj.rows.length; ++i) {
 			const row = jsonObj.rows[i];
@@ -78,10 +82,10 @@ export const useLevelStore = defineStore('levelStore', () => {
 				startPosition[2] = String(jsonObj.rows[0].startDir);
 				continue;
 			}
-			levelMatrix.push([]);
+			matrix.push([]);
 			for (let j = 0; j < row.columns.length; ++j) {
 				const column = jsonObj.rows[i].columns[j];
-				levelMatrix[i - 1].push({
+				matrix[i - 1].push({
 					tileset: column.tileset,
 					tileCoord: column.tileCoord,
 					impassible: column.impassible,
@@ -89,7 +93,7 @@ export const useLevelStore = defineStore('levelStore', () => {
 					layers: [],
 				});
 				for (const layer of column.layers) {
-					levelMatrix[i - 1][j].layers.push({ src: layer.src, coord: layer.coord });
+					matrix[i - 1][j].layers.push({ src: layer.src, coord: layer.coord });
 				}
 			}
 		}
@@ -103,6 +107,7 @@ export const useLevelStore = defineStore('levelStore', () => {
 	// prettier-ignore
 	return { 
 		levelMatrix, // Save
+		cutsceneMatrix,
 		isImpassible, 
 		openLevel 
 	};
