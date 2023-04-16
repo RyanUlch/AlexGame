@@ -231,12 +231,15 @@ export const openingCutscene = () => {
 			const introLength = 5000;
 			await Promise.all([camera.fade('in', introLength), camera.move([27, 11], introLength)]);
 			await wait(1000);
+			setTimeout(() => {
+				removeSprite(sprite);
+			}, 1000);
 			await Promise.all([
 				//playAudio('yeah.wav'),
 
 				showImage('fenceBreak.png', 2000, { fade: 'in-out', fadeDurationMs: 500 }),
 			]);
-			removeSprite(sprite);
+
 			// await promptStore.choicePrompt({
 			// 	imgSrc: '',
 			// 	title: 'Welcome',
@@ -250,9 +253,10 @@ export const openingCutscene = () => {
 			// 	walkSprite(sprite, [25, 11], speed),
 			// 	// camera.move([15, 11], speed * 5, 'linear'),
 			// ]);
-			await Promise.all([camera.fade('out', introLength), camera.move([0, 11], introLength)]);
-			await wait(1000);
+			await Promise.all([, camera.move([5, 11], introLength)]);
+			// await wait(1000);
 			await Promise.all([
+				camera.fade('in', 0),
 				//playAudio('yeah.wav'),
 				showImage('TitleScreen.png', 10000, { fade: 'in-out', fadeDurationMs: 500 }),
 			]);

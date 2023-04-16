@@ -49,7 +49,7 @@
 	// setTimeout(() => {
 	// 	exampleCutscene();
 	// }, 1000);
-	// useFilterStore().enableFilter('night');
+	useFilterStore().enableFilter('night');
 	setTimeout(() => {
 		openingCutscene();
 	}, 1000);
