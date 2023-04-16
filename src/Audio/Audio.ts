@@ -1,6 +1,6 @@
 export class AudioPlayer {
 	static isMuted: boolean = false; // Save
-	static volume: number = 1; // Save
+	static volume: number = 100; // Save
 	audio: HTMLAudioElement;
 
 	constructor(audioSrc: string) {
@@ -8,9 +8,14 @@ export class AudioPlayer {
 	}
 
 	play = () => {
-		if (!AudioPlayer.isMuted) {
-			this.audio.volume = AudioPlayer.volume / 100;
-			this.audio.play();
-		}
+		return new Promise<void>((resolve) => {
+			if (!AudioPlayer.isMuted) {
+				this.audio.volume = AudioPlayer.volume / 100;
+				this.audio.addEventListener('ended', () => {
+					resolve();
+				});
+				this.audio.play();
+			}
+		});
 	};
 }

@@ -106,6 +106,11 @@
 			<div id="curtain"></div>
 		</div>
 	</div>
+	<div id="cutscene-image">
+		<img
+			v-if="cutsceneStore.image !== null"
+			:src="'src/assets/images/' + cutsceneStore.image" />
+	</div>
 </template>
 
 <style scoped>
@@ -157,6 +162,18 @@
 		top: 0;
 		left: 0;
 		opacity: v-bind('cutsceneStore.curtainOpacity');
+	}
+	#cutscene-image {
+		position: absolute;
+		pointer-events: none;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		top: 0;
+		left: 0;
+		opacity: v-bind('cutsceneStore.imageOpacity');
 	}
 	.full {
 		display: inline-flex;
