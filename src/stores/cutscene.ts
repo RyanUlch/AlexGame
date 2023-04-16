@@ -11,10 +11,14 @@ export type CutsceneSprite = {
 };
 
 export const useCutsceneStore = defineStore('cutscene', () => {
+	// this should all get cleaned up
 	const cutsceneActive = ref(false);
 	const cutsceneCameraPosition = ref([0, 0]);
 	const curtainOpacity = ref(0);
 	const cutsceneSprites = ref<CutsceneSprite[]>([]);
+	const image = ref<string | null>(null);
+	const imageOpacity = ref(0);
+
 	const getCamera = () => {
 		const cameraEl = document.getElementById('camera');
 		if (!cameraEl) throw Error('no camera');
@@ -25,17 +29,22 @@ export const useCutsceneStore = defineStore('cutscene', () => {
 		if (!curtainEl) throw Error('no curtain');
 		return curtainEl;
 	};
+	const getImage = () => {
+		const imageEl = document.getElementById('cutscene-image');
+		if (!imageEl) throw Error('no image');
+		return imageEl;
+	};
 	const moveCamera = (
 		to: [number, number],
 		durationMs: number = 0,
 		easingFunction: string = 'ease',
 	) => {
-		const cameraEl = getCamera();
-		if (durationMs > 0) {
-			cameraEl.style.transition = `top ${durationMs}ms ${easingFunction}, left ${durationMs}ms ${easingFunction}`;
-		}
-		cutsceneCameraPosition.value = to;
 		return new Promise<void>((resolve) => {
+			const cameraEl = getCamera();
+			if (durationMs > 0) {
+				cameraEl.style.transition = `top ${durationMs}ms ${easingFunction}, left ${durationMs}ms ${easingFunction}`;
+			}
+			cutsceneCameraPosition.value = to;
 			setTimeout(() => {
 				cameraEl.style.transition = '';
 				resolve();
@@ -43,20 +52,20 @@ export const useCutsceneStore = defineStore('cutscene', () => {
 		});
 	};
 	const fadeCamera = (direction: 'in' | 'out', durationMs: number = 0) => {
-		const curtainEl = getCurtain();
-		curtainOpacity.value = direction === 'in' ? 1 : 0;
-		setTimeout(() => {
-			if (durationMs > 0) {
-				curtainEl.style.transition = `opacity ${durationMs}ms`;
-			}
-			curtainOpacity.value = direction === 'in' ? 0 : 1;
-			return new Promise<void>((resolve) => {
+		return new Promise<void>((resolve) => {
+			const curtainEl = getCurtain();
+			curtainOpacity.value = direction === 'in' ? 1 : 0;
+			setTimeout(() => {
+				if (durationMs > 0) {
+					curtainEl.style.transition = `opacity ${durationMs}ms`;
+				}
+				curtainOpacity.value = direction === 'in' ? 0 : 1;
 				setTimeout(() => {
 					curtainEl.style.transition = '';
 					resolve();
 				}, durationMs);
-			});
-		}, 50);
+			}, 50);
+		});
 	};
 	const wait = (durationMs: number) => {
 		return new Promise<void>((resolve) => {
@@ -92,6 +101,40 @@ export const useCutsceneStore = defineStore('cutscene', () => {
 	const playAudio = (audioName: string) => {
 		return new AudioPlayer(`src/assets/audio/${audioName}`).play();
 	};
+	const showImage = (
+		imageName: string,
+		durationMs: number,
+		options: { fade?: 'in' | 'out' | 'in-out'; fadeDurationMs?: number } = {},
+	) => {
+		return new Promise<void>((resolve) => {
+			const { fade = '', fadeDurationMs = 0 } = options;
+			imageOpacity.value = fade.includes('in') ? 0 : 1;
+			image.value = imageName;
+			const imageEl = getImage();
+			setTimeout(() => {
+				if (fade.includes('in')) {
+					imageEl.style.transition = `opacity ${fadeDurationMs}ms`;
+				}
+				if (imageOpacity.value !== 1) imageOpacity.value = 1;
+				setTimeout(
+					() => {
+						setTimeout(() => {
+							imageOpacity.value = 0;
+							setTimeout(
+								() => {
+									imageEl.style.transition = '';
+									image.value = null;
+									resolve();
+								},
+								fade.includes('out') ? fadeDurationMs : 0,
+							);
+						}, durationMs);
+					},
+					fade.includes('in') ? fadeDurationMs : 0,
+				);
+			}, 50);
+		});
+	};
 	const runCutscene = async (
 		levelName: string,
 		cutsceneScript: (tools: {
@@ -101,6 +144,7 @@ export const useCutsceneStore = defineStore('cutscene', () => {
 			removeSprite: typeof removeSprite;
 			walkSprite: typeof walkSprite;
 			playAudio: typeof playAudio;
+			showImage: typeof showImage;
 		}) => Promise<void>,
 	) => {
 		const levelStore = useLevelStore();
@@ -113,10 +157,14 @@ export const useCutsceneStore = defineStore('cutscene', () => {
 			removeSprite,
 			walkSprite,
 			playAudio,
+			showImage,
 		});
+		levelStore.cutsceneMatrix.length = 0; // Wipe cutscene level so that normal level shows
 		curtainOpacity.value = 0; // Ensure curtain is up after cutscene
 		cutsceneActive.value = false;
-		levelStore.cutsceneMatrix.length = 0;
+		cutsceneCameraPosition.value = [0, 0];
+		cutsceneSprites.value = [];
+		image.value = null;
 	};
 
 	return {
@@ -124,6 +172,8 @@ export const useCutsceneStore = defineStore('cutscene', () => {
 		cutsceneCameraPosition,
 		curtainOpacity,
 		cutsceneSprites,
+		image,
+		imageOpacity,
 		runCutscene,
 	};
 });
@@ -131,7 +181,7 @@ export const useCutsceneStore = defineStore('cutscene', () => {
 export const exampleCutscene = () => {
 	useCutsceneStore().runCutscene(
 		'Village',
-		async ({ camera, wait, addSprite, walkSprite, playAudio }) => {
+		async ({ camera, wait, addSprite, walkSprite, playAudio, showImage }) => {
 			const sprite: CutsceneSprite = {
 				imgSrc: 'Char00',
 				coords: [0, 0],
@@ -156,7 +206,10 @@ export const exampleCutscene = () => {
 				walkSprite(sprite, [15, 11], speed),
 				camera.move([15, 11], speed * 5, 'linear'),
 			]);
-			await playAudio('yeah.wav');
+			await Promise.all([
+				playAudio('yeah.wav'),
+				showImage('yeah.jpg', 2000, { fade: 'in-out', fadeDurationMs: 200 }),
+			]);
 			const outroLength = 5000;
 			await Promise.all([camera.fade('out', outroLength), camera.move([0, 0], outroLength)]);
 		},
