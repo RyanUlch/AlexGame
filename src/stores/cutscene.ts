@@ -217,33 +217,45 @@ export const exampleCutscene = () => {
 };
 
 export const openingCutscene = () => {
-	useCutsceneStore().runCutscene('Bluffs', async ({ camera, wait, addSprite, walkSprite }) => {
-		const sprite: CutsceneSprite = {
-			imgSrc: 'Char_PC_Dark',
-			coords: [3, 1],
-			position: [27, 11],
-		};
-		addSprite(sprite);
-		const promptStore = usePromptStore();
-		await camera.move([0, 11]);
-		const introLength = 5000;
-		await Promise.all([camera.fade('in', introLength), camera.move([27, 11], introLength)]);
-		await wait(1000);
-		// await promptStore.choicePrompt({
-		// 	imgSrc: '',
-		// 	title: 'Welcome',
-		// 	message: '',
-		// 	choices: [{ text: 'Weird...', result: '' }],
-		// });
-		// await wait(1000);
-		const speed = 100;
-		// Show break Image
-		await Promise.all([
-			walkSprite(sprite, [25, 11], speed),
-			// camera.move([15, 11], speed * 5, 'linear'),
-		]);
-		await wait(1000);
-		const outroLength = 5000;
-		await Promise.all([camera.fade('out', outroLength), camera.move([0, 11], outroLength)]);
-	});
+	useCutsceneStore().runCutscene(
+		'Bluffs',
+		async ({ camera, wait, addSprite, removeSprite, walkSprite, playAudio, showImage }) => {
+			const sprite: CutsceneSprite = {
+				imgSrc: 'Char_PC_Dark',
+				coords: [3, 1],
+				position: [27, 11],
+			};
+			addSprite(sprite);
+			// const promptStore = usePromptStore();
+			await camera.move([0, 11]);
+			const introLength = 5000;
+			await Promise.all([camera.fade('in', introLength), camera.move([27, 11], introLength)]);
+			await wait(1000);
+			await Promise.all([
+				//playAudio('yeah.wav'),
+
+				showImage('fenceBreak.png', 2000, { fade: 'in-out', fadeDurationMs: 500 }),
+			]);
+			removeSprite(sprite);
+			// await promptStore.choicePrompt({
+			// 	imgSrc: '',
+			// 	title: 'Welcome',
+			// 	message: '',
+			// 	choices: [{ text: 'Weird...', result: '' }],
+			// });
+			// await wait(1000);
+			// const speed = 100;
+			// Show break Image
+			// await Promise.all([
+			// 	walkSprite(sprite, [25, 11], speed),
+			// 	// camera.move([15, 11], speed * 5, 'linear'),
+			// ]);
+			await Promise.all([camera.fade('out', introLength), camera.move([0, 11], introLength)]);
+			await wait(1000);
+			await Promise.all([
+				//playAudio('yeah.wav'),
+				showImage('TitleScreen.png', 10000, { fade: 'in-out', fadeDurationMs: 500 }),
+			]);
+		},
+	);
 };

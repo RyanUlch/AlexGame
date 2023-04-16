@@ -12,7 +12,7 @@
 	import AppSkillsMenu from './components/Menus/AppSkillsMenu.vue';
 	import { useSettingsStore } from './stores/settings';
 	import { ref } from 'vue';
-	import { exampleCutscene } from './stores/cutscene';
+	import { exampleCutscene, openingCutscene } from './stores/cutscene';
 	import { AudioPlayer } from './Audio/Audio';
 
 	const settings = useSettingsStore();
@@ -92,7 +92,6 @@
 	<AppSkillsMenu />
 	<AppSettingsMenu />
 	<AppCreditsMenu />
-	<button :onClick="cycleLevel">Cycle Levels</button>
 </template>
 <style scoped>
 	.square {
