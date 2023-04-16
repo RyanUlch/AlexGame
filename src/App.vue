@@ -15,6 +15,7 @@
 	import AppSkillsMenu from './components/Menus/AppSkillsMenu.vue';
 	import { useSettingsStore } from './stores/settings';
 	import { ref } from 'vue';
+	import { exampleCutscene } from './stores/cutscene';
 	const settings = useSettingsStore();
 	const cardStore = useCardStore();
 	const playerStore = usePawnStore();
@@ -45,6 +46,10 @@
 		levelStore.openLevel(levels[onLevel.value]);
 		++onLevel.value;
 	};
+
+	setTimeout(() => {
+		exampleCutscene();
+	}, 1000);
 </script>
 <template>
 	<div class="gameArea">

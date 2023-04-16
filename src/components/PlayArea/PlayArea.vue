@@ -2,6 +2,7 @@
 	import { computed } from 'vue';
 	import { useLevelStore } from '../../stores/level';
 	import { usePawnStore } from '@/stores/pawn';
+	import { useCutsceneStore } from '@/stores/cutscene';
 	import PawnSprite from './PawnSprite.vue';
 	import CharacterSprite from './CharacterSprite.vue';
 	import { useKeyHandler } from '@/composables/useKeyHandler';
@@ -9,10 +10,29 @@
 
 	const pawnStore = usePawnStore();
 	const levelStore = useLevelStore();
+	const cutsceneStore = useCutsceneStore();
+
+	const matrixToUse = computed(() => {
+		if (levelStore.cutsceneMatrix.length > 0) return levelStore.cutsceneMatrix;
+		return levelStore.levelMatrix;
+	});
 
 	// Compute whether level matrix is ready to be rendered
 	const matrixReady = computed(() => {
-		return levelStore.levelMatrix.length > 0;
+		return matrixToUse.value.length > 0;
+	});
+
+	const cameraTop = computed(() => {
+		if (cutsceneStore.cutsceneActive) {
+			return `${(20 / pawnStore.scale - cutsceneStore.cutsceneCameraPosition[0]) * 16}px`;
+		}
+		return `${(20 / pawnStore.scale - pawnStore.characterPosition[0]) * 16}px`;
+	});
+	const cameraLeft = computed(() => {
+		if (cutsceneStore.cutsceneActive) {
+			return `${(20 / pawnStore.scale - cutsceneStore.cutsceneCameraPosition[1]) * 16}px`;
+		}
+		return `${(20 / pawnStore.scale - pawnStore.characterPosition[1]) * 16}px`;
 	});
 
 	// Set up key handler
@@ -21,11 +41,13 @@
 
 <template>
 	<div class="screen">
-		<div class="camera">
+		<div
+			class="camera"
+			id="camera">
 			<template v-if="matrixReady">
 				<div
 					class="row"
-					v-for="(row, rowIndex) in levelStore.levelMatrix"
+					v-for="(row, rowIndex) in matrixToUse"
 					:key="rowIndex">
 					<div
 						class="column"
@@ -38,6 +60,7 @@
 						<!-- Render pawn sprite if present at this position -->
 						<CharacterSprite
 							v-if="
+								!cutsceneStore.cutsceneActive &&
 								rowIndex === pawnStore.characterPosition[0] &&
 								colIndex === pawnStore.characterPosition[1]
 							"
@@ -47,7 +70,7 @@
 
 						<!-- Render layer image if present at this position -->
 						<img
-							v-for="layer of col.layers"
+							v-for="(layer, i) of col.layers"
 							class="objectLayer"
 							:src="`src/assets/pixelAssets/${layer.src}.png`"
 							:style="{
@@ -56,7 +79,19 @@
 								}px`,
 								objectFit: 'none',
 								zIndex: col.isCharacter ? 5 : 0,
-							}" />
+							}"
+							:key="i" />
+						<template
+							v-if="cutsceneStore.cutsceneActive && cutsceneStore.cutsceneSprites.length > 0">
+							<PawnSprite
+								v-for="(sprite, i) of cutsceneStore.cutsceneSprites.filter(
+									(s) => s.position[0] === rowIndex && s.position[1] === colIndex,
+								)"
+								class="npc"
+								:spriteName="sprite.imgSrc"
+								:coords="sprite.coords"
+								:key="i" />
+						</template>
 						<!-- <PawnSprite
 							v-if="col.isCharacter"
 							class="npc"
@@ -68,6 +103,7 @@
 			<template v-else>
 				<div>Loading...</div>
 			</template>
+			<div id="curtain"></div>
 		</div>
 	</div>
 </template>
@@ -109,8 +145,18 @@
 		image-rendering: -moz-crisp-edges;
 		image-rendering: crisp-edges;
 		position: relative;
-		top: v-bind('`${(((20/pawnStore.scale) - pawnStore.characterPosition[0]) * 16)}px`');
-		left: v-bind('`${(((20/pawnStore.scale) - pawnStore.characterPosition[1]) * 16)}px`');
+		top: v-bind('cameraTop');
+		left: v-bind('cameraLeft');
+	}
+	#curtain {
+		position: absolute;
+		pointer-events: none;
+		width: 100%;
+		height: 100%;
+		background-color: black;
+		top: 0;
+		left: 0;
+		opacity: v-bind('cutsceneStore.curtainOpacity');
 	}
 	.full {
 		display: inline-flex;

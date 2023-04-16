@@ -23,6 +23,7 @@
 					return 0;
 			}
 		}
+		throw Error('no pawn coords');
 	});
 	let animation = ref(0);
 
