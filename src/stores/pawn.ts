@@ -9,7 +9,7 @@ import { runInteraction } from '../assets/interactions/interactions';
 export const usePawnStore = defineStore('pawnStore', () => {
 	const { addLogLine } = useLogComposable();
 	const levelStore = useLevelStore();
-	const scale = ref(1);
+	const scale = ref(3);
 	const gridCellSize = 16;
 	const screenSize = gridCellSize * 41;
 	const characterPosition = reactive<[number, number, string]>([5, 3, 's']);
