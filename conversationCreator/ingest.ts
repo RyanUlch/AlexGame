@@ -81,7 +81,7 @@ readdirSync('.')
 				currentChoice = null;
 				return;
 			}
-
+			console.log(currentConversation);
 			// Ensure we found a conversation row before a message/choice row
 			if (!currentConversation)
 				error(i + ': found non conversation row when there was no active conversation');
