@@ -17,7 +17,19 @@ const getRowDetails = (row: string[]) => {
 	if (firstDataIndex === -1) return null; // empty line
 	const promptIndex = Math.ceil(firstDataIndex / 2) - 1;
 	const rowType = firstDataIndex % 2 === 0 ? 'choice' : 'message';
-	return { promptIndex, rowType, data: row[firstDataIndex], result: row[firstDataIndex + 1] };
+	const datas = [];
+	let index = firstDataIndex;
+	while (row[index]) {
+		datas.push(row[index]);
+		index++;
+	}
+	return {
+		promptIndex,
+		rowType,
+		datas,
+		choiceResult: row[firstDataIndex + 1],
+		firstDataIndex,
+	};
 };
 
 const conversations: Conversation[] = [];
@@ -77,34 +89,47 @@ readdirSync('.')
 			// Get details about this row
 			const rowDetails = getRowDetails(row);
 			if (rowDetails === null) return;
-			const { promptIndex, rowType, data, result } = rowDetails;
+			const { promptIndex, rowType, datas, choiceResult: result } = rowDetails;
 
 			// Handle message or choice row
 			if (rowType === 'message') {
-				// Parse message like "title__imgSrc__message" or "message" without separators
-				const split = data.split('__');
-				const message = split.pop();
-				const imgSrc = split.pop();
-				const title = split.pop();
+				let lastPrompt: ChoicePromptOptions | null = null;
+				for (const data of datas) {
+					// Parse message like "title__imgSrc__message" or "message" without separators
+					const split = data.split('__');
+					const message = split.pop();
+					const imgSrc = split.pop();
+					const title = split.pop();
 
-				// Create new prompt
-				const prompt = {
-					message,
-					imgSrc: imgSrc ?? currentConversation!.imgSrc,
-					title: title ?? currentConversation!.title,
-					choices: [],
-				};
+					// Create new prompt
+					const prompt: ChoicePromptOptions = {
+						message,
+						imgSrc: imgSrc ?? currentConversation!.imgSrc,
+						title: title ?? currentConversation!.title,
+						choices: [{ text: 'Continue...', result: '' }],
+					};
 
-				if (currentChoice && currentChoice.result === '') {
-					// If previous choice didn't have a result, this prompt is the result of that choice
-					currentChoice.result = prompt;
-				} else if (!currentChoice) {
-					// If there hasn't been any choices yet, this must be the root prompt for the conversation
-					currentConversation!.prompt = prompt;
+					if (currentChoice && currentChoice.result === '') {
+						// If previous choice didn't have a result, this prompt is the result of that choice
+						currentChoice.result = prompt;
+					} else if (!currentChoice && !currentConversation!.prompt) {
+						// If there hasn't been any choices yet, this must be the root prompt for the conversation
+						currentConversation!.prompt = prompt;
+					}
+
+					// Set this prompt as the result of the previous prompt's first choice
+					if (lastPrompt !== null) {
+						lastPrompt.choices[0].result = prompt;
+					}
+
+					// Track this prompt as the most recent
+					lastPrompt = prompt;
 				}
 
-				// Track this prompt
-				promptStack.push(prompt);
+				// Track the last prompt and wipe its choices array to receive real choices
+				if (lastPrompt === null) throw Error('no prompt when there should be');
+				lastPrompt.choices.length = 0;
+				promptStack.push(lastPrompt);
 			} else if (rowType === 'choice') {
 				// Ensure we haven't discovered a choice row before creating a prompt to contain it
 				if (promptStack.length === 0)
@@ -120,7 +145,7 @@ readdirSync('.')
 
 				// Create choice and track it in both the current prompt and as the current choice
 				const choice: PromptChoice = {
-					text: data,
+					text: datas[0],
 					result,
 				};
 				promptStack[promptIndex]!.choices.push(choice);
