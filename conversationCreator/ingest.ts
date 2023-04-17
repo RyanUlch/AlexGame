@@ -84,7 +84,7 @@ readdirSync('.')
 			console.log(currentConversation);
 			// Ensure we found a conversation row before a message/choice row
 			if (!currentConversation)
-				error(i + ': found non conversation row when there was no active conversation');
+				error('found non conversation row when there was no active conversation');
 
 			// Get details about this row
 			const rowDetails = getRowDetails(row);
@@ -133,7 +133,7 @@ readdirSync('.')
 			} else if (rowType === 'choice') {
 				// Ensure we haven't discovered a choice row before creating a prompt to contain it
 				if (promptStack.length === 0)
-					error(i + ': discovered choice without discovering a prompt message');
+					error('discovered choice without discovering a prompt message');
 
 				// If this choice doesn't belong to the most recent prompt, remove all prompts
 				// after the one it does belong to.  This happens when two choice rows
@@ -148,10 +148,11 @@ readdirSync('.')
 					text: datas[0],
 					result,
 				};
-				promptStack[promptIndex]!.choices.push(choice);
+				if (!promptStack[promptIndex]) error('no prompt at expected index');
+				promptStack[promptIndex].choices.push(choice);
 				currentChoice = choice;
 			} else {
-				error(i + ': invalid conversation row type');
+				error('invalid conversation row type');
 			}
 		});
 
