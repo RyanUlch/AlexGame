@@ -1,7 +1,0 @@
-- improve user input
-  - only track "pressed, still pressed, released"
-- add a walk loop
-  - while movement buttons are held, trigger a move action each interval
-- support multi-message prompts with auto-continue
-  - implement via multiple prompt messages on the same row in cells to the right
-  - loop through those rows, generating prompts for each with a "continue" choice, then the final one has the actual choices from the next row
