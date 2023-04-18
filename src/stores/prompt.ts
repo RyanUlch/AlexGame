@@ -98,7 +98,7 @@ export const usePromptStore = defineStore('prompt', () => {
 				reject('tried to prompt when another prompt was in progress');
 				return;
 			}
-			options.value = opts;
+			options.value = { ...opts, choices: opts.choices.sort(() => Math.random() - 0.5) };
 			selectedChoiceIndex.value = 0;
 			resolver.value = (choice: PromptChoice) => {
 				resolver.value = null;
