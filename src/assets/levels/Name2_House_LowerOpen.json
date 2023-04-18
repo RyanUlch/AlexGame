@@ -1,0 +1,706 @@
+{
+    "rows": [
+        {
+            "columns": [],
+            "startY": 5,
+            "startX": 4,
+            "startDir": "n"
+        },
+        {
+            "columns": [
+                {
+                    "tileset": "WoodEdge0",
+                    "tileCoord": [
+                        3,
+                        1
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "WoodEdge0",
+                    "tileCoord": [
+                        0,
+                        3
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "WoodEdge0",
+                    "tileCoord": [
+                        0,
+                        3
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "WoodEdge0",
+                    "tileCoord": [
+                        0,
+                        3
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "WoodEdge0",
+                    "tileCoord": [
+                        0,
+                        3
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "WoodEdge0",
+                    "tileCoord": [
+                        0,
+                        3
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "WoodEdge0",
+                    "tileCoord": [
+                        0,
+                        0
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                }
+            ]
+        },
+        {
+            "columns": [
+                {
+                    "tileset": "WoodEdge0",
+                    "tileCoord": [
+                        0,
+                        1
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "HouseWall0",
+                    "tileCoord": [
+                        0,
+                        1
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "HouseWall0",
+                    "tileCoord": [
+                        0,
+                        1
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "HouseWall0",
+                    "tileCoord": [
+                        0,
+                        1
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "HouseWall0",
+                    "tileCoord": [
+                        0,
+                        1
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "HouseWall0",
+                    "tileCoord": [
+                        0,
+                        1
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "WoodEdge0",
+                    "tileCoord": [
+                        2,
+                        3
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                }
+            ]
+        },
+        {
+            "columns": [
+                {
+                    "tileset": "WoodEdge0",
+                    "tileCoord": [
+                        0,
+                        1
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "HouseWall0",
+                    "tileCoord": [
+                        2,
+                        1
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "HouseWall0",
+                    "tileCoord": [
+                        2,
+                        1
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "HouseWall0",
+                    "tileCoord": [
+                        2,
+                        1
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": [
+                        {
+                            "src": "Beach_Indoor",
+                            "coord": [
+                                14,
+                                12
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "tileset": "HouseWall0",
+                    "tileCoord": [
+                        2,
+                        1
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": [
+                        {
+                            "src": "Beach_Indoor",
+                            "coord": [
+                                14,
+                                13
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "tileset": "HouseWall0",
+                    "tileCoord": [
+                        2,
+                        1
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": [
+                        {
+                            "src": "Doors1",
+                            "coord": [
+                                0,
+                                6
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "tileset": "WoodEdge0",
+                    "tileCoord": [
+                        2,
+                        3
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                }
+            ]
+        },
+        {
+            "columns": [
+                {
+                    "tileset": "WoodEdge0",
+                    "tileCoord": [
+                        0,
+                        1
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "Floors4",
+                    "tileCoord": [
+                        0,
+                        1
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": [
+                        {
+                            "src": "Beach_Indoor",
+                            "coord": [
+                                12,
+                                10
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "tileset": "Floors4",
+                    "tileCoord": [
+                        0,
+                        0
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": [
+                        {
+                            "src": "Beach_Indoor",
+                            "coord": [
+                                12,
+                                11
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "tileset": "Floors4",
+                    "tileCoord": [
+                        0,
+                        0
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": [
+                        {
+                            "src": "Beach_Indoor",
+                            "coord": [
+                                15,
+                                12
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "tileset": "Floors4",
+                    "tileCoord": [
+                        0,
+                        0
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": [
+                        {
+                            "src": "Beach_Indoor",
+                            "coord": [
+                                15,
+                                13
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "tileset": "Floors4",
+                    "tileCoord": [
+                        0,
+                        2
+                    ],
+                    "impassible": false,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "WoodEdge0",
+                    "tileCoord": [
+                        2,
+                        3
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                }
+            ]
+        },
+        {
+            "columns": [
+                {
+                    "tileset": "WoodEdge0",
+                    "tileCoord": [
+                        0,
+                        1
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "Floors4",
+                    "tileCoord": [
+                        0,
+                        2
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": [
+                        {
+                            "src": "Beach_Indoor",
+                            "coord": [
+                                13,
+                                10
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "tileset": "Floors4",
+                    "tileCoord": [
+                        0,
+                        1
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": [
+                        {
+                            "src": "Beach_Indoor",
+                            "coord": [
+                                13,
+                                11
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "tileset": "Floors4",
+                    "tileCoord": [
+                        0,
+                        0
+                    ],
+                    "impassible": false,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "Floors4",
+                    "tileCoord": [
+                        0,
+                        1
+                    ],
+                    "impassible": false,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "Floors4",
+                    "tileCoord": [
+                        0,
+                        3
+                    ],
+                    "impassible": false,
+                    "isCharacter": false,
+                    "layers": [
+                        {
+                            "src": "Beach_Indoor",
+                            "coord": [
+                                12,
+                                15
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "tileset": "WoodEdge0",
+                    "tileCoord": [
+                        2,
+                        3
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                }
+            ]
+        },
+        {
+            "columns": [
+                {
+                    "tileset": "WoodEdge0",
+                    "tileCoord": [
+                        0,
+                        1
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "Floors4",
+                    "tileCoord": [
+                        0,
+                        3
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": [
+                        {
+                            "src": "FireDungeon",
+                            "coord": [
+                                0,
+                                8
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "tileset": "Floors4",
+                    "tileCoord": [
+                        0,
+                        2
+                    ],
+                    "impassible": false,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "Floors4",
+                    "tileCoord": [
+                        0,
+                        1
+                    ],
+                    "impassible": false,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "Floors4",
+                    "tileCoord": [
+                        0,
+                        2
+                    ],
+                    "impassible": false,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "Floors4",
+                    "tileCoord": [
+                        0,
+                        0
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": [
+                        {
+                            "src": "Beach_Indoor",
+                            "coord": [
+                                13,
+                                15
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "tileset": "WoodEdge0",
+                    "tileCoord": [
+                        2,
+                        3
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                }
+            ]
+        },
+        {
+            "columns": [
+                {
+                    "tileset": "WoodEdge0",
+                    "tileCoord": [
+                        2,
+                        0
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "WoodEdge0",
+                    "tileCoord": [
+                        2,
+                        1
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "WoodEdge0",
+                    "tileCoord": [
+                        2,
+                        1
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "WoodEdge0",
+                    "tileCoord": [
+                        2,
+                        2
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "Floors4",
+                    "tileCoord": [
+                        0,
+                        3
+                    ],
+                    "impassible": false,
+                    "isCharacter": false,
+                    "layers": [
+                        {
+                            "src": "Special",
+                            "coord": [
+                                0,
+                                2
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "tileset": "WoodEdge0",
+                    "tileCoord": [
+                        1,
+                        3
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "WoodEdge0",
+                    "tileCoord": [
+                        3,
+                        3
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                }
+            ]
+        },
+        {
+            "columns": [
+                {
+                    "tileset": "Farm2",
+                    "tileCoord": [
+                        14,
+                        0
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "Farm2",
+                    "tileCoord": [
+                        14,
+                        0
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "Farm2",
+                    "tileCoord": [
+                        14,
+                        0
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "WoodEdge0",
+                    "tileCoord": [
+                        2,
+                        0
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "WoodEdge0",
+                    "tileCoord": [
+                        2,
+                        1
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "WoodEdge0",
+                    "tileCoord": [
+                        3,
+                        3
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                },
+                {
+                    "tileset": "Farm2",
+                    "tileCoord": [
+                        14,
+                        0
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": []
+                }
+            ]
+        }
+    ]
+}

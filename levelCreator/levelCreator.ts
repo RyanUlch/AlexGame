@@ -110,7 +110,12 @@ folder
 		if (!existsSync(`../src/assets/levels/${fileName}.ts`)) {
 			writeFileSync(
 				`../src/assets/levels/${fileName}.ts`,
-				`const open${fileName}Level = () => {}; export default open${fileName}Level;`,
+				`
+				import { usePawnStore } from '@/stores/pawn';
+				import type { Sprite } from '@/stores/pawn';
+				const open${fileName}Level = () => { const pawnStore = usePawnStore(); };
+				export default open${fileName}Level;
+				`,
 				{ encoding: 'utf8' },
 			);
 		}

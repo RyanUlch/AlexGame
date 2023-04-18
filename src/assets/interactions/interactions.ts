@@ -13,9 +13,20 @@ export const runInteraction = async (interactionName: string, interactionArgs: a
 	switch (interactionName) {
 		case 'openLevel':
 			openDoorSound.play();
-			await levelStore.openLevel(interactionArgs[0]);
+			console.log(interactionArgs[0]);
+			await levelStore.openLevel(interactionArgs[0], false, interactionArgs[1]);
 			break;
 
+		case 'noReturnDialogue':
+			await usePromptStore().doConversation(interactionArgs[0]);
+			break;
+		case 'readout':
+			addLogLine(interactionArgs[0]);
+			break;
+
+		case 'noEntry':
+			addLogLine('I have no need to go here right now.');
+			break;
 		// Test Interaction:
 		case 'testInteraction':
 			const testResult = await usePromptStore().doConversation('test');

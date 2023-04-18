@@ -2,20 +2,30 @@
 // Pinia/Vue type Imports:
 import { defineStore } from 'pinia';
 import { reactive } from 'vue';
-import openTestLevel from '../assets/levels/testLevel';
-import openBluffLevel from '@/assets/levels/Bluffs';
 import { usePawnStore } from './pawn';
-import openChar1_HouseLevel from '@/assets/levels/Char1_House';
-import openChar2_House_LowerLevel from '@/assets/levels/Char2_House_Lower';
-import openChar2_House_UpperLevel from '@/assets/levels/Char2_House_Upper';
-import openChar4_HouseLevel from '@/assets/levels/Char4_House';
-import openChar3_House_LowerLevel from '@/assets/levels/Char3_House_Lower';
-import openChar3_House_UpperLevel from '@/assets/levels/Char3_House_Upper';
-import openChar5_HouseLevel from '@/assets/levels/Char5_House';
+
+import openName0_House_EmptyLevel from '../assets/levels/Name0_House_Empty';
+import openName0_House_FullLevel from '@/assets/levels/Name0_House_Full';
+import openName1_House_LowerLevel from '@/assets/levels/Name1_House_Lower';
+import openName1_House_UpperLevel from '@/assets/levels/Name1_House_Upper';
+import openName2_House_LowerClosedLevel from '@/assets/levels/Name2_House_LowerClosed';
+import openName2_House_LowerOpenLevel from '@/assets/levels/Name2_House_LowerOpen';
+import openName2_House_UpperLevel from '@/assets/levels/Name2_House_Upper';
+import openName3_HouseLevel from '@/assets/levels/Name3_House';
+import openName4_HouseLevel from '@/assets/levels/Name4_House';
+import openBluffs_BrokenLevel from '@/assets/levels/Bluffs_Broken';
+import openBluffs_FullLevel from '@/assets/levels/Bluffs_Full';
+import openFarm_DeadLevel from '@/assets/levels/Farm_Dead';
+import openFarm_EmptyLevel from '@/assets/levels/Farm_Empty';
+import openFarm_FullLevel from '@/assets/levels/Farm_Full';
+import openFarm_HalfLevel from '@/assets/levels/Farm_Half';
+import openMarket_BothGoneLevel from '@/assets/levels/Market_BothGone';
+import openMarket_EmptyLevel from '@/assets/levels/Market_Empty';
+import openMarket_FullLevel from '@/assets/levels/Market_Full';
+import openMarket_Name0GoneLevel from '@/assets/levels/Market_Name0Gone';
+import openMarket_Name2GoneLevel from '@/assets/levels/Market_Name2Gone';
 import openTavernLevel from '@/assets/levels/Tavern';
-import openFarmLevel from '@/assets/levels/Farm';
 import openVillageLevel from '@/assets/levels/Village';
-import openMarketLevel from '@/assets/levels/Market';
 
 interface Tile {
 	tileset: string;
@@ -30,20 +40,30 @@ interface JSONTiles {
 }
 
 // Register Levels Here:
+// prettier-ignore
 const levels: { [levelName: string]: () => void } = {
-	test: openTestLevel,
-	Bluff: openBluffLevel,
-	Char1_House: openChar1_HouseLevel,
-	Char2_House_Lower: openChar2_House_LowerLevel,
-	Char2_House_Upper: openChar2_House_UpperLevel,
-	Char3_House_Lower: openChar3_House_LowerLevel,
-	Char3_House_Upper: openChar3_House_UpperLevel,
-	Char4_House: openChar4_HouseLevel,
-	Char5_House: openChar5_HouseLevel,
-	Tavern: openTavernLevel,
-	Farm: openFarmLevel,
-	Village: openVillageLevel,
-	Market: openMarketLevel,
+	"Name0_House_Empty":		openName0_House_EmptyLevel,
+ 	"Name0_House_Full":			openName0_House_FullLevel,
+	"Name1_House_Lower":		openName1_House_LowerLevel,
+	"Name1_House_Upper": 		openName1_House_UpperLevel,
+	"Name2_House_LowerClosed":	openName2_House_LowerClosedLevel,
+	"Name2_House_LowerOpen":	openName2_House_LowerOpenLevel,
+	"Name2_House_Upper":		openName2_House_UpperLevel,
+	"Name3_House":				openName3_HouseLevel,
+	"Name4_House":				openName4_HouseLevel,
+	"Bluffs_Broken": 			openBluffs_BrokenLevel,
+	"Bluffs_Full":				openBluffs_FullLevel,
+	"Farm_Dead":				openFarm_DeadLevel,
+	"Farm_Empty":				openFarm_EmptyLevel,
+	"Farm_Full":				openFarm_FullLevel,
+	"Farm_Half":				openFarm_HalfLevel,
+	"Market_BothGone":			openMarket_BothGoneLevel,
+	"Market_Empty":				openMarket_EmptyLevel,
+	"Market_Full":				openMarket_FullLevel,
+	"Market_Name0Gone":			openMarket_Name0GoneLevel,
+	"Market_Name2Gone":			openMarket_Name2GoneLevel,
+	"Tavern":					openTavernLevel,
+	"Village":					openVillageLevel,
 };
 
 export const useLevelStore = defineStore('levelStore', () => {
@@ -52,7 +72,11 @@ export const useLevelStore = defineStore('levelStore', () => {
 	const cutsceneMatrix = reactive<Tile[][]>([]);
 	const pawnStore = usePawnStore();
 
-	const openLevel = async (levelName: string, cutscene: boolean = false) => {
+	const openLevel = async (
+		levelName: string,
+		cutscene: boolean = false,
+		startingPos?: [number, number, string],
+	) => {
 		pawnStore.cleanupSprites();
 		const startingPosition = convertToMatrix(
 			await fetch(`src/assets/levels/${levelName}.json`)
@@ -62,12 +86,17 @@ export const useLevelStore = defineStore('levelStore', () => {
 				}),
 			cutscene ? cutsceneMatrix : levelMatrix,
 		);
+
 		if (!cutscene) {
-			pawnStore.characterPosition[0] = +startingPosition[0];
-			pawnStore.characterPosition[1] = +startingPosition[1];
-			pawnStore.characterPosition[2] = `${startingPosition[2]}`;
+			pawnStore.characterPosition[0] = startingPos ? startingPos[0] : +startingPosition[0];
+			pawnStore.characterPosition[1] = startingPos ? startingPos[1] : +startingPosition[1];
+			pawnStore.characterPosition[2] = startingPos ? startingPos[2] : `${startingPosition[2]}`;
 			levels[levelName]();
 		}
+	};
+
+	const addSpriteLocation = (position: [number, number]) => {
+		levelMatrix[position[0]][position[1]].impassible = true;
 	};
 
 	const convertToMatrix = (jsonObj: JSONTiles, matrix: Tile[][]) => {
@@ -107,6 +136,7 @@ export const useLevelStore = defineStore('levelStore', () => {
 	// prettier-ignore
 	return { 
 		levelMatrix, // Save
+		addSpriteLocation,
 		cutsceneMatrix,
 		isImpassible, 
 		openLevel 

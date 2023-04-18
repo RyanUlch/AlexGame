@@ -6,53 +6,45 @@ import { useLogComposable } from '@/composables/logComposable';
 import { useLevelStore } from './level';
 import { runInteraction } from '../assets/interactions/interactions';
 
+export type Sprite = {
+	spriteId: string;
+	spriteSrc?: string;
+	isCharacter: boolean;
+	isAutoInteract: boolean;
+	position: [number, number];
+	coords?: [number, number];
+	interactionName: string;
+	interactionArgs: any[];
+};
+
 export const usePawnStore = defineStore('pawnStore', () => {
 	const { addLogLine } = useLogComposable();
 	const levelStore = useLevelStore();
-	const scale = ref(3);
+	const scale = ref(2);
 	const gridCellSize = 16;
 	const screenSize = gridCellSize * 41;
 	const characterPosition = reactive<[number, number, string]>([5, 3, 's']);
 	const screenPosition = reactive<[number, number]>([0, 0]);
-	const characterId = ref('1');
-	const health = ref(10);
-	const maxHealth = ref(10);
-	const energy = ref(5);
-	const maxEnergy = ref(5);
+	const characterId = ref('F');
 
-	const spriteList = reactive<
-		{
-			spriteId: number | string;
-			isAutoInteract: boolean;
-			position: [number, number, string];
-			interactionName: string;
-			interactionArgs: any[];
-			health?: number;
-			deathInteraction?: string;
-			deathInteractionArgs?: any[];
-		}[]
-	>([]);
+	const spriteList = reactive<Sprite[]>([]);
 
-	const registerSprite = (
-		id: number | string,
-		isAutoInteract: boolean,
-		startingPosition: [number, number, string],
-		interactionName: string,
-		interactionArgs: any[],
-		startingHealth?: number,
-		deathInteraction?: string,
-		deathInteractionArgs?: any[],
-	) => {
+	const registerSprite = (sprite: Sprite) => {
+		let spriteImage =
+			sprite.spriteId === 'PC_' ? `${sprite.spriteSrc}${characterId.value}` : sprite.spriteSrc;
 		spriteList.push({
-			spriteId: id,
-			isAutoInteract: isAutoInteract,
-			position: [...startingPosition],
-			interactionName: interactionName,
-			interactionArgs: interactionArgs,
-			health: startingHealth,
-			deathInteraction: deathInteraction,
-			deathInteractionArgs: deathInteractionArgs,
+			spriteId: sprite.spriteId,
+			spriteSrc: spriteImage,
+			isCharacter: sprite.isCharacter,
+			isAutoInteract: sprite.isAutoInteract,
+			position: sprite.position,
+			coords: sprite.coords,
+			interactionName: sprite.interactionName,
+			interactionArgs: sprite.interactionArgs,
 		});
+		if (!sprite.isAutoInteract) {
+			levelStore.addSpriteLocation(sprite.position);
+		}
 	};
 
 	const deregisterSprite = (spriteIndex: number) => {
@@ -66,69 +58,6 @@ export const usePawnStore = defineStore('pawnStore', () => {
 
 	const cleanupSprites = () => {
 		spriteList.splice(0, Infinity);
-	};
-
-	const heal = (amount: number, index: number) => {
-		if (index < 0) {
-			if (amount + health.value > maxHealth.value) {
-				health.value = maxHealth.value;
-			} else {
-				health.value += amount;
-			}
-		} else {
-			if (typeof spriteList[index].health === 'number') {
-				// Bug: getting "Object is possibly 'null'.ts(2531)" even with checks
-				//@ts-ignore
-				spriteList[index].health += amount;
-			}
-		}
-	};
-
-	const takeDamage = (amount: number, index: number) => {
-		if (index < 0) {
-			if (health.value - amount <= 0) {
-				addLogLine('You died. Bummer...');
-				health.value = 0;
-				return false;
-			} else {
-				health.value -= amount;
-				return true;
-			}
-		} else {
-			if (typeof spriteList[index].health === 'number') {
-				// Bug: getting "Object is possibly 'null'.ts(2531)" even with checks
-				//@ts-ignore
-				spriteList[index].health -= amount;
-				//@ts-ignore
-				if (spriteList[index].health <= 0) {
-					if (spriteList[index].deathInteraction) {
-						runInteraction(
-							//@ts-ignore
-							spriteList[index].deathInteraction,
-							spriteList[index].deathInteractionArgs,
-						);
-					}
-				}
-			}
-		}
-	};
-
-	const energize = (amount: number) => {
-		if (amount + energy.value > maxEnergy.value) {
-			energy.value = maxEnergy.value;
-		} else {
-			energy.value += amount;
-		}
-	};
-
-	const useEnergy = (amount: number) => {
-		if (energy.value - amount < 0) {
-			addLogLine(`You don't have enough energy to use that.`);
-			return false;
-		} else {
-			energy.value -= amount;
-			return true;
-		}
 	};
 
 	const teleportPlayer = (teleportTo: [number, number, string]) => {
@@ -194,8 +123,8 @@ export const usePawnStore = defineStore('pawnStore', () => {
 			!(newPosition[0] < 0) &&
 			!(newPosition[1] < 0) &&
 			!(newPosition[0] >= levelStore.levelMatrix.length) &&
-			!(newPosition[1] >= levelStore.levelMatrix[0].length)
-			//&& !levelStore.isImpassible(newPosition[0], newPosition[1])
+			!(newPosition[1] >= levelStore.levelMatrix[0].length) &&
+			!levelStore.isImpassible(newPosition[0], newPosition[1])
 		) {
 			const actionCell = spriteList.findIndex((action) => {
 				return action.position[0] === newPosition[0] && action.position[1] === newPosition[1];
@@ -262,14 +191,6 @@ export const usePawnStore = defineStore('pawnStore', () => {
 	return {
 		characterPosition,	// Save
 		characterId,		// Save
-		health,				// Save
-		maxHealth,			// Save
-		energy,				// Save
-		maxEnergy,			// Save
-		heal,
-		takeDamage,
-		energize,
-		useEnergy,
 		spriteList,			// Save
 		screenPosition,
 		scale,

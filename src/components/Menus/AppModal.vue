@@ -23,7 +23,7 @@
 					<img
 						v-if="props.imgSrc"
 						class="picture"
-						:src="`src/assets/prompt/${props.imgSrc}.png`"
+						:src="`src/assets/prompt_images/${props.imgSrc}.png`"
 						alt="" />
 					<span class="title">{{ props.title }}</span>
 					<button

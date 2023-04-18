@@ -49,27 +49,29 @@
 	// setTimeout(() => {
 	// 	exampleCutscene();
 	// }, 1000);
-	useFilterStore().enableFilter('night');
-	setTimeout(() => {
-		openingCutscene();
-	}, 1000);
+	// useFilterStore().enableFilter('night');
+	// setTimeout(() => {
+	// 	openingCutscene();
+	// }, 1000);
+
+	levelStore.openLevel('Bluffs_Full', false, [30, 9, 'n']);
 </script>
 <template>
-	<div class="gameArea">
-		<div
-			class="playArea"
-			id="modal-target">
-			<PlayArea />
-		</div>
-		<div class="upper-right">
+	<!-- <div class="gameArea"> -->
+	<div
+		class="playArea"
+		id="modal-target">
+		<PlayArea />
+	</div>
+	<!-- <div class="upper-right">
 			<div class="statArea square">
-				<!-- <StatsUi
+				 <StatsUi
 					:value=""
 					:maxValue=""
 					:isIconBased="true"
 					iconFileBase="fileName"
 					:hasPartialIcons="true"
-					tooltip="" /> -->
+					tooltip="" />
 			</div>
 			<div class="menuArea square">
 				<MenuButton
@@ -89,9 +91,10 @@
 					imgFileName="Credits"
 					tooltip="Open credits" />
 			</div>
-			<EventLog />
-		</div>
-	</div>
+			
+		</div> -->
+	<!-- </div> -->
+	<EventLog />
 	<AppPrompt />
 	<AppInventoryMenu />
 	<AppSkillsMenu />

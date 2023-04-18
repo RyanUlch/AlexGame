@@ -1,1 +1,0 @@
-const openChar4_HouseLevel = () => {}; export default openChar4_HouseLevel;

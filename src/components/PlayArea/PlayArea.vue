@@ -59,17 +59,6 @@
 							backgroundImage: `url('src/assets/pixelAssets/${col.tileset}.png')`,
 							backgroundPosition: `-${col.tileCoord[1] * 16}px -${col.tileCoord[0] * 16}px`,
 						}">
-						<!-- Render pawn sprite if present at this position -->
-						<CharacterSprite
-							v-if="
-								!cutsceneStore.cutsceneActive &&
-								rowIndex === pawnStore.characterPosition[0] &&
-								colIndex === pawnStore.characterPosition[1]
-							"
-							:characterFilename="pawnStore.characterId"
-							:direction="pawnStore.characterPosition[2]"
-							class="character" />
-
 						<!-- Render layer image if present at this position -->
 						<img
 							v-for="(layer, i) of col.layers"
@@ -90,15 +79,32 @@
 									(s) => s.position[0] === rowIndex && s.position[1] === colIndex,
 								)"
 								class="npc"
+								:isCharacter="true"
 								:spriteName="sprite.imgSrc"
 								:coords="sprite.coords"
 								:key="i" />
 						</template>
-						<!-- <PawnSprite
-							v-if="col.isCharacter"
-							class="npc"
-							:spriteName="col.layeredImageSrc"
-							:coords="col.layeredImageCoord" /> -->
+						<template v-if="!cutsceneStore.cutsceneActive">
+							<PawnSprite
+								v-for="(sprite, i) of pawnStore.spriteList.filter(
+									(s) => s.position[0] === rowIndex && s.position[1] === colIndex,
+								)"
+								:isCharacter="sprite.isCharacter"
+								class="npc"
+								:spriteName="sprite.spriteSrc"
+								:coords="sprite.coords"
+								:key="i" />
+						</template>
+						<!-- Render pawn sprite if present at this position -->
+						<CharacterSprite
+							v-if="
+								!cutsceneStore.cutsceneActive &&
+								rowIndex === pawnStore.characterPosition[0] &&
+								colIndex === pawnStore.characterPosition[1]
+							"
+							:characterFilename="pawnStore.characterId"
+							:direction="pawnStore.characterPosition[2]"
+							class="character" />
 					</div>
 				</div>
 			</template>

@@ -1,0 +1,9 @@
+s 5 4 n						
+a WoodEdge0 lr true false	a WoodEdge0 s true false	a WoodEdge0 s true false	a WoodEdge0 s true false	a WoodEdge0 s true false	a WoodEdge0 s true false	a WoodEdge0 ll true false
+a WoodEdge0 e true false	c HouseWall0 0 1 true false	c HouseWall0 0 1 true false	c HouseWall0 0 1 true false	c HouseWall0 0 1 true false	c HouseWall0 0 1 true false	a WoodEdge0 w true false
+a WoodEdge0 e true false	c HouseWall0 2 1 true false	c HouseWall0 2 1 true false	c HouseWall0 2 1 true false Beach_Indoor 14 12	c HouseWall0 2 1 true false Beach_Indoor 14 13	c HouseWall0 2 1 true false Doors1 0 6	a WoodEdge0 w true false
+a WoodEdge0 e true false	c Floors4 0 1 true false Beach_Indoor 12 10	c Floors4 0 0 true false Beach_Indoor 12 11	c Floors4 0 0 true false Beach_Indoor 15 12	c Floors4 0 0 true false Beach_Indoor 15 13	c Floors4 0 2 false false	a WoodEdge0 w true false
+a WoodEdge0 e true false	c Floors4 0 2 true false Beach_Indoor 13 10	c Floors4 0 1 true false Beach_Indoor 13 11	c Floors4 0 0 false false	c Floors4 0 1 false false 	c Floors4 0 3 false false Beach_Indoor 12 15	a WoodEdge0 w true false
+a WoodEdge0 e true false	c Floors4 0 3 true false FireDungeon 0 8	c Floors4 0 2 false false 	c Floors4 0 1 false false 	c Floors4 0 2 false false 	c Floors4 0 0 true false Beach_Indoor 13 15	a WoodEdge0 w true false
+a WoodEdge0 ur true false	a WoodEdge0 n true false	a WoodEdge0 n true false	a WoodEdge0 ne true false	c Floors4 0 3 false false Special 0 2	a WoodEdge0 nw true false	a WoodEdge0 ul true false
+c Farm2 14 0 true false	c Farm2 14 0 true false	c Farm2 14 0 true false	a WoodEdge0 ur true false	a WoodEdge0 n true false	a WoodEdge0 ul true false	c Farm2 14 0 true false

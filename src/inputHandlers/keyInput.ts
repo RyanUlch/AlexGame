@@ -29,7 +29,6 @@ const move = (direction: string) => {
 		movementDirections.push(direction);
 		movementInterval = window.setInterval(() => {
 			const direction = movementDirections.at(-1);
-			console.log(direction);
 			if (!direction) {
 				window.clearInterval(movementInterval);
 				movementInterval = undefined;
