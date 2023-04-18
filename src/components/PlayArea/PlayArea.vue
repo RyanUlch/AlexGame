@@ -6,7 +6,7 @@
 	import PawnSprite from './PawnSprite.vue';
 	import CharacterSprite from './CharacterSprite.vue';
 	import { useKeyHandler } from '@/composables/useKeyHandler';
-	import { keyHandler } from '@/inputHandlers/keyInput';
+	import { downHandler, upHandler } from '@/inputHandlers/keyInput';
 	import { useFilterStore } from '@/stores/filters';
 
 	const pawnStore = usePawnStore();
@@ -38,7 +38,7 @@
 	});
 
 	// Set up key handler
-	useKeyHandler(keyHandler);
+	useKeyHandler(downHandler, upHandler);
 </script>
 
 <template>

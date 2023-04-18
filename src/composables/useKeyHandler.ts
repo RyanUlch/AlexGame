@@ -1,10 +1,15 @@
 import { onMounted, onUnmounted } from 'vue';
 
-export function useKeyHandler(handler: (e: KeyboardEvent) => void) {
+export function useKeyHandler(
+	downHandler: (e: KeyboardEvent) => void,
+	upHandler: (e: KeyboardEvent) => void,
+) {
 	onMounted(() => {
-		window.addEventListener('keydown', handler);
+		window.addEventListener('keydown', downHandler);
+		window.addEventListener('keyup', upHandler);
 	});
 	onUnmounted(() => {
-		window.removeEventListener('keydown', handler);
+		window.removeEventListener('keydown', downHandler);
+		window.removeEventListener('keyup', upHandler);
 	});
 }
