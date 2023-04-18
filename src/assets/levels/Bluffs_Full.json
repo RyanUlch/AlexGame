@@ -2,8 +2,8 @@
     "rows": [
         {
             "columns": [],
-            "startY": 31,
-            "startX": 8,
+            "startY": 30,
+            "startX": 10,
             "startDir": "n"
         },
         {
@@ -6616,10 +6616,10 @@
                     "isCharacter": false,
                     "layers": [
                         {
-                            "src": "Floors2",
+                            "src": "Grassy",
                             "coord": [
-                                0,
-                                0
+                                4,
+                                4
                             ]
                         },
                         {
@@ -6651,10 +6651,10 @@
                     "isCharacter": false,
                     "layers": [
                         {
-                            "src": "Floors2",
+                            "src": "Grassy",
                             "coord": [
-                                0,
-                                0
+                                4,
+                                3
                             ]
                         },
                         {
@@ -6865,10 +6865,10 @@
                     "isCharacter": false,
                     "layers": [
                         {
-                            "src": "Floors2",
+                            "src": "Grassy",
                             "coord": [
-                                0,
-                                0
+                                4,
+                                4
                             ]
                         },
                         {
@@ -6994,10 +6994,10 @@
                     "isCharacter": false,
                     "layers": [
                         {
-                            "src": "Floors2",
+                            "src": "Grassy",
                             "coord": [
-                                0,
-                                0
+                                4,
+                                3
                             ]
                         },
                         {
@@ -7163,10 +7163,10 @@
                     "isCharacter": false,
                     "layers": [
                         {
-                            "src": "Floors2",
+                            "src": "Grassy",
                             "coord": [
-                                0,
-                                0
+                                4,
+                                4
                             ]
                         },
                         {
@@ -7338,10 +7338,10 @@
                     "isCharacter": false,
                     "layers": [
                         {
-                            "src": "Floors2",
+                            "src": "Grassy",
                             "coord": [
-                                0,
-                                0
+                                4,
+                                3
                             ]
                         },
                         {
@@ -7667,10 +7667,10 @@
                     "isCharacter": false,
                     "layers": [
                         {
-                            "src": "Floors2",
+                            "src": "Grassy",
                             "coord": [
-                                0,
-                                0
+                                4,
+                                3
                             ]
                         },
                         {
@@ -7797,10 +7797,10 @@
                     ]
                 },
                 {
-                    "tileset": "Floors2",
+                    "tileset": "Grassy",
                     "tileCoord": [
-                        0,
-                        0
+                        4,
+                        4
                     ],
                     "impassible": true,
                     "isCharacter": false,
@@ -7988,10 +7988,10 @@
                     "isCharacter": false,
                     "layers": [
                         {
-                            "src": "Floors2",
+                            "src": "Grassy",
                             "coord": [
-                                0,
-                                0
+                                4,
+                                3
                             ]
                         },
                         {

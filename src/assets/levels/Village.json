@@ -6317,7 +6317,15 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [
+                        {
+                            "src": "Stuff",
+                            "coord": [
+                                3,
+                                15
+                            ]
+                        }
+                    ]
                 },
                 {
                     "tileset": "Floors2",
@@ -7077,15 +7085,7 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": [
-                        {
-                            "src": "Stuff",
-                            "coord": [
-                                3,
-                                15
-                            ]
-                        }
-                    ]
+                    "layers": []
                 },
                 {
                     "tileset": "Floors2",
@@ -9872,7 +9872,15 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [
+                        {
+                            "src": "Stuff",
+                            "coord": [
+                                3,
+                                15
+                            ]
+                        }
+                    ]
                 },
                 {
                     "tileset": "Floors2",
@@ -10584,15 +10592,7 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": [
-                        {
-                            "src": "Stuff",
-                            "coord": [
-                                3,
-                                15
-                            ]
-                        }
-                    ]
+                    "layers": []
                 },
                 {
                     "tileset": "Floors2",

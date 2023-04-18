@@ -4175,7 +4175,7 @@
                     "tileset": "Floors2",
                     "tileCoord": [
                         8,
-                        10
+                        5
                     ],
                     "impassible": false,
                     "isCharacter": false,
@@ -4457,13 +4457,21 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [
+                        {
+                            "src": "Stuff",
+                            "coord": [
+                                4,
+                                15
+                            ]
+                        }
+                    ]
                 },
                 {
                     "tileset": "Floors2",
                     "tileCoord": [
-                        0,
-                        0
+                        7,
+                        10
                     ],
                     "impassible": true,
                     "isCharacter": false,
