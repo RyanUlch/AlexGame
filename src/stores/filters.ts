@@ -1,13 +1,17 @@
 import { defineStore } from 'pinia';
 import { computed, ref } from 'vue';
 
-export type FilterName = 'night' | '';
+export type FilterName = 'night' | 'morning' | 'evening' | '';
 export const useFilterStore = defineStore('filters', () => {
 	const enabledFilter = ref<FilterName>('');
 	const background = computed((): string => {
 		switch (enabledFilter.value) {
+			case 'morning':
+				return 'radial-gradient(#00000020, #00000040 20%, #ffeeb960 95%)';
 			case 'night':
-				return 'radial-gradient(#00000063, #00000063 20%, #212143 95%)';
+				return 'radial-gradient(#00000063, #00000063 20%, #21214360 95%)';
+			case 'evening':
+				return 'radial-gradient(#00000020, #00000020 20%, #aa705f60 95%)';
 			default:
 				return '';
 		}

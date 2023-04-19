@@ -5,20 +5,28 @@ const openVillageLevel = () => {
 	const pawnStore = usePawnStore();
 	const timelineStore = useTimelineStore();
 
-	// Name0 House // Name0 House // Name0 House // Name0 House // Name0 House // Name0 House // Name0 House // Name0 House
-	let Name0HouseDestination: string;
-	if (timelineStore.Name0_Moving) {
-		Name0HouseDestination = 'Name0_House_Empty';
-	} else {
-		Name0HouseDestination = 'Name0_House_Full';
+	if (timelineStore.currentTime === 2 && timelineStore.Name2_home) {
+		const Name0: Sprite = {
+			spriteId: 'Name0',
+			spriteSrc: 'Name0',
+			isCharacter: true,
+			isAutoInteract: false,
+			position: [8, 21],
+			coords: [1, 1],
+			interactionName: 'noReturnDialogue',
+			interactionArgs: ['2e0'],
+		};
+		pawnStore.registerSprite(Name0);
 	}
+
+	// Name0 House // Name0 House // Name0 House // Name0 House // Name0 House // Name0 House // Name0 House // Name0 House
 	const Name0House: Sprite = {
 		spriteId: 'Name0House',
 		isCharacter: false,
 		isAutoInteract: false,
 		position: [14, 41],
 		interactionName: 'openLevel',
-		interactionArgs: [Name0HouseDestination],
+		interactionArgs: ['0'],
 	};
 	const Name0House_Sign: Sprite = {
 		spriteId: 'Name0House_Sign',
@@ -32,19 +40,14 @@ const openVillageLevel = () => {
 	pawnStore.registerSprite(Name0House_Sign);
 
 	// Name2 House // Name2 House // Name2 House // Name2 House // Name2 House // Name2 House // Name2 House // Name2 House
-	let Name2HouseDestination: String;
-	if (timelineStore.currentTime === 0 || timelineStore.currentTime === 3) {
-		Name2HouseDestination = 'Name2_House_LowerOpen';
-	} else {
-		Name2HouseDestination = 'Name2_House_LowerClosed';
-	}
+
 	const Name2House: Sprite = {
 		spriteId: 'Name2House',
 		isCharacter: false,
 		isAutoInteract: false,
 		position: [16, 14],
 		interactionName: 'openLevel',
-		interactionArgs: [Name2HouseDestination],
+		interactionArgs: ['2'],
 	};
 	const Name2House_Sign: Sprite = {
 		spriteId: 'Name2House_Sign',
@@ -64,7 +67,7 @@ const openVillageLevel = () => {
 		isAutoInteract: false,
 		position: [32, 46],
 		interactionName: 'openLevel',
-		interactionArgs: ['Name3_House'],
+		interactionArgs: ['3'],
 	};
 	const Name3House_Sign: Sprite = {
 		spriteId: 'Name3House_Sign',
@@ -84,7 +87,7 @@ const openVillageLevel = () => {
 		isAutoInteract: false,
 		position: [30, 7],
 		interactionName: 'openLevel',
-		interactionArgs: ['Name4_House'],
+		interactionArgs: ['4'],
 	};
 	const Name4House_Sign: Sprite = {
 		spriteId: 'Name4House_Sign',
@@ -130,23 +133,13 @@ const openVillageLevel = () => {
 	pawnStore.registerSprite(Tavern_Sign);
 
 	// Farm // Farm // Farm // Farm // Farm // Farm // Farm // Farm // Farm // Farm // Farm // Farm // Farm // Farm // Farm
-	let FarmDestination: string;
-	if (timelineStore.currentTime === 0 || timelineStore.currentTime === 1) {
-		FarmDestination = 'Farm_Full';
-	} else if (timelineStore.currentTime === 2) {
-		FarmDestination = 'Farm_Half';
-	} else if (timelineStore.Name1_GaveUp) {
-		FarmDestination = 'Farm_Dead';
-	} else {
-		FarmDestination = 'Farm_Empty';
-	}
 	const Farm: Sprite = {
 		spriteId: 'Farm',
 		isCharacter: false,
 		isAutoInteract: true,
 		position: [11, 52],
 		interactionName: 'openLevel',
-		interactionArgs: [FarmDestination, [10, 4, 'e']],
+		interactionArgs: ['Farm', [10, 4, 'e']],
 	};
 	const Farm_Sign: Sprite = {
 		spriteId: 'Farm_Sign',
@@ -160,37 +153,14 @@ const openVillageLevel = () => {
 	pawnStore.registerSprite(Farm_Sign);
 
 	// Market // Market // Market // Market // Market // Market // Market // Market // Market // Market // Market // Market
-	let MarketDestination: string;
-	if (timelineStore.currentTime === 0 || timelineStore.currentTime === 1) {
-		MarketDestination = 'Market_Full';
-	} else if (
-		timelineStore.currentTime === 2 &&
-		timelineStore.Name0_atFarm &&
-		!timelineStore.Name2_home
-	) {
-		MarketDestination = 'Market_Name0Gone';
-	} else if (
-		timelineStore.currentTime === 2 &&
-		!timelineStore.Name0_atFarm &&
-		timelineStore.Name2_home
-	) {
-		MarketDestination = 'Market_Name2Gone';
-	} else if (
-		timelineStore.currentTime === 2 &&
-		!timelineStore.Name0_atFarm &&
-		!timelineStore.Name2_home
-	) {
-		MarketDestination = 'Market_BothGone';
-	} else {
-		MarketDestination = 'Market_Empty';
-	}
+
 	const Market1: Sprite = {
 		spriteId: 'Market',
 		isCharacter: false,
 		isAutoInteract: true,
 		position: [5, 52],
 		interactionName: 'openLevel',
-		interactionArgs: [MarketDestination],
+		interactionArgs: ['Market'],
 	};
 	const Market2: Sprite = {
 		spriteId: 'Market',
@@ -198,7 +168,7 @@ const openVillageLevel = () => {
 		isAutoInteract: true,
 		position: [6, 52],
 		interactionName: 'openLevel',
-		interactionArgs: [MarketDestination],
+		interactionArgs: ['Market'],
 	};
 	const Market_Sign: Sprite = {
 		spriteId: 'Market_Sign',

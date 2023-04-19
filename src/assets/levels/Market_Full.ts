@@ -17,26 +17,79 @@ const openMarket_FullLevel = () => {
 			interactionArgs: ['0m0'],
 		};
 		pawnStore.registerSprite(Name0);
+	} else if (timelineStore.currentTime === 1) {
+		const Name0: Sprite = {
+			spriteId: 'Name0',
+			spriteSrc: 'Name0',
+			isCharacter: true,
+			isAutoInteract: false,
+			position: [8, 21],
+			coords: [1, 1],
+			interactionName: 'returnDialogue',
+			interactionArgs: ['0a0'],
+		};
+		pawnStore.registerSprite(Name0);
+		const Name0_Across: Sprite = {
+			spriteId: 'Name0_Across',
+			isCharacter: true,
+			isAutoInteract: false,
+			position: [8, 20],
+			interactionName: 'returnDialogue',
+			interactionArgs: ['0a0'],
+		};
+		pawnStore.registerSprite(Name0_Across);
+		const Name2: Sprite = {
+			spriteId: 'Name2',
+			spriteSrc: 'Name2',
+			isCharacter: true,
+			isAutoInteract: false,
+			position: [16, 8],
+			coords: [2, 1],
+			interactionName: 'returnDialogue',
+			interactionArgs: ['2a0'],
+		};
+		pawnStore.registerSprite(Name2);
+		const Name2_Across: Sprite = {
+			spriteId: 'Name2_Across',
+			isCharacter: true,
+			isAutoInteract: false,
+			position: [16, 9],
+			interactionName: 'returnDialogue',
+			interactionArgs: ['2a0'],
+		};
+		pawnStore.registerSprite(Name2_Across);
+		const Name3: Sprite = {
+			spriteId: 'Name3',
+			spriteSrc: 'Name3',
+			isCharacter: false,
+			isAutoInteract: false,
+			position: [1, 8],
+			coords: [0, 1],
+			interactionName: 'noReturnDialogue',
+			interactionArgs: ['3a0'],
+		};
+		pawnStore.registerSprite(Name3);
+		const Name4: Sprite = {
+			spriteId: 'PC_',
+			spriteSrc: 'PC_',
+			isCharacter: false,
+			isAutoInteract: false,
+			position: [14, 15],
+			coords: [0, 1],
+			interactionName: 'noReturnDialogue',
+			interactionArgs: ['4a0'],
+		};
+		pawnStore.registerSprite(Name4);
 	}
 
 	// Farm // Farm // Farm // Farm // Farm // Farm // Farm // Farm // Farm // Farm // Farm // Farm // Farm // Farm // Farm
-	let FarmDestination: string;
-	if (timelineStore.currentTime === 0 || timelineStore.currentTime === 1) {
-		FarmDestination = 'Farm_Full';
-	} else if (timelineStore.currentTime === 2) {
-		FarmDestination = 'Farm_Half';
-	} else if (timelineStore.Name1_GaveUp) {
-		FarmDestination = 'Farm_Dead';
-	} else {
-		FarmDestination = 'Farm_Empty';
-	}
 	const Farm: Sprite = {
 		spriteId: 'Farm',
 		isCharacter: false,
 		isAutoInteract: true,
 		position: [13, 28],
 		interactionName: 'openLevel',
-		interactionArgs: [FarmDestination, [10, 4, 'e']],
+		interactionArgs: ['Farm', [10, 4, 'e']],
 	};
 	const Farm_Sign: Sprite = {
 		spriteId: 'Farm_Sign',
@@ -85,7 +138,7 @@ const openMarket_FullLevel = () => {
 		isAutoInteract: true,
 		position: [0, 14],
 		interactionName: 'openLevel',
-		interactionArgs: ['Bluffs_Full'],
+		interactionArgs: ['Bluffs'],
 	};
 	const Bluffs2: Sprite = {
 		spriteId: 'Bluffs',
@@ -93,7 +146,7 @@ const openMarket_FullLevel = () => {
 		isAutoInteract: true,
 		position: [0, 15],
 		interactionName: 'openLevel',
-		interactionArgs: ['Bluffs_Full'],
+		interactionArgs: ['Bluffs'],
 	};
 	const Bluffs_Sign: Sprite = {
 		spriteId: 'Bluffs_Sign',

@@ -1,13 +1,18 @@
 /* eslint-disable no-mixed-spaces-and-tabs */
 // Pinia/Vue type Imports:
 import { defineStore } from 'pinia';
-import { reactive } from 'vue';
+import { reactive, ref } from 'vue';
 import { usePawnStore } from './pawn';
+import { useTimelineStore } from './timeline';
+import { useLogComposable } from '@/composables/logComposable';
 
 import openName0_House_EmptyLevel from '../assets/levels/Name0_House_Empty';
 import openName0_House_FullLevel from '@/assets/levels/Name0_House_Full';
+import openName0_House_BedLevel from '@/assets/levels/Name0_House_Bed';
 import openName1_House_LowerLevel from '@/assets/levels/Name1_House_Lower';
 import openName1_House_UpperLevel from '@/assets/levels/Name1_House_Upper';
+import openName1_House_UpperBedLevel from '@/assets/levels/Name1_House_UpperBed';
+import openName1_House_UpperBedBothLevel from '@/assets/levels/Name1_House_UpperBedBoth';
 import openName2_House_LowerClosedLevel from '@/assets/levels/Name2_House_LowerClosed';
 import openName2_House_LowerOpenLevel from '@/assets/levels/Name2_House_LowerOpen';
 import openName2_House_UpperLevel from '@/assets/levels/Name2_House_Upper';
@@ -23,7 +28,6 @@ import openMarket_BothGoneLevel from '@/assets/levels/Market_BothGone';
 import openMarket_EmptyLevel from '@/assets/levels/Market_Empty';
 import openMarket_FullLevel from '@/assets/levels/Market_Full';
 import openMarket_Name0GoneLevel from '@/assets/levels/Market_Name0Gone';
-import openMarket_Name2GoneLevel from '@/assets/levels/Market_Name2Gone';
 import openTavernLevel from '@/assets/levels/Tavern';
 import openVillageLevel from '@/assets/levels/Village';
 
@@ -44,8 +48,11 @@ interface JSONTiles {
 const levels: { [levelName: string]: () => void } = {
 	"Name0_House_Empty":		openName0_House_EmptyLevel,
  	"Name0_House_Full":			openName0_House_FullLevel,
+	"Name0_House_Bed": 			openName0_House_BedLevel,
 	"Name1_House_Lower":		openName1_House_LowerLevel,
 	"Name1_House_Upper": 		openName1_House_UpperLevel,
+	"Name1_House_UpperBed": 	openName1_House_UpperBedLevel,
+	"Name1_House_UpperBedBoth": openName1_House_UpperBedBothLevel,
 	"Name2_House_LowerClosed":	openName2_House_LowerClosedLevel,
 	"Name2_House_LowerOpen":	openName2_House_LowerOpenLevel,
 	"Name2_House_Upper":		openName2_House_UpperLevel,
@@ -61,7 +68,6 @@ const levels: { [levelName: string]: () => void } = {
 	"Market_Empty":				openMarket_EmptyLevel,
 	"Market_Full":				openMarket_FullLevel,
 	"Market_Name0Gone":			openMarket_Name0GoneLevel,
-	"Market_Name2Gone":			openMarket_Name2GoneLevel,
 	"Tavern":					openTavernLevel,
 	"Village":					openVillageLevel,
 };
@@ -71,12 +77,16 @@ export const useLevelStore = defineStore('levelStore', () => {
 	const levelMatrix = reactive<Tile[][]>([]);
 	const cutsceneMatrix = reactive<Tile[][]>([]);
 	const pawnStore = usePawnStore();
+	const levelNameRef = ref('');
+	const timelineStore = useTimelineStore();
+	const { addLogLine } = useLogComposable();
 
 	const openLevel = async (
 		levelName: string,
 		cutscene: boolean = false,
 		startingPos?: [number, number, string],
 	) => {
+		addLogLine(levelName);
 		pawnStore.cleanupSprites();
 		const startingPosition = convertToMatrix(
 			await fetch(`src/assets/levels/${levelName}.json`)
@@ -93,6 +103,106 @@ export const useLevelStore = defineStore('levelStore', () => {
 			pawnStore.characterPosition[2] = startingPos ? startingPos[2] : `${startingPosition[2]}`;
 			levels[levelName]();
 		}
+	};
+
+	const openLevelArea = (levelName: string, startingPos?: [number, number, string]) => {
+		let destination: string;
+		levelNameRef.value = levelName;
+		switch (levelName) {
+			case 'Market':
+				if (timelineStore.currentTime === 0 || timelineStore.currentTime === 1) {
+					destination = 'Market_Full';
+				} else if (timelineStore.currentTime === 2 && timelineStore.Name2_home) {
+					destination = 'Market_BothGone';
+				} else if (timelineStore.currentTime === 2) {
+					destination = 'Market_Name0Gone';
+				} else {
+					destination = 'Market_Empty';
+				}
+				break;
+			case 'Farm':
+				console.log(timelineStore.currentTime);
+				if (timelineStore.currentTime === 0 || timelineStore.currentTime === 1) {
+					destination = 'Farm_Full';
+				} else if (timelineStore.currentTime === 2) {
+					destination = 'Farm_Half';
+				} else if (timelineStore.Name1_GaveUp) {
+					destination = 'Farm_Dead';
+				} else {
+					destination = 'Farm_Empty';
+				}
+				break;
+			case 'Bluffs':
+				if (timelineStore.Name4_dead) {
+					destination = 'Bluffs_Broken';
+				} else {
+					destination = 'Bluffs_Full';
+				}
+				break;
+			case 'Village':
+				destination = 'Village';
+				break;
+			case 'Tavern':
+				destination = 'Tavern';
+				break;
+			case '0':
+				if (timelineStore.Name0_Moving && timelineStore.currentTime === 3) {
+					destination = 'Name0_House_Empty';
+				} else if (
+					!timelineStore.Name0_Moving &&
+					!timelineStore.Name0_atFarm &&
+					timelineStore.currentTime === 3
+				) {
+					destination = 'Name0_House_Bed';
+				} else {
+					destination = 'Name0_House_Full';
+				}
+				break;
+			case '1':
+				destination = 'Name1_House_Lower';
+				break;
+			case '1up':
+				if (timelineStore.currentTime === 3) {
+					if (!timelineStore.Name1_angry && timelineStore.Name0_atFarm) {
+						destination = 'Name1_House_UpperBedBoth';
+					} else {
+						destination = 'Name1_House_UpperBed';
+					}
+				} else {
+					destination = 'Name1_House_Upper';
+				}
+				if (
+					!timelineStore.Name1_angry &&
+					timelineStore.Name0_atFarm &&
+					timelineStore.currentTime === 3
+				) {
+					destination = 'Name1_House_UpperBedBoth';
+				} else if (timelineStore.Name1_GaveUp && timelineStore.currentTime === 3) {
+					destination = 'Name1_House_UpperBed';
+				} else {
+				}
+
+				break;
+			case '2':
+				if (timelineStore.currentTime === 0 || timelineStore.currentTime === 3) {
+					destination = 'Name2_House_LowerOpen';
+				} else {
+					destination = 'Name2_House_LowerClosed';
+				}
+				break;
+			case '2up':
+				destination = 'Name2_House_Upper';
+			case '3':
+				destination = 'Name3_House';
+				break;
+			case '4':
+				destination = 'Name4_House';
+				break;
+
+			default:
+				destination = 'Name4_House';
+		}
+		openLevel(destination, false, startingPos);
 	};
 
 	const addSpriteLocation = (position: [number, number]) => {
@@ -135,10 +245,12 @@ export const useLevelStore = defineStore('levelStore', () => {
 
 	// prettier-ignore
 	return { 
+		levelNameRef,
 		levelMatrix, // Save
 		addSpriteLocation,
 		cutsceneMatrix,
 		isImpassible, 
-		openLevel 
+		openLevel,
+		openLevelArea,
 	};
 });

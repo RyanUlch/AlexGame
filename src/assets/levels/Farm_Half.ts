@@ -5,13 +5,75 @@ const openFarm_HalfLevel = () => {
 	const pawnStore = usePawnStore();
 	const timelineStore = useTimelineStore();
 
+	if (timelineStore.Name0_atFarm) {
+		if (timelineStore.Name1_angry) {
+			const Name0: Sprite = {
+				spriteId: 'Name0',
+				spriteSrc: 'Name0',
+				isCharacter: true,
+				isAutoInteract: false,
+				position: [8, 22],
+				coords: [3, 1],
+				interactionName: 'noReturnDialogue',
+				interactionArgs: ['0e2'],
+			};
+			pawnStore.registerSprite(Name0);
+			const Name1: Sprite = {
+				spriteId: 'Name1',
+				spriteSrc: 'Name1',
+				isCharacter: true,
+				isAutoInteract: false,
+				position: [7, 22],
+				coords: [0, 1],
+				interactionName: 'noReturnDialogue',
+				interactionArgs: ['1e2'],
+			};
+			pawnStore.registerSprite(Name1);
+		} else {
+			const Name0: Sprite = {
+				spriteId: 'Name0',
+				spriteSrc: 'Name0',
+				isCharacter: true,
+				isAutoInteract: false,
+				position: [4, 13],
+				coords: [1, 1],
+				interactionName: 'noReturnDialogue',
+				interactionArgs: ['0e1'],
+			};
+			pawnStore.registerSprite(Name0);
+			const Name1: Sprite = {
+				spriteId: 'Name1',
+				spriteSrc: 'Name1',
+				isCharacter: true,
+				isAutoInteract: false,
+				position: [2, 10],
+				coords: [2, 1],
+				interactionName: 'noReturnDialogue',
+				interactionArgs: ['1e0'],
+			};
+			pawnStore.registerSprite(Name1);
+		}
+	} else {
+		const Name1: Sprite = {
+			spriteId: 'Name1',
+			spriteSrc: 'Name1',
+			isCharacter: true,
+			isAutoInteract: false,
+			position: [3, 13],
+			coords: [1, 1],
+			interactionName: 'returnDialogue',
+			interactionArgs: ['1e1'],
+		};
+		pawnStore.registerSprite(Name1);
+	}
+
 	const House1: Sprite = {
 		spriteId: 'House1',
 		isCharacter: false,
 		isAutoInteract: false,
 		position: [3, 22],
 		interactionName: 'openLevel',
-		interactionArgs: ['Name1_House_Lower', [6, 4, 'n']],
+		interactionArgs: ['1', [6, 4, 'n']],
 	};
 	const House2: Sprite = {
 		spriteId: 'House2',
@@ -19,43 +81,19 @@ const openFarm_HalfLevel = () => {
 		isAutoInteract: true,
 		position: [2, 19],
 		interactionName: 'openLevel',
-		interactionArgs: ['Name1_House_Lower', [5, 2, 'e']],
+		interactionArgs: ['1', [5, 2, 'e']],
 	};
 	pawnStore.registerSprite(House1);
 	pawnStore.registerSprite(House2);
 
 	// Market // Market // Market // Market // Market // Market // Market // Market // Market // Market // Market // Market
-	let MarketDestination: string;
-	if (timelineStore.currentTime === 0 || timelineStore.currentTime === 1) {
-		MarketDestination = 'Market_Full';
-	} else if (
-		timelineStore.currentTime === 2 &&
-		timelineStore.Name0_atFarm &&
-		!timelineStore.Name2_home
-	) {
-		MarketDestination = 'Market_Name0Gone';
-	} else if (
-		timelineStore.currentTime === 2 &&
-		!timelineStore.Name0_atFarm &&
-		timelineStore.Name2_home
-	) {
-		MarketDestination = 'Market_Name2Gone';
-	} else if (
-		timelineStore.currentTime === 2 &&
-		!timelineStore.Name0_atFarm &&
-		!timelineStore.Name2_home
-	) {
-		MarketDestination = 'Market_BothGone';
-	} else {
-		MarketDestination = 'Market_Empty';
-	}
 	const Market1: Sprite = {
 		spriteId: 'Market',
 		isCharacter: false,
 		isAutoInteract: true,
 		position: [10, 0],
 		interactionName: 'openLevel',
-		interactionArgs: [MarketDestination, [13, 25, 'w']],
+		interactionArgs: ['Market', [13, 25, 'w']],
 	};
 	pawnStore.registerSprite(Market1);
 

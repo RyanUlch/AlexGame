@@ -6,23 +6,13 @@ const openMarket_EmptyLevel = () => {
 	const timelineStore = useTimelineStore();
 
 	// Farm // Farm // Farm // Farm // Farm // Farm // Farm // Farm // Farm // Farm // Farm // Farm // Farm // Farm // Farm
-	let FarmDestination: string;
-	if (timelineStore.currentTime === 0 || timelineStore.currentTime === 1) {
-		FarmDestination = 'Farm_Full';
-	} else if (timelineStore.currentTime === 2) {
-		FarmDestination = 'Farm_Half';
-	} else if (timelineStore.Name1_GaveUp) {
-		FarmDestination = 'Farm_Dead';
-	} else {
-		FarmDestination = 'Farm_Empty';
-	}
 	const Farm: Sprite = {
 		spriteId: 'Farm',
 		isCharacter: false,
 		isAutoInteract: true,
 		position: [13, 28],
 		interactionName: 'openLevel',
-		interactionArgs: [FarmDestination, [10, 4, 'e']],
+		interactionArgs: ['Farm', [10, 4, 'e']],
 	};
 	const Farm_Sign: Sprite = {
 		spriteId: 'Farm_Sign',
@@ -71,7 +61,7 @@ const openMarket_EmptyLevel = () => {
 		isAutoInteract: true,
 		position: [0, 14],
 		interactionName: 'openLevel',
-		interactionArgs: ['Bluffs_Full'],
+		interactionArgs: ['Bluffs'],
 	};
 	const Bluffs2: Sprite = {
 		spriteId: 'Bluffs',
@@ -79,7 +69,7 @@ const openMarket_EmptyLevel = () => {
 		isAutoInteract: true,
 		position: [0, 15],
 		interactionName: 'openLevel',
-		interactionArgs: ['Bluffs_Full'],
+		interactionArgs: ['Bluffs'],
 	};
 	const Bluffs_Sign: Sprite = {
 		spriteId: 'Bluffs_Sign',

@@ -96,7 +96,33 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [
+                        {
+                            "src": "Farm",
+                            "coord": [
+                                6,
+                                4
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "tileset": "Floors2",
+                    "tileCoord": [
+                        0,
+                        0
+                    ],
+                    "impassible": true,
+                    "isCharacter": false,
+                    "layers": [
+                        {
+                            "src": "Farm",
+                            "coord": [
+                                6,
+                                5
+                            ]
+                        }
+                    ]
                 },
                 {
                     "tileset": "Floors2",
@@ -151,16 +177,6 @@
                             ]
                         }
                     ]
-                },
-                {
-                    "tileset": "Floors2",
-                    "tileCoord": [
-                        0,
-                        0
-                    ],
-                    "impassible": true,
-                    "isCharacter": false,
-                    "layers": []
                 },
                 {
                     "tileset": "Floors2",
@@ -508,9 +524,35 @@
                         0,
                         0
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [
+                        {
+                            "src": "Farm",
+                            "coord": [
+                                7,
+                                4
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "tileset": "Floors2",
+                    "tileCoord": [
+                        0,
+                        0
+                    ],
+                    "impassible": false,
+                    "isCharacter": false,
+                    "layers": [
+                        {
+                            "src": "Farm",
+                            "coord": [
+                                7,
+                                5
+                            ]
+                        }
+                    ]
                 },
                 {
                     "tileset": "Floors2",
@@ -565,16 +607,6 @@
                             ]
                         }
                     ]
-                },
-                {
-                    "tileset": "Floors2",
-                    "tileCoord": [
-                        0,
-                        0
-                    ],
-                    "impassible": true,
-                    "isCharacter": false,
-                    "layers": []
                 },
                 {
                     "tileset": "Floors2",
@@ -922,9 +954,17 @@
                         0,
                         0
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [
+                        {
+                            "src": "Floors",
+                            "coord": [
+                                14,
+                                10
+                            ]
+                        }
+                    ]
                 },
                 {
                     "tileset": "Floors2",
@@ -932,13 +972,38 @@
                         0,
                         0
                     ],
-                    "impassible": true,
+                    "impassible": false,
+                    "isCharacter": false,
+                    "layers": [
+                        {
+                            "src": "Floors",
+                            "coord": [
+                                14,
+                                8
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "tileset": "Floors2",
+                    "tileCoord": [
+                        0,
+                        0
+                    ],
+                    "impassible": false,
                     "isCharacter": false,
                     "layers": [
                         {
                             "src": "Farm",
                             "coord": [
                                 8,
+                                8
+                            ]
+                        },
+                        {
+                            "src": "Floors",
+                            "coord": [
+                                14,
                                 8
                             ]
                         }
@@ -979,16 +1044,6 @@
                             ]
                         }
                     ]
-                },
-                {
-                    "tileset": "Floors2",
-                    "tileCoord": [
-                        0,
-                        0
-                    ],
-                    "impassible": true,
-                    "isCharacter": false,
-                    "layers": []
                 },
                 {
                     "tileset": "Floors2",
@@ -1370,9 +1425,17 @@
                         0,
                         0
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [
+                        {
+                            "src": "Floors",
+                            "coord": [
+                                14,
+                                9
+                            ]
+                        }
+                    ]
                 },
                 {
                     "tileset": "Floors2",
@@ -1775,9 +1838,17 @@
                         0,
                         0
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [
+                        {
+                            "src": "Floors",
+                            "coord": [
+                                14,
+                                8
+                            ]
+                        }
+                    ]
                 },
                 {
                     "tileset": "Floors2",
@@ -3099,7 +3170,7 @@
                         1.5,
                         6.5
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
                     "layers": [
                         {
@@ -4401,17 +4472,10 @@
                     "isCharacter": false,
                     "layers": [
                         {
-                            "src": "false",
+                            "src": "Farm2",
                             "coord": [
-                                null,
-                                11
-                            ]
-                        },
-                        {
-                            "src": "13",
-                            "coord": [
-                                null,
-                                null
+                                11,
+                                13
                             ]
                         }
                     ]
@@ -5195,9 +5259,17 @@
                         1.5,
                         6.5
                     ],
-                    "impassible": false,
+                    "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [
+                        {
+                            "src": "Farm",
+                            "coord": [
+                                6,
+                                4
+                            ]
+                        }
+                    ]
                 },
                 {
                     "tileset": "Floors3",
@@ -5205,9 +5277,17 @@
                         1.5,
                         6.5
                     ],
-                    "impassible": false,
+                    "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [
+                        {
+                            "src": "Farm",
+                            "coord": [
+                                6,
+                                5
+                            ]
+                        }
+                    ]
                 },
                 {
                     "tileset": "Floors3",
@@ -5579,7 +5659,15 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [
+                        {
+                            "src": "Farm",
+                            "coord": [
+                                7,
+                                4
+                            ]
+                        }
+                    ]
                 },
                 {
                     "tileset": "Floors3",
@@ -5589,7 +5677,15 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [
+                        {
+                            "src": "Farm",
+                            "coord": [
+                                7,
+                                5
+                            ]
+                        }
+                    ]
                 },
                 {
                     "tileset": "Floors3",

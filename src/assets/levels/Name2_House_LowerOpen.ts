@@ -8,7 +8,7 @@ const openName2_House_LowerOpenLevel = () => {
 		isAutoInteract: false,
 		position: [2, 5],
 		interactionName: 'openLevel',
-		interactionArgs: ['Name2_House_Upper', [5, 5, 'n']],
+		interactionArgs: ['2up', [5, 5, 'n']],
 	};
 	pawnStore.registerSprite(Name2House_Upper);
 

@@ -10,7 +10,7 @@
 	}>();
 
 	const facing = computed(() => {
-		if (props.coords && props.isCharacter) {
+		if (props.coords) {
 			switch (props.coords[0]) {
 				case 3:
 					return 60;
@@ -41,6 +41,22 @@
 				animation.value = 16;
 			}
 		}, 1000);
+	} else {
+		if (props.coords) {
+			switch (props.coords[1]) {
+				case 2:
+					animation.value = 32;
+					break;
+				case 0:
+					animation.value = 0;
+					break;
+				case 1:
+					animation.value = 16;
+					break;
+				default:
+					animation.value = 0;
+			}
+		}
 	}
 </script>
 <template>
