@@ -82,7 +82,7 @@ const openVillageLevel = () => {
 		spriteId: 'Name4House',
 		isCharacter: false,
 		isAutoInteract: false,
-		position: [30, 6],
+		position: [30, 7],
 		interactionName: 'openLevel',
 		interactionArgs: ['Name4_House'],
 	};

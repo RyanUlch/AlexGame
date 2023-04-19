@@ -5271,7 +5271,7 @@
                         0,
                         0
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
                     "layers": [
                         {
@@ -5289,7 +5289,7 @@
                         0,
                         0
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
                     "layers": [
                         {
@@ -5307,7 +5307,7 @@
                         0,
                         0
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
                     "layers": [
                         {
@@ -5325,7 +5325,7 @@
                         0,
                         0
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
                     "layers": [
                         {

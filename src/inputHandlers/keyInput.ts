@@ -35,7 +35,7 @@ const move = (direction: string) => {
 			} else {
 				move(direction);
 			}
-		}, 200);
+		}, 100);
 	}
 	if (!movementDirections.includes(direction)) movementDirections.push(direction);
 

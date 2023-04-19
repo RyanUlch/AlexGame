@@ -14,9 +14,9 @@ const openFarm_EmptyLevel = () => {
 		interactionArgs: ['Name1_House_Lower', [6, 4, 'n']],
 	};
 	const House2: Sprite = {
-		spriteId: 'House1',
+		spriteId: 'House2',
 		isCharacter: false,
-		isAutoInteract: false,
+		isAutoInteract: true,
 		position: [2, 19],
 		interactionName: 'openLevel',
 		interactionArgs: ['Name1_House_Lower', [5, 2, 'e']],

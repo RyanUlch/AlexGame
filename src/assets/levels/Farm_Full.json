@@ -4746,7 +4746,7 @@
                         7,
                         10
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
                     "layers": []
                 },

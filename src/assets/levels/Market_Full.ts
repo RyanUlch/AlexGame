@@ -5,6 +5,20 @@ const openMarket_FullLevel = () => {
 	const pawnStore = usePawnStore();
 	const timelineStore = useTimelineStore();
 
+	if (timelineStore.currentTime === 0) {
+		const Name0: Sprite = {
+			spriteId: 'Name0',
+			spriteSrc: 'Name0',
+			isCharacter: true,
+			isAutoInteract: false,
+			position: [8, 21],
+			coords: [1, 1],
+			interactionName: 'noReturnDialogue',
+			interactionArgs: ['0m0'],
+		};
+		pawnStore.registerSprite(Name0);
+	}
+
 	// Farm // Farm // Farm // Farm // Farm // Farm // Farm // Farm // Farm // Farm // Farm // Farm // Farm // Farm // Farm
 	let FarmDestination: string;
 	if (timelineStore.currentTime === 0 || timelineStore.currentTime === 1) {

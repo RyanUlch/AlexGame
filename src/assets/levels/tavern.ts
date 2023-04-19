@@ -34,7 +34,7 @@ const openTavernLevel = () => {
 		spriteId: 'Exit',
 		isCharacter: false,
 		isAutoInteract: true,
-		position: [6, 12],
+		position: [9, 2],
 		interactionName: 'openLevel',
 		interactionArgs: ['Village', [34, 24, 's']],
 	};

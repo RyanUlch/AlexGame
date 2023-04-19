@@ -54,7 +54,7 @@
 	// 	openingCutscene();
 	// }, 1000);
 
-	levelStore.openLevel('Bluffs_Full', false, [30, 9, 'n']);
+	levelStore.openLevel('Village'); //, //[30, 9, 'n']);
 </script>
 <template>
 	<!-- <div class="gameArea"> -->

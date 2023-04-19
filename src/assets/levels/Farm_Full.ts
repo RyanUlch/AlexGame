@@ -5,6 +5,20 @@ const openFarm_FullLevel = () => {
 	const pawnStore = usePawnStore();
 	const timelineStore = useTimelineStore();
 
+	if (timelineStore.currentTime === 0) {
+		const Name1: Sprite = {
+			spriteId: 'Name1',
+			spriteSrc: 'Name1',
+			isCharacter: true,
+			isAutoInteract: false,
+			position: [4, 19],
+			coords: [1, 1],
+			interactionName: 'noReturnDialogue',
+			interactionArgs: ['1m0'],
+		};
+		pawnStore.registerSprite(Name1);
+	}
+
 	const House1: Sprite = {
 		spriteId: 'House1',
 		isCharacter: false,
@@ -14,9 +28,9 @@ const openFarm_FullLevel = () => {
 		interactionArgs: ['Name1_House_Lower', [6, 4, 'n']],
 	};
 	const House2: Sprite = {
-		spriteId: 'House1',
+		spriteId: 'House2',
 		isCharacter: false,
-		isAutoInteract: false,
+		isAutoInteract: true,
 		position: [2, 19],
 		interactionName: 'openLevel',
 		interactionArgs: ['Name1_House_Lower', [5, 2, 'e']],
