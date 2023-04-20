@@ -108,6 +108,7 @@ export const useLevelStore = defineStore('levelStore', () => {
 	const openLevelArea = (levelName: string, startingPos?: [number, number, string]) => {
 		let destination: string;
 		levelNameRef.value = levelName;
+		console.log(levelName);
 		switch (levelName) {
 			case 'Market':
 				if (timelineStore.currentTime === 0 || timelineStore.currentTime === 1) {
@@ -121,7 +122,6 @@ export const useLevelStore = defineStore('levelStore', () => {
 				}
 				break;
 			case 'Farm':
-				console.log(timelineStore.currentTime);
 				if (timelineStore.currentTime === 0 || timelineStore.currentTime === 1) {
 					destination = 'Farm_Full';
 				} else if (timelineStore.currentTime === 2) {

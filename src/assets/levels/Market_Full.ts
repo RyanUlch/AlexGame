@@ -1,5 +1,6 @@
 import { usePawnStore } from '@/stores/pawn';
 import { useTimelineStore } from '@/stores/timeline';
+import { MarketCutscene } from '@/stores/cutscene';
 import type { Sprite } from '@/stores/pawn';
 const openMarket_FullLevel = () => {
 	const pawnStore = usePawnStore();
@@ -18,6 +19,9 @@ const openMarket_FullLevel = () => {
 		};
 		pawnStore.registerSprite(Name0);
 	} else if (timelineStore.currentTime === 1) {
+		if (!timelineStore.conversationsActivated['23a0']) {
+			MarketCutscene();
+		}
 		const Name0: Sprite = {
 			spriteId: 'Name0',
 			spriteSrc: 'Name0',

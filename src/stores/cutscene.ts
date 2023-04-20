@@ -4,6 +4,8 @@ import { reactive, ref } from 'vue';
 import { useLevelStore } from './level';
 import { usePromptStore } from './prompt';
 import { usePawnStore } from './pawn';
+import { runInteraction } from '@/assets/interactions/interactions';
+import { useTimelineStore } from './timeline';
 
 export type CutsceneSprite = {
 	imgSrc: string;
@@ -264,7 +266,7 @@ export const openingCutscene = () => {
 
 export const FarmBothCutscene = () => {
 	const pawnStore = usePawnStore();
-	const promptStore = usePromptStore();
+	const timelineStore = useTimelineStore();
 	const character = `PC_${pawnStore.characterId}`;
 	useCutsceneStore().runCutscene(
 		'Farm_Half',
@@ -272,19 +274,19 @@ export const FarmBothCutscene = () => {
 			// Add PC, Character 0, and Character 1
 			const CharacterSprite: CutsceneSprite = {
 				imgSrc: character,
-				coords: [1, 1],
+				coords: [2, 1],
 				position: [10, 3],
 			};
 			addSprite(CharacterSprite);
 			const Name1Sprite: CutsceneSprite = {
 				imgSrc: 'Name1',
-				coords: [1, 1],
+				coords: [0, 1],
 				position: [7, 22],
 			};
 			addSprite(Name1Sprite);
 			const Name0Sprite: CutsceneSprite = {
 				imgSrc: 'Name0',
-				coords: [1, 1],
+				coords: [3, 1],
 				position: [8, 22],
 			};
 			addSprite(Name0Sprite);
@@ -304,22 +306,29 @@ export const FarmBothCutscene = () => {
 			// PC observes the two
 			await wait(750);
 			// Conversation with no return plays
-			await promptStore.doConversation('014e0');
+			await runInteraction('noReturnDialogue', ['014e0']);
+
+			await turnSprite(CharacterSprite, 1);
 
 			// PC walks back while screen fades, then cutscene ends
 			await Promise.all([
-				walkSprite(CharacterSprite, [10, 0], 300),
-				camera.move([10, 11], 300 * 5, 'linear'),
-				camera.fade('out', 1000),
-				removeSprite(CharacterSprite),
+				walkSprite(CharacterSprite, [10, 3], 300),
+				camera.move([10, 17], 300 * 5, 'linear'),
 			]);
+			await removeSprite(CharacterSprite);
+
+			if (timelineStore.Name1_angry) {
+				await runInteraction('returnDialogue', ['01e0']);
+			} else {
+				await runInteraction('returnDialogue', ['01e1']);
+			}
+			await Promise.all([camera.move([10, 11], 300 * 5, 'linear'), camera.fade('out', 1000)]);
 		},
 	);
 };
 
 export const FarmCutscene = () => {
 	const pawnStore = usePawnStore();
-	const promptStore = usePromptStore();
 	const character = `PC_${pawnStore.characterId}`;
 	useCutsceneStore().runCutscene(
 		'Farm_Half',
@@ -327,7 +336,7 @@ export const FarmCutscene = () => {
 			// Add PC, and Character 1
 			const CharacterSprite: CutsceneSprite = {
 				imgSrc: character,
-				coords: [1, 1],
+				coords: [2, 1],
 				position: [10, 3],
 			};
 			addSprite(CharacterSprite);
@@ -356,7 +365,7 @@ export const FarmCutscene = () => {
 			// PC observes Character 1
 			await wait(750);
 			// Conversation with no return plays
-			await promptStore.doConversation('14e0');
+			await runInteraction('noReturnDialogue', ['14e0']);
 
 			// PC turns back
 			await turnSprite(CharacterSprite, 1);
@@ -366,15 +375,15 @@ export const FarmCutscene = () => {
 				walkSprite(CharacterSprite, [10, 0], 300),
 				camera.move([10, 11], 300 * 5, 'linear'),
 				camera.fade('out', 1000),
-				removeSprite(CharacterSprite),
 			]);
+
+			await removeSprite(CharacterSprite);
 		},
 	);
 };
 
 export const MarketCutscene = () => {
 	const pawnStore = usePawnStore();
-	const promptStore = usePromptStore();
 	const character = `PC_${pawnStore.characterId}`;
 	useCutsceneStore().runCutscene(
 		'Market_Full',
@@ -408,7 +417,7 @@ export const MarketCutscene = () => {
 			await wait(300);
 
 			// Conversation between Characters 2 and 3
-			await promptStore.doConversation('23a0');
+			await runInteraction('noReturnDialogue', ['23a0']);
 
 			// Character 3 turns North
 			await Promise.all([turnSprite(Name3Sprite, 3), turnSprite(CharacterSprite, 1)]);
@@ -420,7 +429,7 @@ export const MarketCutscene = () => {
 			]);
 
 			// Conversation between Character 2 and PC
-			await promptStore.doConversation('24a0');
+			await runInteraction('noReturnDialogue', ['24a0']);
 
 			// Turn PC East
 			await turnSprite(CharacterSprite, 2);

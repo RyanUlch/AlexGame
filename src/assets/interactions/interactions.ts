@@ -18,6 +18,7 @@ export const runInteraction = async (interactionName: string, interactionArgs: a
 			await levelStore.openLevelArea(interactionArgs[0], interactionArgs[1]);
 			break;
 		case 'noReturnDialogue':
+			addLogLine(`${timelineStore.conversationsActivated[interactionArgs[0]]}`);
 			if (timelineStore.conversationsActivated[interactionArgs[0]]) {
 				switch (timelineStore.currentTime) {
 					case 0:
@@ -72,7 +73,7 @@ export const runInteraction = async (interactionName: string, interactionArgs: a
 						case '2a0_1':
 							timelineStore.Name2_home = false;
 							break;
-						case '0e0_1':
+						case '0e0_0':
 							timelineStore.Name0_hate = false;
 							timelineStore.Name0_Moving = false;
 							break;
@@ -85,6 +86,14 @@ export const runInteraction = async (interactionName: string, interactionArgs: a
 							break;
 						case '3e0_0':
 							timelineStore.Name3_follow = true;
+							break;
+						case '01e0_0':
+							timelineStore.Name3_follow = true;
+							break;
+						case '014e0_1':
+							timelineStore.Name1_angry = false;
+						default:
+							break;
 					}
 				}
 				timelineStore.conversationsActivated[interactionArgs[0]] = true;

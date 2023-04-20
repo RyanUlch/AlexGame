@@ -1,11 +1,15 @@
 import { usePawnStore } from '@/stores/pawn';
 import { useTimelineStore } from '@/stores/timeline';
+import { FarmCutscene, FarmBothCutscene } from '@/stores/cutscene';
 import type { Sprite } from '@/stores/pawn';
 const openFarm_HalfLevel = () => {
 	const pawnStore = usePawnStore();
 	const timelineStore = useTimelineStore();
-
+	console.log(timelineStore.conversationsActivated['014e0']);
 	if (timelineStore.Name0_atFarm) {
+		if (!timelineStore.conversationsActivated['014e0']) {
+			FarmBothCutscene();
+		}
 		if (timelineStore.Name1_angry) {
 			const Name0: Sprite = {
 				spriteId: 'Name0',
@@ -54,6 +58,9 @@ const openFarm_HalfLevel = () => {
 			pawnStore.registerSprite(Name1);
 		}
 	} else {
+		if (!timelineStore.conversationsActivated['14e0']) {
+			FarmCutscene();
+		}
 		const Name1: Sprite = {
 			spriteId: 'Name1',
 			spriteSrc: 'Name1',

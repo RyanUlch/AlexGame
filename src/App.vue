@@ -68,11 +68,11 @@
 	});
 
 	// useFilterStore().enableFilter('night');
-	setTimeout(() => {
-		MarketCutscene();
-	}, 1000);
+	// setTimeout(() => {
+	// 	MarketCutscene();
+	// }, 1000);
 
-	// levelStore.openLevel('Village'); //, //[30, 9, 'n']);
+	levelStore.openLevel('Village'); //, //[30, 9, 'n']);
 	const advance = () => {
 		timelineStore.advanceTime();
 	};
