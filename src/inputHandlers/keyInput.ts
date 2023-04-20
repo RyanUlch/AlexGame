@@ -13,6 +13,8 @@ const blip = new AudioPlayer('src/assets/audio/menuBlip.wav');
 
 const movementDirections: string[] = [];
 let movementInterval: number | undefined = undefined;
+const movementIntervalMs = 100;
+let lastMovement: number | null = null;
 const move = (direction: string) => {
 	// If a prompt is open, capture input and handle it
 	const promptStore = usePromptStore();
@@ -35,11 +37,18 @@ const move = (direction: string) => {
 			} else {
 				move(direction);
 			}
-		}, 100);
+		}, movementIntervalMs);
 	}
 	if (!movementDirections.includes(direction)) movementDirections.push(direction);
 
-	if (movementDirections.at(-1) == direction) usePawnStore().playerMoveListener(direction);
+	const now = performance.now();
+	if (
+		movementDirections.at(-1) == direction &&
+		(lastMovement === null || now - lastMovement >= movementIntervalMs - 10)
+	) {
+		usePawnStore().playerMoveListener(direction);
+		lastMovement = performance.now();
+	}
 };
 const stopMove = (direction: string) => {
 	movementDirections.splice(movementDirections.indexOf(direction), 1);
