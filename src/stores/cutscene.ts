@@ -9,6 +9,7 @@ export type CutsceneSprite = {
 	imgSrc: string;
 	coords: [number, number];
 	position: [number, number];
+	id?: number;
 };
 
 export const useCutsceneStore = defineStore('cutscene', () => {
@@ -75,18 +76,19 @@ export const useCutsceneStore = defineStore('cutscene', () => {
 			}, durationMs);
 		});
 	};
+	let spriteId = 0;
 	const addSprite = (sprite: CutsceneSprite) => {
 		cutsceneSprites.value = [...cutsceneSprites.value, sprite];
-		return sprite;
+		sprite.id = spriteId++;
 	};
 	const removeSprite = (sprite: CutsceneSprite) => {
-		const index = cutsceneSprites.value.indexOf(sprite);
+		const index = cutsceneSprites.value.findIndex((s) => s.id === sprite.id);
 		if (index === -1) throw Error('sprite is not in cutscene');
 		cutsceneSprites.value.splice(index, 1);
 		cutsceneSprites.value = [...cutsceneSprites.value];
 	};
 	const walkSprite = async (sprite: CutsceneSprite, to: [number, number], stepMs: number = 300) => {
-		const index = cutsceneSprites.value.indexOf(sprite);
+		const index = cutsceneSprites.value.findIndex((s) => s.id === sprite.id);
 		if (index === -1) throw Error('sprite is not in cutscene');
 		if (sprite.position[0] !== to[0] && sprite.position[1] !== to[1]) {
 			throw Error('can only walk in one axis for now...');
@@ -100,7 +102,7 @@ export const useCutsceneStore = defineStore('cutscene', () => {
 		}
 	};
 	const turnSprite = async (sprite: CutsceneSprite, direction: number) => {
-		const index = cutsceneSprites.value.indexOf(sprite);
+		const index = cutsceneSprites.value.findIndex((s) => s.id === sprite.id);
 		if (index === -1) throw Error('sprite is not in cutscene');
 		if (direction < 0 && direction > 3) {
 			throw Error('can only turn in 4 directions...');
@@ -254,7 +256,7 @@ export const openingCutscene = () => {
 			setTimeout(() => {
 				showImage('TitleScreen.png', 10000, { fade: 'in-out', fadeDurationMs: 2000 });
 			}, 2000);
-			await Promise.all([, camera.move([5, 11], introLength)]);
+			await Promise.all([camera.move([5, 11], introLength)]);
 			// await wait(1000);
 		},
 	);
@@ -409,7 +411,7 @@ export const MarketCutscene = () => {
 			await promptStore.doConversation('23a0');
 
 			// Character 3 turns North
-			await turnSprite(Name3Sprite, 3);
+			await Promise.all([turnSprite(Name3Sprite, 3), turnSprite(CharacterSprite, 1)]);
 
 			// Character 3 walks North off screen, PC walks to Character 2's stall
 			await Promise.all([
