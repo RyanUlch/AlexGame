@@ -92,6 +92,37 @@ export const runInteraction = async (interactionName: string, interactionArgs: a
 							break;
 						case '014e0_1':
 							timelineStore.Name1_angry = false;
+						case '24n1_0':
+							timelineStore.Name2_sawDeath = true;
+							timelineStore.Name4_dead = true;
+							break;
+						case 'fc3_0':
+							timelineStore.finalSceneControl = true;
+							break;
+						case 'fcEnd0_1alt':
+						case 'fcEnd0_alt':
+							timelineStore.endingChoice = 0;
+							break;
+						case 'fcEnd1':
+							timelineStore.endingChoice = 1;
+							break;
+						case 'fcEnd2':
+							timelineStore.endingChoice = 2;
+							break;
+						case 'fcEnd3':
+							timelineStore.endingChoice = 3;
+							break;
+						case 'fcEnd4':
+							timelineStore.endingChoice = 4;
+							break;
+						case 'fcEnd5':
+							timelineStore.endingChoice = 5;
+							break;
+						case 'fcEnd6':
+							timelineStore.endingChoice = 6;
+							break;
+						case 'fc5End1':
+							timelineStore.PCKillsName3 = true;
 						default:
 							break;
 					}

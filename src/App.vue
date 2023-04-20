@@ -13,7 +13,12 @@
 	import AppSkillsMenu from './components/Menus/AppSkillsMenu.vue';
 	import { useSettingsStore } from './stores/settings';
 	import { ref, onBeforeUpdate } from 'vue';
-	import { FarmBothCutscene, MarketCutscene, openingCutscene } from './stores/cutscene';
+	import {
+		FarmBothCutscene,
+		MarketCutscene,
+		openingCutscene,
+		BluffsCutscene,
+	} from './stores/cutscene';
 	import { AudioPlayer } from './Audio/Audio';
 	import { useFilterStore } from './stores/filters';
 	const timelineStore = useTimelineStore();
@@ -69,10 +74,10 @@
 
 	// useFilterStore().enableFilter('night');
 	// setTimeout(() => {
-	// 	MarketCutscene();
+	// 	BluffsCutscene();
 	// }, 1000);
 
-	levelStore.openLevel('Village'); //, //[30, 9, 'n']);
+	levelStore.openLevel('Name4_House', false, [4, 7, 'w']); //, //[30, 9, 'n']);
 	const advance = () => {
 		timelineStore.advanceTime();
 	};

@@ -1815,7 +1815,7 @@
                         "choices": [
                             {
                                 "text": "Continue",
-                                "result": ""
+                                "result": "24n1_0"
                             }
                         ]
                     }
@@ -2717,18 +2717,13 @@
                                                                                                                                         {
                                                                                                                                             "text": "*You can't*",
                                                                                                                                             "result": {
-                                                                                                                                                "message": "Name4_Img4_\"I can't let you do this. I can't just let you kill them\"",
+                                                                                                                                                "message": "\"I can't let you do this. I can't just let you kill them\"",
                                                                                                                                                 "imgSrc": "Img4",
                                                                                                                                                 "title": "Name4",
                                                                                                                                                 "choices": [
                                                                                                                                                     {
-                                                                                                                                                        "text": "Continue...",
-                                                                                                                                                        "result": {
-                                                                                                                                                            "message": "fcEnd0_1alt",
-                                                                                                                                                            "imgSrc": "Img4",
-                                                                                                                                                            "title": "Name4",
-                                                                                                                                                            "choices": []
-                                                                                                                                                        }
+                                                                                                                                                        "text": "Continue",
+                                                                                                                                                        "result": "fcEnd0_1alt"
                                                                                                                                                     }
                                                                                                                                                 ]
                                                                                                                                             }
@@ -2736,7 +2731,7 @@
                                                                                                                                         {
                                                                                                                                             "text": "*I understand you're scared*",
                                                                                                                                             "result": {
-                                                                                                                                                "message": "Name4_Img4_\"No one gave you the right. I understand you are scared.\"",
+                                                                                                                                                "message": "\"No one gave you the right. I understand you are scared.\"",
                                                                                                                                                 "imgSrc": "Img4",
                                                                                                                                                 "title": "Name4",
                                                                                                                                                 "choices": [
@@ -2816,7 +2811,12 @@
                                                                                                             "message": "\"As long as I don't die, I'm in\"",
                                                                                                             "imgSrc": "Img4",
                                                                                                             "title": "Name4",
-                                                                                                            "choices": []
+                                                                                                            "choices": [
+                                                                                                                {
+                                                                                                                    "text": "Continue",
+                                                                                                                    "result": "fcEnd2"
+                                                                                                                }
+                                                                                                            ]
                                                                                                         }
                                                                                                     }
                                                                                                 ]
@@ -2857,13 +2857,8 @@
                                                                                                             "title": "Name3",
                                                                                                             "choices": [
                                                                                                                 {
-                                                                                                                    "text": "Continue...",
-                                                                                                                    "result": {
-                                                                                                                        "message": "fcEnd0_alt",
-                                                                                                                        "imgSrc": "Img4",
-                                                                                                                        "title": "Name4",
-                                                                                                                        "choices": []
-                                                                                                                    }
+                                                                                                                    "text": "Continue",
+                                                                                                                    "result": "fcEnd0_alt"
                                                                                                                 }
                                                                                                             ]
                                                                                                         }
@@ -2886,13 +2881,8 @@
                                                                                                             "title": "Name3",
                                                                                                             "choices": [
                                                                                                                 {
-                                                                                                                    "text": "Continue...",
-                                                                                                                    "result": {
-                                                                                                                        "message": "fcEnd0_alt",
-                                                                                                                        "imgSrc": "Img4",
-                                                                                                                        "title": "Name4",
-                                                                                                                        "choices": []
-                                                                                                                    }
+                                                                                                                    "text": "Continue",
+                                                                                                                    "result": "fcEnd0_alt"
                                                                                                                 }
                                                                                                             ]
                                                                                                         }
@@ -2915,13 +2905,8 @@
                                                                                                             "title": "Name3",
                                                                                                             "choices": [
                                                                                                                 {
-                                                                                                                    "text": "Continue...",
-                                                                                                                    "result": {
-                                                                                                                        "message": "fcEnd0_alt",
-                                                                                                                        "imgSrc": "Img4",
-                                                                                                                        "title": "Name4",
-                                                                                                                        "choices": []
-                                                                                                                    }
+                                                                                                                    "text": "Continue",
+                                                                                                                    "result": "fcEnd0_alt"
                                                                                                                 }
                                                                                                             ]
                                                                                                         }
@@ -2944,13 +2929,8 @@
                                                                                                             "title": "Name3",
                                                                                                             "choices": [
                                                                                                                 {
-                                                                                                                    "text": "Continue...",
-                                                                                                                    "result": {
-                                                                                                                        "message": "fcEnd0_alt",
-                                                                                                                        "imgSrc": "Img4",
-                                                                                                                        "title": "Name4",
-                                                                                                                        "choices": []
-                                                                                                                    }
+                                                                                                                    "text": "Continue",
+                                                                                                                    "result": "fcEnd0_alt"
                                                                                                                 }
                                                                                                             ]
                                                                                                         }
@@ -3336,8 +3316,8 @@
                                                                                                                                                                                                                         "title": "Name3",
                                                                                                                                                                                                                         "choices": [
                                                                                                                                                                                                                             {
-                                                                                                                                                                                                                                "text": "Continue fcEnd6",
-                                                                                                                                                                                                                                "result": ""
+                                                                                                                                                                                                                                "text": "Continue",
+                                                                                                                                                                                                                                "result": "fcEnd6"
                                                                                                                                                                                                                             }
                                                                                                                                                                                                                         ]
                                                                                                                                                                                                                     }
@@ -3523,8 +3503,8 @@
                                                                                                                                                                                                                                                                                                                                                                                                             "title": "Name3",
                                                                                                                                                                                                                                                                                                                                                                                                             "choices": [
                                                                                                                                                                                                                                                                                                                                                                                                                 {
-                                                                                                                                                                                                                                                                                                                                                                                                                    "text": "Continue fcEnd6",
-                                                                                                                                                                                                                                                                                                                                                                                                                    "result": ""
+                                                                                                                                                                                                                                                                                                                                                                                                                    "text": "Continue",
+                                                                                                                                                                                                                                                                                                                                                                                                                    "result": "fcEnd6"
                                                                                                                                                                                                                                                                                                                                                                                                                 }
                                                                                                                                                                                                                                                                                                                                                                                                             ]
                                                                                                                                                                                                                                                                                                                                                                                                         }
@@ -3717,8 +3697,8 @@
                                                                                                                                                                                                                                                             "title": "Name3",
                                                                                                                                                                                                                                                             "choices": [
                                                                                                                                                                                                                                                                 {
-                                                                                                                                                                                                                                                                    "text": "Continue fcEnd6",
-                                                                                                                                                                                                                                                                    "result": ""
+                                                                                                                                                                                                                                                                    "text": "Continue",
+                                                                                                                                                                                                                                                                    "result": "fcEnd6"
                                                                                                                                                                                                                                                                 }
                                                                                                                                                                                                                                                             ]
                                                                                                                                                                                                                                                         }
@@ -3832,7 +3812,7 @@
                                                                                                                                                                                                                                                                                                                                                             "choices": [
                                                                                                                                                                                                                                                                                                                                                                 {
                                                                                                                                                                                                                                                                                                                                                                     "text": "Continue",
-                                                                                                                                                                                                                                                                                                                                                                    "result": ""
+                                                                                                                                                                                                                                                                                                                                                                    "result": "fcEnd0_alt"
                                                                                                                                                                                                                                                                                                                                                                 }
                                                                                                                                                                                                                                                                                                                                                             ]
                                                                                                                                                                                                                                                                                                                                                         }
@@ -3904,8 +3884,8 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                 "title": "Name3",
                                                                                                                                                                                                                                                                                                                                                                                                                                                 "choices": [
                                                                                                                                                                                                                                                                                                                                                                                                                                                     {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                        "text": "Continue fcEnd6",
-                                                                                                                                                                                                                                                                                                                                                                                                                                                        "result": ""
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        "text": "Continue",
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        "result": "fcEnd6"
                                                                                                                                                                                                                                                                                                                                                                                                                                                     }
                                                                                                                                                                                                                                                                                                                                                                                                                                                 ]
                                                                                                                                                                                                                                                                                                                                                                                                                                             }
@@ -4058,12 +4038,17 @@
                         "title": "Name4",
                         "choices": [
                             {
-                                "text": "Name3__Img3__\"I'm sorry...\"",
+                                "text": "Continue",
                                 "result": {
-                                    "message": "Continue",
-                                    "imgSrc": "Img4",
-                                    "title": "Name4",
-                                    "choices": []
+                                    "message": "\"I'm sorry...\"",
+                                    "imgSrc": "Img3",
+                                    "title": "Name3",
+                                    "choices": [
+                                        {
+                                            "text": "Continue",
+                                            "result": ""
+                                        }
+                                    ]
                                 }
                             }
                         ]
@@ -4089,12 +4074,17 @@
                         "title": "Name4",
                         "choices": [
                             {
-                                "text": "Name3__Img3__\"I'm sorry...\"",
+                                "text": "Continue",
                                 "result": {
-                                    "message": "Continue",
-                                    "imgSrc": "Img4",
-                                    "title": "Name4",
-                                    "choices": []
+                                    "message": "\"I'm sorry...\"",
+                                    "imgSrc": "Img3",
+                                    "title": "Name3",
+                                    "choices": [
+                                        {
+                                            "text": "Continue",
+                                            "result": ""
+                                        }
+                                    ]
                                 }
                             }
                         ]
@@ -4167,7 +4157,7 @@
                                                 "choices": [
                                                     {
                                                         "text": "Continue",
-                                                        "result": "fcEnd2"
+                                                        "result": "fc5End0"
                                                     }
                                                 ]
                                             }
@@ -4184,13 +4174,29 @@
                                     "choices": [
                                         {
                                             "text": "Continue",
-                                            "result": "fcEnd3"
+                                            "result": "fc5End1"
                                         }
                                     ]
                                 }
                             }
                         ]
                     }
+                }
+            ]
+        }
+    },
+    {
+        "name": "fc6",
+        "title": "Name2",
+        "imgSrc": "Img2",
+        "prompt": {
+            "message": "\"Wha.... What happened?\"",
+            "imgSrc": "Img2",
+            "title": "Name2",
+            "choices": [
+                {
+                    "text": "Continue",
+                    "result": ""
                 }
             ]
         }

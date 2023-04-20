@@ -160,7 +160,7 @@ Name2__Img2__24n0
 		Continue																																		
 Name2__Img2__24n1																																				
 	"Name4! Name4!"	"No... no no no no...."																																		
-		Continue																																		
+		Continue	24n1_0																																	
 Name3__Img3__3m0																																				
 	It's true....	Name2 why? Why would you dabble with the occult?	Have you always been evil?																																	
 		Fear																																		
@@ -271,9 +271,10 @@ Name4__Img4__fc4
 														Continue																						
 															Name3__Img3__"People like Name2 can do harm anywhere they are! We need to get rid of them ourselves"																					
 																*You can't*																				
-																	Name4_Img4_"I can't let you do this. I can't just let you kill them"	fcEnd0_1alt																		
+																	Name4__Img4__"I can't let you do this. I can't just let you kill them"																			
+																		Continue	fcEnd0_1alt																	
 																*I understand you're scared*																				
-																	Name4_Img4_"No one gave you the right. I understand you are scared."	"We can take him to the authorities. Give Name2 a trial."																		
+																	Name4__Img4__"No one gave you the right. I understand you are scared."	"We can take him to the authorities. Give Name2 a trial."																		
 																		Continue																		
 																			Name3__Img3__"You may be right, but I don't think we have enought time"	"I need to make sure everyone we love is safe"	"I need to do this"															
 																				*Don't!*																
@@ -282,26 +283,31 @@ Name4__Img4__fc4
 																				*Grab Knife from Name3*	fcEnd1_0															
 												*Fine... Let's do it*																								
 													Name4__Img4__"As long as I don't die, I'm in"																							
-								*Name2 is misguided*						Continue	fcEnd4																					
+														Continue	fcEnd2																					
+								*Name2 is misguided*																												
 									Name4__Img4__"Name2 is just misguided. They aren't trying to hurt anyone!"																											
 										Continue																										
 											Name3__Img3__"How do you know they aren't trying to hurt us?"																									
 												*I trust them*																								
 													Name4__Img4__"I trust them, we've known them our whole lives"																							
 														Continue																						
-															Name3__Img3__"Not good enough"	fcEnd0_alt																				
+															Name3__Img3__"Not good enough"																					
+																Continue	fcEnd0_alt																			
 												*They're trying to prevent the apocolypse*																								
 													Name4__Img4__"Name2 had been keeping the apocolypse at bay"																							
 														Continue																						
-															Name3__Img3__"You think I'm that stupid?"	fcEnd0_alt																				
+															Name3__Img3__"You think I'm that stupid?"																					
+																Continue	fcEnd0_alt																			
 												*They're making pie*																								
 													Name4__Img4__"Name2 is just trying to perfect their mothers apple pie recipe"																							
 														Continue																						
-															Name3__Img3__"..... Seriously...."	fcEnd0_alt																				
+															Name3__Img3__"..... Seriously...."																					
+																Continue	fcEnd0_alt																			
 												*They aren't*																								
 													Name4__Img4__"They aren't doing anything actually. You're just confused."																							
 														Continue																						
-															Name3__Img3__"Don't insult me like that, I know what I saw."	fcEnd0_alt																				
+															Name3__Img3__"Don't insult me like that, I know what I saw."																					
+																Continue	fcEnd0_alt																			
 												*They are grieving*																								
 													Name4__Img4__"They miss their spouse. Name2 was trying to get her back"																							
 														Continue																						
@@ -347,7 +353,7 @@ Name4__Img4__fc4
 																									Name3__Img3__"You are just confused. That's ok"	"Just hand me the knife. Name2 won't hurt anyone."										
 																										Continue										
 																											Name3__Img3__*Weeps* "I.... I'm sorry..."									
-																												Continue fcEnd6								
+																												Continue	fcEnd6							
 																								*You didn't stop to think*												
 																									Name4__Img4__"You got scared and did what you thought you needed to."	"But if you had stopped and calmed down, you would have realised your mistake"										
 																										Continue										
@@ -366,7 +372,7 @@ Name4__Img4__fc4
 																													Name4__Img4__"Name3, I don't think you are evil, just like I don't think Name2 is evil."	"Both of you were misguided."	"Name2 missed their spouse, and tried to get them back."	"You got scared at something you didn't understand, and wanted to care for the people you love"	"Neither of you are evil. You haven't done anything yet"	"Well you punched them out... but excluding that... You haven't done anything."	"It's ok, let's figure this all out together"	"Just give me the knife. It'll be ok"
 																														Continue						
 																															Name3__Img3__*Weeps* "I.... I'm sorry..."					
-																																Continue fcEnd6				
+																																Continue	fcEnd6			
 																*The Altar is new*																				
 																	Name4__Img4__"The altar you're talking about is new"	"Jenn died a year ago, but I could still see sawdust and construction materials around their place"																		
 																		Continue																		
@@ -384,7 +390,7 @@ Name4__Img4__fc4
 																									Name3__Img3__"You are just confused. That's ok"	"Just hand me the knife. Name2 won't hurt anyone."										
 																										Continue										
 																											Name3__Img3__*Weeps* "I.... I'm sorry..."									
-																												Continue fcEnd6								
+																												Continue	fcEnd6							
 																								*You didn't stop to think*												
 																									Name4__Img4__"You got scared and did what you thought you needed to."	"But if you had stopped and calmed down, you would have realised your mistake"										
 																										Continue										
@@ -398,23 +404,25 @@ Name4__Img4__fc4
 																													Name4__Img4__"I can't promise that. Name2 is free to do what they think is right"							
 																														Continue						
 																															Name3__Img3__"Then I have to as well"					
-																																Continue				
+																																Continue	fcEnd0_alt			
 																												*You're not evil*								
 																													Name4__Img4__"Name3, I don't think you are evil, just like I don't think Name2 is evil."	"Both of you were misguided."	"Name2 missed their spouse, and tried to get them back."	"You got scared at something you didn't understand, and wanted to care for the people you love"	"Neither of you are evil. You haven't done anything yet"	"Well you punched them out... but excluding that... You haven't done anything."	"It's ok, let's figure this all out together"	"Just give me the knife. It'll be ok"
 																														Continue						
 																															Name3__Img3__*Weeps* "I.... I'm sorry..."					
-																																Continue fcEnd6				
+																																Continue	fcEnd6			
 Name3__Img3__fcEnd0_0																																				
 	"Stay back Name4! I'm doing this to protect all of us!"	"Name2 is evil, they must be stopped!"																																		
 		Continue																																		
 Name4__Img4__fcEnd0_1																																				
 	"Holy Shit! What did you just do to Name2?!"	"I can't let you get away with this"																																		
-		Name3__Img3__"I'm sorry..."																																		
-			Continue																																	
+		Continue																																		
+			Name3__Img3__"I'm sorry..."																																	
+				Continue																																
 Name4__Img4__fcEnd0_1alt																																				
 	"No! You don't understand, this wasn't supposed to happen!"	"I can't let you get away with this"																																		
-		Name3__Img3__"I'm sorry..."																																		
-			Continue																																	
+		Continue																																		
+			Name3__Img3__"I'm sorry..."																																	
+				Continue																																
 Name2__Img2__fcEnd1_0																																				
 	"Huh... oh no"																																			
 		continue																																		
@@ -427,10 +435,13 @@ Name3__Img3__fc5
 			Name4__Img4__"I'm an accomplice, if I turn you in, you just turn me in."																																	
 				Continue																																
 					Name3__Img3__"I guess that makes sense. Let's just go home and pretend to be shocked tomorrow then"																															
-						Continue	fcEnd2																													
+						Continue	fc5End0																													
 		*Stab Name3*																																		
 			Name4__Img4__"You can't!"																																	
-				Continue	fcEnd3																															
+				Continue	fc5End1																															
+Name2__Img2__fc6																																				
+	"Wha.... What happened?"																																			
+		Continue																																		
 Time to Move On__PC_M__doneMM																																				
 	You've already talked to this character this morning. Find them later, or start the day over.																																			
 		Continue																																		

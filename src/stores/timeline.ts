@@ -60,6 +60,7 @@ export const useTimelineStore = defineStore('timelineStore', () => {
 		'23n2': false,
 		'24n0': false,
 		'24n1': false,
+		'fc0': false,
 	}
 
 	// Name0
@@ -75,6 +76,7 @@ export const useTimelineStore = defineStore('timelineStore', () => {
 
 	//Name2
 	const Name2_home = ref(true);
+	const Name2_sawDeath = ref(false);
 
 	// Name3
 	const Name3_follow = ref(false);
@@ -84,6 +86,11 @@ export const useTimelineStore = defineStore('timelineStore', () => {
 
 	// Cutscenes happened
 	const farmSceneOccurred = ref(false);
+
+	// Final Scene
+	const finalSceneControl = ref(false);
+	const endingChoice = ref(-1);
+	const PCKillsName3 = ref(false);
 
 	// prettier-ignore
 	return {
@@ -98,8 +105,12 @@ export const useTimelineStore = defineStore('timelineStore', () => {
 		Name1_angry,
 		Name1_GaveUp,
 		Name2_home,
+		Name2_sawDeath,
 		Name3_follow,
 		Name4_dead,
 		farmSceneOccurred,
+		finalSceneControl,
+		endingChoice,
+		PCKillsName3,
 	};
 });

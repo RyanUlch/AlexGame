@@ -104,13 +104,13 @@ export const useCutsceneStore = defineStore('cutscene', () => {
 		}
 	};
 	const turnSprite = async (sprite: CutsceneSprite, direction: number) => {
+		console.log('turing sprite');
 		const index = cutsceneSprites.value.findIndex((s) => s.id === sprite.id);
 		if (index === -1) throw Error('sprite is not in cutscene');
-		if (direction < 0 && direction > 3) {
+		if (direction < 0 || direction > 3) {
 			throw Error('can only turn in 4 directions...');
 		}
-		sprite.coords[0] = direction;
-		cutsceneSprites.value = [...cutsceneSprites.value];
+		cutsceneSprites.value[index].coords[0] = direction;
 	};
 	const playAudio = (audioName: string) => {
 		return new AudioPlayer(`src/assets/audio/${audioName}`).play();
@@ -436,6 +436,449 @@ export const MarketCutscene = () => {
 
 			// PC walks away while the camera fades.
 			await Promise.all([walkSprite(CharacterSprite, [16, 14], 300), camera.fade('out', 300)]);
+		},
+	);
+};
+
+export const BluffsCutscene = () => {
+	const pawnStore = usePawnStore();
+	const timelineStore = useTimelineStore();
+	const levelStore = useLevelStore();
+	const character = `PC_${pawnStore.characterId}`;
+	const smallWait = 300;
+	const longWait = 1000;
+	const endWait = 5000;
+
+	useCutsceneStore().runCutscene(
+		'Bluffs_Full',
+		async ({
+			camera,
+			wait,
+			addSprite,
+			removeSprite,
+			showImage,
+			walkSprite,
+			turnSprite,
+			playAudio,
+		}) => {
+			camera.move([22, 10], 0);
+			// FINAL CONFRONTATION Start
+			if (!timelineStore.Name2_home && timelineStore.Name3_follow) {
+				// Add PC and Name4 to scene
+				const CharacterSprite: CutsceneSprite = {
+					imgSrc: character,
+					coords: [3, 1],
+					position: [29, 11],
+				};
+				addSprite(CharacterSprite);
+				const CharacterGhostSprite: CutsceneSprite = {
+					imgSrc: pawnStore.characterId,
+					coords: [3, 1],
+					position: [31, 11],
+				};
+				addSprite(CharacterGhostSprite);
+				const Name3Sprite: CutsceneSprite = {
+					imgSrc: 'Name3',
+					coords: [3, 1],
+					position: [31, 14],
+				};
+				addSprite(Name3Sprite);
+
+				// Fade in
+				await camera.fade('in', longWait);
+				await wait(smallWait);
+
+				// PC attempts to walk to ledge, Name4 walks out and stops them
+				await walkSprite(CharacterSprite, [28, 11], smallWait);
+				await walkSprite(Name3Sprite, [30, 14], 100);
+				await runInteraction('noReturnDialogue', ['fc0']);
+
+				// PC turns around
+				await turnSprite(CharacterSprite, 0);
+				await wait(smallWait);
+
+				// Name3 comes into scene
+				const Name2Sprite: CutsceneSprite = {
+					imgSrc: 'Name2',
+					coords: [3, 1],
+					position: [31, 9],
+				};
+				addSprite(Name2Sprite);
+
+				// Setting Name2 passed out
+				const Name2PassedOutSprite: CutsceneSprite = {
+					imgSrc: 'Name2_Unconscious',
+					coords: [0, 0],
+					position: [30, 10],
+				};
+
+				// Name 2 turns in confusion, Name 3 goes up to Name3 and punched them
+				await walkSprite(Name2Sprite, [30, 9]);
+				await wait(smallWait);
+				await turnSprite(Name2Sprite, 2);
+				await wait(smallWait);
+				await turnSprite(Name2Sprite, 3);
+				await wait(smallWait);
+				await runInteraction('noReturnDialogue', ['fc1']);
+				await wait(smallWait);
+				await Promise.all([
+					turnSprite(Name2Sprite, 2),
+					turnSprite(Name3Sprite, 1),
+					walkSprite(Name3Sprite, [30, 11], smallWait),
+					walkSprite(Name2Sprite, [30, 10], smallWait),
+				]);
+				await runInteraction('noReturnDialogue', ['fc2']);
+				// Switch standing up Name2 for the unconscious Name2 with punch
+				setTimeout(() => {
+					removeSprite(Name2Sprite);
+					addSprite(Name2PassedOutSprite);
+				}, 100);
+
+				await Promise.all([
+					//playAudio('woodBreak.wav'),
+					showImage('punch.png', longWait, { fade: 'in-out', fadeDurationMs: 500 }),
+				]);
+				await wait(longWait);
+				await turnSprite(Name3Sprite, 3);
+				await walkSprite(CharacterSprite, [28, 11], smallWait);
+				await wait(longWait);
+				await runInteraction('returnDialogue', ['fc3']);
+				await wait(longWait);
+				// Player takes control. This is gonna be long!
+				if (timelineStore.finalSceneControl) {
+					await walkSprite(CharacterGhostSprite, [28, 11], 50);
+					await removeSprite(CharacterGhostSprite);
+					await wait(smallWait);
+					await runInteraction('returnDialogue', ['fc4']);
+					await wait(longWait);
+					console.log(timelineStore.endingChoice);
+					switch (timelineStore.endingChoice) {
+						case 6: {
+							await wait(smallWait);
+							const Name2Sprite: CutsceneSprite = {
+								imgSrc: 'Name2',
+								coords: [3, 1],
+								position: [30, 10],
+							};
+							await Promise.all([removeSprite(Name2PassedOutSprite), addSprite(Name2Sprite)]);
+							await runInteraction('noReturnDialogue', ['fc6']);
+							await wait(smallWait);
+							camera.fade('out', endWait);
+							break;
+						}
+						case 5: {
+							const Name2DeadSprite: CutsceneSprite = {
+								imgSrc: 'Name2_Dead',
+								coords: [0, 0],
+								position: [30, 10],
+							};
+							await turnSprite(Name3Sprite, 1);
+							await wait(smallWait);
+							setTimeout(() => {
+								removeSprite(Name2PassedOutSprite);
+								addSprite(Name2DeadSprite);
+							}, 100);
+
+							await Promise.all([
+								//playAudio('woodBreak.wav'),
+								showImage('knife.png', longWait, { fade: 'in-out', fadeDurationMs: 500 }),
+							]);
+							await wait(smallWait);
+							const Name3DeadSprite: CutsceneSprite = {
+								imgSrc: 'Name2_Dead',
+								coords: [0, 0],
+								position: [30, 11],
+							};
+							setTimeout(() => {
+								removeSprite(Name3Sprite);
+								addSprite(Name3DeadSprite);
+							}, 100);
+
+							await Promise.all([
+								//playAudio('woodBreak.wav'),
+								showImage('SelfKnife.png', longWait, { fade: 'in-out', fadeDurationMs: 500 }),
+							]);
+							camera.fade('out', endWait * 2);
+							break;
+						}
+						case 4: {
+							const Name3DeadSprite: CutsceneSprite = {
+								imgSrc: 'Name2_Dead',
+								coords: [0, 0],
+								position: [30, 11],
+							};
+							setTimeout(() => {
+								removeSprite(Name3Sprite);
+								addSprite(Name3DeadSprite);
+							}, 100);
+
+							await Promise.all([
+								//playAudio('woodBreak.wav'),
+								showImage('selfKnife.png', longWait, { fade: 'in-out', fadeDurationMs: 500 }),
+							]);
+
+							await wait(smallWait);
+							const Name2Sprite: CutsceneSprite = {
+								imgSrc: 'Name2',
+								coords: [3, 1],
+								position: [31, 14],
+							};
+							await Promise.all([removeSprite(Name2PassedOutSprite), addSprite(Name2Sprite)]);
+							await wait(smallWait);
+							camera.fade('out', endWait * 2);
+							break;
+						}
+						case 2: {
+							const Name2DeadSprite: CutsceneSprite = {
+								imgSrc: 'Name2_Dead',
+								coords: [0, 0],
+								position: [30, 10],
+							};
+							await turnSprite(Name3Sprite, 1);
+							await wait(smallWait);
+							setTimeout(() => {
+								removeSprite(Name2PassedOutSprite);
+								addSprite(Name2DeadSprite);
+							}, 100);
+
+							await Promise.all([
+								//playAudio('woodBreak.wav'),
+								showImage('knife.png', longWait, { fade: 'in-out', fadeDurationMs: 500 }),
+							]);
+							await wait(smallWait);
+							await walkSprite(CharacterSprite, [29, 11], smallWait);
+							await wait(smallWait);
+							await runInteraction('returnDialogue', ['fc5']);
+							await wait(smallWait);
+							if (timelineStore.PCKillsName3) {
+								const Name3DeadSprite: CutsceneSprite = {
+									imgSrc: 'Name3_Dead',
+									coords: [0, 0],
+									position: [30, 11],
+								};
+
+								setTimeout(() => {
+									removeSprite(Name3Sprite);
+									addSprite(Name3DeadSprite);
+								}, 100);
+
+								await Promise.all([
+									//playAudio('woodBreak.wav'),
+									showImage('knife.png', longWait, { fade: 'in-out', fadeDurationMs: 500 }),
+								]);
+								camera.fade('out', endWait);
+								break;
+							} else {
+								camera.fade('out', endWait * 2);
+								break;
+							}
+						}
+						case 1: {
+							await Promise.all([
+								//playAudio('woodBreak.wav'),
+								showImage('fight.png', longWait, { fade: 'in-out', fadeDurationMs: 500 }),
+							]);
+							await wait(smallWait);
+							await Promise.all([
+								//playAudio('woodBreak.wav'),
+								showImage('fight.png', longWait, { fade: 'in-out', fadeDurationMs: 500 }),
+							]);
+							await wait(smallWait);
+							const CharacterDeadSprite: CutsceneSprite = {
+								imgSrc: `PC_Dead_${pawnStore.characterId}`,
+								coords: [0, 0],
+								position: [29, 11],
+							};
+
+							setTimeout(() => {
+								removeSprite(CharacterSprite);
+								addSprite(CharacterDeadSprite);
+							}, 100);
+							await Promise.all([
+								//playAudio('woodBreak.wav'),
+								showImage('knife.png', longWait, { fade: 'in-out', fadeDurationMs: 500 }),
+							]);
+							await wait(smallWait);
+							const Name2Sprite: CutsceneSprite = {
+								imgSrc: 'Name2',
+								coords: [3, 1],
+								position: [31, 14],
+							};
+							await Promise.all([removeSprite(Name2PassedOutSprite), addSprite(Name2Sprite)]);
+							await turnSprite(Name2Sprite, 0);
+							await walkSprite(Name2Sprite, [31, 14]);
+							await removeSprite(Name2Sprite);
+
+							await turnSprite(Name3Sprite, 1);
+							await wait(smallWait);
+							await turnSprite(Name3Sprite, 2);
+							await wait(smallWait);
+							await turnSprite(Name3Sprite, 1);
+							await wait(smallWait);
+							await turnSprite(Name3Sprite, 2);
+							await wait(smallWait);
+							await turnSprite(Name3Sprite, 0);
+							await wait(smallWait);
+
+							const Name2SpriteBack: CutsceneSprite = {
+								imgSrc: 'Name2',
+								coords: [3, 1],
+								position: [31, 9],
+							};
+							const GuardSprite: CutsceneSprite = {
+								imgSrc: 'Name2',
+								coords: [3, 1],
+								position: [31, 9],
+							};
+							await addSprite(GuardSprite);
+							await walkSprite(GuardSprite, [30, 9], smallWait);
+							await addSprite(Name2SpriteBack);
+							await Promise.all([
+								walkSprite(GuardSprite, [28, 9], smallWait),
+								walkSprite(Name2SpriteBack, [29, 9], smallWait),
+							]);
+							await wait(smallWait);
+							camera.fade('out', endWait);
+							break;
+						}
+
+						case 0: {
+							const Name2DeadSprite: CutsceneSprite = {
+								imgSrc: 'Name2_Dead',
+								coords: [0, 0],
+								position: [30, 10],
+							};
+							const CharacterDeadSprite: CutsceneSprite = {
+								imgSrc: `PC_Dead_${pawnStore.characterId}`,
+								coords: [0, 0],
+								position: [29, 11],
+							};
+							await turnSprite(Name3Sprite, 1);
+							await runInteraction('noReturnDialogue', ['fcEnd0_0']);
+							// Switch unconscious Name2 for the dead Name2 with knife
+							await wait(500);
+							setTimeout(() => {
+								removeSprite(Name2PassedOutSprite);
+							}, 100);
+							addSprite(Name2DeadSprite);
+							await Promise.all([
+								//playAudio('woodBreak.wav'),
+								showImage('knife.png', longWait, { fade: 'in-out', fadeDurationMs: 500 }),
+							]);
+							await walkSprite(CharacterSprite, [29, 11], smallWait);
+							await turnSprite(Name3Sprite, 3);
+							await runInteraction('noReturnDialogue', ['fcEnd0_1alt']);
+							// Switch unconscious PC for the dead Name2 with knife
+							setTimeout(() => {
+								removeSprite(CharacterSprite);
+							}, 100);
+							addSprite(CharacterDeadSprite);
+							await Promise.all([
+								//playAudio('woodBreak.wav'),
+								showImage('knife.png', longWait, { fade: 'in-out', fadeDurationMs: 500 }),
+							]);
+							camera.fade('out', endWait);
+							break;
+						}
+					}
+				}
+				// Player chose not to take control.
+				else {
+					const Name2DeadSprite: CutsceneSprite = {
+						imgSrc: 'Name2_Dead',
+						coords: [0, 0],
+						position: [30, 10],
+					};
+					const CharacterDeadSprite: CutsceneSprite = {
+						imgSrc: `PC_Dead_${pawnStore.characterId}`,
+						coords: [0, 0],
+						position: [29, 11],
+					};
+					await turnSprite(Name3Sprite, 1);
+					await runInteraction('noReturnDialogue', ['fcEnd0_0']);
+					// Switch unconscious Name2 for the dead Name2 with knife
+					await wait(500);
+					setTimeout(() => {
+						removeSprite(Name2PassedOutSprite);
+					}, 100);
+					addSprite(Name2DeadSprite);
+					await Promise.all([
+						//playAudio('woodBreak.wav'),
+						showImage('knife.png', longWait, { fade: 'in-out', fadeDurationMs: 500 }),
+					]);
+					await walkSprite(CharacterSprite, [29, 11], smallWait);
+					await turnSprite(Name3Sprite, 3);
+					await runInteraction('noReturnDialogue', ['fcEnd0_1']);
+					// Switch unconscious PC for the dead Name2 with knife
+					setTimeout(() => {
+						removeSprite(CharacterSprite);
+					}, 100);
+					addSprite(CharacterDeadSprite);
+					await Promise.all([
+						//playAudio('woodBreak.wav'),
+						showImage('knife.png', longWait, { fade: 'in-out', fadeDurationMs: 500 }),
+					]);
+					await camera.fade('out', endWait);
+				}
+			}
+			// Name2 watches Name4 die
+			else if (!timelineStore.Name2_home && !timelineStore.Name3_follow) {
+				const CharacterSprite: CutsceneSprite = {
+					imgSrc: character,
+					coords: [3, 1],
+					position: [29, 11],
+				};
+				addSprite(CharacterSprite);
+				const Name2Sprite: CutsceneSprite = {
+					imgSrc: 'Name2',
+					coords: [3, 1],
+					position: [31, 9],
+				};
+				addSprite(Name2Sprite);
+				await camera.fade('in', smallWait);
+
+				await walkSprite(CharacterSprite, [27, 11], smallWait);
+				await walkSprite(Name2Sprite, [29, 9], smallWait);
+
+				setTimeout(() => {
+					removeSprite(CharacterSprite);
+					levelStore.cutsceneMatrix[26][11].layers[1].coord = [6, 5];
+					levelStore.levelMatrix[26][11].layers[1].coord = [6, 5];
+				}, 100);
+				await Promise.all([
+					//playAudio('woodBreak.wav'),
+					showImage('fenceBreak.png', longWait, { fade: 'in-out', fadeDurationMs: 500 }),
+				]);
+
+				await runInteraction('returnDialogue', ['24n1']);
+				await wait(smallWait);
+				turnSprite(Name2Sprite, 0);
+				await Promise.all([walkSprite(Name2Sprite, [31, 9], 100), camera.fade('out', smallWait)]);
+			}
+			// Name4 falls alone
+			else {
+				const CharacterSprite: CutsceneSprite = {
+					imgSrc: character,
+					coords: [3, 1],
+					position: [29, 11],
+				};
+				addSprite(CharacterSprite);
+				await camera.fade('in', smallWait);
+
+				await walkSprite(CharacterSprite, [27, 11], smallWait);
+
+				await wait(1000);
+				setTimeout(() => {
+					removeSprite(CharacterSprite);
+					levelStore.cutsceneMatrix[26][11].layers[1].coord = [6, 5];
+				}, 100);
+				await Promise.all([
+					//playAudio('woodBreak.wav'),
+					showImage('fenceBreak.png', longWait, { fade: 'in-out', fadeDurationMs: 500 }),
+				]);
+				timelineStore.Name4_dead = true;
+				await camera.fade('out', endWait);
+			}
 		},
 	);
 };
