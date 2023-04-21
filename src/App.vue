@@ -38,7 +38,7 @@
 	});
 	// levelStore.openLevel('Name4_House', false, [4, 7, 'w']); //, //[30, 9, 'n']);
 	onMounted(() => {
-		if (false) {
+		if (true) {
 			openingCutscene();
 		} else {
 			levelStore.openLevel('Name4_House', false, [4, 7, 'w']);
