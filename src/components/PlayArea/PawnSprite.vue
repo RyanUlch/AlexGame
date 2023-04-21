@@ -30,6 +30,7 @@
 
 	let isLeft = false;
 	if (props.isCharacter) {
+		console.log('hehe');
 		setInterval(() => {
 			if (animation.value === 16 && isLeft) {
 				animation.value = 0;

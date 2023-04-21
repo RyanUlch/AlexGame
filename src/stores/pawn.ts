@@ -2,7 +2,6 @@
 // Pinia/Vue type Imports:
 import { defineStore } from 'pinia';
 import { ref, reactive } from 'vue';
-import { useLogComposable } from '@/composables/logComposable';
 import { useLevelStore } from './level';
 import { runInteraction } from '../assets/interactions/interactions';
 
@@ -18,7 +17,6 @@ export type Sprite = {
 };
 
 export const usePawnStore = defineStore('pawnStore', () => {
-	const { addLogLine } = useLogComposable();
 	const levelStore = useLevelStore();
 	const scale = ref(2);
 	const gridCellSize = 16;

@@ -7946,7 +7946,15 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [
+                        {
+                            "src": "Rocky",
+                            "coord": [
+                                3,
+                                15
+                            ]
+                        }
+                    ]
                 },
                 {
                     "tileset": "Floors2",

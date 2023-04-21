@@ -955,7 +955,7 @@
                         5,
                         8
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
                     "layers": []
                 },

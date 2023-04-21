@@ -3,7 +3,10 @@
 
 <script setup lang="ts">
 	import { useLogComposable } from '../../composables/logComposable';
+	import { usePawnStore } from '@/stores/pawn';
 	const { logLines, readFromLine } = useLogComposable();
+
+	const screenHeight = usePawnStore().screenSize;
 </script>
 
 <template>
@@ -21,8 +24,10 @@
 
 <style scoped>
 	.outerContainer {
-		width: 300px;
+		width: calc(var(--menuSide) * 4);
 		background-color: black;
+		height: 89%;
+		max-height: 89%;
 		color: white;
 		overflow: hidden;
 		border-left: var(--borderSize) solid var(--borderColor);
@@ -31,8 +36,8 @@
 	.innerContainer {
 		display: flex;
 		flex-direction: column-reverse;
-		height: 506px;
-		/* height: 100%; */
+		height: 100%;
+		/* max-height: calc(v-bind(screenHeight) - var(--menuSide)); */
 		word-wrap: normal;
 		scrollbar-color: grey;
 		scrollbar-width: 12px;

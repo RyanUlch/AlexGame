@@ -17,7 +17,7 @@ const openBluffs_FullLevel = () => {
 			position: [27, 11],
 			coords: [3, 1],
 			interactionName: 'returnDialogue',
-			interactionArgs: ['3e0'],
+			interactionArgs: ['3e0', 'Name3'],
 		};
 		pawnStore.registerSprite(Name3);
 	} else if (timelineStore.currentTime === 3) {

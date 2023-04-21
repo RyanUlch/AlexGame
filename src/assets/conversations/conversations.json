@@ -2014,7 +2014,7 @@
                                                                     "text": "Continue",
                                                                     "result": {
                                                                         "message": "\"It would be just what you need. Make sure you go!\"",
-                                                                        "imgSrc": "Name3_Img3",
+                                                                        "imgSrc": "Img3",
                                                                         "title": "Name3",
                                                                         "choices": [
                                                                             {
@@ -2093,9 +2093,9 @@
                                                                                         {
                                                                                             "text": "Continue",
                                                                                             "result": {
-                                                                                                "message": "Img2_........",
-                                                                                                "imgSrc": "Name2",
-                                                                                                "title": "Name4",
+                                                                                                "message": "........",
+                                                                                                "imgSrc": "Img2",
+                                                                                                "title": "Name2",
                                                                                                 "choices": [
                                                                                                     {
                                                                                                         "text": "Continue...",
@@ -2394,10 +2394,10 @@
     {
         "name": "4m0",
         "title": "Name4",
-        "imgSrc": "Img4",
+        "imgSrc": "Img4_Sleep",
         "prompt": {
             "message": "*You are completely passed out right now*",
-            "imgSrc": "Img4",
+            "imgSrc": "Img4_Sleep",
             "title": "Name4",
             "choices": [
                 {
@@ -2436,17 +2436,17 @@
     {
         "name": "4e0",
         "title": "Name4",
-        "imgSrc": "Img4",
+        "imgSrc": "Img4_Sleep",
         "prompt": {
             "message": "*Snores*",
-            "imgSrc": "Img4",
+            "imgSrc": "Img4_Sleep",
             "title": "Name4",
             "choices": [
                 {
                     "text": "Continue...",
                     "result": {
                         "message": "*Really how could you sleep this much when you were alive?*",
-                        "imgSrc": "Img4",
+                        "imgSrc": "Img4_Sleep",
                         "title": "Name4",
                         "choices": [
                             {
@@ -4325,6 +4325,828 @@
                 {
                     "text": "Continue",
                     "result": ""
+                }
+            ]
+        }
+    },
+    {
+        "name": "intro",
+        "title": "???",
+        "imgSrc": "crystal",
+        "prompt": {
+            "message": "Hmm... this is strange.....",
+            "imgSrc": "crystal",
+            "title": "???",
+            "choices": [
+                {
+                    "text": "Continue...",
+                    "result": {
+                        "message": "You died, but it doesn't seem like the earthly world is done with you yet.",
+                        "imgSrc": "crystal",
+                        "title": "???",
+                        "choices": [
+                            {
+                                "text": "Continue...",
+                                "result": {
+                                    "message": "I wonder why?",
+                                    "imgSrc": "crystal",
+                                    "title": "???",
+                                    "choices": [
+                                        {
+                                            "text": "Keep it brief",
+                                            "result": {
+                                                "message": "Oh, a bit busy are you? Fine.",
+                                                "imgSrc": "crystal",
+                                                "title": "???",
+                                                "choices": [
+                                                    {
+                                                        "text": "Continue...",
+                                                        "result": {
+                                                            "message": "Go figure out how you died and prevent it if you can.",
+                                                            "imgSrc": "crystal",
+                                                            "title": "???",
+                                                            "choices": [
+                                                                {
+                                                                    "text": "Continue...",
+                                                                    "result": {
+                                                                        "message": "Good Luck.",
+                                                                        "imgSrc": "crystal",
+                                                                        "title": "???",
+                                                                        "choices": [
+                                                                            {
+                                                                                "text": "Continue",
+                                                                                "result": ""
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "text": "I don't know either...",
+                                            "result": {
+                                                "message": "I may be a demi-god, but I've never seen a case quite like this.",
+                                                "imgSrc": "crystal",
+                                                "title": "???",
+                                                "choices": [
+                                                    {
+                                                        "text": "Continue...",
+                                                        "result": {
+                                                            "message": "...",
+                                                            "imgSrc": "crystal",
+                                                            "title": "???",
+                                                            "choices": [
+                                                                {
+                                                                    "text": "Continue...",
+                                                                    "result": {
+                                                                        "message": "I am going to have to send you back, but I can't just put you back into your body.",
+                                                                        "imgSrc": "crystal",
+                                                                        "title": "???",
+                                                                        "choices": [
+                                                                            {
+                                                                                "text": "Continue...",
+                                                                                "result": {
+                                                                                    "message": "In order to re-inhabit your body, you will need to first prevent your initial death.",
+                                                                                    "imgSrc": "crystal",
+                                                                                    "title": "???",
+                                                                                    "choices": [
+                                                                                        {
+                                                                                            "text": "Continue...",
+                                                                                            "result": {
+                                                                                                "message": "That's not going to be easy. Despite your cultures myths about ghosts; spirits like you have very little ability to interact with the real world.",
+                                                                                                "imgSrc": "crystal",
+                                                                                                "title": "???",
+                                                                                                "choices": [
+                                                                                                    {
+                                                                                                        "text": "Continue...",
+                                                                                                        "result": {
+                                                                                                            "message": "The best arrow in your quiver is the ability to slightly influence others emotions, as well as hear what they are thinking in the moment.",
+                                                                                                            "imgSrc": "crystal",
+                                                                                                            "title": "???",
+                                                                                                            "choices": [
+                                                                                                                {
+                                                                                                                    "text": "Continue...",
+                                                                                                                    "result": {
+                                                                                                                        "message": "Another issue is that your corporeal memories don't transfer with you in spirit form, you'll have to piece it together yourself.",
+                                                                                                                        "imgSrc": "crystal",
+                                                                                                                        "title": "???",
+                                                                                                                        "choices": [
+                                                                                                                            {
+                                                                                                                                "text": "Continue...",
+                                                                                                                                "result": {
+                                                                                                                                    "message": "One more thing and this is important.",
+                                                                                                                                    "imgSrc": "crystal",
+                                                                                                                                    "title": "???",
+                                                                                                                                    "choices": [
+                                                                                                                                        {
+                                                                                                                                            "text": "Continue...",
+                                                                                                                                            "result": {
+                                                                                                                                                "message": "When you go back, you will be put in the world the morning the day you died.",
+                                                                                                                                                "imgSrc": "crystal",
+                                                                                                                                                "title": "???",
+                                                                                                                                                "choices": [
+                                                                                                                                                    {
+                                                                                                                                                        "text": "Continue...",
+                                                                                                                                                        "result": {
+                                                                                                                                                            "message": "If you reach the end of the day and didn't prevent your death, you will reset the day along with everything you've changed.",
+                                                                                                                                                            "imgSrc": "crystal",
+                                                                                                                                                            "title": "???",
+                                                                                                                                                            "choices": [
+                                                                                                                                                                {
+                                                                                                                                                                    "text": "Continue...",
+                                                                                                                                                                    "result": {
+                                                                                                                                                                        "message": "Feel free to experiment and make wrong choices if you'd like to see what happens.",
+                                                                                                                                                                        "imgSrc": "crystal",
+                                                                                                                                                                        "title": "???",
+                                                                                                                                                                        "choices": [
+                                                                                                                                                                            {
+                                                                                                                                                                                "text": "Continue...",
+                                                                                                                                                                                "result": {
+                                                                                                                                                                                    "message": "You can always reset to the beginning of the day again.",
+                                                                                                                                                                                    "imgSrc": "crystal",
+                                                                                                                                                                                    "title": "???",
+                                                                                                                                                                                    "choices": [
+                                                                                                                                                                                        {
+                                                                                                                                                                                            "text": "Continue...",
+                                                                                                                                                                                            "result": {
+                                                                                                                                                                                                "message": "Open the time menu anywhere to advance time.",
+                                                                                                                                                                                                "imgSrc": "crystal",
+                                                                                                                                                                                                "title": "???",
+                                                                                                                                                                                                "choices": [
+                                                                                                                                                                                                    {
+                                                                                                                                                                                                        "text": "Thank you, oh mighty one",
+                                                                                                                                                                                                        "result": {
+                                                                                                                                                                                                            "message": "Good Luck.",
+                                                                                                                                                                                                            "imgSrc": "crystal",
+                                                                                                                                                                                                            "title": "???",
+                                                                                                                                                                                                            "choices": [
+                                                                                                                                                                                                                {
+                                                                                                                                                                                                                    "text": "Continue",
+                                                                                                                                                                                                                    "result": ""
+                                                                                                                                                                                                                }
+                                                                                                                                                                                                            ]
+                                                                                                                                                                                                        }
+                                                                                                                                                                                                    },
+                                                                                                                                                                                                    {
+                                                                                                                                                                                                        "text": "This is really weird speech for a demi-god...",
+                                                                                                                                                                                                        "result": {
+                                                                                                                                                                                                            "message": "I mean, you need to learn how to play the game right? Figured clear speech was the best approach.",
+                                                                                                                                                                                                            "imgSrc": "crystal",
+                                                                                                                                                                                                            "title": "???",
+                                                                                                                                                                                                            "choices": [
+                                                                                                                                                                                                                {
+                                                                                                                                                                                                                    "text": "Ok, thank you for the information",
+                                                                                                                                                                                                                    "result": ""
+                                                                                                                                                                                                                },
+                                                                                                                                                                                                                {
+                                                                                                                                                                                                                    "text": "Game? I'm dead, I'm not playing chess.",
+                                                                                                                                                                                                                    "result": {
+                                                                                                                                                                                                                        "message": "Oh my.  My speech is not for you Name4.",
+                                                                                                                                                                                                                        "imgSrc": "crystal",
+                                                                                                                                                                                                                        "title": "???",
+                                                                                                                                                                                                                        "choices": [
+                                                                                                                                                                                                                            {
+                                                                                                                                                                                                                                "text": "Continue...",
+                                                                                                                                                                                                                                "result": {
+                                                                                                                                                                                                                                    "message": "Do not worry, you will be ok and figure this all out.",
+                                                                                                                                                                                                                                    "imgSrc": "crystal",
+                                                                                                                                                                                                                                    "title": "???",
+                                                                                                                                                                                                                                    "choices": [
+                                                                                                                                                                                                                                        {
+                                                                                                                                                                                                                                            "text": "Continue...",
+                                                                                                                                                                                                                                            "result": {
+                                                                                                                                                                                                                                                "message": "I believe in you!",
+                                                                                                                                                                                                                                                "imgSrc": "crystal",
+                                                                                                                                                                                                                                                "title": "???",
+                                                                                                                                                                                                                                                "choices": [
+                                                                                                                                                                                                                                                    {
+                                                                                                                                                                                                                                                        "text": "Continue",
+                                                                                                                                                                                                                                                        "result": ""
+                                                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                                                ]
+                                                                                                                                                                                                                                            }
+                                                                                                                                                                                                                                        }
+                                                                                                                                                                                                                                    ]
+                                                                                                                                                                                                                                }
+                                                                                                                                                                                                                            }
+                                                                                                                                                                                                                        ]
+                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                }
+                                                                                                                                                                                                            ]
+                                                                                                                                                                                                        }
+                                                                                                                                                                                                    }
+                                                                                                                                                                                                ]
+                                                                                                                                                                                            }
+                                                                                                                                                                                        }
+                                                                                                                                                                                    ]
+                                                                                                                                                                                }
+                                                                                                                                                                            }
+                                                                                                                                                                        ]
+                                                                                                                                                                    }
+                                                                                                                                                                }
+                                                                                                                                                            ]
+                                                                                                                                                        }
+                                                                                                                                                    }
+                                                                                                                                                ]
+                                                                                                                                            }
+                                                                                                                                        }
+                                                                                                                                    ]
+                                                                                                                                }
+                                                                                                                            }
+                                                                                                                        ]
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            ]
+                                                                                                        }
+                                                                                                    }
+                                                                                                ]
+                                                                                            }
+                                                                                        }
+                                                                                    ]
+                                                                                }
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "name": "fruit",
+        "title": "Fruit",
+        "imgSrc": "Img4",
+        "prompt": {
+            "message": "Fruit. Most likely from Name1's farm.",
+            "imgSrc": "Img4",
+            "title": "Fruit",
+            "choices": [
+                {
+                    "text": "Continue",
+                    "result": ""
+                }
+            ]
+        }
+    },
+    {
+        "name": "god",
+        "title": "Interesting Crystal",
+        "imgSrc": "Img4",
+        "prompt": {
+            "message": "I don't think this was here before I died.",
+            "imgSrc": "Img4",
+            "title": "Interesting Crystal",
+            "choices": [
+                {
+                    "text": "Continue...",
+                    "result": {
+                        "message": "I don't think it's doing anything right now.",
+                        "imgSrc": "Img4",
+                        "title": "Interesting Crystal",
+                        "choices": [
+                            {
+                                "text": "Continue...",
+                                "result": {
+                                    "message": "It is a good decor piece.",
+                                    "imgSrc": "Img4",
+                                    "title": "Interesting Crystal",
+                                    "choices": [
+                                        {
+                                            "text": "Continue",
+                                            "result": ""
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "name": "books4",
+        "title": "My Bookshelf",
+        "imgSrc": "Img4",
+        "prompt": {
+            "message": "Let's see here...",
+            "imgSrc": "Img4",
+            "title": "My Bookshelf",
+            "choices": [
+                {
+                    "text": "Continue...",
+                    "result": {
+                        "message": "\"How to have friends\"",
+                        "imgSrc": "Img4",
+                        "title": "My Bookshelf",
+                        "choices": [
+                            {
+                                "text": "Continue...",
+                                "result": {
+                                    "message": "\"Why does everyone hate me?\"",
+                                    "imgSrc": "Img4",
+                                    "title": "My Bookshelf",
+                                    "choices": [
+                                        {
+                                            "text": "Continue...",
+                                            "result": {
+                                                "message": "\"101 Even More Drinking Games\"",
+                                                "imgSrc": "Img4",
+                                                "title": "My Bookshelf",
+                                                "choices": [
+                                                    {
+                                                        "text": "Continue...",
+                                                        "result": {
+                                                            "message": "Hmm... Not great...",
+                                                            "imgSrc": "Img4",
+                                                            "title": "My Bookshelf",
+                                                            "choices": [
+                                                                {
+                                                                    "text": "Continue",
+                                                                    "result": ""
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "name": "dishes4",
+        "title": "Dishes",
+        "imgSrc": "PC_F",
+        "prompt": {
+            "message": "The sink is full of dishes.",
+            "imgSrc": "PC_F",
+            "title": "Dishes",
+            "choices": [
+                {
+                    "text": "Continue...",
+                    "result": {
+                        "message": "That's embarrasing",
+                        "imgSrc": "PC_F",
+                        "title": "Dishes",
+                        "choices": [
+                            {
+                                "text": "Continue",
+                                "result": ""
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "name": "drawer4",
+        "title": "Drawer",
+        "imgSrc": "PC_F",
+        "prompt": {
+            "message": "It appears to be a drawer just filled with take out menus and napkins.",
+            "imgSrc": "PC_F",
+            "title": "Drawer",
+            "choices": [
+                {
+                    "text": "Continue",
+                    "result": ""
+                }
+            ]
+        }
+    },
+    {
+        "name": "DeadFarm",
+        "title": "Small Farm",
+        "imgSrc": "PC_F",
+        "prompt": {
+            "message": "Wow, every crop is dead here.",
+            "imgSrc": "PC_F",
+            "title": "Small Farm",
+            "choices": [
+                {
+                    "text": "Continue...",
+                    "result": {
+                        "message": "They look very dry.",
+                        "imgSrc": "PC_F",
+                        "title": "Small Farm",
+                        "choices": [
+                            {
+                                "text": "Continue...",
+                                "result": {
+                                    "message": "I don't think these were taken care of for quite a while.",
+                                    "imgSrc": "PC_F",
+                                    "title": "Small Farm",
+                                    "choices": [
+                                        {
+                                            "text": "Continue",
+                                            "result": ""
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "name": "grave",
+        "title": "Grave",
+        "imgSrc": "PC_F",
+        "prompt": {
+            "message": "A grave of someone I might have known.",
+            "imgSrc": "PC_F",
+            "title": "Grave",
+            "choices": [
+                {
+                    "text": "Continue",
+                    "result": ""
+                }
+            ]
+        }
+    },
+    {
+        "name": "jennGrave",
+        "title": "Jenn's Grave",
+        "imgSrc": "PC_F",
+        "prompt": {
+            "message": "Jenn's Grave. Name2's spouse. Flowers appear fresh.",
+            "imgSrc": "PC_F",
+            "title": "Jenn's Grave",
+            "choices": [
+                {
+                    "text": "Continue",
+                    "result": ""
+                }
+            ]
+        }
+    },
+    {
+        "name": "books2",
+        "title": "Bookshelf",
+        "imgSrc": "PC_F",
+        "prompt": {
+            "message": "Let's see here...",
+            "imgSrc": "PC_F",
+            "title": "Bookshelf",
+            "choices": [
+                {
+                    "text": "Continue...",
+                    "result": {
+                        "message": "\"What to do after losing a loved one\"",
+                        "imgSrc": "PC_F",
+                        "title": "Bookshelf",
+                        "choices": [
+                            {
+                                "text": "Continue...",
+                                "result": {
+                                    "message": "\"Mystic Arts: Do they work?\"",
+                                    "imgSrc": "PC_F",
+                                    "title": "Bookshelf",
+                                    "choices": [
+                                        {
+                                            "text": "Continue...",
+                                            "result": {
+                                                "message": "\"Dealing with Depression: Vol. III\"",
+                                                "imgSrc": "PC_F",
+                                                "title": "Bookshelf",
+                                                "choices": [
+                                                    {
+                                                        "text": "Continue...",
+                                                        "result": {
+                                                            "message": "Name2 doesn't appear to be doing too well.",
+                                                            "imgSrc": "PC_F",
+                                                            "title": "Bookshelf",
+                                                            "choices": [
+                                                                {
+                                                                    "text": "Continue",
+                                                                    "result": ""
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "name": "pot2",
+        "title": "Pot",
+        "imgSrc": "PC_F",
+        "prompt": {
+            "message": "Hmm... It's filled with sawdust and other construction material scraps.",
+            "imgSrc": "PC_F",
+            "title": "Pot",
+            "choices": [
+                {
+                    "text": "Continue...",
+                    "result": {
+                        "message": "It looks like there was construction here recently.",
+                        "imgSrc": "PC_F",
+                        "title": "Pot",
+                        "choices": [
+                            {
+                                "text": "Continue",
+                                "result": ""
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "name": "shelf0",
+        "title": "Shelf",
+        "imgSrc": "PC_F",
+        "prompt": {
+            "message": "This shelf just has kitchenware on it.",
+            "imgSrc": "PC_F",
+            "title": "Shelf",
+            "choices": [
+                {
+                    "text": "Continue",
+                    "result": ""
+                }
+            ]
+        }
+    },
+    {
+        "name": "jars2",
+        "title": "Jars of Something",
+        "imgSrc": "PC_F",
+        "prompt": {
+            "message": "These jars are filled with... Something.",
+            "imgSrc": "PC_F",
+            "title": "Jars of Something",
+            "choices": [
+                {
+                    "text": "Continue...",
+                    "result": {
+                        "message": "I don't know what it is, but I have suspicion it has something to do with this altar.",
+                        "imgSrc": "PC_F",
+                        "title": "Jars of Something",
+                        "choices": [
+                            {
+                                "text": "Continue",
+                                "result": ""
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "name": "fire2",
+        "title": "A Fire Brazier",
+        "imgSrc": "PC_F",
+        "prompt": {
+            "message": "Huh, some braziers.",
+            "imgSrc": "PC_F",
+            "title": "A Fire Brazier",
+            "choices": [
+                {
+                    "text": "Continue...",
+                    "result": {
+                        "message": "I wonder if they are ever supposed to be lit.",
+                        "imgSrc": "PC_F",
+                        "title": "A Fire Brazier",
+                        "choices": [
+                            {
+                                "text": "Continue...",
+                                "result": {
+                                    "message": "Maybe if there was more time to deal with animating sprites.",
+                                    "imgSrc": "PC_F",
+                                    "title": "A Fire Brazier",
+                                    "choices": [
+                                        {
+                                            "text": "Continue...",
+                                            "result": {
+                                                "message": "That was a stragne thought...",
+                                                "imgSrc": "PC_F",
+                                                "title": "A Fire Brazier",
+                                                "choices": [
+                                                    {
+                                                        "text": "Continue",
+                                                        "result": ""
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "name": "statue",
+        "title": "Some Statue",
+        "imgSrc": "PC_F",
+        "prompt": {
+            "message": "I don't know what diety of this is supposed to be of, but it gives me the creeps.",
+            "imgSrc": "PC_F",
+            "title": "Some Statue",
+            "choices": [
+                {
+                    "text": "Continue",
+                    "result": ""
+                }
+            ]
+        }
+    },
+    {
+        "name": "knife",
+        "title": "Knife Block",
+        "imgSrc": "PC_F",
+        "prompt": {
+            "message": "There is knife missing out of Name3's knife block.",
+            "imgSrc": "PC_F",
+            "title": "Knife Block",
+            "choices": [
+                {
+                    "text": "Continue",
+                    "result": ""
+                }
+            ]
+        }
+    },
+    {
+        "name": "drawer3",
+        "title": "Drawer",
+        "imgSrc": "PC_F",
+        "prompt": {
+            "message": "The only thing in here is a book on the Occult.",
+            "imgSrc": "PC_F",
+            "title": "Drawer",
+            "choices": [
+                {
+                    "text": "Continue...",
+                    "result": {
+                        "message": "There appears to be copious notes.",
+                        "imgSrc": "PC_F",
+                        "title": "Drawer",
+                        "choices": [
+                            {
+                                "text": "Continue",
+                                "result": ""
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "name": "books1_0",
+        "title": "Bookshelf",
+        "imgSrc": "PC_F",
+        "prompt": {
+            "message": "Let's see here...",
+            "imgSrc": "PC_F",
+            "title": "Bookshelf",
+            "choices": [
+                {
+                    "text": "Continue...",
+                    "result": {
+                        "message": "\"Vegetables: How to get the Veggies, on to the Table\"",
+                        "imgSrc": "PC_F",
+                        "title": "Bookshelf",
+                        "choices": [
+                            {
+                                "text": "Continue...",
+                                "result": {
+                                    "message": "\"Worms: Farms Friend or Foe\"",
+                                    "imgSrc": "PC_F",
+                                    "title": "Bookshelf",
+                                    "choices": [
+                                        {
+                                            "text": "Continue...",
+                                            "result": {
+                                                "message": "\"Where the wild things grow\"",
+                                                "imgSrc": "PC_F",
+                                                "title": "Bookshelf",
+                                                "choices": [
+                                                    {
+                                                        "text": "Continue",
+                                                        "result": ""
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "name": "books1_1",
+        "title": "Bookshelf",
+        "imgSrc": "PC_F",
+        "prompt": {
+            "message": "Let's see here...",
+            "imgSrc": "PC_F",
+            "title": "Bookshelf",
+            "choices": [
+                {
+                    "text": "Continue...",
+                    "result": {
+                        "message": "\"Who is in your corner?: Asking for Help\"",
+                        "imgSrc": "PC_F",
+                        "title": "Bookshelf",
+                        "choices": [
+                            {
+                                "text": "Continue...",
+                                "result": {
+                                    "message": "\"Scarecrows: Not so Scary\"",
+                                    "imgSrc": "PC_F",
+                                    "title": "Bookshelf",
+                                    "choices": [
+                                        {
+                                            "text": "Continue...",
+                                            "result": {
+                                                "message": "\"The Root of Root Vegetables\"",
+                                                "imgSrc": "PC_F",
+                                                "title": "Bookshelf",
+                                                "choices": [
+                                                    {
+                                                        "text": "Continue",
+                                                        "result": ""
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "name": "dresser1",
+        "title": "Dresser",
+        "imgSrc": "PC_F",
+        "prompt": {
+            "message": "Regular dresser things.",
+            "imgSrc": "PC_F",
+            "title": "Dresser",
+            "choices": [
+                {
+                    "text": "Continue...",
+                    "result": {
+                        "message": "Name1 is fairly organized.",
+                        "imgSrc": "PC_F",
+                        "title": "Dresser",
+                        "choices": [
+                            {
+                                "text": "Continue",
+                                "result": ""
+                            }
+                        ]
+                    }
                 }
             ]
         }

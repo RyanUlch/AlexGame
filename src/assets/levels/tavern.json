@@ -360,7 +360,15 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [
+                        {
+                            "src": "Beach_Indoor",
+                            "coord": [
+                                4,
+                                13
+                            ]
+                        }
+                    ]
                 },
                 {
                     "tileset": "HouseWall5",
@@ -410,7 +418,15 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [
+                        {
+                            "src": "Beach_Indoor",
+                            "coord": [
+                                4,
+                                13
+                            ]
+                        }
+                    ]
                 },
                 {
                     "tileset": "HouseWall5",
@@ -1492,10 +1508,10 @@
                     "tileset": "Floors4",
                     "tileCoord": [
                         0,
-                        3
+                        2
                     ],
-                    "impassible": false,
-                    "isCharacter": true,
+                    "impassible": true,
+                    "isCharacter": false,
                     "layers": [
                         {
                             "src": "Beach_Indoor",

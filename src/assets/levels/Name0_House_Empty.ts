@@ -11,7 +11,7 @@ const openName0_House_EmptyLevel = () => {
 		position: [4, 6],
 		coords: [3, 1],
 		interactionName: 'returnDialogue',
-		interactionArgs: ['0n0'],
+		interactionArgs: ['0n0', 'Name0'],
 	};
 	pawnStore.registerSprite(Name0);
 

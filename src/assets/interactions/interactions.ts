@@ -13,13 +13,16 @@ export const runInteraction = async (interactionName: string, interactionArgs: a
 	const timelineStore = useTimelineStore();
 	const pawnStore = usePawnStore();
 	const { addLogLine } = useLogComposable();
+
 	switch (interactionName) {
 		case 'openLevel':
 			await levelStore.openLevelArea(interactionArgs[0], interactionArgs[1]);
 			break;
 		case 'noReturnDialogue':
-			addLogLine(`${timelineStore.conversationsActivated[interactionArgs[0]]}`);
-			if (timelineStore.conversationsActivated[interactionArgs[0]]) {
+			if (
+				timelineStore.conversationsActivated[interactionArgs[0]] &&
+				interactionArgs[1] !== 'environment'
+			) {
 				switch (timelineStore.currentTime) {
 					case 0:
 						await usePromptStore().doConversation(`doneM${pawnStore.characterId}`);
@@ -37,6 +40,9 @@ export const runInteraction = async (interactionName: string, interactionArgs: a
 			} else {
 				await usePromptStore().doConversation(interactionArgs[0]);
 				timelineStore.conversationsActivated[interactionArgs[0]] = true;
+				if (interactionArgs[1] !== 'environment') {
+					addLogLine(`Interacted with ${interactionArgs[1]} ${timelineStore.currentTimeString}`);
+				}
 			}
 			break;
 
@@ -58,7 +64,6 @@ export const runInteraction = async (interactionName: string, interactionArgs: a
 				}
 			} else {
 				const choice = await usePromptStore().doConversation(interactionArgs[0]);
-				addLogLine(choice);
 				if (choice) {
 					switch (choice) {
 						case '0a0_0':
@@ -72,6 +77,9 @@ export const runInteraction = async (interactionName: string, interactionArgs: a
 							break;
 						case '2a0_1':
 							timelineStore.Name2_home = false;
+							break;
+						case '2a0_1':
+							timelineStore.Name2_toBluffs = true;
 							break;
 						case '0e0_0':
 							timelineStore.Name0_hate = false;
@@ -88,7 +96,7 @@ export const runInteraction = async (interactionName: string, interactionArgs: a
 							timelineStore.Name3_follow = true;
 							break;
 						case '01e0_0':
-							timelineStore.Name3_follow = true;
+							timelineStore.Name0_atFarm = false;
 							break;
 						case '014e0_1':
 							timelineStore.Name1_angry = false;
@@ -128,6 +136,9 @@ export const runInteraction = async (interactionName: string, interactionArgs: a
 					}
 				}
 				timelineStore.conversationsActivated[interactionArgs[0]] = true;
+				if (typeof interactionArgs[1] === 'string') {
+					addLogLine(`Interacted with ${interactionArgs[1]} ${timelineStore.currentTimeString}`);
+				}
 			}
 			break;
 

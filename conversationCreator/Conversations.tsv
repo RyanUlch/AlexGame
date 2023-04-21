@@ -178,7 +178,7 @@ Name3__Img3__23a0
 						Continue																														
 							Name2__Img2__"Oh... Umm... Ok, thanks for the tip..."																													
 								Continue																												
-									Name3_Img3__"It would be just what you need. Make sure you go!"																											
+									Name3__Img3__"It would be just what you need. Make sure you go!"																											
 										Continue																										
 Name4__Img4__24a0																																				
 	"What was Name3 just over here about?"																																			
@@ -195,7 +195,7 @@ Name4__Img4__24a0
 												Continue																								
 													Name4__Img4__"I'm a little light on coin right now. You think you could let me have an apple or something?"																							
 														Continue																						
-															Name2__Img2_........	".... Fine, here you go, but can you make some room for paying cusomers?"																				
+															Name2__Img2__........	".... Fine, here you go, but can you make some room for paying cusomers?"																				
 																Continue																				
 																	Name4__Img4__"Thanks Name2, you're a good friend."																			
 																		Continue																		
@@ -218,13 +218,13 @@ Name3__Img3_Sleep__3n0
 		Regret																																		
 			I shouldn't have done that....	I could have told someone.	I could have been smarter about this....	...	What's done is done.	No going back I guess																												
 				Continue	3n0_1																															
-Name4__Img4__4m0																																				
+Name4__Img4_Sleep__4m0																																				
 	*You are completely passed out right now*																																			
 		Continue																																		
 Name4__Img4__4a0																																				
 	The bluffs sounds nice.	I'm tired.																																		
 		Continue																																		
-Name4__Img4__4e0																																				
+Name4__Img4_Sleep__4e0																																				
 	*Snores*	*Really how could you sleep this much when you were alive?*																																		
 		Continue																																		
 Name4__Img4__014e0																																				
@@ -466,3 +466,19 @@ Time to Move On__PC_F__doneEF
 Time to Move On__PC_F__doneNF																																				
 	You've already talked to this character tonight. Restart the day to reset dialogue choices.																																			
 		Continue																																		
+???__crystal__intro																																				
+	Hmm... this is strange.....	You died, but it doesn't seem like the earthly world is done with you yet.	I wonder why?																																	
+		Keep it brief																																		
+			Oh, a bit busy are you? Fine.	Go figure out how you died and prevent it if you can.	Good Luck.																															
+				Continue																																
+		I don't know either...																																		
+			I may be a demi-god, but I've never seen a case quite like this.	...	I am going to have to send you back, but I can't just put you back into your body.	In order to re-inhabit your body, you will need to first prevent your initial death.	That's not going to be easy. Despite your cultures myths about ghosts; spirits like you have very little ability to interact with the real world.	The best arrow in your quiver is the ability to slightly influence others emotions, as well as hear what they are thinking in the moment.	Another issue is that your corporeal memories don't transfer with you in spirit form, you'll have to piece it together yourself.	One more thing and this is important.	When you go back, you will be put in the world the morning the day you died.	If you reach the end of the day and didn't prevent your death, you will reset the day along with everything you've changed.	Feel free to experiment and make wrong choices if you'd like to see what happens.	You can always reset to the beginning of the day again.	Open the time menu anywhere to advance time.																					
+				Thank you, oh mighty one																																
+					Good Luck.																															
+						Continue																														
+				This is really weird speech for a demi-god...																																
+					I mean, you need to learn how to play the game right? Figured clear speech was the best approach.																															
+						Ok, thank you for the information																														
+						Game? I'm dead, I'm not playing chess.																														
+							Oh my.  My speech is not for you Name4.	Do not worry, you will be ok and figure this all out.	I believe in you!																											
+								Continue																												

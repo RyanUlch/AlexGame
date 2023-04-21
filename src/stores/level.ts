@@ -5,7 +5,7 @@ import { reactive, ref } from 'vue';
 import { usePawnStore } from './pawn';
 import { useTimelineStore } from './timeline';
 import { useLogComposable } from '@/composables/logComposable';
-
+import { useFilterStore } from './filters';
 import openName0_House_EmptyLevel from '../assets/levels/Name0_House_Empty';
 import openName0_House_FullLevel from '@/assets/levels/Name0_House_Full';
 import openName0_House_BedLevel from '@/assets/levels/Name0_House_Bed';
@@ -76,8 +76,9 @@ export const useLevelStore = defineStore('levelStore', () => {
 	// State:
 	const levelMatrix = reactive<Tile[][]>([]);
 	const cutsceneMatrix = reactive<Tile[][]>([]);
+	const filterStore = useFilterStore();
 	const pawnStore = usePawnStore();
-	const levelNameRef = ref('');
+	const levelNameRef = ref('Name4_House');
 	const timelineStore = useTimelineStore();
 	const { addLogLine } = useLogComposable();
 
@@ -86,8 +87,26 @@ export const useLevelStore = defineStore('levelStore', () => {
 		cutscene: boolean = false,
 		startingPos?: [number, number, string],
 	) => {
-		addLogLine(levelName);
+		addLogLine(`Entering: ${levelName}`);
 		pawnStore.cleanupSprites();
+		if (!levelName.includes('House') && !levelName.includes('Tavern')) {
+			switch (timelineStore.currentTime) {
+				case 0:
+					filterStore.enableFilter('morning');
+					break;
+				case 1:
+					filterStore.disableFilter();
+					break;
+				case 2:
+					filterStore.enableFilter('evening');
+					break;
+				case 3:
+					filterStore.enableFilter('night');
+					break;
+			}
+		} else {
+			filterStore.disableFilter();
+		}
 		const startingPosition = convertToMatrix(
 			await fetch(`src/assets/levels/${levelName}.json`)
 				.then((response: Response) => response.json())
@@ -108,7 +127,6 @@ export const useLevelStore = defineStore('levelStore', () => {
 	const openLevelArea = (levelName: string, startingPos?: [number, number, string]) => {
 		let destination: string;
 		levelNameRef.value = levelName;
-		console.log(levelName);
 		switch (levelName) {
 			case 'Market':
 				if (timelineStore.currentTime === 0 || timelineStore.currentTime === 1) {
@@ -192,6 +210,7 @@ export const useLevelStore = defineStore('levelStore', () => {
 				break;
 			case '2up':
 				destination = 'Name2_House_Upper';
+				break;
 			case '3':
 				destination = 'Name3_House';
 				break;

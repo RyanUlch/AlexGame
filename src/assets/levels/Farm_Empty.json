@@ -862,7 +862,7 @@
                         9.5,
                         0.5
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
                     "layers": [
                         {
@@ -880,7 +880,7 @@
                         9.5,
                         0.5
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
                     "layers": [
                         {
@@ -908,7 +908,7 @@
                         9.5,
                         0.5
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
                     "layers": [
                         {
@@ -926,7 +926,7 @@
                         9.5,
                         0.5
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
                     "layers": [
                         {
@@ -954,7 +954,7 @@
                         9.5,
                         0.5
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
                     "layers": [
                         {
@@ -972,7 +972,7 @@
                         9.5,
                         0.5
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
                     "layers": [
                         {
@@ -1000,7 +1000,7 @@
                         9.5,
                         0.5
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
                     "layers": [
                         {
@@ -1018,7 +1018,7 @@
                         9.5,
                         0.5
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
                     "layers": [
                         {
@@ -1254,7 +1254,7 @@
                         9.5,
                         0.5
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
                     "layers": [
                         {
@@ -1272,7 +1272,7 @@
                         9.5,
                         0.5
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
                     "layers": [
                         {
@@ -1300,7 +1300,7 @@
                         9.5,
                         0.5
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
                     "layers": [
                         {
@@ -1318,7 +1318,7 @@
                         9.5,
                         0.5
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
                     "layers": [
                         {
@@ -1346,7 +1346,7 @@
                         9.5,
                         0.5
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
                     "layers": [
                         {
@@ -1364,7 +1364,7 @@
                         9.5,
                         0.5
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
                     "layers": [
                         {
@@ -1392,7 +1392,7 @@
                         9.5,
                         0.5
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
                     "layers": [
                         {
@@ -1410,7 +1410,7 @@
                         9.5,
                         0.5
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
                     "layers": [
                         {
@@ -1630,7 +1630,7 @@
                         9.5,
                         0.5
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
                     "layers": [
                         {
@@ -1648,7 +1648,7 @@
                         9.5,
                         0.5
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
                     "layers": [
                         {
@@ -1676,7 +1676,7 @@
                         9.5,
                         0.5
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
                     "layers": [
                         {
@@ -1694,7 +1694,7 @@
                         9.5,
                         0.5
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
                     "layers": [
                         {
@@ -1722,7 +1722,7 @@
                         9.5,
                         0.5
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
                     "layers": [
                         {
@@ -1740,7 +1740,7 @@
                         9.5,
                         0.5
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
                     "layers": [
                         {
@@ -1768,7 +1768,7 @@
                         9.5,
                         0.5
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
                     "layers": [
                         {
@@ -1786,7 +1786,7 @@
                         9.5,
                         0.5
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
                     "layers": [
                         {
@@ -2056,7 +2056,7 @@
                         9.5,
                         0.5
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
                     "layers": [
                         {
@@ -2102,7 +2102,7 @@
                         9.5,
                         0.5
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
                     "layers": [
                         {
@@ -2148,7 +2148,7 @@
                         9.5,
                         0.5
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
                     "layers": [
                         {
@@ -2194,7 +2194,7 @@
                         9.5,
                         0.5
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
                     "layers": [
                         {
@@ -2356,7 +2356,7 @@
                         9.5,
                         0.5
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
                     "layers": [
                         {
@@ -2384,25 +2384,7 @@
                         9.5,
                         0.5
                     ],
-                    "impassible": true,
-                    "isCharacter": false,
-                    "layers": [
-                        {
-                            "src": "Farm",
-                            "coord": [
-                                11,
-                                5
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "tileset": "Farm",
-                    "tileCoord": [
-                        9.5,
-                        0.5
-                    ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
                     "layers": [
                         {
@@ -2422,6 +2404,24 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
+                    "layers": [
+                        {
+                            "src": "Farm",
+                            "coord": [
+                                11,
+                                5
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "tileset": "Farm",
+                    "tileCoord": [
+                        9.5,
+                        0.5
+                    ],
+                    "impassible": false,
+                    "isCharacter": false,
                     "layers": []
                 },
                 {
@@ -2430,7 +2430,7 @@
                         9.5,
                         0.5
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
                     "layers": [
                         {
@@ -2448,7 +2448,7 @@
                         9.5,
                         0.5
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
                     "layers": [
                         {
@@ -2476,7 +2476,7 @@
                         9.5,
                         0.5
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
                     "layers": [
                         {
@@ -2494,7 +2494,7 @@
                         9.5,
                         0.5
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
                     "layers": [
                         {
@@ -2522,7 +2522,7 @@
                         9.5,
                         0.5
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
                     "layers": [
                         {
@@ -2540,7 +2540,7 @@
                         9.5,
                         0.5
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
                     "layers": [
                         {
@@ -2568,7 +2568,7 @@
                         9.5,
                         0.5
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
                     "layers": [
                         {
@@ -2586,7 +2586,7 @@
                         9.5,
                         0.5
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
                     "layers": [
                         {
@@ -2724,7 +2724,7 @@
                         9.5,
                         0.5
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
                     "layers": [
                         {
@@ -2752,7 +2752,7 @@
                         9.5,
                         0.5
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
                     "layers": [
                         {
@@ -2770,7 +2770,7 @@
                         9.5,
                         0.5
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
                     "layers": [
                         {
@@ -2798,7 +2798,7 @@
                         9.5,
                         0.5
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
                     "layers": [
                         {
@@ -2816,7 +2816,7 @@
                         9.5,
                         0.5
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
                     "layers": [
                         {
@@ -2844,7 +2844,7 @@
                         9.5,
                         0.5
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
                     "layers": [
                         {
@@ -2852,13 +2852,6 @@
                             "coord": [
                                 11,
                                 6
-                            ]
-                        },
-                        {
-                            "src": "Farm0",
-                            "coord": [
-                                11,
-                                4
                             ]
                         }
                     ]
@@ -2869,7 +2862,7 @@
                         9.5,
                         0.5
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
                     "layers": [
                         {
@@ -2897,7 +2890,7 @@
                         9.5,
                         0.5
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
                     "layers": [
                         {
@@ -2915,7 +2908,7 @@
                         9.5,
                         0.5
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
                     "layers": [
                         {
@@ -2943,7 +2936,7 @@
                         9.5,
                         0.5
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
                     "layers": [
                         {
@@ -2961,7 +2954,7 @@
                         9.5,
                         0.5
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
                     "layers": [
                         {

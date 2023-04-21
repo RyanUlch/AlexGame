@@ -124,7 +124,7 @@
                             "src": "Floors2",
                             "coord": [
                                 6,
-                                6
+                                9
                             ]
                         }
                     ]
@@ -6105,7 +6105,7 @@
                         9,
                         3
                     ],
-                    "impassible": false,
+                    "impassible": true,
                     "isCharacter": false,
                     "layers": []
                 },
@@ -29809,7 +29809,7 @@
                             "src": "Floors2",
                             "coord": [
                                 6,
-                                6
+                                9
                             ]
                         }
                     ]

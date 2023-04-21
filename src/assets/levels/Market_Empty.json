@@ -2592,20 +2592,12 @@
                 {
                     "tileset": "Floors3",
                     "tileCoord": [
-                        1.5,
+                        1,
                         6.5
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": [
-                        {
-                            "src": "Farm",
-                            "coord": [
-                                8,
-                                4
-                            ]
-                        }
-                    ]
+                    "layers": []
                 },
                 {
                     "tileset": "Floors3",
@@ -3003,15 +2995,7 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": [
-                        {
-                            "src": "Beach_Indoor",
-                            "coord": [
-                                3,
-                                10
-                            ]
-                        }
-                    ]
+                    "layers": []
                 },
                 {
                     "tileset": "Floors3",
@@ -3157,15 +3141,7 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": [
-                        {
-                            "src": "Beach_Indoor",
-                            "coord": [
-                                3,
-                                13
-                            ]
-                        }
-                    ]
+                    "layers": []
                 },
                 {
                     "tileset": "Floors3",
@@ -3337,15 +3313,7 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": [
-                        {
-                            "src": "Beach_Indoor",
-                            "coord": [
-                                3.5,
-                                10
-                            ]
-                        }
-                    ]
+                    "layers": []
                 },
                 {
                     "tileset": "Floors3",
@@ -3491,15 +3459,7 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": [
-                        {
-                            "src": "Beach_Indoor",
-                            "coord": [
-                                3.5,
-                                13
-                            ]
-                        }
-                    ]
+                    "layers": []
                 },
                 {
                     "tileset": "Floors3",
@@ -3679,15 +3639,7 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": [
-                        {
-                            "src": "Beach_Indoor",
-                            "coord": [
-                                4,
-                                10
-                            ]
-                        }
-                    ]
+                    "layers": []
                 },
                 {
                     "tileset": "Floors3",
@@ -3833,15 +3785,7 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": [
-                        {
-                            "src": "Beach_Indoor",
-                            "coord": [
-                                4,
-                                13
-                            ]
-                        }
-                    ]
+                    "layers": []
                 },
                 {
                     "tileset": "Floors3",
@@ -4347,15 +4291,7 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": [
-                        {
-                            "src": "Beach_Indoor",
-                            "coord": [
-                                3,
-                                10
-                            ]
-                        }
-                    ]
+                    "layers": []
                 },
                 {
                     "tileset": "Floors3",
@@ -4363,17 +4299,9 @@
                         1.5,
                         6.5
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
-                    "layers": [
-                        {
-                            "src": "Beach_Indoor",
-                            "coord": [
-                                3,
-                                11
-                            ]
-                        }
-                    ]
+                    "layers": []
                 },
                 {
                     "tileset": "Floors3",
@@ -4497,17 +4425,9 @@
                         1.5,
                         6.5
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
-                    "layers": [
-                        {
-                            "src": "Beach_Indoor",
-                            "coord": [
-                                3,
-                                12
-                            ]
-                        }
-                    ]
+                    "layers": []
                 },
                 {
                     "tileset": "Floors3",
@@ -4517,15 +4437,7 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": [
-                        {
-                            "src": "Beach_Indoor",
-                            "coord": [
-                                3,
-                                13
-                            ]
-                        }
-                    ]
+                    "layers": []
                 },
                 {
                     "tileset": "Floors3",
@@ -4745,15 +4657,7 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": [
-                        {
-                            "src": "Beach_Indoor",
-                            "coord": [
-                                3.5,
-                                10
-                            ]
-                        }
-                    ]
+                    "layers": []
                 },
                 {
                     "tileset": "Floors3",
@@ -4761,17 +4665,9 @@
                         1.5,
                         6.5
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
-                    "layers": [
-                        {
-                            "src": "Beach_Indoor",
-                            "coord": [
-                                3.5,
-                                11
-                            ]
-                        }
-                    ]
+                    "layers": []
                 },
                 {
                     "tileset": "Floors3",
@@ -4895,17 +4791,9 @@
                         1.5,
                         6.5
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
-                    "layers": [
-                        {
-                            "src": "Beach_Indoor",
-                            "coord": [
-                                3.5,
-                                12
-                            ]
-                        }
-                    ]
+                    "layers": []
                 },
                 {
                     "tileset": "Floors3",
@@ -4915,15 +4803,7 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": [
-                        {
-                            "src": "Beach_Indoor",
-                            "coord": [
-                                3.5,
-                                13
-                            ]
-                        }
-                    ]
+                    "layers": []
                 },
                 {
                     "tileset": "Floors3",
@@ -5135,15 +5015,7 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": [
-                        {
-                            "src": "Beach_Indoor",
-                            "coord": [
-                                4,
-                                10
-                            ]
-                        }
-                    ]
+                    "layers": []
                 },
                 {
                     "tileset": "Floors3",
@@ -5151,17 +5023,9 @@
                         1.5,
                         6.5
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
-                    "layers": [
-                        {
-                            "src": "Beach_Indoor",
-                            "coord": [
-                                4,
-                                11
-                            ]
-                        }
-                    ]
+                    "layers": []
                 },
                 {
                     "tileset": "Floors3",
@@ -5285,17 +5149,9 @@
                         1.5,
                         6.5
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
-                    "layers": [
-                        {
-                            "src": "Beach_Indoor",
-                            "coord": [
-                                4,
-                                12
-                            ]
-                        }
-                    ]
+                    "layers": []
                 },
                 {
                     "tileset": "Floors3",
@@ -5305,15 +5161,7 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": [
-                        {
-                            "src": "Beach_Indoor",
-                            "coord": [
-                                4,
-                                13
-                            ]
-                        }
-                    ]
+                    "layers": []
                 },
                 {
                     "tileset": "Floors3",
@@ -5859,15 +5707,7 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": [
-                        {
-                            "src": "Beach_Indoor",
-                            "coord": [
-                                3,
-                                10
-                            ]
-                        }
-                    ]
+                    "layers": []
                 },
                 {
                     "tileset": "Floors3",
@@ -6013,15 +5853,7 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": [
-                        {
-                            "src": "Beach_Indoor",
-                            "coord": [
-                                3,
-                                13
-                            ]
-                        }
-                    ]
+                    "layers": []
                 },
                 {
                     "tileset": "Floors3",
@@ -6185,15 +6017,7 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": [
-                        {
-                            "src": "Beach_Indoor",
-                            "coord": [
-                                3.5,
-                                10
-                            ]
-                        }
-                    ]
+                    "layers": []
                 },
                 {
                     "tileset": "Floors3",
@@ -6339,15 +6163,7 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": [
-                        {
-                            "src": "Beach_Indoor",
-                            "coord": [
-                                3.5,
-                                13
-                            ]
-                        }
-                    ]
+                    "layers": []
                 },
                 {
                     "tileset": "Floors3",
@@ -6543,15 +6359,7 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": [
-                        {
-                            "src": "Beach_Indoor",
-                            "coord": [
-                                4,
-                                10
-                            ]
-                        }
-                    ]
+                    "layers": []
                 },
                 {
                     "tileset": "Floors3",
@@ -6697,15 +6505,7 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": [
-                        {
-                            "src": "Beach_Indoor",
-                            "coord": [
-                                4,
-                                13
-                            ]
-                        }
-                    ]
+                    "layers": []
                 },
                 {
                     "tileset": "Floors3",
@@ -7757,7 +7557,7 @@
                     "tileset": "Floors3",
                     "tileCoord": [
                         2,
-                        6
+                        6.5
                     ],
                     "impassible": false,
                     "isCharacter": false,

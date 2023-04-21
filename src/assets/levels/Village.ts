@@ -5,18 +5,93 @@ const openVillageLevel = () => {
 	const pawnStore = usePawnStore();
 	const timelineStore = useTimelineStore();
 
+	const grave_Sign: Sprite = {
+		spriteId: 'grave_Sign',
+		isCharacter: false,
+		isAutoInteract: false,
+		position: [8, 44],
+		interactionName: 'readout',
+		interactionArgs: ['To Cemetery'],
+	};
+	pawnStore.registerSprite(grave_Sign);
+
+	const grave0: Sprite = {
+		spriteId: 'grave0',
+		isCharacter: false,
+		isAutoInteract: false,
+		position: [4, 24],
+		interactionName: 'noReturnDialogue',
+		interactionArgs: ['grave', 'environment'],
+	};
+	pawnStore.registerSprite(grave0);
+	const grave1: Sprite = {
+		spriteId: 'grave1',
+		isCharacter: false,
+		isAutoInteract: false,
+		position: [4, 25],
+		interactionName: 'noReturnDialogue',
+		interactionArgs: ['grave', 'environment'],
+	};
+	pawnStore.registerSprite(grave1);
+	const grave2: Sprite = {
+		spriteId: 'grave2',
+		isCharacter: false,
+		isAutoInteract: false,
+		position: [3, 26],
+		interactionName: 'noReturnDialogue',
+		interactionArgs: ['grave', 'environment'],
+	};
+	pawnStore.registerSprite(grave2);
+	const grave3: Sprite = {
+		spriteId: 'grave3',
+		isCharacter: false,
+		isAutoInteract: false,
+		position: [3, 28],
+		interactionName: 'noReturnDialogue',
+		interactionArgs: ['jennGrave', 'environment'],
+	};
+	pawnStore.registerSprite(grave3);
+	const grave4: Sprite = {
+		spriteId: 'grave4',
+		isCharacter: false,
+		isAutoInteract: false,
+		position: [3, 30],
+		interactionName: 'noReturnDialogue',
+		interactionArgs: ['grave', 'environment'],
+	};
+	pawnStore.registerSprite(grave4);
+	const grave5: Sprite = {
+		spriteId: 'grave5',
+		isCharacter: false,
+		isAutoInteract: false,
+		position: [3, 32],
+		interactionName: 'noReturnDialogue',
+		interactionArgs: ['grave', 'environment'],
+	};
+	pawnStore.registerSprite(grave5);
+
+	const farm0: Sprite = {
+		spriteId: 'farm0',
+		isCharacter: false,
+		isAutoInteract: true,
+		position: [8, 11],
+		interactionName: 'noReturnDialogue',
+		interactionArgs: ['DeadFarm'],
+	};
+	pawnStore.registerSprite(farm0);
+
 	if (timelineStore.currentTime === 2 && timelineStore.Name2_home) {
-		const Name0: Sprite = {
-			spriteId: 'Name0',
-			spriteSrc: 'Name0',
+		const Name2: Sprite = {
+			spriteId: 'Name2',
+			spriteSrc: 'Name2',
 			isCharacter: true,
 			isAutoInteract: false,
-			position: [8, 21],
+			position: [3, 29],
 			coords: [1, 1],
 			interactionName: 'noReturnDialogue',
-			interactionArgs: ['2e0'],
+			interactionArgs: ['2e0', 'Name2'],
 		};
-		pawnStore.registerSprite(Name0);
+		pawnStore.registerSprite(Name2);
 	}
 
 	// Name0 House // Name0 House // Name0 House // Name0 House // Name0 House // Name0 House // Name0 House // Name0 House

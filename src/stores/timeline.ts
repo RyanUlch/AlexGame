@@ -1,22 +1,57 @@
 // Pinia/Vue type Imports:
 import { defineStore } from 'pinia';
-import { reactive, ref } from 'vue';
+import { ref, computed } from 'vue';
 import { useLevelStore } from './level';
 import { usePawnStore } from './pawn';
 
 export const useTimelineStore = defineStore('timelineStore', () => {
 	const currentTime = ref(0);
+	const currentTimeString = computed(() => {
+		switch (currentTime.value) {
+			case 0:
+				return 'in the Morning';
+			case 1:
+				return 'in the Afternoon';
+			case 2:
+				return 'in the evening';
+			case 3:
+				return 'at night';
+		}
+	});
 	const levelStore = useLevelStore();
 	const pawnStore = usePawnStore();
 
 	const advanceTime = () => {
 		if (currentTime.value === 3) {
 			currentTime.value = 0;
-			levelStore.openLevelArea(levelStore.levelNameRef, pawnStore.characterPosition);
+			resetConversations();
+			levelStore.openLevelArea('Name4_House', [4, 7, 'w']);
 		} else {
 			currentTime.value += 1;
 			levelStore.openLevelArea(levelStore.levelNameRef, pawnStore.characterPosition);
 		}
+	};
+
+	const resetConversations = () => {
+		for (const convo in conversationsActivated) {
+			conversationsActivated[convo] = false;
+		}
+		Name0_bitter.value = false;
+		Name0_hate.value = false;
+		Name0_understanding.value = false;
+		Name0_atFarm.value = false;
+		Name0_Moving.value = true;
+		Name1_angry.value = false;
+		Name1_GaveUp.value = true;
+		Name2_home.value = true;
+		Name2_toBluffs.value = false;
+		Name2_sawDeath.value = false;
+		Name3_follow.value = false;
+		Name4_dead.value = false;
+		farmSceneOccurred.value = false;
+		finalSceneControl.value = false;
+		endingChoice.value = -1;
+		PCKillsName3.value = false;
 	};
 
 	// prettier-ignore
@@ -76,6 +111,7 @@ export const useTimelineStore = defineStore('timelineStore', () => {
 
 	//Name2
 	const Name2_home = ref(true);
+	const Name2_toBluffs = ref(false);
 	const Name2_sawDeath = ref(false);
 
 	// Name3
@@ -96,6 +132,7 @@ export const useTimelineStore = defineStore('timelineStore', () => {
 	return {
 		currentTime, 			// Save
 		conversationsActivated, // Save
+		currentTimeString,
 		advanceTime,
 		Name0_bitter,
 		Name0_hate,
@@ -106,6 +143,7 @@ export const useTimelineStore = defineStore('timelineStore', () => {
 		Name1_GaveUp,
 		Name2_home,
 		Name2_sawDeath,
+		Name2_toBluffs,
 		Name3_follow,
 		Name4_dead,
 		farmSceneOccurred,

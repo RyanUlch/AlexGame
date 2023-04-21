@@ -14,7 +14,7 @@ const openFarm_FullLevel = () => {
 			position: [4, 19],
 			coords: [1, 1],
 			interactionName: 'noReturnDialogue',
-			interactionArgs: ['1m0'],
+			interactionArgs: ['1m0', 'Name1'],
 		};
 		pawnStore.registerSprite(Name1);
 	} else if (timelineStore.currentTime === 1) {
@@ -26,7 +26,7 @@ const openFarm_FullLevel = () => {
 			position: [6, 19],
 			coords: [1, 1],
 			interactionName: 'returnDialogue',
-			interactionArgs: ['1a0'],
+			interactionArgs: ['1a0', 'Name1'],
 		};
 		pawnStore.registerSprite(Name1);
 	}
