@@ -134,70 +134,70 @@ const openMarket_FullLevel = () => {
 	pawnStore.registerSprite(hospital);
 
 	if (timelineStore.currentTime === 0) {
-		const Name0: Sprite = {
-			spriteId: 'Name0',
-			spriteSrc: 'Name0',
+		const Sam: Sprite = {
+			spriteId: 'Sam',
+			spriteSrc: 'Sam',
 			isCharacter: true,
 			isAutoInteract: false,
 			position: [8, 21],
 			coords: [1, 1],
 			interactionName: 'noReturnDialogue',
-			interactionArgs: ['0m0', 'Name0'],
+			interactionArgs: ['0m0', 'Sam'],
 		};
-		pawnStore.registerSprite(Name0);
-		const Name0_Across: Sprite = {
-			spriteId: 'Name0_Across',
+		pawnStore.registerSprite(Sam);
+		const Sam_Across: Sprite = {
+			spriteId: 'Sam_Across',
 			isCharacter: false,
 			isAutoInteract: false,
 			position: [8, 20],
 			interactionName: 'noReturnDialogue',
-			interactionArgs: ['0m0', 'Name0'],
+			interactionArgs: ['0m0', 'Sam'],
 		};
-		pawnStore.registerSprite(Name0_Across);
+		pawnStore.registerSprite(Sam_Across);
 	} else if (timelineStore.currentTime === 1) {
 		if (!timelineStore.conversationsActivated['23a0']) {
 			MarketCutscene();
 		}
-		const Name0: Sprite = {
-			spriteId: 'Name0',
-			spriteSrc: 'Name0',
+		const Sam: Sprite = {
+			spriteId: 'Sam',
+			spriteSrc: 'Sam',
 			isCharacter: true,
 			isAutoInteract: false,
 			position: [8, 21],
 			coords: [1, 1],
 			interactionName: 'returnDialogue',
-			interactionArgs: ['0a0', 'Name0'],
+			interactionArgs: ['0a0', 'Sam'],
 		};
-		pawnStore.registerSprite(Name0);
-		const Name0_Across: Sprite = {
-			spriteId: 'Name0_Across',
+		pawnStore.registerSprite(Sam);
+		const Sam_Across: Sprite = {
+			spriteId: 'Sam_Across',
 			isCharacter: true,
 			isAutoInteract: false,
 			position: [8, 20],
 			interactionName: 'returnDialogue',
-			interactionArgs: ['0a0', 'Name0'],
+			interactionArgs: ['0a0', 'Sam'],
 		};
-		pawnStore.registerSprite(Name0_Across);
-		const Name2: Sprite = {
-			spriteId: 'Name2',
-			spriteSrc: 'Name2',
+		pawnStore.registerSprite(Sam_Across);
+		const Lavelle: Sprite = {
+			spriteId: 'Lavelle',
+			spriteSrc: 'Lavelle',
 			isCharacter: true,
 			isAutoInteract: false,
 			position: [16, 8],
 			coords: [2, 1],
 			interactionName: 'returnDialogue',
-			interactionArgs: ['2a0', 'Name2'],
+			interactionArgs: ['2a0', 'Lavelle'],
 		};
-		pawnStore.registerSprite(Name2);
-		const Name2_Across: Sprite = {
-			spriteId: 'Name2_Across',
+		pawnStore.registerSprite(Lavelle);
+		const Lavelle_Across: Sprite = {
+			spriteId: 'Lavelle_Across',
 			isCharacter: true,
 			isAutoInteract: false,
 			position: [16, 9],
 			interactionName: 'returnDialogue',
-			interactionArgs: ['2a0', 'Name2'],
+			interactionArgs: ['2a0', 'Lavelle'],
 		};
-		pawnStore.registerSprite(Name2_Across);
+		pawnStore.registerSprite(Lavelle_Across);
 		const Name3: Sprite = {
 			spriteId: 'Name3',
 			spriteSrc: 'Name3',
@@ -237,7 +237,7 @@ const openMarket_FullLevel = () => {
 		isAutoInteract: false,
 		position: [12, 25],
 		interactionName: 'readout',
-		interactionArgs: ["To Name1's Farm"],
+		interactionArgs: ["To Abigail's Farm"],
 	};
 	pawnStore.registerSprite(Farm);
 	pawnStore.registerSprite(Farm_Sign);

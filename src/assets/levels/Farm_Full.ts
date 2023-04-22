@@ -6,29 +6,29 @@ const openFarm_FullLevel = () => {
 	const timelineStore = useTimelineStore();
 
 	if (timelineStore.currentTime === 0) {
-		const Name1: Sprite = {
-			spriteId: 'Name1',
-			spriteSrc: 'Name1',
+		const Abigail: Sprite = {
+			spriteId: 'Abigail',
+			spriteSrc: 'Abigail',
 			isCharacter: true,
 			isAutoInteract: false,
 			position: [4, 19],
 			coords: [1, 1],
 			interactionName: 'noReturnDialogue',
-			interactionArgs: ['1m0', 'Name1'],
+			interactionArgs: ['1m0', 'Abigail'],
 		};
-		pawnStore.registerSprite(Name1);
+		pawnStore.registerSprite(Abigail);
 	} else if (timelineStore.currentTime === 1) {
-		const Name1: Sprite = {
-			spriteId: 'Name1',
-			spriteSrc: 'Name1',
+		const Abigail: Sprite = {
+			spriteId: 'Abigail',
+			spriteSrc: 'Abigail',
 			isCharacter: true,
 			isAutoInteract: false,
 			position: [6, 19],
 			coords: [1, 1],
 			interactionName: 'returnDialogue',
-			interactionArgs: ['1a0', 'Name1'],
+			interactionArgs: ['1a0', 'Abigail'],
 		};
-		pawnStore.registerSprite(Name1);
+		pawnStore.registerSprite(Abigail);
 	}
 
 	const House1: Sprite = {

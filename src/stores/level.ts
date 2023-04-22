@@ -6,16 +6,16 @@ import { usePawnStore } from './pawn';
 import { useTimelineStore } from './timeline';
 import { useLogComposable } from '@/composables/logComposable';
 import { useFilterStore } from './filters';
-import openName0_House_EmptyLevel from '../assets/levels/Name0_House_Empty';
-import openName0_House_FullLevel from '@/assets/levels/Name0_House_Full';
-import openName0_House_BedLevel from '@/assets/levels/Name0_House_Bed';
-import openName1_House_LowerLevel from '@/assets/levels/Name1_House_Lower';
-import openName1_House_UpperLevel from '@/assets/levels/Name1_House_Upper';
-import openName1_House_UpperBedLevel from '@/assets/levels/Name1_House_UpperBed';
-import openName1_House_UpperBedBothLevel from '@/assets/levels/Name1_House_UpperBedBoth';
-import openName2_House_LowerClosedLevel from '@/assets/levels/Name2_House_LowerClosed';
-import openName2_House_LowerOpenLevel from '@/assets/levels/Name2_House_LowerOpen';
-import openName2_House_UpperLevel from '@/assets/levels/Name2_House_Upper';
+import openSam_House_EmptyLevel from '../assets/levels/Sam_House_Empty';
+import openSam_House_FullLevel from '@/assets/levels/Sam_House_Full';
+import openSam_House_BedLevel from '@/assets/levels/Sam_House_Bed';
+import openAbigail_House_LowerLevel from '@/assets/levels/Abigail_House_Lower';
+import openAbigail_House_UpperLevel from '@/assets/levels/Abigail_House_Upper';
+import openAbigail_House_UpperBedLevel from '@/assets/levels/Abigail_House_UpperBed';
+import openAbigail_House_UpperBedBothLevel from '@/assets/levels/Abigail_House_UpperBedBoth';
+import openLavelle_House_LowerClosedLevel from '@/assets/levels/Lavelle_House_LowerClosed';
+import openLavelle_House_LowerOpenLevel from '@/assets/levels/Lavelle_House_LowerOpen';
+import openLavelle_House_UpperLevel from '@/assets/levels/Lavelle_House_Upper';
 import openName3_HouseLevel from '@/assets/levels/Name3_House';
 import openName4_HouseLevel from '@/assets/levels/Name4_House';
 import openBluffs_BrokenLevel from '@/assets/levels/Bluffs_Broken';
@@ -27,7 +27,7 @@ import openFarm_HalfLevel from '@/assets/levels/Farm_Half';
 import openMarket_BothGoneLevel from '@/assets/levels/Market_BothGone';
 import openMarket_EmptyLevel from '@/assets/levels/Market_Empty';
 import openMarket_FullLevel from '@/assets/levels/Market_Full';
-import openMarket_Name0GoneLevel from '@/assets/levels/Market_Name0Gone';
+import openMarket_SamGoneLevel from '@/assets/levels/Market_SamGone';
 import openTavernLevel from '@/assets/levels/Tavern';
 import openVillageLevel from '@/assets/levels/Village';
 
@@ -46,16 +46,16 @@ interface JSONTiles {
 // Register Levels Here:
 // prettier-ignore
 const levels: { [levelName: string]: () => void } = {
-	"Name0_House_Empty":		openName0_House_EmptyLevel,
- 	"Name0_House_Full":			openName0_House_FullLevel,
-	"Name0_House_Bed": 			openName0_House_BedLevel,
-	"Name1_House_Lower":		openName1_House_LowerLevel,
-	"Name1_House_Upper": 		openName1_House_UpperLevel,
-	"Name1_House_UpperBed": 	openName1_House_UpperBedLevel,
-	"Name1_House_UpperBedBoth": openName1_House_UpperBedBothLevel,
-	"Name2_House_LowerClosed":	openName2_House_LowerClosedLevel,
-	"Name2_House_LowerOpen":	openName2_House_LowerOpenLevel,
-	"Name2_House_Upper":		openName2_House_UpperLevel,
+	"Sam_House_Empty":		openSam_House_EmptyLevel,
+ 	"Sam_House_Full":			openSam_House_FullLevel,
+	"Sam_House_Bed": 			openSam_House_BedLevel,
+	"Abigail_House_Lower":		openAbigail_House_LowerLevel,
+	"Abigail_House_Upper": 		openAbigail_House_UpperLevel,
+	"Abigail_House_UpperBed": 	openAbigail_House_UpperBedLevel,
+	"Abigail_House_UpperBedBoth": openAbigail_House_UpperBedBothLevel,
+	"Lavelle_House_LowerClosed":	openLavelle_House_LowerClosedLevel,
+	"Lavelle_House_LowerOpen":	openLavelle_House_LowerOpenLevel,
+	"Lavelle_House_Upper":		openLavelle_House_UpperLevel,
 	"Name3_House":				openName3_HouseLevel,
 	"Name4_House":				openName4_HouseLevel,
 	"Bluffs_Broken": 			openBluffs_BrokenLevel,
@@ -67,7 +67,7 @@ const levels: { [levelName: string]: () => void } = {
 	"Market_BothGone":			openMarket_BothGoneLevel,
 	"Market_Empty":				openMarket_EmptyLevel,
 	"Market_Full":				openMarket_FullLevel,
-	"Market_Name0Gone":			openMarket_Name0GoneLevel,
+	"Market_SamGone":			openMarket_SamGoneLevel,
 	"Tavern":					openTavernLevel,
 	"Village":					openVillageLevel,
 };
@@ -131,10 +131,10 @@ export const useLevelStore = defineStore('levelStore', () => {
 			case 'Market':
 				if (timelineStore.currentTime === 0 || timelineStore.currentTime === 1) {
 					destination = 'Market_Full';
-				} else if (timelineStore.currentTime === 2 && timelineStore.Name2_home) {
+				} else if (timelineStore.currentTime === 2 && timelineStore.Lavelle_home) {
 					destination = 'Market_BothGone';
 				} else if (timelineStore.currentTime === 2) {
-					destination = 'Market_Name0Gone';
+					destination = 'Market_SamGone';
 				} else {
 					destination = 'Market_Empty';
 				}
@@ -144,7 +144,7 @@ export const useLevelStore = defineStore('levelStore', () => {
 					destination = 'Farm_Full';
 				} else if (timelineStore.currentTime === 2) {
 					destination = 'Farm_Half';
-				} else if (timelineStore.Name1_GaveUp) {
+				} else if (timelineStore.Abigail_GaveUp) {
 					destination = 'Farm_Dead';
 				} else {
 					destination = 'Farm_Empty';
@@ -164,52 +164,52 @@ export const useLevelStore = defineStore('levelStore', () => {
 				destination = 'Tavern';
 				break;
 			case '0':
-				if (timelineStore.Name0_Moving && timelineStore.currentTime === 3) {
-					destination = 'Name0_House_Empty';
+				if (timelineStore.Sam_Moving && timelineStore.currentTime === 3) {
+					destination = 'Sam_House_Empty';
 				} else if (
-					!timelineStore.Name0_Moving &&
-					!timelineStore.Name0_atFarm &&
+					!timelineStore.Sam_Moving &&
+					!timelineStore.Sam_atFarm &&
 					timelineStore.currentTime === 3
 				) {
-					destination = 'Name0_House_Bed';
+					destination = 'Sam_House_Bed';
 				} else {
-					destination = 'Name0_House_Full';
+					destination = 'Sam_House_Full';
 				}
 				break;
 			case '1':
-				destination = 'Name1_House_Lower';
+				destination = 'Abigail_House_Lower';
 				break;
 			case '1up':
 				if (timelineStore.currentTime === 3) {
-					if (!timelineStore.Name1_angry && timelineStore.Name0_atFarm) {
-						destination = 'Name1_House_UpperBedBoth';
+					if (!timelineStore.Abigail_angry && timelineStore.Sam_atFarm) {
+						destination = 'Abigail_House_UpperBedBoth';
 					} else {
-						destination = 'Name1_House_UpperBed';
+						destination = 'Abigail_House_UpperBed';
 					}
 				} else {
-					destination = 'Name1_House_Upper';
+					destination = 'Abigail_House_Upper';
 				}
 				if (
-					!timelineStore.Name1_angry &&
-					timelineStore.Name0_atFarm &&
+					!timelineStore.Abigail_angry &&
+					timelineStore.Sam_atFarm &&
 					timelineStore.currentTime === 3
 				) {
-					destination = 'Name1_House_UpperBedBoth';
-				} else if (timelineStore.Name1_GaveUp && timelineStore.currentTime === 3) {
-					destination = 'Name1_House_UpperBed';
+					destination = 'Abigail_House_UpperBedBoth';
+				} else if (timelineStore.Abigail_GaveUp && timelineStore.currentTime === 3) {
+					destination = 'Abigail_House_UpperBed';
 				} else {
 				}
 
 				break;
 			case '2':
 				if (timelineStore.currentTime === 0 || timelineStore.currentTime === 3) {
-					destination = 'Name2_House_LowerOpen';
+					destination = 'Lavelle_House_LowerOpen';
 				} else {
-					destination = 'Name2_House_LowerClosed';
+					destination = 'Lavelle_House_LowerClosed';
 				}
 				break;
 			case '2up':
-				destination = 'Name2_House_Upper';
+				destination = 'Lavelle_House_Upper';
 				break;
 			case '3':
 				destination = 'Name3_House';

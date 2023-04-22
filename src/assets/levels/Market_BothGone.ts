@@ -161,7 +161,7 @@ const openMarket_BothGoneLevel = () => {
 		isAutoInteract: false,
 		position: [12, 25],
 		interactionName: 'readout',
-		interactionArgs: ["To Name1's Farm"],
+		interactionArgs: ["To Abigail's Farm"],
 	};
 	pawnStore.registerSprite(Farm);
 	pawnStore.registerSprite(Farm_Sign);

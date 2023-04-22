@@ -2,7 +2,6 @@
 	import { useLevelStore } from './stores/level';
 	import PlayArea from './components/PlayArea/PlayArea.vue';
 	import MenuButton from './components/MenuButton/MenuButton.vue';
-	import StatsUi from './components/StatsUi/StatsUI.vue';
 	import EventLog from './components/EventLog/EventLog.vue';
 	import { usePawnStore } from './stores/pawn';
 	import AppPrompt from './components/Menus/AppPrompt.vue';
@@ -45,9 +44,12 @@
 		}
 	});
 
-	const seeTimeline = () => {
-		console.log(timelineStore);
-	};
+	// Sam = Sam
+	// Abigail = Abigail
+	// Lavelle = Lavelle
+	// Name3 =
+	// Name4 =
+	// Rebecca = Rebecca
 </script>
 <template>
 	<div class="gameArea">
@@ -78,7 +80,6 @@
 			<EventLog />
 		</div>
 	</div>
-	<button :onClick="seeTimeline">See Timeline</button>
 	<AppPrompt />
 	<AppTimelineMenu />
 	<AppSkillsMenu />

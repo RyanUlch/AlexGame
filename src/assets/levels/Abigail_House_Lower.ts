@@ -1,6 +1,6 @@
 import { usePawnStore } from '@/stores/pawn';
 import type { Sprite } from '@/stores/pawn';
-const openName1_House_LowerLevel = () => {
+const openAbigail_House_LowerLevel = () => {
 	const pawnStore = usePawnStore();
 
 	const UpStairs: Sprite = {
@@ -32,4 +32,4 @@ const openName1_House_LowerLevel = () => {
 	};
 	pawnStore.registerSprite(Farm);
 };
-export default openName1_House_LowerLevel;
+export default openAbigail_House_LowerLevel;

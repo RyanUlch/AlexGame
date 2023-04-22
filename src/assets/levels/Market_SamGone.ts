@@ -1,7 +1,7 @@
 import { usePawnStore } from '@/stores/pawn';
 import { useTimelineStore } from '@/stores/timeline';
 import type { Sprite } from '@/stores/pawn';
-const openMarket_Name0GoneLevel = () => {
+const openMarket_SamGoneLevel = () => {
 	const pawnStore = usePawnStore();
 	const timelineStore = useTimelineStore();
 
@@ -132,27 +132,27 @@ const openMarket_Name0GoneLevel = () => {
 	};
 	pawnStore.registerSprite(hospital);
 
-	if (timelineStore.currentTime === 2 && !timelineStore.Name2_home) {
-		const Name2: Sprite = {
-			spriteId: 'Name2',
-			spriteSrc: 'Name2',
+	if (timelineStore.currentTime === 2 && !timelineStore.Lavelle_home) {
+		const Lavelle: Sprite = {
+			spriteId: 'Lavelle',
+			spriteSrc: 'Lavelle',
 			isCharacter: true,
 			isAutoInteract: false,
 			position: [16, 8],
 			coords: [2, 1],
 			interactionName: 'returnDialogue',
-			interactionArgs: ['2e1', 'Name2'],
+			interactionArgs: ['2e1', 'Lavelle'],
 		};
-		pawnStore.registerSprite(Name2);
-		const Name2_Across: Sprite = {
-			spriteId: 'Name2_Across',
+		pawnStore.registerSprite(Lavelle);
+		const Lavelle_Across: Sprite = {
+			spriteId: 'Lavelle_Across',
 			isCharacter: false,
 			isAutoInteract: false,
 			position: [16, 9],
 			interactionName: 'returnDialogue',
-			interactionArgs: ['2e1', 'Name2'],
+			interactionArgs: ['2e1', 'Lavelle'],
 		};
-		pawnStore.registerSprite(Name2_Across);
+		pawnStore.registerSprite(Lavelle_Across);
 	}
 
 	// Farm // Farm // Farm // Farm // Farm // Farm // Farm // Farm // Farm // Farm // Farm // Farm // Farm // Farm // Farm
@@ -170,7 +170,7 @@ const openMarket_Name0GoneLevel = () => {
 		isAutoInteract: false,
 		position: [12, 25],
 		interactionName: 'readout',
-		interactionArgs: ["To Name1's Farm"],
+		interactionArgs: ["To Abigail's Farm"],
 	};
 	pawnStore.registerSprite(Farm);
 	pawnStore.registerSprite(Farm_Sign);
@@ -233,4 +233,4 @@ const openMarket_Name0GoneLevel = () => {
 	pawnStore.registerSprite(Bluffs2);
 	pawnStore.registerSprite(Bluffs_Sign);
 };
-export default openMarket_Name0GoneLevel;
+export default openMarket_SamGoneLevel;

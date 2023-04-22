@@ -1,6 +1,6 @@
 import { usePawnStore } from '@/stores/pawn';
 import type { Sprite } from '@/stores/pawn';
-const openName0_House_BedLevel = () => {
+const openSam_House_BedLevel = () => {
 	const pawnStore = usePawnStore();
 
 	const fruit: Sprite = {
@@ -31,14 +31,14 @@ const openName0_House_BedLevel = () => {
 		interactionArgs: ['shelf0', 'environment'],
 	};
 	pawnStore.registerSprite(shelf1);
-	const Name0: Sprite = {
-		spriteId: 'Name0',
+	const Sam: Sprite = {
+		spriteId: 'Sam',
 		isCharacter: false,
 		isAutoInteract: false,
 		position: [4, 2],
 		interactionName: 'returnDialogue',
-		interactionArgs: ['0n1', 'Name0'],
+		interactionArgs: ['0n1', 'Sam'],
 	};
-	pawnStore.registerSprite(Name0);
+	pawnStore.registerSprite(Sam);
 };
-export default openName0_House_BedLevel;
+export default openSam_House_BedLevel;

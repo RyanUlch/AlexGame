@@ -1,16 +1,8 @@
 import { usePawnStore } from '@/stores/pawn';
 import type { Sprite } from '@/stores/pawn';
-const openName1_House_UpperBedBothLevel = () => {
+const openAbigail_House_UpperLevel = () => {
 	const pawnStore = usePawnStore();
-	const Name1: Sprite = {
-		spriteId: 'Name1',
-		isCharacter: false,
-		isAutoInteract: false,
-		position: [5, 5],
-		interactionName: 'noReturnDialogue',
-		interactionArgs: ['1n1', 'Name1'],
-	};
-	pawnStore.registerSprite(Name1);
+
 	const books1: Sprite = {
 		spriteId: 'books1',
 		isCharacter: false,
@@ -68,4 +60,4 @@ const openName1_House_UpperBedBothLevel = () => {
 	};
 	pawnStore.registerSprite(Lower);
 };
-export default openName1_House_UpperBedBothLevel;
+export default openAbigail_House_UpperLevel;
