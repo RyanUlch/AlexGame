@@ -17,8 +17,9 @@
 	const volume = ref<number>(100);
 	const muted = ref<boolean>(false);
 	onUpdated(() => {
-		AudioPlayer.isMuted = muted.value;
-		AudioPlayer.volume = volume.value;
+		if (muted.value) AudioPlayer.mute();
+		else AudioPlayer.unmute();
+		AudioPlayer.setVolume(volume.value / 100);
 	});
 
 	const loadFromStorage = () => {
@@ -76,7 +77,7 @@
 							type="checkbox"
 							id="muted"
 							name="muted"
-							v-model.boolean="muted" />
+							v-model="muted" />
 					</td>
 					<td>Set Volume:</td>
 					<td>
