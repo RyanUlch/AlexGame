@@ -1,7 +1,9 @@
 import { usePawnStore } from '@/stores/pawn';
+import { useTimelineStore } from '@/stores/timeline';
 import type { Sprite } from '@/stores/pawn';
-const openName1_House_UpperLevel = () => {
+const openAbigail_House_UpperBedLevel = () => {
 	const pawnStore = usePawnStore();
+	const timelineStore = useTimelineStore();
 
 	const books1: Sprite = {
 		spriteId: 'books1',
@@ -49,6 +51,27 @@ const openName1_House_UpperLevel = () => {
 		interactionArgs: ['dresser1', 'environment'],
 	};
 	pawnStore.registerSprite(dresser);
+	if (timelineStore.Abigail_GaveUp) {
+		const Abigail: Sprite = {
+			spriteId: 'Abigail',
+			isCharacter: false,
+			isAutoInteract: false,
+			position: [5, 5],
+			interactionName: 'noReturnDialogue',
+			interactionArgs: ['1n0', 'Abigail'],
+		};
+		pawnStore.registerSprite(Abigail);
+	} else {
+		const Abigail: Sprite = {
+			spriteId: 'Abigail',
+			isCharacter: false,
+			isAutoInteract: false,
+			position: [5, 5],
+			interactionName: 'noReturnDialogue',
+			interactionArgs: ['1n2', 'Abigail'],
+		};
+		pawnStore.registerSprite(Abigail);
+	}
 
 	const Lower: Sprite = {
 		spriteId: 'Lower',
@@ -60,4 +83,4 @@ const openName1_House_UpperLevel = () => {
 	};
 	pawnStore.registerSprite(Lower);
 };
-export default openName1_House_UpperLevel;
+export default openAbigail_House_UpperBedLevel;

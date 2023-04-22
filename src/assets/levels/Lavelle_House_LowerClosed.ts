@@ -1,7 +1,7 @@
 import { usePawnStore } from '@/stores/pawn';
 import { useTimelineStore } from '@/stores/timeline';
 import type { Sprite } from '@/stores/pawn';
-const openName2_House_LowerClosedLevel = () => {
+const openLavelle_House_LowerClosedLevel = () => {
 	const pawnStore = usePawnStore();
 	const timelineStore = useTimelineStore();
 
@@ -34,18 +34,18 @@ const openName2_House_LowerClosedLevel = () => {
 	};
 	pawnStore.registerSprite(pot);
 
-	if (timelineStore.Name2_sawDeath) {
-		const Name2: Sprite = {
-			spriteId: 'Name2',
-			spriteSrc: 'Name2',
+	if (timelineStore.Lavelle_sawDeath) {
+		const Lavelle: Sprite = {
+			spriteId: 'Lavelle',
+			spriteSrc: 'Lavelle',
 			isCharacter: true,
 			isAutoInteract: false,
 			position: [4, 3],
 			coords: [1, 1],
 			interactionName: 'noReturnDialogue',
-			interactionArgs: ['2n2', 'Name2'],
+			interactionArgs: ['2n2', 'Lavelle'],
 		};
-		pawnStore.registerSprite(Name2);
+		pawnStore.registerSprite(Lavelle);
 	}
 
 	const Village: Sprite = {
@@ -58,4 +58,4 @@ const openName2_House_LowerClosedLevel = () => {
 	};
 	pawnStore.registerSprite(Village);
 };
-export default openName2_House_LowerClosedLevel;
+export default openLavelle_House_LowerClosedLevel;

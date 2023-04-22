@@ -48,7 +48,7 @@ const openVillageLevel = () => {
 		isAutoInteract: false,
 		position: [3, 28],
 		interactionName: 'noReturnDialogue',
-		interactionArgs: ['jennGrave', 'environment'],
+		interactionArgs: ['RebeccaGrave', 'environment'],
 	};
 	pawnStore.registerSprite(grave3);
 	const grave4: Sprite = {
@@ -80,60 +80,60 @@ const openVillageLevel = () => {
 	};
 	pawnStore.registerSprite(farm0);
 
-	if (timelineStore.currentTime === 2 && timelineStore.Name2_home) {
-		const Name2: Sprite = {
-			spriteId: 'Name2',
-			spriteSrc: 'Name2',
+	if (timelineStore.currentTime === 2 && timelineStore.Lavelle_home) {
+		const Lavelle: Sprite = {
+			spriteId: 'Lavelle',
+			spriteSrc: 'Lavelle',
 			isCharacter: true,
 			isAutoInteract: false,
 			position: [3, 29],
 			coords: [1, 1],
 			interactionName: 'noReturnDialogue',
-			interactionArgs: ['2e0', 'Name2'],
+			interactionArgs: ['2e0', 'Lavelle'],
 		};
-		pawnStore.registerSprite(Name2);
+		pawnStore.registerSprite(Lavelle);
 	}
 
-	// Name0 House // Name0 House // Name0 House // Name0 House // Name0 House // Name0 House // Name0 House // Name0 House
-	const Name0House: Sprite = {
-		spriteId: 'Name0House',
+	// Sam House // Sam House // Sam House // Sam House // Sam House // Sam House // Sam House // Sam House
+	const SamHouse: Sprite = {
+		spriteId: 'SamHouse',
 		isCharacter: false,
 		isAutoInteract: false,
 		position: [14, 41],
 		interactionName: 'openLevel',
 		interactionArgs: ['0', undefined, 'doorOpen'],
 	};
-	const Name0House_Sign: Sprite = {
-		spriteId: 'Name0House_Sign',
+	const SamHouse_Sign: Sprite = {
+		spriteId: 'SamHouse_Sign',
 		isCharacter: false,
 		isAutoInteract: false,
 		position: [15, 39],
 		interactionName: 'readout',
-		interactionArgs: ["Name0's House"],
+		interactionArgs: ["Sam's House"],
 	};
-	pawnStore.registerSprite(Name0House);
-	pawnStore.registerSprite(Name0House_Sign);
+	pawnStore.registerSprite(SamHouse);
+	pawnStore.registerSprite(SamHouse_Sign);
 
-	// Name2 House // Name2 House // Name2 House // Name2 House // Name2 House // Name2 House // Name2 House // Name2 House
+	// Lavelle House // Lavelle House // Lavelle House // Lavelle House // Lavelle House // Lavelle House // Lavelle House // Lavelle House
 
-	const Name2House: Sprite = {
-		spriteId: 'Name2House',
+	const LavelleHouse: Sprite = {
+		spriteId: 'LavelleHouse',
 		isCharacter: false,
 		isAutoInteract: false,
 		position: [16, 14],
 		interactionName: 'openLevel',
 		interactionArgs: ['2', undefined, 'doorOpen'],
 	};
-	const Name2House_Sign: Sprite = {
-		spriteId: 'Name2House_Sign',
+	const LavelleHouse_Sign: Sprite = {
+		spriteId: 'LavelleHouse_Sign',
 		isCharacter: false,
 		isAutoInteract: false,
 		position: [17, 16],
 		interactionName: 'readout',
-		interactionArgs: ["Name2 and Jenn's House"],
+		interactionArgs: ["Lavelle and Rebecca's House"],
 	};
-	pawnStore.registerSprite(Name2House);
-	pawnStore.registerSprite(Name2House_Sign);
+	pawnStore.registerSprite(LavelleHouse);
+	pawnStore.registerSprite(LavelleHouse_Sign);
 
 	// Name3 House // Name3 House // Name3 House // Name3 House // Name3 House // Name3 House // Name3 House // Name3 House
 	const Name3House: Sprite = {
@@ -222,7 +222,7 @@ const openVillageLevel = () => {
 		isAutoInteract: false,
 		position: [12, 48],
 		interactionName: 'readout',
-		interactionArgs: ["To Name1's Farm"],
+		interactionArgs: ["To Abigail's Farm"],
 	};
 	pawnStore.registerSprite(Farm);
 	pawnStore.registerSprite(Farm_Sign);

@@ -3,7 +3,7 @@ import { altarCutscene } from '@/stores/cutscene';
 import { useTimelineStore } from '@/stores/timeline';
 import type { Sprite } from '@/stores/pawn';
 
-const openName2_House_UpperLevel = () => {
+const openLavelle_House_UpperLevel = () => {
 	const pawnStore = usePawnStore();
 	const timelineStore = useTimelineStore();
 
@@ -77,44 +77,48 @@ const openName2_House_UpperLevel = () => {
 		pawnStore.registerSprite(Name3);
 	}
 	if (timelineStore.currentTime === 3) {
-		console.log(timelineStore.Name2_sawDeath, timelineStore.Name2_home, timelineStore.Name3_follow);
-		if (timelineStore.Name2_sawDeath) {
-			const Name2: Sprite = {
-				spriteId: 'Name2',
-				spriteSrc: 'Name2',
+		console.log(
+			timelineStore.Lavelle_sawDeath,
+			timelineStore.Lavelle_home,
+			timelineStore.Name3_follow,
+		);
+		if (timelineStore.Lavelle_sawDeath) {
+			const Lavelle: Sprite = {
+				spriteId: 'Lavelle',
+				spriteSrc: 'Lavelle',
 				isCharacter: true,
 				isAutoInteract: false,
 				position: [4, 3],
 				coords: [3, 1],
 				interactionName: 'noReturnDialogue',
-				interactionArgs: ['2n2', 'Name2'],
+				interactionArgs: ['2n2', 'Lavelle'],
 			};
-			pawnStore.registerSprite(Name2);
-		} else if (!timelineStore.Name2_toBluffs && !timelineStore.Name3_follow) {
-			const Name2: Sprite = {
-				spriteId: 'Name2',
-				spriteSrc: 'Name2',
+			pawnStore.registerSprite(Lavelle);
+		} else if (!timelineStore.Lavelle_toBluffs && !timelineStore.Name3_follow) {
+			const Lavelle: Sprite = {
+				spriteId: 'Lavelle',
+				spriteSrc: 'Lavelle',
 				isCharacter: true,
 				isAutoInteract: false,
 				position: [4, 3],
 				coords: [3, 1],
 				interactionName: 'noReturnDialogue',
-				interactionArgs: ['2n0', 'Name2'],
+				interactionArgs: ['2n0', 'Lavelle'],
 			};
-			pawnStore.registerSprite(Name2);
-		} else if (timelineStore.Name2_home && timelineStore.Name3_follow) {
+			pawnStore.registerSprite(Lavelle);
+		} else if (timelineStore.Lavelle_home && timelineStore.Name3_follow) {
 			altarCutscene();
-			const Name2_Dead: Sprite = {
-				spriteId: 'Name2_Dead',
-				spriteSrc: 'Name2_Dead',
+			const Lavelle_Dead: Sprite = {
+				spriteId: 'Lavelle_Dead',
+				spriteSrc: 'Lavelle_Dead',
 				isCharacter: false,
 				isAutoInteract: false,
 				position: [4, 3],
 				coords: [0, 1],
 				interactionName: 'noReturnDialogue',
-				interactionArgs: ['2n1', 'Name2'],
+				interactionArgs: ['2n1', 'Lavelle'],
 			};
-			pawnStore.registerSprite(Name2_Dead);
+			pawnStore.registerSprite(Lavelle_Dead);
 			const Name3: Sprite = {
 				spriteId: 'Name3',
 				spriteSrc: 'Name3',
@@ -129,14 +133,14 @@ const openName2_House_UpperLevel = () => {
 		}
 	}
 
-	const Name2House_Lower: Sprite = {
-		spriteId: 'Name2House',
+	const LavelleHouse_Lower: Sprite = {
+		spriteId: 'LavelleHouse',
 		isCharacter: false,
 		isAutoInteract: true,
 		position: [6, 5],
 		interactionName: 'openLevel',
 		interactionArgs: ['2', [3, 5, 's']],
 	};
-	pawnStore.registerSprite(Name2House_Lower);
+	pawnStore.registerSprite(LavelleHouse_Lower);
 };
-export default openName2_House_UpperLevel;
+export default openLavelle_House_UpperLevel;

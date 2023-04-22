@@ -3,18 +3,18 @@ import type { Sprite } from '@/stores/pawn';
 const openTavernLevel = () => {
 	const pawnStore = usePawnStore();
 
-	// Name2
-	const Name2Sprite: Sprite = {
-		spriteId: 'Name2',
-		spriteSrc: 'Name2',
+	// Lavelle
+	const LavelleSprite: Sprite = {
+		spriteId: 'Lavelle',
+		spriteSrc: 'Lavelle',
 		isCharacter: true,
 		isAutoInteract: false,
 		position: [6, 11],
 		coords: [2, 1],
 		interactionName: 'noReturnDialogue',
-		interactionArgs: ['2m0', 'Name2'],
+		interactionArgs: ['2m0', 'Lavelle'],
 	};
-	pawnStore.registerSprite(Name2Sprite);
+	pawnStore.registerSprite(LavelleSprite);
 
 	// Player Character
 	const PCSprite: Sprite = {

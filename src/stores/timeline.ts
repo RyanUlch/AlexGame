@@ -36,16 +36,16 @@ export const useTimelineStore = defineStore('timelineStore', () => {
 		for (const convo in conversationsActivated) {
 			conversationsActivated[convo] = false;
 		}
-		Name0_bitter.value = false;
-		Name0_hate.value = false;
-		Name0_understanding.value = false;
-		Name0_atFarm.value = false;
-		Name0_Moving.value = true;
-		Name1_angry.value = false;
-		Name1_GaveUp.value = true;
-		Name2_home.value = true;
-		Name2_toBluffs.value = false;
-		Name2_sawDeath.value = false;
+		Sam_bitter.value = false;
+		Sam_hate.value = false;
+		Sam_understanding.value = false;
+		Sam_atFarm.value = false;
+		Sam_Moving.value = true;
+		Abigail_angry.value = false;
+		Abigail_GaveUp.value = true;
+		Lavelle_home.value = true;
+		Lavelle_toBluffs.value = false;
+		Lavelle_sawDeath.value = false;
 		Name3_follow.value = false;
 		Name4_dead.value = false;
 		farmSceneOccurred.value = false;
@@ -98,21 +98,21 @@ export const useTimelineStore = defineStore('timelineStore', () => {
 		'fc0': false,
 	}
 
-	// Name0
-	const Name0_bitter = ref(false);
-	const Name0_hate = ref(false);
-	const Name0_understanding = ref(false);
-	const Name0_atFarm = ref(false);
-	const Name0_Moving = ref(true);
+	// Sam
+	const Sam_bitter = ref(false);
+	const Sam_hate = ref(false);
+	const Sam_understanding = ref(false);
+	const Sam_atFarm = ref(false);
+	const Sam_Moving = ref(true);
 
-	// Name1
-	const Name1_angry = ref(false);
-	const Name1_GaveUp = ref(true);
+	// Abigail
+	const Abigail_angry = ref(false);
+	const Abigail_GaveUp = ref(true);
 
-	//Name2
-	const Name2_home = ref(true);
-	const Name2_toBluffs = ref(false);
-	const Name2_sawDeath = ref(false);
+	//Lavelle
+	const Lavelle_home = ref(true);
+	const Lavelle_toBluffs = ref(false);
+	const Lavelle_sawDeath = ref(false);
 
 	// Name3
 	const Name3_follow = ref(false);
@@ -134,16 +134,16 @@ export const useTimelineStore = defineStore('timelineStore', () => {
 		conversationsActivated, // Save
 		currentTimeString,
 		advanceTime,
-		Name0_bitter,
-		Name0_hate,
-		Name0_understanding,
-		Name0_atFarm,
-		Name0_Moving,
-		Name1_angry,
-		Name1_GaveUp,
-		Name2_home,
-		Name2_sawDeath,
-		Name2_toBluffs,
+		Sam_bitter,
+		Sam_hate,
+		Sam_understanding,
+		Sam_atFarm,
+		Sam_Moving,
+		Abigail_angry,
+		Abigail_GaveUp,
+		Lavelle_home,
+		Lavelle_sawDeath,
+		Lavelle_toBluffs,
 		Name3_follow,
 		Name4_dead,
 		farmSceneOccurred,

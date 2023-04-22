@@ -69,41 +69,42 @@ export const runInteraction = async (interactionName: string, interactionArgs: a
 				if (choice) {
 					switch (choice) {
 						case '0a0_0':
-							timelineStore.Name0_bitter = true;
+							timelineStore.Sam_bitter = true;
 							break;
 						case '0a0_1':
-							timelineStore.Name0_atFarm = true;
+							timelineStore.Sam_atFarm = true;
 							break;
 						case '1a0_2':
-							timelineStore.Name1_angry = true;
+							timelineStore.Abigail_angry = true;
 							break;
-						case '2a0_1':
-							timelineStore.Name2_home = false;
+						case '2a0_0':
+							timelineStore.Lavelle_home = false;
 							break;
-						case '2a0_1':
-							timelineStore.Name2_toBluffs = true;
+						case '2e0_0':
+							timelineStore.Lavelle_toBluffs = true;
 							break;
 						case '0e0_0':
-							timelineStore.Name0_hate = false;
-							timelineStore.Name0_Moving = false;
+							timelineStore.Sam_hate = false;
+							timelineStore.Sam_Moving = false;
 							break;
 						case '0e0_1':
-							timelineStore.Name0_hate = true;
-							timelineStore.Name0_Moving = true;
+							timelineStore.Sam_hate = true;
+							timelineStore.Sam_Moving = true;
 							break;
 						case '1e1_1':
-							timelineStore.Name1_GaveUp = false;
+							timelineStore.Abigail_GaveUp = false;
 							break;
 						case '3e0_0':
 							timelineStore.Name3_follow = true;
 							break;
 						case '01e0_0':
-							timelineStore.Name0_atFarm = false;
+							timelineStore.Sam_atFarm = false;
 							break;
 						case '014e0_1':
-							timelineStore.Name1_angry = false;
+							timelineStore.Abigail_angry = false;
+							break;
 						case '24n1_0':
-							timelineStore.Name2_sawDeath = true;
+							timelineStore.Lavelle_sawDeath = true;
 							timelineStore.Name4_dead = true;
 							break;
 						case 'fc3_0':
@@ -133,6 +134,7 @@ export const runInteraction = async (interactionName: string, interactionArgs: a
 							break;
 						case 'fc5End1':
 							timelineStore.PCKillsName3 = true;
+							break;
 						default:
 							break;
 					}
@@ -150,13 +152,6 @@ export const runInteraction = async (interactionName: string, interactionArgs: a
 
 		case 'noEntry':
 			addLogLine('I have no need to go here right now.');
-			break;
-		// Test Interaction:
-		case 'testInteraction':
-			const testResult = await usePromptStore().doConversation('test');
-			if (testResult === 'test') {
-				addLogLine(`Test Passed`);
-			}
 			break;
 	}
 };

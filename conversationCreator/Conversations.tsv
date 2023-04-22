@@ -1,8 +1,8 @@
 Name0__Img0__0m0																																				
-	I wonder what Name1 is doing right now.	I miss them.	I'm very excited for our date today.	Why is no one coming to my stall?																																
+	I wonder what Abigail is doing right now.	I miss them.	I'm very excited for our date today.	Why is no one coming to my stall?																																
 		Continue			Continue																															
 Name0__Img0__0a0																																				
-	Where is Name1?	They should be here by now.	Wait a minute, I saw Name4 talking to Name2. Were they not coming from the farm? They were supposed to help Name1...	Name1 could have also come and talked to me. I'm not sure what to do.																																
+	Where is Abigail?	They should be here by now.	Wait a minute, I saw Name4 talking to Lavelle. Were they not coming from the farm? They were supposed to help Abigail...	Abigail could have also come and talked to me. I'm not sure what to do.																																
 		Bitter																																		
 			If they don't want to ask for my help, and just stands me up; then that's on them.	I'm going to go home, this is stupid																																
 				Continue	0a0_0																															
@@ -10,37 +10,37 @@ Name0__Img0__0a0
 			They do have their whole farm to harvest if Name4 isn't helping. I'll close this down and go see if I can help them.																																	
 				Continue	0a0_1																															
 Name0__Img0__0e0																																				
-	I still can't believe Name1 stood me up. 	I don't have any good friends in this town. I should just move away.																																		
+	I still can't believe Abigail stood me up. 	I don't have any good friends in this town. I should just move away.																																		
 		Hate																																		
 			Fuck all of them.	No one came to my stall.	I have no friends.	They don't care about me. I'm going to move!																														
 				Continue	0e0_0																															
 		Forgiveness																																		
-			Name1 did have a lot of work to do today. I still feel upset that they didn't come talk to me.	But I shouldn't make such a rash decision being this upset.	Still, screw Name4 if they didn't go and help them like they said they would.	I'll go talk to Name1 tomorrow about how I feel.																														
+			Abigail did have a lot of work to do today. I still feel upset that they didn't come talk to me.	But I shouldn't make such a rash decision being this upset.	Still, screw Name4 if they didn't go and help them like they said they would.	I'll go talk to Abigail tomorrow about how I feel.																														
 				Continue	0e0_1																															
 Name0__Img0__0e1																																				
-	I'm so glad I came to help Name1. Honestly this is kind of fun.	Still can't believe Name4 didn't come to help.																																		
+	I'm so glad I came to help Abigail. Honestly this is kind of fun.	Still can't believe Name4 didn't come to help.																																		
 		Continue																																		
 Name0__Img0__0e2																																				
 	I come here to help, and this is the thanks I get.	Fine, they can finish this field by themself!																																		
 		Continue																																		
 Name0__Img0__0n0																																				
-	This is good. Probably...	A new start, somewhere I can actually make friends.	Ugh. Name1 didn't come see me, Name 4 ignored me, Name2 was right across the way and didn't even say hi.																																	
+	This is good. Probably...	A new start, somewhere I can actually make friends.	Ugh. Abigail didn't come see me, Name 4 ignored me, Lavelle was right across the way and didn't even say hi.																																	
 		Anger																																		
 			They are all assholes. All of them.	You know what will be fun?	Tomorrow before I head out, I'll go around and tell them all to screw themselves!																															
 				Continue	0n0_0																															
 		Come to Terms																																		
-			I mean. They are all busy.	Well except Name4.	I did tell Name1 that I couldn't help because I was busy with my stall...	That no one came to...	*Sigh* I'll think about moving away. But maybe I should talk with Name1 about it tomorrow.																													
+			I mean. They are all busy.	Well except Name4.	I did tell Abigail that I couldn't help because I was busy with my stall...	That no one came to...	*Sigh* I'll think about moving away. But maybe I should talk with Abigail about it tomorrow.																													
 				Continue	0n0_1																															
 		Monophobia (Fear of being alone)																																		
-			I can't be alone... I can't start over.	What am I doing?!	I need to tell Name1 how I feel.	Tomorrow morning, I'm going to march over there and ask them to marry me!	A desperate plea for marriage because you don't want to be alone always goes over smoothly...																													
+			I can't be alone... I can't start over.	What am I doing?!	I need to tell Abigail how I feel.	Tomorrow morning, I'm going to march over there and ask them to marry me!	A desperate plea for marriage because you don't want to be alone always goes over smoothly...																													
 				*It doesn't* - Continue	0n0_2																															
 Name0__Img0_Sleep__0n1																																				
-	Name1, I love you.	I'm so sorry Name1 didn't come and help.	Whoa, you're riding a giant bird?! can I join?	EEEEEAAAAAGLE!																																
+	Abigail, I love you.	I'm so sorry Abigail didn't come and help.	Whoa, you're riding a giant bird?! can I join?	EEEEEAAAAAGLE!																																
 		Continue																																		
-Name1__Img1__1m0																																				
+Abigail__Img1__1m0																																				
 	Where is Name4!?	I'm not going to be able to get all this work done by myself	It's too bad Name0 is busy with their stall.	It would be nice to hang out with them.	Oh no! We were supposed to meet later! I got to hurry with this.																															
 		Continue																																		
-Name1__Img1__1a0																																				
+Abigail__Img1__1a0																																				
 	This is too much work. I won't be able to get it done.	I won't finish this in time.	Name4 is so inconsiderate.																																	
 		Resignation																																		
 			I shouldn't have trusted name4. I know they aren't reliable. But I did tell them how important this was.	Well, I'm not going to be able to finish this to go see Name0, I'm not even sure I'll be able to finish before the cold kills the whole field.																																
@@ -51,10 +51,10 @@ Name1__Img1__1a0
 		Hate																																		
 			Fuck Name4.	You know what, Name0 should also have been here if they cared about me.	I have to harvest this whole field by myself.	I'm so irate right now. I'm not usually get so upset.	Must just mean that I'm being treated so badly.																													
 				Continue	1a0_2																															
-Name1__Img1__1e0																																				
+Abigail__Img1__1e0																																				
 	This is great.	We are making really good time, and this is much more enjoyable with Name0.	I should ask them to stay over after we are done.																																	
 		Continue																																		
-Name1__Img1__1e1																																				
+Abigail__Img1__1e1																																				
 	I'm so tired.	I'm trying my best, but I'm just not getting it done.	Next season, I'm only planting half my field.																																	
 		Dispair																																		
 			This is over. I know when I'm beat.	I'm going to bed... I'm sorry grandma. I feel as though your faith in me handling the farm was misplaced.																																
@@ -62,107 +62,107 @@ Name1__Img1__1e1
 		Resolve																																		
 			No, after today I can sleep for a week. I just need to get this done!																																	
 				Continue	1e1_1																															
-Name1__Img1__1e2																																				
+Abigail__Img1__1e2																																				
 	Why did Name0 even come here.	Just leave me alone to get this done.																																		
 		Continue																																		
-Name1__Img1_Sleep__1n0																																				
+Abigail__Img1_Sleep__1n0																																				
 	Grandma... I'm sorry.	I tried my best.	You don't deserve a grandchild like me.																																	
 		Continue																																		
-Name1__Img1_Sleep__1n1																																				
+Abigail__Img1_Sleep__1n1																																				
 	We got it done.	We did it.	Name0 is the best.																																	
 		Continue																																		
-Name1__Img1_Sleep__1n2																																				
+Abigail__Img1_Sleep__1n2																																				
 	They don't have any thoughts right now.	They are completely wiped out.																																		
 		Continue																																		
-Name1__Img1__01e0																																				
+Abigail__Img1__01e0																																				
 	"Why are you upset with me? I told you I had this entire field to harvest."																																			
 		continue																																		
 			Name0__Img0__"You said you were going to meet me at the martket. I was just waiting there."	"You stood me up."																																
 				Continue																																
-					Name1__Img1__"I'm sorry, but look at this field I have so much more to go!"																															
+					Abigail__Img1__"I'm sorry, but look at this field I have so much more to go!"																															
 						Continue																														
 							Name0__Img0__"I... uhh"																													
 								Anger																												
 									"Fine, plow your field"																											
 										Continue																										
-											Name1__Img1__"Harvest."																									
+											Abigail__Img1__"Harvest."																									
 												Continue																								
 													Name0__Img0__"Whatever, I came here to try and be nice. I'm leaving."																							
 														Continue	01e0_0																					
 								Understanding																												
 									"I'm sorry. You're right, this is a lot. Did Name4 ever come to help you?"																											
 										Continue																										
-											Name1__Img1__"Nope, flaked on me like usual."																									
+											Abigail__Img1__"Nope, flaked on me like usual."																									
 												Continue																								
 													Name0__Img0__"That's rough... Would you like some help?"																							
 														Continue																						
-															Name1__Img1__"I would love that. Thanks Name0 for understanding."																					
+															Abigail__Img1__"I would love that. Thanks Name0 for understanding."																					
 																Continue	01e0_1																			
-Name1__Img1__01e1																																				
+Abigail__Img1__01e1																																				
 	"Thank you for coming by."	"That's so sweet."																																		
 		Continue																																		
 			Name0__Img0__"Aww thanks."	"If I'm being honest, I wasn't getting any customers at my stall anyway."																																
 				Continue																																
-					Name1__Img1__"Could it be that only 5 people live in town?"																															
+					Abigail__Img1__"Could it be that only 5 people live in town?"																															
 						Continue																														
 							Name0__Img0__"Wha...?"																													
 								Continue																												
-									Name1__Img1__"Nothing... It's just time constraints"	"Anyway, would you mind helping me with the field?"																										
+									Abigail__Img1__"Nothing... It's just time constraints"	"Anyway, would you mind helping me with the field?"																										
 										Continue																										
 											Name0__Img0__"Let's do it!																									
 												Continue																								
-Name2__Img2__2m0																																				
+Lavelle__Img2__2m0																																				
 	"Wake up!"	How much did they drink last night.	I'm pretty sure they were supposed to do something this morning.	Oh shoot, I'm supposed to be at the markets myself!	"Name4, I have to go. Wake up!"																															
 		Continue																																		
-Name2__Img2__2a0																																				
-	This was so much easier together.	They were really good at talking to customers, I just hauled the veggies from our house to here.	I miss you Jenn.	I... Just want you back.																																
+Lavelle__Img2__2a0																																				
+	This was so much easier together.	They were really good at talking to customers, I just hauled the veggies from our house to here.	I miss you Rebecca.	I... Just want you back.																																
 		Dispair																																		
 			I can't do this. Not without you. I need to get you back!	I'm just so lost. I'm closing up shop for today and going home.																																
 				Continue	2a0_0																															
 		Love																																		
-			Yes, I'm sad having lost you, but we had so many wonderful moments together.	Having our little farm and being independant was your dream.	I want to keep that alive... Even if our farm isn't doing so well...	Maybe I can ask Name1 for tips for next season.	I love you Jenn.																													
+			Yes, I'm sad having lost you, but we had so many wonderful moments together.	Having our little farm and being independant was your dream.	I want to keep that alive... Even if our farm isn't doing so well...	Maybe I can ask Abigail for tips for next season.	I love you Rebecca.																													
 				Continue	2a0_1																															
-Name2__Img2__2e0																																				
-	*Cries* Jenn... Why did you have to leave?	Could I have done something different?	I'm trying my best to bring you back. But it's not working.	Maybe it was all a waste of time...	I'll keep trying Jenn. I need you.																															
+Lavelle__Img2__2e0																																				
+	*Cries* Rebecca... Why did you have to leave?	Could I have done something different?	I'm trying my best to bring you back. But it's not working.	Maybe it was all a waste of time...	I'll keep trying Rebecca. I need you.																															
 		Continue																																		
-Name2__Img2__2e1																																				
+Lavelle__Img2__2e1																																				
 	We actually did pretty well today.	I hope wherever you are, you are proud of our work.	I still wish I could bring you back though.																																	
 		Contemplative																																		
-			I might be able to someday.	But I did a good job today. Didn't Name3 say something about how pretty the bluffs were going to be tonight?	Maybe I'll actually go. Try and enjoy the night.	For Jenn.																														
+			I might be able to someday.	But I did a good job today. Didn't Name3 say something about how pretty the bluffs were going to be tonight?	Maybe I'll actually go. Try and enjoy the night.	For Rebecca.																														
 				Continue	2e1_0																															
 		Desperate																																		
-			I can... I will...	It's only been a month or so, that's not enough time for me to give up on Jenn.																																
+			I can... I will...	It's only been a month or so, that's not enough time for me to give up on Rebecca.																																
 				Continue	2e1_1																															
-Name2__Img2__2n0																																				
+Lavelle__Img2__2n0																																				
 	"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."	"Sem fringilla ut morbi tincidunt augue interdum velit."	"Dui faucibus in ornare quam viverra orci sagittis."	"Vulputate ut pharetra sit amet."	"In hac habitasse platea dictumst."	...........	.... Nothing.... Again																													
 		Continue																																		
-Name2__Img2__23n0																																				
+Lavelle__Img2__23n0																																				
 	"In hac habitasse platea dictumst."	........	"Wait who's there?!"																																	
 		Continue																																		
-Name2__Img2__23n1																																				
+Lavelle__Img2__23n1																																				
 	"Name3? What are you doing here?!"																																			
 		Continue																																		
-			Name3__Img3__"I'm sorry Name2... I can't let you continue your dark magic!"																																	
+			Name3__Img3__"I'm sorry Lavelle... I can't let you continue your dark magic!"																																	
 				Continue																																
-					Name2__Img2__"No WAIT!.."																															
+					Lavelle__Img2__"No WAIT!.."																															
 						Continue																														
 Name3__Img3__23n2																																				
 	I... Wha... What have I done?	No they had to stop...	They would have killed everyone...	Right?	Oh god...																															
 		Continue																																		
-Name2__Img2_Unconscious__2n1																																				
+Lavelle__Img2_Unconscious__2n1																																				
 	... He's gone.																																			
 		Continue																																		
-Name2__Img2__2n2																																				
+Lavelle__Img2__2n2																																				
 	"Come on...."	"Dui faucibus in ornare quam viverra orci sagittis."	"Vulputate ut pharetra sit amet."	"In hac habitasse platea dictumst."	"... Please work, this time."	"They just fell in front of me.... Please work..."																														
 		Continue																																		
-Name2__Img2__24n0																																				
+Lavelle__Img2__24n0																																				
 	"Oh hey! Name4!"																																			
 		Continue																																		
-Name2__Img2__24n1																																				
+Lavelle__Img2__24n1																																				
 	"Name4! Name4!"	"No... no no no no...."																																		
 		Continue	24n1_0																																	
 Name3__Img3__3m0																																				
-	It's true....	Name2 why? Why would you dabble with the occult?	Have you always been evil?																																	
+	It's true....	Lavelle why? Why would you dabble with the occult?	Have you always been evil?																																	
 		Fear																																		
 			They... are capable of anything.... They could destroy the entire town.	Those plants outside.. They were all dead. That's what they are going to do to us...	Everyone I love.........	Just gone.....	...I need to protect them!																													
 				Continue																																
@@ -170,34 +170,34 @@ Name3__Img3__3m0
 			*Name3 is too worked up. You struggle to influence their emotions*	They... are capable of anything.... They could destroy the entire town.	Those plants outside.. They were all dead. That's what they are going to do to us...	Everyone I love.........	Just gone.....	...I need to protect them!																												
 				Continue																																
 Name3__Img3__23a0																																				
-	"Hey Name2. How are you doing?"																																			
+	"Hey Lavelle. How are you doing?"																																			
 		Continue																																		
-			Name2__Img2__"You know, just doing my best. Did you want to buy something?"																																	
+			Lavelle__Img2__"You know, just doing my best. Did you want to buy something?"																																	
 				Continue																																
 					Name3__Img3__"Oh, no thank you. I'm good... I just wanted to tell you that I heard that the bluffs are going to be beautiful tonight."	"You should go there after you are done at the market"																														
 						Continue																														
-							Name2__Img2__"Oh... Umm... Ok, thanks for the tip..."																													
+							Lavelle__Img2__"Oh... Umm... Ok, thanks for the tip..."																													
 								Continue																												
 									Name3__Img3__"It would be just what you need. Make sure you go!"																											
 										Continue																										
 Name4__Img4__24a0																																				
 	"What was Name3 just over here about?"																																			
 		Continue																																		
-			Name2__Img2__"Oh, just saying something about the bluffs being pretty tonight. It was a bit strange"																																	
+			Lavelle__Img2__"Oh, just saying something about the bluffs being pretty tonight. It was a bit strange"																																	
 				Continue																																
 					Name4__Img4__"Hmm, the bluffs huh? Could be relaxing..."																															
 						Continue																														
-							Name2__Img2__"You need more relaxation?"																													
+							Lavelle__Img2__"You need more relaxation?"																													
 								Continue																												
 									Name4__Img4__"What's that supposed to mean?"																											
 										Continue																										
-											Name2__Img2__"Oh nothing... Do you want to buy something?"																									
+											Lavelle__Img2__"Oh nothing... Do you want to buy something?"																									
 												Continue																								
 													Name4__Img4__"I'm a little light on coin right now. You think you could let me have an apple or something?"																							
 														Continue																						
-															Name2__Img2__........	".... Fine, here you go, but can you make some room for paying cusomers?"																				
+															Lavelle__Img2__........	".... Fine, here you go, but can you make some room for paying cusomers?"																				
 																Continue																				
-																	Name4__Img4__"Thanks Name2, you're a good friend."																			
+																	Name4__Img4__"Thanks Lavelle, you're a good friend."																			
 																		Continue																		
 Name3__Img3__3a0																																				
 	Ok that's taken care of.	Now I just need to set up the bluffs.	Yeah.. That should do it...	I really hope I'm doing the right thing here....																																
@@ -205,7 +205,7 @@ Name3__Img3__3a0
 Name3__Img3__3e0																																				
 	Just saw that a little bit.	Make the edge more slope-y	Sloped?	Ok. Good, that should give way easily...	I guess that's all... Right?																															
 		Cautious																																		
-			I should make sure Name2 goes to the bluffs like I told them to.																																	
+			I should make sure Lavelle goes to the bluffs like I told them to.																																	
 				Continue	3e0_0																															
 		Nervous																																		
 			I should get out of dodge. If I'm just hanging around, someone might get suspiscious. I'll go hide at home..																																	
@@ -213,7 +213,7 @@ Name3__Img3__3e0
 Name3__Img3_Sleep__3n0																																				
 	I can't sleep.	I'm so nervous.	I did save the town...I think...	Oh god....																																
 		Confident																																		
-			I did... I did the right thing. Name2 was trying to kill us all.... 																																	
+			I did... I did the right thing. Lavelle was trying to kill us all.... 																																	
 				Continue	3n0_0																															
 		Regret																																		
 			I shouldn't have done that....	I could have told someone.	I could have been smarter about this....	...	What's done is done.	No going back I guess																												
@@ -228,10 +228,10 @@ Name4__Img4_Sleep__4e0
 	*Snores*	*Really how could you sleep this much when you were alive?*																																		
 		Continue																																		
 Name4__Img4__014e0																																				
-	Oh, Name1 is already here. I guess they are helping.	I'll take that to mean that I am not needed here.																																		
+	Oh, Abigail is already here. I guess they are helping.	I'll take that to mean that I am not needed here.																																		
 		Continue																																		
 Name4__Img4__14e0																																				
-	Oh, Name1 is looking pretty upset right now...	Maybe I'll come back later...	Bring them some flowers or something so they forgive me.	...Tomorrow...																																
+	Oh, Abigail is looking pretty upset right now...	Maybe I'll come back later...	Bring them some flowers or something so they forgive me.	...Tomorrow...																																
 		Continue																																		
 fc																																				
 	Are you ready for the final confrontation? You can still reset time now if you need to.																																			
@@ -242,13 +242,13 @@ Name3__Img3__fc0
 		Continue																																		
 			Name4__Img4__"Huh?"																																	
 				Continue																																
-Name2__Img2__fc1																																				
+Lavelle__Img2__fc1																																				
 	"Name3? Name 4? What are you both doing here?"																																			
 		Continue																																		
 Name3__Img3__fc2																																				
-	"Name2, I can't let you continue your evil ways"																																			
+	"Lavelle, I can't let you continue your evil ways"																																			
 		Continue																																		
-			Name2__Img2__"What are you ta..."																																	
+			Lavelle__Img2__"What are you ta..."																																	
 				Continue																																
 Name4__Img4__fc3																																				
 	*It is now time. You must re-inhabit your body and end this!*																																			
@@ -261,20 +261,20 @@ Name4__Img4__fc4
 				Continue																																
 					Name4__Img4__"I used to, that's true. But I know more than you think. Just hear me out"																															
 						Continue																														
-							Name3__Img3__"I know what I'm supposed to do, but  I'll hear you out"	"Name2 is practicing dark magic, I've seen their altar. What's the explanation for that?"																												
-								*You are right, Name2 is wrong*																												
-									Name4__Img4__"Name2 was wrong to try and access dark magic."	"They are messing with dangerous forces"																										
+							Name3__Img3__"I know what I'm supposed to do, but  I'll hear you out"	"Lavelle is practicing dark magic, I've seen their altar. What's the explanation for that?"																												
+								*You are right, Lavelle is wrong*																												
+									Name4__Img4__"Lavelle was wrong to try and access dark magic."	"They are messing with dangerous forces"																										
 										Continue																										
 											Name3__Img3__"I'm so glad you agree, so will you help me?"																									
 												*Send him to Jail*																								
 													Name4__Img4__"No! He needs to go to jail!"	"Killing him just makes you a murderer"																						
 														Continue																						
-															Name3__Img3__"People like Name2 can do harm anywhere they are! We need to get rid of them ourselves"																					
+															Name3__Img3__"People like Lavelle can do harm anywhere they are! We need to get rid of them ourselves"																					
 																*You can't*																				
 																	Name4__Img4__"I can't let you do this. I can't just let you kill them"																			
 																		Continue	fcEnd0_1alt																	
 																*I understand you're scared*																				
-																	Name4__Img4__"No one gave you the right. I understand you are scared."	"We can take him to the authorities. Give Name2 a trial."																		
+																	Name4__Img4__"No one gave you the right. I understand you are scared."	"We can take him to the authorities. Give Lavelle a trial."																		
 																		Continue																		
 																			Name3__Img3__"You may be right, but I don't think we have enought time"	"I need to make sure everyone we love is safe"	"I need to do this"															
 																				*Don't!*																
@@ -284,8 +284,8 @@ Name4__Img4__fc4
 												*Fine... Let's do it*																								
 													Name4__Img4__"As long as I don't die, I'm in"																							
 														Continue	fcEnd2																					
-								*Name2 is misguided*																												
-									Name4__Img4__"Name2 is just misguided. They aren't trying to hurt anyone!"																											
+								*Lavelle is misguided*																												
+									Name4__Img4__"Lavelle is just misguided. They aren't trying to hurt anyone!"																											
 										Continue																										
 											Name3__Img3__"How do you know they aren't trying to hurt us?"																									
 												*I trust them*																								
@@ -294,12 +294,12 @@ Name4__Img4__fc4
 															Name3__Img3__"Not good enough"																					
 																Continue	fcEnd0_alt																			
 												*They're trying to prevent the apocolypse*																								
-													Name4__Img4__"Name2 had been keeping the apocolypse at bay"																							
+													Name4__Img4__"Lavelle had been keeping the apocolypse at bay"																							
 														Continue																						
 															Name3__Img3__"You think I'm that stupid?"																					
 																Continue	fcEnd0_alt																			
 												*They're making pie*																								
-													Name4__Img4__"Name2 is just trying to perfect their mothers apple pie recipe"																							
+													Name4__Img4__"Lavelle is just trying to perfect their mothers apple pie recipe"																							
 														Continue																						
 															Name3__Img3__"..... Seriously...."																					
 																Continue	fcEnd0_alt																			
@@ -309,9 +309,9 @@ Name4__Img4__fc4
 															Name3__Img3__"Don't insult me like that, I know what I saw."																					
 																Continue	fcEnd0_alt																			
 												*They are grieving*																								
-													Name4__Img4__"They miss their spouse. Name2 was trying to get her back"																							
+													Name4__Img4__"They miss their spouse. Lavelle was trying to get her back"																							
 														Continue																						
-															Name3__Img3__"I know they have been missing Jenn. I saw their altar though. Maybe they were in it together before she passed!"																					
+															Name3__Img3__"I know they have been missing Rebecca. I saw their altar though. Maybe they were in it together before she passed!"																					
 																*You might be right*																				
 																	Name4__Img4__"You might be right, I guess that could make sense"																			
 																		Continue																		
@@ -327,30 +327,30 @@ Name4__Img4__fc4
 																							Name4__Img4__"I know the pain of loss you are talking about."	"I think they are capable of that"												
 																								Continue	fcEnd0											
 																				*You're the murderer here*																
-																					Name4__Img4__"You're the one trying to kill Name2." 	"Think about it, of the three of us here, you're the one with murderous intent"	"You don't even know for sure that they want to hurt anyone"													
+																					Name4__Img4__"You're the one trying to kill Lavelle." 	"Think about it, of the three of us here, you're the one with murderous intent"	"You don't even know for sure that they want to hurt anyone"													
 																						Continue														
 																							Name3__Img3__"....."	"... You're right...."	"I just wanted everyone to be safe."	"I know that magic can destroy everything you love"	"I guess I was the one doing the evil thing."	"I'm the bad guy in this. I understand that now."	"Can you promise me that you will stop them from using their altar again?"							
 																								*Promise*												
-																									Name4__Img4__"I promise you, we will take care of Name2, we can help them grieve and heal."											
+																									Name4__Img4__"I promise you, we will take care of Lavelle, we can help them grieve and heal."											
 																										Continue										
 																											Name3__Img3__"Thank you..."									
 																												Continue	fcEnd4							
 																								*Don't Promise*												
-																									Name4__Img4__"I can't promise that. Name2 is free to do what they think is right"											
+																									Name4__Img4__"I can't promise that. Lavelle is free to do what they think is right"											
 																										Continue										
 																											Name3__Img3__"Then I have to as well"									
 																												Continue								
 																								*You're not evil*												
-																									Name4__Img4__"Name3, I don't think you are evil, just like I don't think Name2 is evil."	"Both of you were misguided."	"Name2 missed their spouse, and tried to get them back."	"You got scared at something you didn't understand, and wanted to care for the people you love"	"Neither of you are evil. You haven't done anything yet"	"Well you punched them out... but excluding that... You haven't done anything."	"It's ok, let's figure this all out together"	"Just give me the knife. It'll be ok"				
+																									Name4__Img4__"Name3, I don't think you are evil, just like I don't think Lavelle is evil."	"Both of you were misguided."	"Lavelle missed their spouse, and tried to get them back."	"You got scared at something you didn't understand, and wanted to care for the people you love"	"Neither of you are evil. You haven't done anything yet"	"Well you punched them out... but excluding that... You haven't done anything."	"It's ok, let's figure this all out together"	"Just give me the knife. It'll be ok"				
 																										Continue										
 																											Name3__Img3__*Weeps* "I.... I'm sorry..."									
 																												Continue	fcEnd6							
 																				*They still care about people*																
-																					Name4__Img4__"Name2 still cares about everyone else"	"You've known them for a long time. Do you really think they would sacrifice eveyone just like that?"														
+																					Name4__Img4__"Lavelle still cares about everyone else"	"You've known them for a long time. Do you really think they would sacrifice eveyone just like that?"														
 																						Continue														
 																							Name3__Img3__"I'm just so tired and worried. I don't even know what to think anymore"													
 																								*You were confused*												
-																									Name3__Img3__"You are just confused. That's ok"	"Just hand me the knife. Name2 won't hurt anyone."										
+																									Name3__Img3__"You are just confused. That's ok"	"Just hand me the knife. Lavelle won't hurt anyone."										
 																										Continue										
 																											Name3__Img3__*Weeps* "I.... I'm sorry..."									
 																												Continue	fcEnd6							
@@ -359,35 +359,35 @@ Name4__Img4__fc4
 																										Continue										
 																											Name3__Img3__"....."	"... You're right...."	"I just wanted everyone to be safe."	"I know that magic can destroy everything you love"	"I guess I was the one doing the evil thing."	"I'm the bad guy in this. I understand that now."	"Can you promise me that you will stop them from using their altar again?"			
 																												*Promise*								
-																													Name4__Img4__"I promise you, we will take care of Name2, we can help them grieve and heal."							
+																													Name4__Img4__"I promise you, we will take care of Lavelle, we can help them grieve and heal."							
 																														Continue						
 																															Name3__Img3__"Thank you..."					
 																																Continue	fcEnd4			
 																												*Don't Promise*								
-																													Name4__Img4__"I can't promise that. Name2 is free to do what they think is right"							
+																													Name4__Img4__"I can't promise that. Lavelle is free to do what they think is right"							
 																														Continue						
 																															Name3__Img3__"Then I have to as well"					
 																																Continue				
 																												*You're not evil*								
-																													Name4__Img4__"Name3, I don't think you are evil, just like I don't think Name2 is evil."	"Both of you were misguided."	"Name2 missed their spouse, and tried to get them back."	"You got scared at something you didn't understand, and wanted to care for the people you love"	"Neither of you are evil. You haven't done anything yet"	"Well you punched them out... but excluding that... You haven't done anything."	"It's ok, let's figure this all out together"	"Just give me the knife. It'll be ok"
+																													Name4__Img4__"Name3, I don't think you are evil, just like I don't think Lavelle is evil."	"Both of you were misguided."	"Lavelle missed their spouse, and tried to get them back."	"You got scared at something you didn't understand, and wanted to care for the people you love"	"Neither of you are evil. You haven't done anything yet"	"Well you punched them out... but excluding that... You haven't done anything."	"It's ok, let's figure this all out together"	"Just give me the knife. It'll be ok"
 																														Continue						
 																															Name3__Img3__*Weeps* "I.... I'm sorry..."					
 																																Continue	fcEnd6			
 																*The Altar is new*																				
-																	Name4__Img4__"The altar you're talking about is new"	"Jenn died a year ago, but I could still see sawdust and construction materials around their place"																		
+																	Name4__Img4__"The altar you're talking about is new"	"Rebecca died a year ago, but I could still see sawdust and construction materials around their place"																		
 																		Continue																		
-																			Name3__Img3__"I.. Guess that makes sense."	"But how do you know they didn't kill Jenn?"																
+																			Name3__Img3__"I.. Guess that makes sense."	"But how do you know they didn't kill Rebecca?"																
 																				*They told me*																
-																					Name4__Img4__"Name2 said to me. "I didn't kill my wife!"															
+																					Name4__Img4__"Lavelle said to me. "I didn't kill my wife!"															
 																						Continue														
 																							Name3__Img3__"I think you're joking"	"Even if you aren't, that's just naïve"												
 																								Continue	fcEnd0_alt											
-																				*They visit Jenn's grave*																
-																					Name4__Img4__"Name2 visits Jenn's grave all the time."	"They were trying to use the altar to bring her back"	"It wasn't magic that killed her. It was cancer."	"You know that."												
+																				*They visit Rebecca's grave*																
+																					Name4__Img4__"Lavelle visits Rebecca's grave all the time."	"They were trying to use the altar to bring her back"	"It wasn't magic that killed her. It was cancer."	"You know that."												
 																						Continue														
 																							Name3__Img3__"I'm just so tired and worried. I don't even know what to think anymore"													
 																								*You were confused*												
-																									Name3__Img3__"You are just confused. That's ok"	"Just hand me the knife. Name2 won't hurt anyone."										
+																									Name3__Img3__"You are just confused. That's ok"	"Just hand me the knife. Lavelle won't hurt anyone."										
 																										Continue										
 																											Name3__Img3__*Weeps* "I.... I'm sorry..."									
 																												Continue	fcEnd6							
@@ -396,25 +396,25 @@ Name4__Img4__fc4
 																										Continue										
 																											Name3__Img3__"....."	"... You're right...."	"I just wanted everyone to be safe."	"I know that magic can destroy everything you love"	"I guess I was the one doing the evil thing."	"I'm the bad guy in this. I understand that now."	"Can you promise me that you will stop them from using their altar again?"			
 																												*Promise*								
-																													Name4__Img4__"I promise you, we will take care of Name2, we can help them grieve and heal."							
+																													Name4__Img4__"I promise you, we will take care of Lavelle, we can help them grieve and heal."							
 																														Continue						
 																															Name3__Img3__"Thank you..."					
 																																Continue	fcEnd4			
 																												*Don't Promise*								
-																													Name4__Img4__"I can't promise that. Name2 is free to do what they think is right"							
+																													Name4__Img4__"I can't promise that. Lavelle is free to do what they think is right"							
 																														Continue						
 																															Name3__Img3__"Then I have to as well"					
 																																Continue	fcEnd0_alt			
 																												*You're not evil*								
-																													Name4__Img4__"Name3, I don't think you are evil, just like I don't think Name2 is evil."	"Both of you were misguided."	"Name2 missed their spouse, and tried to get them back."	"You got scared at something you didn't understand, and wanted to care for the people you love"	"Neither of you are evil. You haven't done anything yet"	"Well you punched them out... but excluding that... You haven't done anything."	"It's ok, let's figure this all out together"	"Just give me the knife. It'll be ok"
+																													Name4__Img4__"Name3, I don't think you are evil, just like I don't think Lavelle is evil."	"Both of you were misguided."	"Lavelle missed their spouse, and tried to get them back."	"You got scared at something you didn't understand, and wanted to care for the people you love"	"Neither of you are evil. You haven't done anything yet"	"Well you punched them out... but excluding that... You haven't done anything."	"It's ok, let's figure this all out together"	"Just give me the knife. It'll be ok"
 																														Continue						
 																															Name3__Img3__*Weeps* "I.... I'm sorry..."					
 																																Continue	fcEnd6			
 Name3__Img3__fcEnd0_0																																				
-	"Stay back Name4! I'm doing this to protect all of us!"	"Name2 is evil, they must be stopped!"																																		
+	"Stay back Name4! I'm doing this to protect all of us!"	"Lavelle is evil, they must be stopped!"																																		
 		Continue																																		
 Name4__Img4__fcEnd0_1																																				
-	"Holy Shit! What did you just do to Name2?!"	"I can't let you get away with this"																																		
+	"Holy Shit! What did you just do to Lavelle?!"	"I can't let you get away with this"																																		
 		Continue																																		
 			Name3__Img3__"I'm sorry..."																																	
 				Continue																																
@@ -423,7 +423,7 @@ Name4__Img4__fcEnd0_1alt
 		Continue																																		
 			Name3__Img3__"I'm sorry..."																																	
 				Continue																																
-Name2__Img2__fcEnd1_0																																				
+Lavelle__Img2__fcEnd1_0																																				
 	"Huh... oh no"																																			
 		continue																																		
 Guard__Guard__fcEnd1_1																																				
@@ -439,7 +439,7 @@ Name3__Img3__fc5
 		*Stab Name3*																																		
 			Name4__Img4__"You can't!"																																	
 				Continue	fc5End1																															
-Name2__Img2__fc6																																				
+Lavelle__Img2__fc6																																				
 	"Wha.... What happened?"																																			
 		Continue																																		
 Time to Move On__PC_M__doneMM																																				

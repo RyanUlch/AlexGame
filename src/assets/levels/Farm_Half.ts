@@ -6,14 +6,14 @@ const openFarm_HalfLevel = () => {
 	const pawnStore = usePawnStore();
 	const timelineStore = useTimelineStore();
 	console.log(timelineStore.conversationsActivated['014e0']);
-	if (timelineStore.Name0_atFarm) {
+	if (timelineStore.Sam_atFarm) {
 		if (!timelineStore.conversationsActivated['014e0']) {
 			FarmBothCutscene();
 		}
-		if (timelineStore.Name1_angry) {
-			const Name0: Sprite = {
-				spriteId: 'Name0',
-				spriteSrc: 'Name0',
+		if (timelineStore.Abigail_angry) {
+			const Sam: Sprite = {
+				spriteId: 'Sam',
+				spriteSrc: 'Sam',
 				isCharacter: true,
 				isAutoInteract: false,
 				position: [8, 22],
@@ -21,10 +21,10 @@ const openFarm_HalfLevel = () => {
 				interactionName: 'noReturnDialogue',
 				interactionArgs: ['0e2'],
 			};
-			pawnStore.registerSprite(Name0);
-			const Name1: Sprite = {
-				spriteId: 'Name1',
-				spriteSrc: 'Name1',
+			pawnStore.registerSprite(Sam);
+			const Abigail: Sprite = {
+				spriteId: 'Abigail',
+				spriteSrc: 'Abigail',
 				isCharacter: true,
 				isAutoInteract: false,
 				position: [7, 22],
@@ -32,11 +32,11 @@ const openFarm_HalfLevel = () => {
 				interactionName: 'noReturnDialogue',
 				interactionArgs: ['1e2'],
 			};
-			pawnStore.registerSprite(Name1);
+			pawnStore.registerSprite(Abigail);
 		} else {
-			const Name0: Sprite = {
-				spriteId: 'Name0',
-				spriteSrc: 'Name0',
+			const Sam: Sprite = {
+				spriteId: 'Sam',
+				spriteSrc: 'Sam',
 				isCharacter: true,
 				isAutoInteract: false,
 				position: [4, 13],
@@ -44,10 +44,10 @@ const openFarm_HalfLevel = () => {
 				interactionName: 'noReturnDialogue',
 				interactionArgs: ['0e1'],
 			};
-			pawnStore.registerSprite(Name0);
-			const Name1: Sprite = {
-				spriteId: 'Name1',
-				spriteSrc: 'Name1',
+			pawnStore.registerSprite(Sam);
+			const Abigail: Sprite = {
+				spriteId: 'Abigail',
+				spriteSrc: 'Abigail',
 				isCharacter: true,
 				isAutoInteract: false,
 				position: [2, 10],
@@ -55,15 +55,15 @@ const openFarm_HalfLevel = () => {
 				interactionName: 'noReturnDialogue',
 				interactionArgs: ['1e0'],
 			};
-			pawnStore.registerSprite(Name1);
+			pawnStore.registerSprite(Abigail);
 		}
 	} else {
 		if (!timelineStore.conversationsActivated['14e0']) {
 			FarmCutscene();
 		}
-		const Name1: Sprite = {
-			spriteId: 'Name1',
-			spriteSrc: 'Name1',
+		const Abigail: Sprite = {
+			spriteId: 'Abigail',
+			spriteSrc: 'Abigail',
 			isCharacter: true,
 			isAutoInteract: false,
 			position: [3, 13],
@@ -71,7 +71,7 @@ const openFarm_HalfLevel = () => {
 			interactionName: 'returnDialogue',
 			interactionArgs: ['1e1'],
 		};
-		pawnStore.registerSprite(Name1);
+		pawnStore.registerSprite(Abigail);
 	}
 
 	const House1: Sprite = {

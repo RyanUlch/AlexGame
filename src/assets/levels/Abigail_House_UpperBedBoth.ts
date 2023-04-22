@@ -1,10 +1,16 @@
 import { usePawnStore } from '@/stores/pawn';
-import { useTimelineStore } from '@/stores/timeline';
 import type { Sprite } from '@/stores/pawn';
-const openName1_House_UpperBedLevel = () => {
+const openAbigail_House_UpperBedBothLevel = () => {
 	const pawnStore = usePawnStore();
-	const timelineStore = useTimelineStore();
-
+	const Abigail: Sprite = {
+		spriteId: 'Abigail',
+		isCharacter: false,
+		isAutoInteract: false,
+		position: [5, 5],
+		interactionName: 'noReturnDialogue',
+		interactionArgs: ['1n1', 'Abigail'],
+	};
+	pawnStore.registerSprite(Abigail);
 	const books1: Sprite = {
 		spriteId: 'books1',
 		isCharacter: false,
@@ -51,27 +57,6 @@ const openName1_House_UpperBedLevel = () => {
 		interactionArgs: ['dresser1', 'environment'],
 	};
 	pawnStore.registerSprite(dresser);
-	if (timelineStore.Name1_GaveUp) {
-		const Name1: Sprite = {
-			spriteId: 'Name1',
-			isCharacter: false,
-			isAutoInteract: false,
-			position: [5, 5],
-			interactionName: 'noReturnDialogue',
-			interactionArgs: ['1n0', 'Name1'],
-		};
-		pawnStore.registerSprite(Name1);
-	} else {
-		const Name1: Sprite = {
-			spriteId: 'Name1',
-			isCharacter: false,
-			isAutoInteract: false,
-			position: [5, 5],
-			interactionName: 'noReturnDialogue',
-			interactionArgs: ['1n2', 'Name1'],
-		};
-		pawnStore.registerSprite(Name1);
-	}
 
 	const Lower: Sprite = {
 		spriteId: 'Lower',
@@ -83,4 +68,4 @@ const openName1_House_UpperBedLevel = () => {
 	};
 	pawnStore.registerSprite(Lower);
 };
-export default openName1_House_UpperBedLevel;
+export default openAbigail_House_UpperBedBothLevel;

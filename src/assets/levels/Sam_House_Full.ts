@@ -3,7 +3,7 @@ import { useTimelineStore } from '@/stores/timeline';
 
 import type { Sprite } from '@/stores/pawn';
 
-const openName0_House_FullLevel = () => {
+const openSam_House_FullLevel = () => {
 	const pawnStore = usePawnStore();
 	const timelineStore = useTimelineStore();
 
@@ -36,30 +36,30 @@ const openName0_House_FullLevel = () => {
 	};
 	pawnStore.registerSprite(shelf1);
 
-	if (!timelineStore.Name0_atFarm && timelineStore.currentTime === 2) {
-		const Name0: Sprite = {
-			spriteId: 'Name0',
-			spriteSrc: 'Name0',
+	if (!timelineStore.Sam_atFarm && timelineStore.currentTime === 2) {
+		const Sam: Sprite = {
+			spriteId: 'Sam',
+			spriteSrc: 'Sam',
 			isCharacter: false,
 			isAutoInteract: false,
 			position: [6, 2],
 			coords: [0, 1],
 			interactionName: 'returnDialogue',
-			interactionArgs: ['0e0', 'Name0'],
+			interactionArgs: ['0e0', 'Sam'],
 		};
-		pawnStore.registerSprite(Name0);
-	} else if (timelineStore.Name0_hate && timelineStore.currentTime === 3) {
-		const Name0: Sprite = {
-			spriteId: 'Name0',
-			spriteSrc: 'Name0',
+		pawnStore.registerSprite(Sam);
+	} else if (timelineStore.Sam_hate && timelineStore.currentTime === 3) {
+		const Sam: Sprite = {
+			spriteId: 'Sam',
+			spriteSrc: 'Sam',
 			isCharacter: false,
 			isAutoInteract: false,
 			position: [6, 2],
 			coords: [0, 1],
 			interactionName: 'returnDialogue',
-			interactionArgs: ['0n0', 'Name0'],
+			interactionArgs: ['0n0', 'Sam'],
 		};
-		pawnStore.registerSprite(Name0);
+		pawnStore.registerSprite(Sam);
 	}
 
 	const Village: Sprite = {
@@ -72,4 +72,4 @@ const openName0_House_FullLevel = () => {
 	};
 	pawnStore.registerSprite(Village);
 };
-export default openName0_House_FullLevel;
+export default openSam_House_FullLevel;
