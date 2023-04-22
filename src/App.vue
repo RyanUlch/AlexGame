@@ -58,7 +58,7 @@
 			id="modal-target">
 			<PlayArea />
 		</div>
-		<div>
+		<div style="height: 100%; overflow: hidden">
 			<div class="buttons">
 				<MenuButton
 					:modalHandler="settings.openInventoryMenu"
@@ -90,6 +90,7 @@
 	.gameArea {
 		box-sizing: border-box;
 		/* width: 50vw; */
+		height: 665px;
 		margin: 0 auto;
 		display: flex;
 		flex-wrap: wrap;
