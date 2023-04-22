@@ -101,7 +101,7 @@ const openVillageLevel = () => {
 		isAutoInteract: false,
 		position: [14, 41],
 		interactionName: 'openLevel',
-		interactionArgs: ['0'],
+		interactionArgs: ['0', undefined, 'doorOpen'],
 	};
 	const Name0House_Sign: Sprite = {
 		spriteId: 'Name0House_Sign',
@@ -122,7 +122,7 @@ const openVillageLevel = () => {
 		isAutoInteract: false,
 		position: [16, 14],
 		interactionName: 'openLevel',
-		interactionArgs: ['2'],
+		interactionArgs: ['2', undefined, 'doorOpen'],
 	};
 	const Name2House_Sign: Sprite = {
 		spriteId: 'Name2House_Sign',
@@ -142,7 +142,7 @@ const openVillageLevel = () => {
 		isAutoInteract: false,
 		position: [32, 46],
 		interactionName: 'openLevel',
-		interactionArgs: ['3'],
+		interactionArgs: ['3', undefined, 'doorOpen'],
 	};
 	const Name3House_Sign: Sprite = {
 		spriteId: 'Name3House_Sign',
@@ -162,7 +162,7 @@ const openVillageLevel = () => {
 		isAutoInteract: false,
 		position: [30, 7],
 		interactionName: 'openLevel',
-		interactionArgs: ['4'],
+		interactionArgs: ['4', undefined, 'doorOpen'],
 	};
 	const Name4House_Sign: Sprite = {
 		spriteId: 'Name4House_Sign',
@@ -184,7 +184,7 @@ const openVillageLevel = () => {
 			isAutoInteract: false,
 			position: [33, 24],
 			interactionName: 'openLevel',
-			interactionArgs: ['Tavern'],
+			interactionArgs: ['Tavern', undefined, 'doorOpen'],
 		};
 	} else {
 		Tavern = {

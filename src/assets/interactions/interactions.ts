@@ -4,6 +4,7 @@ import { AudioPlayer } from '@/Audio/Audio';
 import { useLogComposable } from '@/composables/logComposable';
 import { useTimelineStore } from '@/stores/timeline';
 import { usePawnStore } from '@/stores/pawn';
+import { audios } from '@/Audio/audios';
 
 const openDoorSound = new AudioPlayer('src/assets/audio/doorOpen.mp3');
 
@@ -16,6 +17,7 @@ export const runInteraction = async (interactionName: string, interactionArgs: a
 
 	switch (interactionName) {
 		case 'openLevel':
+			if (typeof interactionArgs[2] === 'string') audios[interactionArgs[2]]?.play();
 			await levelStore.openLevelArea(interactionArgs[0], interactionArgs[1]);
 			break;
 		case 'noReturnDialogue':
