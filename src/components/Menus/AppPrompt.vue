@@ -60,6 +60,6 @@
 		padding: 6px;
 	}
 	.choice.selected {
-		background-color: red;
+		background-color: var(--modal-red);
 	}
 </style>

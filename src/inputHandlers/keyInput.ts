@@ -2,6 +2,7 @@ import { usePromptStore } from '@/stores/prompt';
 import { usePawnStore } from '@/stores/pawn';
 import { AudioPlayer } from '../Audio/Audio';
 import { useCutsceneStore } from '@/stores/cutscene';
+import { useSettingsStore } from '@/stores/settings';
 
 type KeyHandlerMap = {
 	[key: string]: (event: KeyboardEvent) => void;
@@ -25,6 +26,7 @@ const move = (direction: string) => {
 		return;
 	}
 	if (useCutsceneStore().cutsceneActive) return;
+	if (useSettingsStore().anyOpen) return;
 
 	// Movement logic
 	if (movementInterval === undefined) {

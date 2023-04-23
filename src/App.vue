@@ -8,10 +8,11 @@
 	import AppSettingsMenu from './components/Menus/AppSettingsMenu.vue';
 	import AppCreditsMenu from './components/Menus/AppCreditsMenu.vue';
 	import AppTimelineMenu from './components/Menus/AppTimelineMenu.vue';
+	import AppGameOver from './components/Menus/AppGameOver.vue';
+	import AppStart from './components/Menus/AppStart.vue';
 	import { useTimelineStore } from './stores/timeline';
-	import AppSkillsMenu from './components/Menus/AppSkillsMenu.vue';
 	import { useSettingsStore } from './stores/settings';
-	import { ref, onBeforeUpdate, onMounted } from 'vue';
+	import { onBeforeUpdate, onMounted } from 'vue';
 	import { openingCutscene } from './stores/cutscene';
 	import { useFilterStore } from './stores/filters';
 	const timelineStore = useTimelineStore();
@@ -35,20 +36,26 @@
 				break;
 		}
 	});
-	// levelStore.openLevel('Name4_House', false, [4, 7, 'w']); //, //[30, 9, 'n']);
+	// levelStore.openLevel('Alex_House', false, [4, 7, 'w']); //, //[30, 9, 'n']);
 	onMounted(() => {
-		if (true) {
-			openingCutscene();
+		settings.openOpeningMenu();
+		if (false) {
+			// openingCutscene();
 		} else {
-			levelStore.openLevel('Name4_House', false, [4, 7, 'w']);
+			// timelineStore.currentTime = 3;
+			// timelineStore.Lavelle_toBluffs = true;
+			// timelineStore.Teddy_follow = true;
+			// levelStore.openLevel('Bluffs_Full', false, [31, 9, 'n']);
+			// timelineStore.gameStarted = true;
+			// timelineStore.endingChoice = 1;
 		}
 	});
 
 	// Sam = Sam
 	// Abigail = Abigail
 	// Lavelle = Lavelle
-	// Name3 =
-	// Name4 =
+	// Teddy = Teddy
+	// Alex =
 	// Rebecca = Rebecca
 </script>
 <template>
@@ -62,12 +69,9 @@
 			<div class="buttons">
 				<MenuButton
 					:modalHandler="settings.openInventoryMenu"
-					imgFileName="Inventory"
-					tooltip="Open your inventory" />
-				<MenuButton
-					:modalHandler="settings.openSkillsMenu"
-					imgFileName="LevelUp"
-					tooltip="Open your Stats" />
+					imgFileName="Time"
+					tooltip="Time Menu" />
+
 				<MenuButton
 					:modalHandler="settings.openSettingsMenu"
 					imgFileName="Menu"
@@ -80,16 +84,16 @@
 			<EventLog />
 		</div>
 	</div>
+	<AppStart />
 	<AppPrompt />
 	<AppTimelineMenu />
-	<AppSkillsMenu />
 	<AppSettingsMenu />
 	<AppCreditsMenu />
+	<AppGameOver />
 </template>
 <style scoped>
 	.gameArea {
 		box-sizing: border-box;
-		/* width: 50vw; */
 		height: 665px;
 		margin: 0 auto;
 		display: flex;
@@ -113,7 +117,6 @@
 		flex-direction: row;
 		flex-wrap: wrap;
 		height: var(--menuSide);
-		width: calc(var(--menuSide) * 4);
-		/* width: calc(var(--menuSide) * var(--menuColumnNumber)); */
+		width: calc(var(--menuSide) * 3);
 	}
 </style>

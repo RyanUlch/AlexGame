@@ -3,6 +3,7 @@ import { defineStore } from 'pinia';
 import { ref, computed } from 'vue';
 import { useLevelStore } from './level';
 import { usePawnStore } from './pawn';
+import { runInteraction } from '@/assets/interactions/interactions';
 
 export const useTimelineStore = defineStore('timelineStore', () => {
 	const currentTime = ref(0);
@@ -22,12 +23,20 @@ export const useTimelineStore = defineStore('timelineStore', () => {
 	const pawnStore = usePawnStore();
 
 	const advanceTime = () => {
+		console.log(levelStore.levelNameRef);
+		if (levelStore.levelNameRef === 'Bluffs' || levelStore.levelNameRef === 'Bluffs_Broken') {
+			runInteraction('readout', ['Something prevents you from advancing time here']);
+			return;
+		}
 		if (currentTime.value === 3) {
 			currentTime.value = 0;
 			resetConversations();
-			levelStore.openLevelArea('Name4_House', [4, 7, 'w']);
+			levelStore.openLevelArea('Alex_House', [4, 7, 'w']);
 		} else {
 			currentTime.value += 1;
+			if (currentTime.value === 3 && Sam_atFarm.value && !Abigail_angry.value) {
+				Abigail_GaveUp.value = false;
+			}
 			levelStore.openLevelArea(levelStore.levelNameRef, pawnStore.characterPosition);
 		}
 	};
@@ -46,12 +55,12 @@ export const useTimelineStore = defineStore('timelineStore', () => {
 		Lavelle_home.value = true;
 		Lavelle_toBluffs.value = false;
 		Lavelle_sawDeath.value = false;
-		Name3_follow.value = false;
-		Name4_dead.value = false;
+		Teddy_follow.value = false;
+		Alex_dead.value = false;
 		farmSceneOccurred.value = false;
 		finalSceneControl.value = false;
 		endingChoice.value = -1;
-		PCKillsName3.value = false;
+		PCKillsTeddy.value = false;
 	};
 
 	// prettier-ignore
@@ -98,6 +107,8 @@ export const useTimelineStore = defineStore('timelineStore', () => {
 		'fc0': false,
 	}
 
+	const gameStarted = ref(false);
+
 	// Sam
 	const Sam_bitter = ref(false);
 	const Sam_hate = ref(false);
@@ -114,11 +125,11 @@ export const useTimelineStore = defineStore('timelineStore', () => {
 	const Lavelle_toBluffs = ref(false);
 	const Lavelle_sawDeath = ref(false);
 
-	// Name3
-	const Name3_follow = ref(false);
+	// Teddy
+	const Teddy_follow = ref(false);
 
-	// Name4
-	const Name4_dead = ref(false);
+	// Alex
+	const Alex_dead = ref(false);
 
 	// Cutscenes happened
 	const farmSceneOccurred = ref(false);
@@ -126,10 +137,11 @@ export const useTimelineStore = defineStore('timelineStore', () => {
 	// Final Scene
 	const finalSceneControl = ref(false);
 	const endingChoice = ref(-1);
-	const PCKillsName3 = ref(false);
+	const PCKillsTeddy = ref(false);
 
 	// prettier-ignore
 	return {
+		gameStarted,
 		currentTime, 			// Save
 		conversationsActivated, // Save
 		currentTimeString,
@@ -144,11 +156,11 @@ export const useTimelineStore = defineStore('timelineStore', () => {
 		Lavelle_home,
 		Lavelle_sawDeath,
 		Lavelle_toBluffs,
-		Name3_follow,
-		Name4_dead,
+		Teddy_follow,
+		Alex_dead,
 		farmSceneOccurred,
 		finalSceneControl,
 		endingChoice,
-		PCKillsName3,
+		PCKillsTeddy,
 	};
 });

@@ -26,8 +26,6 @@
 			<p class="p">Gif:&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;@gif_not_jif</p>
 			<p class="p">Noiracide:&emsp;@Noiracide</p>
 			<p class="p">Romi:&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;@DessRomaric</p>
-
-			<button @click="modal.close">Close</button>
 		</template>
 	</AppModal>
 </template>
@@ -39,7 +37,7 @@
 		padding-bottom: 20px;
 	}
 	.subtitle {
-		padding-bottom: 20px;
+		padding: 15px 0;
 	}
 	.p {
 		padding-bottom: 10px;

@@ -13,19 +13,29 @@
 	--menuBtnBack: hsl(var(--brandHue), 50%, 50%);
 	--menuBtnBackHover: hsl(var(--brandHue), 50%, 40%);
 	--menuBtnBackActive: hsl(var(--brandHue), 50%, 20%);
-	--menuSide: 74px;
-	--menuColumnNumber: 2;
+	--menuSide: 100px;
 
-	/* Card Size */
-	--cardWidth: 7.5rem;
-	--cardHeight: 10.5rem;
-	--cardRadius: 0.5rem;
-
-	--cardColor: hsl(var(--brandHue), 50%, 50%);
-	--cardTextboxColor: hsl(var(--brandHue), 50%, 90%);
+	--modal-main-background: var(--menuBtnBack);
+	--modal-header-background: var(--menuBtnBackHover);
+	--modal-red: hsl(0, 50%, 50%);
 
 	--borderColor: hsl(var(--brandHue), 20%, 20%);
 	--borderSize: 5px;
+
+	--modal-img0-main: hsl(24, 50%, 60%);
+	--modal-img0-header: hsl(24, 50%, 50%);
+	--modal-img1-main: hsl(64, 50%, 60%);
+	--modal-img1-header: hsl(64, 50%, 50%);
+	--modal-img2-main: hsl(167, 50%, 60%);
+	--modal-img2-header: hsl(167, 50%, 50%);
+	--modal-img3-main: hsl(273, 50%, 60%);
+	--modal-img3-header: hsl(273, 50%, 50%);
+	--modal-img4-main: hsl(325, 50%, 60%);
+	--modal-img4-header: hsl(325, 50%, 50%);
+	--modal-PC_F-main: hsl(325, 50%, 60%, 90%);
+	--modal-PC_F-header: hsl(325, 50%, 50%, 90%);
+	--modal-crystal-main: hsl(226, 50%, 60%);
+	--modal-crystal-header: hsl(226, 50%, 50%);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -44,12 +54,17 @@
 	margin: 0;
 
 	padding: 0;
+	user-select: none;
 }
 
 body {
 	overflow: hidden;
 	font-family: 'Press Start 2P', monospace;
 	/* background-color: hsl(var(--brandHue), 80%, 80%); */
+}
+
+button {
+	font-family: 'Press Start 2P', monospace;
 }
 
 #app {

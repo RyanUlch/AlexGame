@@ -133,17 +133,17 @@ const openMarket_BothGoneLevel = () => {
 	pawnStore.registerSprite(hospital);
 
 	if (timelineStore.farmSceneOccurred) {
-		const Name4: Sprite = {
-			spriteId: 'Name4',
+		const Alex: Sprite = {
+			spriteId: 'Alex',
 			spriteSrc: 'PC_Sleep_F',
 			isCharacter: true,
 			isAutoInteract: false,
-			position: [4, 18],
+			position: [12, 26],
 			coords: [0, 1],
 			interactionName: 'noReturnDialogue',
-			interactionArgs: ['4e0', 'Name4'],
+			interactionArgs: ['4e0', 'Alex'],
 		};
-		pawnStore.registerSprite(Name4);
+		pawnStore.registerSprite(Alex);
 	}
 
 	// Farm // Farm // Farm // Farm // Farm // Farm // Farm // Farm // Farm // Farm // Farm // Farm // Farm // Farm // Farm
@@ -202,7 +202,7 @@ const openMarket_BothGoneLevel = () => {
 		isAutoInteract: true,
 		position: [0, 14],
 		interactionName: 'openLevel',
-		interactionArgs: ['Bluffs'],
+		interactionArgs: ['Bluffs', [30, 8, 'n']],
 	};
 	const Bluffs2: Sprite = {
 		spriteId: 'Bluffs',
@@ -210,7 +210,7 @@ const openMarket_BothGoneLevel = () => {
 		isAutoInteract: true,
 		position: [0, 15],
 		interactionName: 'openLevel',
-		interactionArgs: ['Bluffs'],
+		interactionArgs: ['Bluffs', [30, 9, 'n']],
 	};
 	const Bluffs_Sign: Sprite = {
 		spriteId: 'Bluffs_Sign',

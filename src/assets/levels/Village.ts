@@ -76,7 +76,7 @@ const openVillageLevel = () => {
 		isAutoInteract: true,
 		position: [8, 11],
 		interactionName: 'noReturnDialogue',
-		interactionArgs: ['DeadFarm'],
+		interactionArgs: ['DeadFarm', 'environment'],
 	};
 	pawnStore.registerSprite(farm0);
 
@@ -135,45 +135,45 @@ const openVillageLevel = () => {
 	pawnStore.registerSprite(LavelleHouse);
 	pawnStore.registerSprite(LavelleHouse_Sign);
 
-	// Name3 House // Name3 House // Name3 House // Name3 House // Name3 House // Name3 House // Name3 House // Name3 House
-	const Name3House: Sprite = {
-		spriteId: 'Name3House',
+	// Teddy House // Teddy House // Teddy House // Teddy House // Teddy House // Teddy House // Teddy House // Teddy House
+	const TeddyHouse: Sprite = {
+		spriteId: 'TeddyHouse',
 		isCharacter: false,
 		isAutoInteract: false,
 		position: [32, 46],
 		interactionName: 'openLevel',
 		interactionArgs: ['3', undefined, 'doorOpen'],
 	};
-	const Name3House_Sign: Sprite = {
-		spriteId: 'Name3House_Sign',
+	const TeddyHouse_Sign: Sprite = {
+		spriteId: 'TeddyHouse_Sign',
 		isCharacter: false,
 		isAutoInteract: false,
 		position: [34, 43],
 		interactionName: 'readout',
-		interactionArgs: ["Name3's House"],
+		interactionArgs: ["Teddy's House"],
 	};
-	pawnStore.registerSprite(Name3House);
-	pawnStore.registerSprite(Name3House_Sign);
+	pawnStore.registerSprite(TeddyHouse);
+	pawnStore.registerSprite(TeddyHouse_Sign);
 
-	// Name4 House // Name4 House // Name4 House // Name4 House // Name4 House // Name4 House // Name4 House // Name4 House
-	const Name4House: Sprite = {
-		spriteId: 'Name4House',
+	// Alex House // Alex House // Alex House // Alex House // Alex House // Alex House // Alex House // Alex House
+	const AlexHouse: Sprite = {
+		spriteId: 'AlexHouse',
 		isCharacter: false,
 		isAutoInteract: false,
 		position: [30, 7],
 		interactionName: 'openLevel',
 		interactionArgs: ['4', undefined, 'doorOpen'],
 	};
-	const Name4House_Sign: Sprite = {
-		spriteId: 'Name4House_Sign',
+	const AlexHouse_Sign: Sprite = {
+		spriteId: 'AlexHouse_Sign',
 		isCharacter: false,
 		isAutoInteract: false,
 		position: [31, 10],
 		interactionName: 'readout',
-		interactionArgs: ["Name4's House"],
+		interactionArgs: ["Alex's House"],
 	};
-	pawnStore.registerSprite(Name4House);
-	pawnStore.registerSprite(Name4House_Sign);
+	pawnStore.registerSprite(AlexHouse);
+	pawnStore.registerSprite(AlexHouse_Sign);
 
 	// Tavern // Tavern // Tavern // Tavern // Tavern // Tavern // Tavern // Tavern // Tavern // Tavern // Tavern // Tavern
 	let Tavern: Sprite;

@@ -11,7 +11,7 @@
 <template>
 	<button
 		class="menuBtn"
-		:style="{ backgroundImage: `url('src/assets/UI/menuBtnIcons/${props.imgFileName}.png')` }"
+		:style="{ backgroundImage: `url('src/assets/UI/${props.imgFileName}.png')` }"
 		:title="props.tooltip"
 		@click.prevent="props.modalHandler"></button>
 </template>
@@ -25,6 +25,7 @@
 	}
 	.menuBtn:hover {
 		background-color: var(--menuBtnBackHover);
+		cursor: pointer;
 	}
 	.menuBtn:active {
 		background-color: var(--menuBtnBackActive);

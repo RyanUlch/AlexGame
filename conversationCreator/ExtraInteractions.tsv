@@ -1,10 +1,10 @@
-Fruit__Img4__fruit					
+Fruit__PC_F__fruit					
 	Fruit. Most likely from Abigail's farm.				
 		Continue			
-Interesting Crystal__Img4__god					
+Interesting Crystal__PC_F__god					
 	I don't think this was here before I died.	I don't think it's doing anything right now.	It is a good decor piece.		
 		Continue			
-My Bookshelf__Img4__books4					
+My Bookshelf__PC_F__books4					
 	Let's see here...	"How to have friends"	"Why does everyone hate me?"	"101 Even More Drinking Games"	Hmm... Not great...
 		Continue			
 Dishes__PC_F__dishes4					
@@ -41,7 +41,7 @@ Some Statue__PC_F__statue
 	I don't know what diety of this is supposed to be of, but it gives me the creeps.				
 		Continue			
 Knife Block__PC_F__knife					
-	There is knife missing out of Name3's knife block.				
+	There is knife missing out of Teddy's knife block.				
 		Continue			
 Drawer__PC_F__drawer3					
 	The only thing in here is a book on the Occult.	There appears to be copious notes.			
@@ -54,4 +54,11 @@ Bookshelf__PC_F__books1_1
 		Continue			
 Dresser__PC_F__dresser1					
 	Regular dresser things.	Abigail is fairly organized.			
+		Continue			
+This Is It__PC_F__endStart					
+	This is it.	You have gotten Lavelle and Teddy to the bluffs with you.	If you continue, you start the final confrontation. There is no way back from this choice, whatever happens next will be the conclusion to this story.	You can however explore more and reset the day still, if you are not yet ready.	Would you like to begin the final scene?
+		No, please let me continue exploring.	no		
+		Yes, I am prepared to handle whatever comes next.	yes		
+Construction__PC_F__mess					
+	There is construction materials scattered around the floor.	They seem somewhat fresh.	This place wasn't built too long ago.		
 		Continue			

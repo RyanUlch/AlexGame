@@ -25,7 +25,7 @@ const openTavernLevel = () => {
 		position: [6, 12],
 		coords: [0, 1],
 		interactionName: 'noReturnDialogue',
-		interactionArgs: ['4m0', 'Name4'],
+		interactionArgs: ['4m0', 'Alex'],
 	};
 	pawnStore.registerSprite(PCSprite);
 

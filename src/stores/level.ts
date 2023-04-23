@@ -16,8 +16,8 @@ import openAbigail_House_UpperBedBothLevel from '@/assets/levels/Abigail_House_U
 import openLavelle_House_LowerClosedLevel from '@/assets/levels/Lavelle_House_LowerClosed';
 import openLavelle_House_LowerOpenLevel from '@/assets/levels/Lavelle_House_LowerOpen';
 import openLavelle_House_UpperLevel from '@/assets/levels/Lavelle_House_Upper';
-import openName3_HouseLevel from '@/assets/levels/Name3_House';
-import openName4_HouseLevel from '@/assets/levels/Name4_House';
+import openTeddy_HouseLevel from '@/assets/levels/Teddy_House';
+import openAlex_HouseLevel from '@/assets/levels/Alex_House';
 import openBluffs_BrokenLevel from '@/assets/levels/Bluffs_Broken';
 import openBluffs_FullLevel from '@/assets/levels/Bluffs_Full';
 import openFarm_DeadLevel from '@/assets/levels/Farm_Dead';
@@ -56,8 +56,8 @@ const levels: { [levelName: string]: () => void } = {
 	"Lavelle_House_LowerClosed":	openLavelle_House_LowerClosedLevel,
 	"Lavelle_House_LowerOpen":	openLavelle_House_LowerOpenLevel,
 	"Lavelle_House_Upper":		openLavelle_House_UpperLevel,
-	"Name3_House":				openName3_HouseLevel,
-	"Name4_House":				openName4_HouseLevel,
+	"Teddy_House":				openTeddy_HouseLevel,
+	"Alex_House":				openAlex_HouseLevel,
 	"Bluffs_Broken": 			openBluffs_BrokenLevel,
 	"Bluffs_Full":				openBluffs_FullLevel,
 	"Farm_Dead":				openFarm_DeadLevel,
@@ -78,7 +78,7 @@ export const useLevelStore = defineStore('levelStore', () => {
 	const cutsceneMatrix = reactive<Tile[][]>([]);
 	const filterStore = useFilterStore();
 	const pawnStore = usePawnStore();
-	const levelNameRef = ref('Name4_House');
+	const levelNameRef = ref('Alex_House');
 	const timelineStore = useTimelineStore();
 	const { addLogLine } = useLogComposable();
 
@@ -87,7 +87,7 @@ export const useLevelStore = defineStore('levelStore', () => {
 		cutscene: boolean = false,
 		startingPos?: [number, number, string],
 	) => {
-		addLogLine(`Entering: ${levelName}`);
+		// addLogLine(`Entering: ${levelName}`);
 		pawnStore.cleanupSprites();
 		if (!levelName.includes('House') && !levelName.includes('Tavern')) {
 			switch (timelineStore.currentTime) {
@@ -151,7 +151,7 @@ export const useLevelStore = defineStore('levelStore', () => {
 				}
 				break;
 			case 'Bluffs':
-				if (timelineStore.Name4_dead) {
+				if (timelineStore.Alex_dead) {
 					destination = 'Bluffs_Broken';
 				} else {
 					destination = 'Bluffs_Full';
@@ -212,14 +212,14 @@ export const useLevelStore = defineStore('levelStore', () => {
 				destination = 'Lavelle_House_Upper';
 				break;
 			case '3':
-				destination = 'Name3_House';
+				destination = 'Teddy_House';
 				break;
 			case '4':
-				destination = 'Name4_House';
+				destination = 'Alex_House';
 				break;
 
 			default:
-				destination = 'Name4_House';
+				destination = 'Alex_House';
 		}
 		openLevel(destination, false, startingPos);
 	};

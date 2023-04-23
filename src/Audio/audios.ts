@@ -7,6 +7,7 @@ export const audios: { [name: string]: AudioPlayer } = {
 	// Sound Effects
 	doorOpen: new AudioPlayer('src/assets/audio/dooropen.mp3'),
 	doorClose: new AudioPlayer('src/assets/audio/doorclose.mp3'),
+	newLog: new AudioPlayer('src/assets/audio/lilbeep.wav'),
 };
 
 // These prevent multiple of the same kind of audio from being played at the same time

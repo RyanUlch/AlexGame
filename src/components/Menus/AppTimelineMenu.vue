@@ -76,9 +76,11 @@
 		padding: 10px;
 		font-size: 0.8rem;
 		line-height: 1.2rem;
+		background-color: var(--modal-header-background);
 	}
 	.advanceBtn {
 		width: 100%;
 		height: 40px;
+		background-color: var(--modal-header-background);
 	}
 </style>

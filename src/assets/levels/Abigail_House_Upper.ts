@@ -26,7 +26,7 @@ const openAbigail_House_UpperLevel = () => {
 		spriteId: 'books3',
 		isCharacter: false,
 		isAutoInteract: false,
-		position: [3, 1],
+		position: [6, 1],
 		interactionName: 'noReturnDialogue',
 		interactionArgs: ['books1_1', 'environment'],
 	};
@@ -35,7 +35,7 @@ const openAbigail_House_UpperLevel = () => {
 		spriteId: 'books4',
 		isCharacter: false,
 		isAutoInteract: false,
-		position: [3, 2],
+		position: [6, 2],
 		interactionName: 'noReturnDialogue',
 		interactionArgs: ['books1_1', 'environment'],
 	};
@@ -44,7 +44,7 @@ const openAbigail_House_UpperLevel = () => {
 		spriteId: 'dresser',
 		isCharacter: false,
 		isAutoInteract: false,
-		position: [3, 2],
+		position: [3, 3],
 		interactionName: 'noReturnDialogue',
 		interactionArgs: ['dresser1', 'environment'],
 	};

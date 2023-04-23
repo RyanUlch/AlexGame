@@ -110,22 +110,49 @@ const openMarket_EmptyLevel = () => {
 	pawnStore.registerSprite(Village_Sign);
 
 	// Bluffs // Bluffs // Bluffs // Bluffs // Bluffs // Bluffs // Bluffs // Bluffs // Bluffs // Bluffs // Bluffs // Bluffs
-	const Bluffs1: Sprite = {
-		spriteId: 'Bluffs',
-		isCharacter: false,
-		isAutoInteract: true,
-		position: [0, 14],
-		interactionName: 'openLevel',
-		interactionArgs: ['Bluffs'],
-	};
-	const Bluffs2: Sprite = {
-		spriteId: 'Bluffs',
-		isCharacter: false,
-		isAutoInteract: true,
-		position: [0, 15],
-		interactionName: 'openLevel',
-		interactionArgs: ['Bluffs'],
-	};
+	if (
+		timelineStore.currentTime === 3 &&
+		timelineStore.Lavelle_toBluffs &&
+		timelineStore.Teddy_follow
+	) {
+		const Bluffs1: Sprite = {
+			spriteId: 'Bluffs',
+			isCharacter: false,
+			isAutoInteract: true,
+			position: [0, 14],
+			interactionName: 'returnDialogue',
+			interactionArgs: ['endStart', 'environment'],
+		};
+		const Bluffs2: Sprite = {
+			spriteId: 'Bluffs',
+			isCharacter: false,
+			isAutoInteract: true,
+			position: [0, 15],
+			interactionName: 'returnDialogue',
+			interactionArgs: ['endStart', 'environment'],
+		};
+		pawnStore.registerSprite(Bluffs1);
+		pawnStore.registerSprite(Bluffs2);
+	} else {
+		const Bluffs1: Sprite = {
+			spriteId: 'Bluffs',
+			isCharacter: false,
+			isAutoInteract: true,
+			position: [0, 14],
+			interactionName: 'openLevel',
+			interactionArgs: ['Bluffs', [30, 8, 'n']],
+		};
+		const Bluffs2: Sprite = {
+			spriteId: 'Bluffs',
+			isCharacter: false,
+			isAutoInteract: true,
+			position: [0, 15],
+			interactionName: 'openLevel',
+			interactionArgs: ['Bluffs', [30, 9, 'n']],
+		};
+		pawnStore.registerSprite(Bluffs1);
+		pawnStore.registerSprite(Bluffs2);
+	}
 	const Bluffs_Sign: Sprite = {
 		spriteId: 'Bluffs_Sign',
 		isCharacter: false,
@@ -134,8 +161,7 @@ const openMarket_EmptyLevel = () => {
 		interactionName: 'readout',
 		interactionArgs: ['To Bluffs'],
 	};
-	pawnStore.registerSprite(Bluffs1);
-	pawnStore.registerSprite(Bluffs2);
+
 	pawnStore.registerSprite(Bluffs_Sign);
 };
 export default openMarket_EmptyLevel;

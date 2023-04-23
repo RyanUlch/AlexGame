@@ -9,22 +9,22 @@ const openBluffs_FullLevel = () => {
 	const timelineStore = useTimelineStore();
 
 	if (timelineStore.currentTime === 2) {
-		const Name3: Sprite = {
-			spriteId: 'Name3',
-			spriteSrc: 'Name3',
+		const Teddy: Sprite = {
+			spriteId: 'Teddy',
+			spriteSrc: 'Teddy',
 			isCharacter: true,
 			isAutoInteract: false,
 			position: [27, 11],
 			coords: [3, 1],
 			interactionName: 'returnDialogue',
-			interactionArgs: ['3e0', 'Name3'],
+			interactionArgs: ['3e0', 'Teddy'],
 		};
-		pawnStore.registerSprite(Name3);
+		pawnStore.registerSprite(Teddy);
 	} else if (timelineStore.currentTime === 3) {
 		if (!timelineStore.conversationsActivated['fc0']) {
 			BluffsCutscene();
 		}
-		if (timelineStore.Name4_dead) {
+		if (timelineStore.Alex_dead) {
 			levelStore.levelMatrix[26][11].layers[1].coord = [6, 5];
 		}
 	}
@@ -36,7 +36,7 @@ const openBluffs_FullLevel = () => {
 		isAutoInteract: true,
 		position: [31, 8],
 		interactionName: 'openLevel',
-		interactionArgs: ['Market', [4, 14, 's']],
+		interactionArgs: ['Market', [1, 14, 's']],
 	};
 	const Market2: Sprite = {
 		spriteId: 'Market',
@@ -44,18 +44,9 @@ const openBluffs_FullLevel = () => {
 		isAutoInteract: true,
 		position: [31, 9],
 		interactionName: 'openLevel',
-		interactionArgs: ['Market', [4, 15, 's']],
-	};
-	const Market3: Sprite = {
-		spriteId: 'Market',
-		isCharacter: false,
-		isAutoInteract: true,
-		position: [31, 10],
-		interactionName: 'openLevel',
-		interactionArgs: ['Market', [4, 16, 's']],
+		interactionArgs: ['Market', [1, 15, 's']],
 	};
 	pawnStore.registerSprite(Market1);
 	pawnStore.registerSprite(Market2);
-	pawnStore.registerSprite(Market3);
 };
 export default openBluffs_FullLevel;

@@ -24,10 +24,10 @@
 
 <style scoped>
 	.outerContainer {
-		width: calc(var(--menuSide) * 4);
+		width: calc(var(--menuSide) * 3);
 		background-color: black;
-		height: 89%;
-		max-height: 89%;
+		height: 85%;
+		max-height: 85%;
 		color: white;
 		overflow: hidden;
 		border-left: var(--borderSize) solid var(--borderColor);

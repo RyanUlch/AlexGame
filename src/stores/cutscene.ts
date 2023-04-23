@@ -7,6 +7,7 @@ import { usePawnStore } from './pawn';
 import { runInteraction } from '@/assets/interactions/interactions';
 import { useTimelineStore } from './timeline';
 import { useFilterStore } from './filters';
+import { useSettingsStore } from './settings';
 
 export type CutsceneSprite = {
 	imgSrc: string;
@@ -105,7 +106,6 @@ export const useCutsceneStore = defineStore('cutscene', () => {
 		}
 	};
 	const turnSprite = async (sprite: CutsceneSprite, direction: number) => {
-		console.log('turing sprite');
 		const index = cutsceneSprites.value.findIndex((s) => s.id === sprite.id);
 		if (index === -1) throw Error('sprite is not in cutscene');
 		if (direction < 0 || direction > 3) {
@@ -195,44 +195,6 @@ export const useCutsceneStore = defineStore('cutscene', () => {
 	};
 });
 
-export const exampleCutscene = () => {
-	useCutsceneStore().runCutscene(
-		'Village',
-		async ({ camera, wait, addSprite, walkSprite, playAudio, showImage }) => {
-			const sprite: CutsceneSprite = {
-				imgSrc: 'Char00',
-				coords: [0, 0],
-				position: [10, 11],
-			};
-			addSprite(sprite);
-			const promptStore = usePromptStore();
-			await camera.move([0, 0]);
-			const introLength = 5000;
-			await Promise.all([camera.fade('in', introLength), camera.move([10, 11], introLength)]);
-			await wait(1000);
-			await promptStore.choicePrompt({
-				imgSrc: 'Char00',
-				title: 'Some Rando',
-				message:
-					'This is an example of dialogue during a cutscene from some rando, who is about to take a little stroll.',
-				choices: [{ text: 'Weird...', result: '' }],
-			});
-			await wait(1000);
-			const speed = 300;
-			await Promise.all([
-				walkSprite(sprite, [15, 11], speed),
-				camera.move([15, 11], speed * 5, 'linear'),
-			]);
-			await Promise.all([
-				playAudio('yeah.wav'),
-				showImage('yeah.jpg', 2000, { fade: 'in-out', fadeDurationMs: 200 }),
-			]);
-			const outroLength = 5000;
-			await Promise.all([camera.fade('out', outroLength), camera.move([0, 0], outroLength)]);
-		},
-	);
-};
-
 export const openingCutscene = () => {
 	useCutsceneStore().runCutscene(
 		'Bluffs_Full',
@@ -247,9 +209,9 @@ export const openingCutscene = () => {
 			};
 			addSprite(sprite);
 			// const promptStore = usePromptStore();
-			await camera.move([0, 11], 0);
+			await camera.move([8, 11], 0);
 			const introLength = 5000;
-			await Promise.all([camera.fade('in', introLength), camera.move([24, 11], introLength)]);
+			await Promise.all([camera.fade('in', introLength), camera.move([20, 11], introLength)]);
 			await wait(1000);
 			setTimeout(() => {
 				levelStore.cutsceneMatrix[26][11].layers[1].coord = [6, 5];
@@ -263,15 +225,16 @@ export const openingCutscene = () => {
 			setTimeout(() => {
 				showImage('TitleScreen.png', 8000, { fade: 'in-out', fadeDurationMs: 2000 });
 			}, 2000);
-			await Promise.all([camera.move([5, 11], introLength)]);
+			await Promise.all([camera.move([8, 11], introLength)]);
 			await camera.fade('out', 1000);
 			await wait(3000);
 			await runInteraction('noReturnDialogue', ['intro']);
 			await wait(1000);
-			await levelStore.openLevel('Name4_House', false, [4, 7, 'w']);
+			await levelStore.openLevel('Alex_House', false, [4, 7, 'w']);
 			await camera.move([4, 7]);
 			levelStore.cutsceneMatrix = [];
 			await camera.fade('in', 1000);
+			useTimelineStore().gameStarted = true;
 		},
 	);
 };
@@ -296,8 +259,8 @@ export const altarCutscene = () => {
 				position: [4, 3],
 			};
 			addSprite(LavelleSprite);
-			const Name3Sprite: CutsceneSprite = {
-				imgSrc: 'Name3',
+			const TeddySprite: CutsceneSprite = {
+				imgSrc: 'Teddy',
 				coords: [3, 1],
 				position: [6, 5],
 			};
@@ -315,12 +278,12 @@ export const altarCutscene = () => {
 			await turnSprite(LavelleSprite, 2);
 			await wait(300);
 			// Fade In
-			addSprite(Name3Sprite);
+			addSprite(TeddySprite);
 
 			// Player Character walks part of the path
-			await walkSprite(Name3Sprite, [4, 5], 300);
-			await turnSprite(Name3Sprite, 1);
-			await walkSprite(Name3Sprite, [4, 4]);
+			await walkSprite(TeddySprite, [4, 5], 300);
+			await turnSprite(TeddySprite, 1);
+			await walkSprite(TeddySprite, [4, 4]);
 			await wait(300);
 			await runInteraction('noReturnDialogue', ['23n1']);
 			await wait(200);
@@ -341,12 +304,11 @@ export const altarCutscene = () => {
 };
 
 export const FarmBothCutscene = () => {
-	const pawnStore = usePawnStore();
-	const timelineStore = useTimelineStore();
-	const character = `PC_${pawnStore.characterId}`;
 	useCutsceneStore().runCutscene(
 		'Farm_Half',
 		async ({ camera, wait, addSprite, removeSprite, walkSprite, turnSprite, playAudio }) => {
+			const timelineStore = useTimelineStore();
+			const character = `PC_F`;
 			// Add PC, Character 0, and Character 1
 			const CharacterSprite: CutsceneSprite = {
 				imgSrc: character,
@@ -399,18 +361,17 @@ export const FarmBothCutscene = () => {
 				await runInteraction('returnDialogue', ['01e1']);
 			}
 			await Promise.all([camera.move([10, 11], 300 * 5, 'linear'), camera.fade('out', 1000)]);
+			timelineStore.farmSceneOccurred = true;
 		},
 	);
-	timelineStore.farmSceneOccurred = true;
 };
 
 export const FarmCutscene = () => {
-	const pawnStore = usePawnStore();
-	const timelineStore = useTimelineStore();
-	const character = `PC_${pawnStore.characterId}`;
 	useCutsceneStore().runCutscene(
 		'Farm_Half',
 		async ({ camera, wait, addSprite, removeSprite, walkSprite, turnSprite, playAudio }) => {
+			const timelineStore = useTimelineStore();
+			const character = `PC_F`;
 			// Add PC, and Character 1
 			const CharacterSprite: CutsceneSprite = {
 				imgSrc: character,
@@ -456,17 +417,16 @@ export const FarmCutscene = () => {
 			]);
 
 			await removeSprite(CharacterSprite);
+			timelineStore.farmSceneOccurred = true;
 		},
 	);
-	timelineStore.farmSceneOccurred = true;
 };
 
 export const MarketCutscene = () => {
-	const pawnStore = usePawnStore();
-	const character = `PC_${pawnStore.characterId}`;
 	useCutsceneStore().runCutscene(
 		'Market_Full',
 		async ({ camera, wait, addSprite, removeSprite, walkSprite, turnSprite, playAudio }) => {
+			const character = `PC_F`;
 			// Add PC, and Character 1
 			const CharacterSprite: CutsceneSprite = {
 				imgSrc: character,
@@ -481,12 +441,49 @@ export const MarketCutscene = () => {
 			};
 			addSprite(LavelleSprite);
 
-			const Name3Sprite: CutsceneSprite = {
-				imgSrc: 'Name3',
+			const marketStall1: CutsceneSprite = {
+				imgSrc: 'Char00',
+				position: [8, 8],
+				coords: [2, 1],
+			};
+			addSprite(marketStall1);
+			const marketStall2: CutsceneSprite = {
+				imgSrc: 'Char02',
+				position: [19, 12],
+				coords: [3, 1],
+			};
+			addSprite(marketStall2);
+			const marketStall3: CutsceneSprite = {
+				imgSrc: 'Char03',
+				position: [5, 12],
+				coords: [0, 1],
+			};
+			addSprite(marketStall3);
+			const marketStall4: CutsceneSprite = {
+				imgSrc: 'Char18',
+				position: [5, 7],
+				coords: [0, 1],
+			};
+			addSprite(marketStall4);
+			const marketStall5: CutsceneSprite = {
+				imgSrc: 'Char12',
+				position: [19, 17],
+				coords: [3, 1],
+			};
+			addSprite(marketStall5);
+			const marketStall6: CutsceneSprite = {
+				imgSrc: 'Char05',
+				position: [16, 21],
+				coords: [1, 1],
+			};
+			addSprite(marketStall6);
+
+			const TeddySprite: CutsceneSprite = {
+				imgSrc: 'Teddy',
 				coords: [1, 1],
 				position: [16, 10],
 			};
-			addSprite(Name3Sprite);
+			addSprite(TeddySprite);
 
 			// Starting camera position
 			await camera.move([24, 11], 0);
@@ -499,11 +496,11 @@ export const MarketCutscene = () => {
 			await runInteraction('noReturnDialogue', ['23a0']);
 
 			// Character 3 turns North
-			await Promise.all([turnSprite(Name3Sprite, 3), turnSprite(CharacterSprite, 1)]);
+			await Promise.all([turnSprite(TeddySprite, 3), turnSprite(CharacterSprite, 1)]);
 
 			// Character 3 walks North off screen, PC walks to Character 2's stall
 			await Promise.all([
-				walkSprite(Name3Sprite, [2, 10], 300),
+				walkSprite(TeddySprite, [2, 10], 300),
 				walkSprite(CharacterSprite, [16, 10], 300),
 			]);
 
@@ -514,20 +511,13 @@ export const MarketCutscene = () => {
 			await turnSprite(CharacterSprite, 2);
 
 			// PC walks away while the camera fades.
-			await Promise.all([walkSprite(CharacterSprite, [16, 14], 300), camera.fade('out', 300)]);
+			await walkSprite(CharacterSprite, [16, 14], 300);
+			await camera.fade('out', 300);
 		},
 	);
 };
 
 export const BluffsCutscene = () => {
-	const pawnStore = usePawnStore();
-	const timelineStore = useTimelineStore();
-	const levelStore = useLevelStore();
-	const character = `PC_${pawnStore.characterId}`;
-	const smallWait = 300;
-	const longWait = 1000;
-	const endWait = 5000;
-
 	useCutsceneStore().runCutscene(
 		'Bluffs_Full',
 		async ({
@@ -540,10 +530,17 @@ export const BluffsCutscene = () => {
 			turnSprite,
 			playAudio,
 		}) => {
+			const pawnStore = usePawnStore();
+			const timelineStore = useTimelineStore();
+			const levelStore = useLevelStore();
+			const character = `PC_F`;
+			const smallWait = 300;
+			const longWait = 1000;
+			const endWait = 5000;
 			camera.move([22, 10], 0);
 			// FINAL CONFRONTATION Start
-			if (!timelineStore.Lavelle_toBluffs && timelineStore.Name3_follow) {
-				// Add PC and Name4 to scene
+			if (timelineStore.Lavelle_toBluffs && timelineStore.Teddy_follow) {
+				// Add PC and Alex to scene
 				const CharacterSprite: CutsceneSprite = {
 					imgSrc: character,
 					coords: [3, 1],
@@ -556,31 +553,31 @@ export const BluffsCutscene = () => {
 					position: [31, 11],
 				};
 				addSprite(CharacterGhostSprite);
-				const Name3Sprite: CutsceneSprite = {
-					imgSrc: 'Name3',
+				const TeddySprite: CutsceneSprite = {
+					imgSrc: 'Teddy',
 					coords: [3, 1],
 					position: [31, 14],
 				};
-				addSprite(Name3Sprite);
+				addSprite(TeddySprite);
 
 				// Fade in
 				await camera.fade('in', longWait);
 				await wait(smallWait);
 
-				// PC attempts to walk to ledge, Name4 walks out and stops them
+				// PC attempts to walk to ledge, Alex walks out and stops them
 				await walkSprite(CharacterSprite, [28, 11], smallWait);
-				await walkSprite(Name3Sprite, [30, 14], 100);
+				await walkSprite(TeddySprite, [30, 14], 100);
 				await runInteraction('noReturnDialogue', ['fc0']);
 
 				// PC turns around
 				await turnSprite(CharacterSprite, 0);
 				await wait(smallWait);
 
-				// Name3 comes into scene
+				// Lavelle comes into scene
 				const LavelleSprite: CutsceneSprite = {
 					imgSrc: 'Lavelle',
 					coords: [3, 1],
-					position: [31, 9],
+					position: [32, 9],
 				};
 				addSprite(LavelleSprite);
 
@@ -591,7 +588,7 @@ export const BluffsCutscene = () => {
 					position: [30, 10],
 				};
 
-				// Name 2 turns in confusion, Name 3 goes up to Name3 and punched them
+				// Lavelle turns in confusion, Teddy goes up to Lavelle and punched them
 				await walkSprite(LavelleSprite, [30, 9]);
 				await wait(smallWait);
 				await turnSprite(LavelleSprite, 2);
@@ -602,8 +599,8 @@ export const BluffsCutscene = () => {
 				await wait(smallWait);
 				await Promise.all([
 					turnSprite(LavelleSprite, 2),
-					turnSprite(Name3Sprite, 1),
-					walkSprite(Name3Sprite, [30, 11], smallWait),
+					turnSprite(TeddySprite, 1),
+					walkSprite(TeddySprite, [30, 11], smallWait),
 					walkSprite(LavelleSprite, [30, 10], smallWait),
 				]);
 				await runInteraction('noReturnDialogue', ['fc2']);
@@ -615,10 +612,10 @@ export const BluffsCutscene = () => {
 
 				await Promise.all([
 					//playAudio('woodBreak.wav'),
-					showImage('punch.png', longWait, { fade: 'in-out', fadeDurationMs: 500 }),
+					showImage('punch1.png', longWait, { fade: 'in-out', fadeDurationMs: 500 }),
 				]);
 				await wait(longWait);
-				await turnSprite(Name3Sprite, 3);
+				await turnSprite(TeddySprite, 3);
 				await walkSprite(CharacterSprite, [28, 11], smallWait);
 				await wait(longWait);
 				await runInteraction('returnDialogue', ['fc3']);
@@ -630,19 +627,28 @@ export const BluffsCutscene = () => {
 					await wait(smallWait);
 					await runInteraction('returnDialogue', ['fc4']);
 					await wait(longWait);
-					console.log(timelineStore.endingChoice);
 					switch (timelineStore.endingChoice) {
 						case 6: {
 							await wait(smallWait);
-							const LavelleSprite: CutsceneSprite = {
+							await walkSprite(CharacterSprite, [29, 11], smallWait);
+							await wait(smallWait);
+							const LavelleSprite1: CutsceneSprite = {
 								imgSrc: 'Lavelle',
 								coords: [3, 1],
 								position: [30, 10],
 							};
-							await Promise.all([removeSprite(LavellePassedOutSprite), addSprite(LavelleSprite)]);
+							await Promise.all([removeSprite(LavellePassedOutSprite), addSprite(LavelleSprite1)]);
 							await runInteraction('noReturnDialogue', ['fc6']);
 							await wait(smallWait);
-							camera.fade('out', endWait);
+							await turnSprite(LavelleSprite1, 2);
+							await wait(smallWait);
+							await turnSprite(LavelleSprite1, 3);
+							await wait(smallWait);
+							await turnSprite(LavelleSprite1, 2);
+							await wait(smallWait);
+							await turnSprite(LavelleSprite1, 3);
+							await wait(smallWait);
+							await camera.fade('out', endWait);
 							break;
 						}
 						case 5: {
@@ -651,7 +657,7 @@ export const BluffsCutscene = () => {
 								coords: [0, 0],
 								position: [30, 10],
 							};
-							await turnSprite(Name3Sprite, 1);
+							await turnSprite(TeddySprite, 1);
 							await wait(smallWait);
 							setTimeout(() => {
 								removeSprite(LavellePassedOutSprite);
@@ -660,51 +666,51 @@ export const BluffsCutscene = () => {
 
 							await Promise.all([
 								//playAudio('woodBreak.wav'),
-								showImage('Knife2.png', longWait, { fade: 'in-out', fadeDurationMs: 500 }),
+								showImage('Knife_2.png', longWait, { fade: 'in-out', fadeDurationMs: 500 }),
 							]);
 							await wait(smallWait);
-							const Name3DeadSprite: CutsceneSprite = {
-								imgSrc: 'Lavelle_Dead',
+							const TeddyDeadSprite: CutsceneSprite = {
+								imgSrc: 'Teddy_Dead',
 								coords: [0, 0],
 								position: [30, 11],
 							};
 							setTimeout(() => {
-								removeSprite(Name3Sprite);
-								addSprite(Name3DeadSprite);
+								removeSprite(TeddySprite);
+								addSprite(TeddyDeadSprite);
 							}, 100);
 
 							await Promise.all([
 								//playAudio('woodBreak.wav'),
-								showImage('Knife3.png', longWait, { fade: 'in-out', fadeDurationMs: 500 }),
+								showImage('Knife_3.png', longWait, { fade: 'in-out', fadeDurationMs: 500 }),
 							]);
-							camera.fade('out', endWait * 2);
+							await camera.fade('out', endWait * 2);
 							break;
 						}
 						case 4: {
-							const Name3DeadSprite: CutsceneSprite = {
+							const TeddyDeadSprite: CutsceneSprite = {
 								imgSrc: 'Lavelle_Dead',
 								coords: [0, 0],
 								position: [30, 11],
 							};
 							setTimeout(() => {
-								removeSprite(Name3Sprite);
-								addSprite(Name3DeadSprite);
+								removeSprite(TeddySprite);
+								addSprite(TeddyDeadSprite);
 							}, 100);
 
 							await Promise.all([
 								//playAudio('woodBreak.wav'),
-								showImage('Knife.png', longWait, { fade: 'in-out', fadeDurationMs: 500 }),
+								showImage('Knife_3.png', longWait, { fade: 'in-out', fadeDurationMs: 500 }),
 							]);
 
 							await wait(smallWait);
-							const LavelleSprite: CutsceneSprite = {
+							const LavelleSprite1: CutsceneSprite = {
 								imgSrc: 'Lavelle',
 								coords: [3, 1],
-								position: [31, 14],
+								position: [30, 10],
 							};
-							await Promise.all([removeSprite(LavellePassedOutSprite), addSprite(LavelleSprite)]);
+							await Promise.all([removeSprite(LavellePassedOutSprite), addSprite(LavelleSprite1)]);
 							await wait(smallWait);
-							camera.fade('out', endWait * 2);
+							await camera.fade('out', endWait * 2);
 							break;
 						}
 						case 2: {
@@ -713,7 +719,7 @@ export const BluffsCutscene = () => {
 								coords: [0, 0],
 								position: [30, 10],
 							};
-							await turnSprite(Name3Sprite, 1);
+							await turnSprite(TeddySprite, 1);
 							await wait(smallWait);
 							setTimeout(() => {
 								removeSprite(LavellePassedOutSprite);
@@ -729,31 +735,32 @@ export const BluffsCutscene = () => {
 							await wait(smallWait);
 							await runInteraction('returnDialogue', ['fc5']);
 							await wait(smallWait);
-							if (timelineStore.PCKillsName3) {
-								const Name3DeadSprite: CutsceneSprite = {
-									imgSrc: 'Name3_Dead',
+							if (timelineStore.PCKillsTeddy) {
+								const TeddyDeadSprite: CutsceneSprite = {
+									imgSrc: 'Teddy_Dead',
 									coords: [0, 0],
 									position: [30, 11],
 								};
 
 								setTimeout(() => {
-									removeSprite(Name3Sprite);
-									addSprite(Name3DeadSprite);
+									removeSprite(TeddySprite);
+									addSprite(TeddyDeadSprite);
 								}, 100);
 
 								await Promise.all([
 									//playAudio('woodBreak.wav'),
 									showImage('Knife3.png', longWait, { fade: 'in-out', fadeDurationMs: 500 }),
 								]);
-								camera.fade('out', endWait);
+								await camera.fade('out', endWait);
 								break;
 							} else {
-								camera.fade('out', endWait * 2);
+								await camera.fade('out', endWait * 2);
 								break;
 							}
 						}
 						case 1: {
 							await Promise.all([
+								walkSprite(CharacterSprite, [29, 11], smallWait),
 								//playAudio('woodBreak.wav'),
 								showImage('Punch.png', longWait, { fade: 'in-out', fadeDurationMs: 500 }),
 							]);
@@ -775,49 +782,57 @@ export const BluffsCutscene = () => {
 							}, 100);
 							await Promise.all([
 								//playAudio('woodBreak.wav'),
-								showImage('Knife4.png', longWait, { fade: 'in-out', fadeDurationMs: 500 }),
+								showImage('Knife_4.png', longWait, { fade: 'in-out', fadeDurationMs: 500 }),
 							]);
-							await wait(smallWait);
-							const LavelleSprite: CutsceneSprite = {
+							await wait(longWait);
+							const LavelleSprite1: CutsceneSprite = {
 								imgSrc: 'Lavelle',
 								coords: [3, 1],
-								position: [31, 14],
+								position: [30, 10],
 							};
-							await Promise.all([removeSprite(LavellePassedOutSprite), addSprite(LavelleSprite)]);
-							await turnSprite(LavelleSprite, 0);
-							await walkSprite(LavelleSprite, [31, 14]);
-							await removeSprite(LavelleSprite);
-
-							await turnSprite(Name3Sprite, 1);
+							await Promise.all([removeSprite(LavellePassedOutSprite), addSprite(LavelleSprite1)]);
 							await wait(smallWait);
-							await turnSprite(Name3Sprite, 2);
+							await turnSprite(LavelleSprite1, 0);
+							await walkSprite(LavelleSprite1, [32, 10]);
+							await removeSprite(LavelleSprite1);
 							await wait(smallWait);
-							await turnSprite(Name3Sprite, 1);
+							await turnSprite(TeddySprite, 1);
 							await wait(smallWait);
-							await turnSprite(Name3Sprite, 2);
+							await turnSprite(TeddySprite, 2);
 							await wait(smallWait);
-							await turnSprite(Name3Sprite, 0);
+							await turnSprite(TeddySprite, 1);
+							await wait(smallWait);
+							await turnSprite(TeddySprite, 2);
+							await wait(smallWait);
+							await turnSprite(TeddySprite, 0);
 							await wait(smallWait);
 
 							const LavelleSpriteBack: CutsceneSprite = {
 								imgSrc: 'Lavelle',
 								coords: [3, 1],
-								position: [31, 9],
+								position: [32, 9],
 							};
 							const GuardSprite: CutsceneSprite = {
-								imgSrc: 'Lavelle',
+								imgSrc: 'Char07',
 								coords: [3, 1],
-								position: [31, 9],
+								position: [32, 9],
 							};
 							await addSprite(GuardSprite);
+							await wait(smallWait);
 							await walkSprite(GuardSprite, [30, 9], smallWait);
 							await addSprite(LavelleSpriteBack);
-							await Promise.all([
-								walkSprite(GuardSprite, [28, 9], smallWait),
-								walkSprite(LavelleSpriteBack, [29, 9], smallWait),
-							]);
 							await wait(smallWait);
-							camera.fade('out', endWait);
+							await Promise.all([
+								walkSprite(GuardSprite, [29, 9], smallWait),
+								walkSprite(LavelleSpriteBack, [30, 9], smallWait),
+								wait(smallWait),
+								turnSprite(GuardSprite, 2),
+								turnSprite(LavelleSpriteBack, 2),
+								turnSprite(TeddySprite, 1),
+							]);
+
+							await wait(longWait);
+							await camera.fade('out', endWait);
 							break;
 						}
 
@@ -832,7 +847,7 @@ export const BluffsCutscene = () => {
 								coords: [0, 0],
 								position: [29, 11],
 							};
-							await turnSprite(Name3Sprite, 1);
+							await turnSprite(TeddySprite, 1);
 							await runInteraction('noReturnDialogue', ['fcEnd0_0']);
 							// Switch unconscious Lavelle for the dead Lavelle with knife
 							await wait(500);
@@ -842,10 +857,10 @@ export const BluffsCutscene = () => {
 							addSprite(LavelleDeadSprite);
 							await Promise.all([
 								//playAudio('woodBreak.wav'),
-								showImage('Knife2.png', longWait, { fade: 'in-out', fadeDurationMs: 500 }),
+								showImage('Knife_2.png', longWait, { fade: 'in-out', fadeDurationMs: 500 }),
 							]);
 							await walkSprite(CharacterSprite, [29, 11], smallWait);
-							await turnSprite(Name3Sprite, 3);
+							await turnSprite(TeddySprite, 3);
 							await runInteraction('noReturnDialogue', ['fcEnd0_1alt']);
 							// Switch unconscious PC for the dead Lavelle with knife
 							setTimeout(() => {
@@ -854,9 +869,9 @@ export const BluffsCutscene = () => {
 							addSprite(CharacterDeadSprite);
 							await Promise.all([
 								//playAudio('woodBreak.wav'),
-								showImage('Knife4.png', longWait, { fade: 'in-out', fadeDurationMs: 500 }),
+								showImage('Knife_4.png', longWait, { fade: 'in-out', fadeDurationMs: 500 }),
 							]);
-							camera.fade('out', endWait);
+							await camera.fade('out', endWait);
 							break;
 						}
 					}
@@ -873,7 +888,7 @@ export const BluffsCutscene = () => {
 						coords: [0, 0],
 						position: [29, 11],
 					};
-					await turnSprite(Name3Sprite, 1);
+					await turnSprite(TeddySprite, 1);
 					await runInteraction('noReturnDialogue', ['fcEnd0_0']);
 					// Switch unconscious Lavelle for the dead Lavelle with knife
 					await wait(500);
@@ -883,10 +898,10 @@ export const BluffsCutscene = () => {
 					addSprite(LavelleDeadSprite);
 					await Promise.all([
 						//playAudio('woodBreak.wav'),
-						showImage('Knife2.png', longWait, { fade: 'in-out', fadeDurationMs: 500 }),
+						showImage('Knife_2.png', longWait, { fade: 'in-out', fadeDurationMs: 500 }),
 					]);
 					await walkSprite(CharacterSprite, [29, 11], smallWait);
-					await turnSprite(Name3Sprite, 3);
+					await turnSprite(TeddySprite, 3);
 					await runInteraction('noReturnDialogue', ['fcEnd0_1']);
 					// Switch unconscious PC for the dead Lavelle with knife
 					setTimeout(() => {
@@ -895,13 +910,15 @@ export const BluffsCutscene = () => {
 					addSprite(CharacterDeadSprite);
 					await Promise.all([
 						//playAudio('woodBreak.wav'),
-						showImage('Knife4.png', longWait, { fade: 'in-out', fadeDurationMs: 500 }),
+						showImage('Knife_4.png', longWait, { fade: 'in-out', fadeDurationMs: 500 }),
 					]);
 					await camera.fade('out', endWait);
+					timelineStore.endingChoice = 0;
 				}
+				useSettingsStore().openEndingsMenu();
 			}
-			// Lavelle watches Name4 die
-			else if (!timelineStore.Lavelle_home && !timelineStore.Name3_follow) {
+			// Lavelle watches Alex die
+			else if (!timelineStore.Lavelle_home && !timelineStore.Teddy_follow) {
 				const CharacterSprite: CutsceneSprite = {
 					imgSrc: character,
 					coords: [3, 1],
@@ -921,7 +938,7 @@ export const BluffsCutscene = () => {
 
 				setTimeout(() => {
 					removeSprite(CharacterSprite);
-					levelStore.cutsceneMatrix[26][11].layers[1].coord = [6, 5];
+					// levelStore.cutsceneMatrix[26][11].layers[1].coord = [6, 5];
 					levelStore.levelMatrix[26][11].layers[1].coord = [6, 5];
 				}, 100);
 				await Promise.all([
@@ -934,7 +951,7 @@ export const BluffsCutscene = () => {
 				turnSprite(LavelleSprite, 0);
 				await Promise.all([walkSprite(LavelleSprite, [31, 9], 100), camera.fade('out', smallWait)]);
 			}
-			// Name4 falls alone
+			// Alex falls alone
 			else {
 				const CharacterSprite: CutsceneSprite = {
 					imgSrc: character,
@@ -943,20 +960,21 @@ export const BluffsCutscene = () => {
 				};
 				addSprite(CharacterSprite);
 				await camera.fade('in', smallWait);
-
+				await wait(smallWait);
 				await walkSprite(CharacterSprite, [27, 11], smallWait);
-
-				await wait(1000);
+				await wait(smallWait);
 				setTimeout(() => {
 					removeSprite(CharacterSprite);
-					levelStore.cutsceneMatrix[26][11].layers[1].coord = [6, 5];
-				}, 100);
+					levelStore.levelMatrix[26][11].layers[1].coord = [6, 5];
+				}, 500);
 				await Promise.all([
 					//playAudio('woodBreak.wav'),
-					showImage('fenceBreak.png', longWait, { fade: 'in-out', fadeDurationMs: 500 }),
+					showImage('fenceBreak.png', 2000, { fade: 'in-out', fadeDurationMs: 500 }),
 				]);
-				timelineStore.Name4_dead = true;
-				await camera.fade('out', endWait);
+
+				await wait(smallWait);
+				timelineStore.Alex_dead = true;
+				await Promise.all([camera.fade('out', longWait)]);
 			}
 		},
 	);

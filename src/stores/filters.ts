@@ -7,11 +7,11 @@ export const useFilterStore = defineStore('filters', () => {
 	const background = computed((): string => {
 		switch (enabledFilter.value) {
 			case 'morning':
-				return 'radial-gradient(#00000020, #00000040 20%, #ffeeb960 95%)';
+				return 'radial-gradient(#00000020, #00000040 20%, #dc657160 95%)';
 			case 'night':
-				return 'radial-gradient(#00000063, #00000063 20%, #21214360 95%)';
+				return 'radial-gradient(#09094460, #09094480 20%, #090944ff 95%)';
 			case 'evening':
-				return 'radial-gradient(#00000020, #00000020 20%, #aa705f60 95%)';
+				return 'radial-gradient(#00000020, #00000020 20%, #da542f60 95%)';
 			default:
 				return '';
 		}

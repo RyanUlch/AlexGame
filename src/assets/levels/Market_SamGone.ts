@@ -5,6 +5,20 @@ const openMarket_SamGoneLevel = () => {
 	const pawnStore = usePawnStore();
 	const timelineStore = useTimelineStore();
 
+	if (timelineStore.farmSceneOccurred) {
+		const Alex: Sprite = {
+			spriteId: 'Alex',
+			spriteSrc: 'PC_Sleep_F',
+			isCharacter: true,
+			isAutoInteract: false,
+			position: [12, 26],
+			coords: [0, 1],
+			interactionName: 'noReturnDialogue',
+			interactionArgs: ['4e0', 'Alex'],
+		};
+		pawnStore.registerSprite(Alex);
+	}
+
 	const marketStall1: Sprite = {
 		spriteId: 'marketStall1',
 		spriteSrc: 'Char00',
@@ -211,7 +225,7 @@ const openMarket_SamGoneLevel = () => {
 		isAutoInteract: true,
 		position: [0, 14],
 		interactionName: 'openLevel',
-		interactionArgs: ['Bluffs'],
+		interactionArgs: ['Bluffs', [30, 8, 'n']],
 	};
 	const Bluffs2: Sprite = {
 		spriteId: 'Bluffs',
@@ -219,7 +233,7 @@ const openMarket_SamGoneLevel = () => {
 		isAutoInteract: true,
 		position: [0, 15],
 		interactionName: 'openLevel',
-		interactionArgs: ['Bluffs'],
+		interactionArgs: ['Bluffs', [30, 9, 'n']],
 	};
 	const Bluffs_Sign: Sprite = {
 		spriteId: 'Bluffs_Sign',

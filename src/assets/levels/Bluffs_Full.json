@@ -7582,10 +7582,10 @@
                     "layers": []
                 },
                 {
-                    "tileset": "Floors2",
+                    "tileset": "Special",
                     "tileCoord": [
-                        7,
-                        6
+                        3,
+                        1
                     ],
                     "impassible": false,
                     "isCharacter": false,
@@ -7595,7 +7595,7 @@
                     "tileset": "Floors2",
                     "tileCoord": [
                         8,
-                        7
+                        8
                     ],
                     "impassible": false,
                     "isCharacter": false,
@@ -7909,10 +7909,10 @@
                     "layers": []
                 },
                 {
-                    "tileset": "Floors3",
+                    "tileset": "Floors2",
                     "tileCoord": [
-                        3,
-                        0
+                        7,
+                        9
                     ],
                     "impassible": false,
                     "isCharacter": false,
@@ -7921,10 +7921,10 @@
                 {
                     "tileset": "Floors2",
                     "tileCoord": [
-                        7,
-                        9
+                        0,
+                        0
                     ],
-                    "impassible": false,
+                    "impassible": true,
                     "isCharacter": false,
                     "layers": []
                 },

@@ -1,16 +1,9 @@
 <script setup lang="ts">
 	import { useSettingsStore } from '@/stores/settings';
 	import { ref, onUpdated } from 'vue';
-	import { storeToRefs } from 'pinia';
 	import AppModal from './AppModal.vue';
 	import { AudioPlayer } from '@/Audio/Audio';
-	import exportSave from '../../save_load/save_export';
-	// import importSave from '../../save_load/save_import';
-	import save from '../../save_load/save_localStorage';
-	import load from '../../save_load/load_localStorage';
 	import { useLogComposable } from '@/composables/logComposable';
-
-	const { addLogLine } = useLogComposable();
 
 	const settingStore = useSettingsStore();
 
@@ -21,38 +14,6 @@
 		else AudioPlayer.unmute();
 		AudioPlayer.setVolume(volume.value / 100);
 	});
-
-	const loadFromStorage = () => {
-		if (load()) {
-			addLogLine('Loaded Save');
-		} else {
-			addLogLine('Failed to load Save');
-		}
-	};
-
-	const importFromFile = () => {
-		// if (importSave()) {
-		addLogLine('Imported Save');
-		// } else {
-		addLogLine('Failed to import Save');
-		// }
-	};
-
-	const saveToStorage = () => {
-		if (save()) {
-			addLogLine('Game Saved!');
-		} else {
-			addLogLine('Failed to save');
-		}
-	};
-
-	const exportToFile = () => {
-		if (exportSave('file')) {
-			addLogLine('Game Saved!');
-		} else {
-			addLogLine('Failed to export Save');
-		}
-	};
 </script>
 
 <template>
@@ -61,37 +22,39 @@
 		title="Settings"
 		@close="settingStore.closeSettingsMenu">
 		<template v-slot="modal">
-			<label for="load">Import Save</label>
+			<!-- <label for="load">Import Save</label>
 			<input
 				id="load"
 				type="file"
 				title="Load Save" />
 			<button :onClick="exportToFile">Export Save</button>
 			<button :onClick="saveToStorage">Save</button>
-			<button :onClick="loadFromStorage">Load</button>
-			<table>
-				<tr>
-					<td>Mute All Sounds:</td>
-					<td>
-						<input
-							type="checkbox"
-							id="muted"
-							name="muted"
-							v-model="muted" />
-					</td>
-					<td>Set Volume:</td>
-					<td>
-						<input
-							type="range"
-							id="vol"
-							name="vol"
-							min="0"
-							max="100"
-							v-model.number="volume" />
-					</td>
-				</tr>
-			</table>
-			<button @click="modal.close">Close</button>
+			<button :onClick="loadFromStorage">Load</button> -->
+			<div class="settingGroup">
+				<label for="muted">Mute All Sounds:&nbsp;</label>
+				<input
+					type="checkbox"
+					id="muted"
+					name="muted"
+					v-model="muted" />
+			</div>
+			<div class="settingGroup">
+				<label for="vol">Set Volume:</label>
+
+				<input
+					type="range"
+					id="vol"
+					name="vol"
+					min="0"
+					max="100"
+					v-model.number="volume" />
+			</div>
 		</template>
 	</AppModal>
 </template>
+
+<style scoped>
+	.settingGroup {
+		padding: 10px;
+	}
+</style>
