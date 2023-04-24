@@ -16,7 +16,6 @@ export const runInteraction = async (interactionName: string, interactionArgs: a
 
 	switch (interactionName) {
 		case 'openLevel':
-			console.log(interactionArgs[2]);
 			if (typeof interactionArgs[2] === 'string') audios[interactionArgs[2]]?.play();
 			await levelStore.openLevelArea(interactionArgs[0], interactionArgs[1]);
 			break;

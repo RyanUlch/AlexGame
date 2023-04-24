@@ -16,7 +16,7 @@ const select = audios['select'];
 
 const movementDirections: string[] = [];
 let movementInterval: number | undefined = undefined;
-const movementIntervalMs = 100;
+const movementIntervalMs = 175;
 let lastMovement: number | null = null;
 const move = (direction: string) => {
 	// If a prompt is open, capture input and handle it

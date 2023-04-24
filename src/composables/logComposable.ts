@@ -29,9 +29,6 @@ export const useLogComposable = () => {
 	};
 
 	const logLines = computed(() => {
-		if (import.meta.env.DEV) {
-			return log;
-		}
 		return log.filter((lineObj) => lineObj.dev === false);
 	});
 

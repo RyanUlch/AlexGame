@@ -35,7 +35,6 @@ export const playTrackAudio = async (
 	audio: AudioPlayer,
 	options = { fadeInterval: 0, loop: false },
 ) => {
-	console.log(track, audio, options);
 	if (track !== currentTrack) {
 		await stopTrackAudio(currentTrack, options);
 		currentTrack = track;

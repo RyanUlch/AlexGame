@@ -29,7 +29,11 @@ export const useTimelineStore = defineStore('timelineStore', () => {
 	const advanceTime = async () => {
 		const { fadeCamera } = useCutsceneStore();
 
-		if (levelStore.levelNameRef === 'Bluffs' || levelStore.levelNameRef === 'Bluffs_Broken') {
+		if (
+			levelStore.levelNameRef === 'Bluffs' ||
+			levelStore.levelNameRef === 'Bluffs_Broken' ||
+			levelStore.levelNameRef === 'Tavern'
+		) {
 			runInteraction('readout', ['Something prevents you from advancing time here']);
 			return;
 		}

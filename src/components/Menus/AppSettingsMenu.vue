@@ -7,7 +7,6 @@
 	const settingStore = useSettingsStore();
 	onUpdated(() => {
 		const volumeEle: HTMLInputElement | null = document.querySelector('#vol');
-		console.log(volumeEle);
 		if (volumeEle?.value) {
 			volumeEle.value = `${AudioPlayer.getVolume() * 100}`;
 		}
