@@ -42,7 +42,8 @@ export class AudioPlayer {
 		if (logging) console.log('played ' + this.audio.src);
 		return new Promise<void>((resolve) => {
 			if (!this.audio.paused) {
-				throw Error('audio already playing');
+				// throw Error('audio already playing');
+				return;
 			}
 			if (fadeInterval > 0) this.audio.volume = 0;
 			this.audio.play();
@@ -53,9 +54,13 @@ export class AudioPlayer {
 			});
 		});
 	}
+
 	playLoop(fadeInterval = 0): void {
 		if (logging) console.log('loop played ' + this.audio.src);
-		if (!this.audio.paused) throw Error('audio already playing');
+		if (!this.audio.paused) {
+			// throw Error('audio already playing');
+			return;
+		}
 		if (fadeInterval > 0) this.audio.volume = 0;
 		this.audio.play();
 		if (fadeInterval > 0) this.adjustVolume(1, { duration: fadeInterval });

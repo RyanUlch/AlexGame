@@ -6,6 +6,8 @@ import { usePawnStore } from './pawn';
 import { useTimelineStore } from './timeline';
 import { useLogComposable } from '@/composables/logComposable';
 import { useFilterStore } from './filters';
+import { audios, playTrackAudio } from '@/Audio/audios';
+import { AudioPlayer } from '@/Audio/Audio';
 import openSam_House_EmptyLevel from '../assets/levels/Sam_House_Empty';
 import openSam_House_FullLevel from '@/assets/levels/Sam_House_Full';
 import openSam_House_BedLevel from '@/assets/levels/Sam_House_Bed';
@@ -72,6 +74,8 @@ const levels: { [levelName: string]: () => void } = {
 	"Village":					openVillageLevel,
 };
 
+const overworld = audios['overworld'];
+
 export const useLevelStore = defineStore('levelStore', () => {
 	// State:
 	const levelMatrix = reactive<Tile[][]>([]);
@@ -88,6 +92,7 @@ export const useLevelStore = defineStore('levelStore', () => {
 		startingPos?: [number, number, string],
 	) => {
 		// addLogLine(`Entering: ${levelName}`);
+
 		pawnStore.cleanupSprites();
 		if (!levelName.includes('House') && !levelName.includes('Tavern')) {
 			switch (timelineStore.currentTime) {
@@ -127,8 +132,11 @@ export const useLevelStore = defineStore('levelStore', () => {
 	const openLevelArea = (levelName: string, startingPos?: [number, number, string]) => {
 		let destination: string;
 		levelNameRef.value = levelName;
+
 		switch (levelName) {
 			case 'Market':
+				playTrackAudio('overworld', overworld, { fadeInterval: 200, loop: true });
+				overworld.playLoop(200);
 				if (timelineStore.currentTime === 0 || timelineStore.currentTime === 1) {
 					destination = 'Market_Full';
 				} else if (timelineStore.currentTime === 2 && timelineStore.Lavelle_home) {

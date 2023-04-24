@@ -38,16 +38,15 @@
 	});
 	// levelStore.openLevel('Alex_House', false, [4, 7, 'w']); //, //[30, 9, 'n']);
 	onMounted(() => {
-		settings.openOpeningMenu();
+		// settings.openOpeningMenu();
 		if (false) {
 			// openingCutscene();
 		} else {
-			// timelineStore.currentTime = 3;
-			// timelineStore.Lavelle_toBluffs = true;
-			// timelineStore.Teddy_follow = true;
-			// levelStore.openLevel('Bluffs_Full', false, [31, 9, 'n']);
-			// timelineStore.gameStarted = true;
-			// timelineStore.endingChoice = 1;
+			timelineStore.currentTime = 1;
+
+			levelStore.openLevel('Bluffs_Full', false, [31, 9, 'n']);
+			timelineStore.gameStarted = true;
+			timelineStore.endingChoice = 1;
 		}
 	});
 

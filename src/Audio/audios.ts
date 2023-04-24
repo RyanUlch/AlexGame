@@ -8,6 +8,11 @@ export const audios: { [name: string]: AudioPlayer } = {
 	doorOpen: new AudioPlayer('src/assets/audio/dooropen.mp3'),
 	doorClose: new AudioPlayer('src/assets/audio/doorclose.mp3'),
 	newLog: new AudioPlayer('src/assets/audio/lilbeep.wav'),
+	select: new AudioPlayer('src/assets/audio/select.wav'),
+	blip: new AudioPlayer('src/assets/audio/menuBlip.wav'),
+	interaction: new AudioPlayer('src/assets/audio/interactionStart.wav'),
+	break: new AudioPlayer('src/assets/audio/woodBreak.wav'),
+	splash: new AudioPlayer('src/assets/audio/splash.wav'),
 };
 
 // These prevent multiple of the same kind of audio from being played at the same time

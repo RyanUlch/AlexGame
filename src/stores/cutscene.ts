@@ -8,6 +8,7 @@ import { runInteraction } from '@/assets/interactions/interactions';
 import { useTimelineStore } from './timeline';
 import { useFilterStore } from './filters';
 import { useSettingsStore } from './settings';
+import { audios } from '@/Audio/audios';
 
 export type CutsceneSprite = {
 	imgSrc: string;
@@ -201,6 +202,8 @@ export const openingCutscene = () => {
 		async ({ camera, wait, addSprite, removeSprite, walkSprite, playAudio, showImage }) => {
 			const filterStore = useFilterStore();
 			const levelStore = useLevelStore();
+			const wood = audios['break'];
+			const splash = audios['splash'];
 			filterStore.enableFilter('night');
 			const sprite: CutsceneSprite = {
 				imgSrc: 'PC_Dark',
@@ -218,13 +221,13 @@ export const openingCutscene = () => {
 				removeSprite(sprite);
 			}, 500);
 			await Promise.all([
-				//playAudio('woodBreak.wav'),
-				showImage('fenceBreak.png', 2000, { fade: 'in-out', fadeDurationMs: 500 }),
+				wood.play(),
+				showImage('fenceBreak.png', 1000, { fade: 'in-out', fadeDurationMs: 500 }),
 			]);
-
-			setTimeout(() => {
-				showImage('TitleScreen.png', 8000, { fade: 'in-out', fadeDurationMs: 2000 });
-			}, 2000);
+			splash.play(),
+				setTimeout(() => {
+					showImage('TitleScreen.png', 8000, { fade: 'in-out', fadeDurationMs: 2000 });
+				}, 2000);
 			await Promise.all([camera.move([8, 11], introLength)]);
 			await camera.fade('out', 1000);
 			await wait(3000);
@@ -533,6 +536,8 @@ export const BluffsCutscene = () => {
 			const pawnStore = usePawnStore();
 			const timelineStore = useTimelineStore();
 			const levelStore = useLevelStore();
+			const wood = audios['break'];
+			const splash = audios['splash'];
 			const character = `PC_F`;
 			const smallWait = 300;
 			const longWait = 1000;
@@ -968,10 +973,10 @@ export const BluffsCutscene = () => {
 					levelStore.levelMatrix[26][11].layers[1].coord = [6, 5];
 				}, 500);
 				await Promise.all([
-					//playAudio('woodBreak.wav'),
-					showImage('fenceBreak.png', 2000, { fade: 'in-out', fadeDurationMs: 500 }),
+					wood.play(),
+					showImage('fenceBreak.png', 1000, { fade: 'in-out', fadeDurationMs: 500 }),
 				]);
-
+				splash.play();
 				await wait(smallWait);
 				timelineStore.Alex_dead = true;
 				await Promise.all([camera.fade('out', longWait)]);

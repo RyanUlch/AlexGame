@@ -1,17 +1,24 @@
 <script setup lang="ts">
 	import { usePromptStore, type PromptChoice } from '@/stores/prompt';
 	import { storeToRefs } from 'pinia';
+	import { audios } from '@/Audio/audios';
 	import AppModalVue from './AppModal.vue';
 
 	const promptStore = usePromptStore();
 	const { options, resolver, selectedChoiceIndex } = storeToRefs(promptStore);
+	const select = audios['select'];
+	const blip = audios['blip'];
 
 	function handleChoiceClick(choice: PromptChoice) {
 		if (resolver.value === null) throw Error('no resolver registered for choice prompt');
+		select.play();
 		resolver.value(choice);
 	}
 	function handleChoiceMouseIn(index: number) {
-		selectedChoiceIndex.value = index;
+		if (selectedChoiceIndex.value !== index) {
+			selectedChoiceIndex.value = index;
+			blip.play();
+		}
 	}
 </script>
 

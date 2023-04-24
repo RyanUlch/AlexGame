@@ -1,13 +1,13 @@
 import { useLevelStore } from '@/stores/level';
 import { usePromptStore } from '@/stores/prompt';
 import { AudioPlayer } from '@/Audio/Audio';
+import { audios } from '@/Audio/audios';
 import { useLogComposable } from '@/composables/logComposable';
 import { useTimelineStore } from '@/stores/timeline';
 import { usePawnStore } from '@/stores/pawn';
-import { audios } from '@/Audio/audios';
 
 const openDoorSound = new AudioPlayer('src/assets/audio/doorOpen.mp3');
-
+const interact = audios['interaction'];
 // This is used both for player interacting with sprites, but also when a sprite "dies"
 export const runInteraction = async (interactionName: string, interactionArgs: any[]) => {
 	const levelStore = useLevelStore();
@@ -21,6 +21,7 @@ export const runInteraction = async (interactionName: string, interactionArgs: a
 			await levelStore.openLevelArea(interactionArgs[0], interactionArgs[1]);
 			break;
 		case 'noReturnDialogue':
+			interact.play();
 			if (
 				timelineStore.conversationsActivated[interactionArgs[0]] &&
 				interactionArgs[1] !== 'environment'
@@ -49,6 +50,7 @@ export const runInteraction = async (interactionName: string, interactionArgs: a
 			break;
 
 		case 'returnDialogue':
+			interact.play();
 			if (
 				timelineStore.conversationsActivated[interactionArgs[0]] &&
 				interactionArgs[1] !== 'environment'

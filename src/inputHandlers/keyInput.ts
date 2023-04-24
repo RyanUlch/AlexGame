@@ -1,6 +1,7 @@
 import { usePromptStore } from '@/stores/prompt';
 import { usePawnStore } from '@/stores/pawn';
 import { AudioPlayer } from '../Audio/Audio';
+import { audios } from '@/Audio/audios';
 import { useCutsceneStore } from '@/stores/cutscene';
 import { useSettingsStore } from '@/stores/settings';
 
@@ -10,7 +11,8 @@ type KeyHandlerMap = {
 
 const keyStatusMap: { [key: string]: boolean } = {};
 
-const blip = new AudioPlayer('src/assets/audio/menuBlip.wav');
+const blip = audios['blip'];
+const select = audios['select'];
 
 const movementDirections: string[] = [];
 let movementInterval: number | undefined = undefined;
@@ -60,6 +62,7 @@ const interact = () => {
 	// If a prompt is open, capture input and handle it
 	const promptStore = usePromptStore();
 	if (promptStore.promptIsOpen) {
+		select.play();
 		promptStore.selectChoice();
 		return;
 	}
