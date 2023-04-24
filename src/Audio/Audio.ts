@@ -49,6 +49,7 @@ export class AudioPlayer {
 	}
 
 	play(fadeInterval = 0): Promise<void> {
+		AudioPlayer.context.resume();
 		if (logging) console.log('played ' + this.audio.src);
 		return new Promise<void>((resolve) => {
 			if (!this.audio.paused) {
@@ -66,6 +67,7 @@ export class AudioPlayer {
 	}
 
 	playLoop(fadeInterval = 0): void {
+		AudioPlayer.context.resume();
 		if (logging) console.log('loop played ' + this.audio.src);
 		if (!this.audio.paused) {
 			// throw Error('audio already playing');
