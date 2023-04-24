@@ -24,7 +24,8 @@
                                 4
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -42,7 +43,8 @@
                                 5
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -52,7 +54,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -62,7 +65,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -72,7 +76,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -82,7 +87,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -92,7 +98,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -102,7 +109,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -112,7 +120,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -122,7 +131,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -140,7 +150,8 @@
                                 12
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -158,7 +169,8 @@
                                 13
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -168,7 +180,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -178,7 +191,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -188,7 +202,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -198,7 +213,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -208,7 +224,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -218,7 +235,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -228,7 +246,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -238,7 +257,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -256,7 +276,8 @@
                                 5
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -274,7 +295,8 @@
                                 6
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -292,7 +314,8 @@
                                 7
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -310,7 +333,8 @@
                                 8
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -328,7 +352,8 @@
                                 9
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -338,7 +363,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 }
             ]
         },
@@ -360,7 +386,8 @@
                                 4
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -378,7 +405,8 @@
                                 5
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -388,7 +416,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -398,7 +427,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -408,7 +438,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -418,7 +449,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -428,7 +460,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -446,7 +479,8 @@
                                 0
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -464,7 +498,8 @@
                                 1
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -482,7 +517,8 @@
                                 1
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -500,7 +536,8 @@
                                 1
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -518,7 +555,8 @@
                                 1
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -536,7 +574,8 @@
                                 1
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -554,7 +593,8 @@
                                 1
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -572,7 +612,8 @@
                                 1
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -590,7 +631,8 @@
                                 1
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -608,7 +650,8 @@
                                 1
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -626,7 +669,8 @@
                                 1
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -644,7 +688,8 @@
                                 1
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -662,7 +707,8 @@
                                 1
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -680,7 +726,8 @@
                                 5
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -698,7 +745,8 @@
                                 6
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -716,7 +764,8 @@
                                 7
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -734,7 +783,8 @@
                                 8
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -752,7 +802,8 @@
                                 9
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -762,7 +813,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 }
             ]
         },
@@ -776,7 +828,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -786,7 +839,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -796,7 +850,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -806,7 +861,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -816,7 +872,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -826,7 +883,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -836,7 +894,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -854,7 +913,8 @@
                                 2
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -872,7 +932,8 @@
                                 5
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -890,7 +951,8 @@
                                 5
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -900,25 +962,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
-                },
-                {
-                    "tileset": "Farm",
-                    "tileCoord": [
-                        9.5,
-                        0.5
-                    ],
-                    "impassible": false,
-                    "isCharacter": false,
-                    "layers": [
-                        {
-                            "src": "Farm",
-                            "coord": [
-                                11,
-                                5
-                            ]
-                        }
-                    ]
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -936,35 +981,8 @@
                                 5
                             ]
                         }
-                    ]
-                },
-                {
-                    "tileset": "Farm",
-                    "tileCoord": [
-                        9.5,
-                        0.5
                     ],
-                    "impassible": false,
-                    "isCharacter": false,
-                    "layers": []
-                },
-                {
-                    "tileset": "Farm",
-                    "tileCoord": [
-                        9.5,
-                        0.5
-                    ],
-                    "impassible": false,
-                    "isCharacter": false,
-                    "layers": [
-                        {
-                            "src": "Farm",
-                            "coord": [
-                                11,
-                                5
-                            ]
-                        }
-                    ]
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -982,7 +1000,8 @@
                                 5
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -992,25 +1011,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
-                },
-                {
-                    "tileset": "Farm",
-                    "tileCoord": [
-                        9.5,
-                        0.5
-                    ],
-                    "impassible": false,
-                    "isCharacter": false,
-                    "layers": [
-                        {
-                            "src": "Farm",
-                            "coord": [
-                                11,
-                                5
-                            ]
-                        }
-                    ]
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -1028,7 +1030,76 @@
                                 5
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
+                },
+                {
+                    "tileset": "Farm",
+                    "tileCoord": [
+                        9.5,
+                        0.5
+                    ],
+                    "impassible": false,
+                    "isCharacter": false,
+                    "layers": [
+                        {
+                            "src": "Farm",
+                            "coord": [
+                                11,
+                                5
+                            ]
+                        }
+                    ],
+                    "isOnTop": false
+                },
+                {
+                    "tileset": "Farm",
+                    "tileCoord": [
+                        9.5,
+                        0.5
+                    ],
+                    "impassible": false,
+                    "isCharacter": false,
+                    "layers": [],
+                    "isOnTop": false
+                },
+                {
+                    "tileset": "Farm",
+                    "tileCoord": [
+                        9.5,
+                        0.5
+                    ],
+                    "impassible": false,
+                    "isCharacter": false,
+                    "layers": [
+                        {
+                            "src": "Farm",
+                            "coord": [
+                                11,
+                                5
+                            ]
+                        }
+                    ],
+                    "isOnTop": false
+                },
+                {
+                    "tileset": "Farm",
+                    "tileCoord": [
+                        9.5,
+                        0.5
+                    ],
+                    "impassible": false,
+                    "isCharacter": false,
+                    "layers": [
+                        {
+                            "src": "Farm",
+                            "coord": [
+                                11,
+                                5
+                            ]
+                        }
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -1046,7 +1117,8 @@
                                 0
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -1064,7 +1136,8 @@
                                 5
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -1082,7 +1155,8 @@
                                 6
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -1100,7 +1174,8 @@
                                 7
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -1118,7 +1193,8 @@
                                 8
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -1136,7 +1212,8 @@
                                 9
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -1146,7 +1223,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 }
             ]
         },
@@ -1160,7 +1238,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -1170,7 +1249,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -1180,7 +1260,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -1190,7 +1271,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -1200,7 +1282,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -1210,7 +1293,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -1228,7 +1312,8 @@
                                 0
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -1246,7 +1331,8 @@
                                 2
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -1264,7 +1350,8 @@
                                 5
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -1282,7 +1369,8 @@
                                 5
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -1292,25 +1380,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
-                },
-                {
-                    "tileset": "Farm",
-                    "tileCoord": [
-                        9.5,
-                        0.5
-                    ],
-                    "impassible": false,
-                    "isCharacter": false,
-                    "layers": [
-                        {
-                            "src": "Farm",
-                            "coord": [
-                                12,
-                                5
-                            ]
-                        }
-                    ]
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -1328,35 +1399,8 @@
                                 5
                             ]
                         }
-                    ]
-                },
-                {
-                    "tileset": "Farm",
-                    "tileCoord": [
-                        9.5,
-                        0.5
                     ],
-                    "impassible": false,
-                    "isCharacter": false,
-                    "layers": []
-                },
-                {
-                    "tileset": "Farm",
-                    "tileCoord": [
-                        9.5,
-                        0.5
-                    ],
-                    "impassible": false,
-                    "isCharacter": false,
-                    "layers": [
-                        {
-                            "src": "Farm",
-                            "coord": [
-                                12,
-                                5
-                            ]
-                        }
-                    ]
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -1374,7 +1418,8 @@
                                 5
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -1384,25 +1429,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
-                },
-                {
-                    "tileset": "Farm",
-                    "tileCoord": [
-                        9.5,
-                        0.5
-                    ],
-                    "impassible": false,
-                    "isCharacter": false,
-                    "layers": [
-                        {
-                            "src": "Farm",
-                            "coord": [
-                                12,
-                                5
-                            ]
-                        }
-                    ]
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -1420,7 +1448,8 @@
                                 5
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -1430,7 +1459,76 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [
+                        {
+                            "src": "Farm",
+                            "coord": [
+                                12,
+                                5
+                            ]
+                        }
+                    ],
+                    "isOnTop": false
+                },
+                {
+                    "tileset": "Farm",
+                    "tileCoord": [
+                        9.5,
+                        0.5
+                    ],
+                    "impassible": false,
+                    "isCharacter": false,
+                    "layers": [],
+                    "isOnTop": false
+                },
+                {
+                    "tileset": "Farm",
+                    "tileCoord": [
+                        9.5,
+                        0.5
+                    ],
+                    "impassible": false,
+                    "isCharacter": false,
+                    "layers": [
+                        {
+                            "src": "Farm",
+                            "coord": [
+                                12,
+                                5
+                            ]
+                        }
+                    ],
+                    "isOnTop": false
+                },
+                {
+                    "tileset": "Farm",
+                    "tileCoord": [
+                        9.5,
+                        0.5
+                    ],
+                    "impassible": false,
+                    "isCharacter": false,
+                    "layers": [
+                        {
+                            "src": "Farm",
+                            "coord": [
+                                12,
+                                5
+                            ]
+                        }
+                    ],
+                    "isOnTop": false
+                },
+                {
+                    "tileset": "Farm",
+                    "tileCoord": [
+                        9.5,
+                        0.5
+                    ],
+                    "impassible": false,
+                    "isCharacter": false,
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -1448,7 +1546,8 @@
                                 5
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -1466,7 +1565,8 @@
                                 6
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -1484,7 +1584,8 @@
                                 7
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -1502,7 +1603,8 @@
                                 8
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -1520,7 +1622,8 @@
                                 9
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -1530,7 +1633,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 }
             ]
         },
@@ -1544,7 +1648,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -1554,7 +1659,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -1564,7 +1670,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -1574,7 +1681,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -1584,7 +1692,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -1594,7 +1703,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -1612,7 +1722,8 @@
                                 2
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -1622,25 +1733,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
-                },
-                {
-                    "tileset": "Farm",
-                    "tileCoord": [
-                        9.5,
-                        0.5
-                    ],
-                    "impassible": false,
-                    "isCharacter": false,
-                    "layers": [
-                        {
-                            "src": "Farm",
-                            "coord": [
-                                12,
-                                5
-                            ]
-                        }
-                    ]
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -1658,35 +1752,8 @@
                                 5
                             ]
                         }
-                    ]
-                },
-                {
-                    "tileset": "Farm",
-                    "tileCoord": [
-                        9.5,
-                        0.5
                     ],
-                    "impassible": false,
-                    "isCharacter": false,
-                    "layers": []
-                },
-                {
-                    "tileset": "Farm",
-                    "tileCoord": [
-                        9.5,
-                        0.5
-                    ],
-                    "impassible": false,
-                    "isCharacter": false,
-                    "layers": [
-                        {
-                            "src": "Farm",
-                            "coord": [
-                                12,
-                                5
-                            ]
-                        }
-                    ]
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -1704,7 +1771,8 @@
                                 5
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -1714,25 +1782,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
-                },
-                {
-                    "tileset": "Farm",
-                    "tileCoord": [
-                        9.5,
-                        0.5
-                    ],
-                    "impassible": false,
-                    "isCharacter": false,
-                    "layers": [
-                        {
-                            "src": "Farm",
-                            "coord": [
-                                12,
-                                5
-                            ]
-                        }
-                    ]
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -1750,35 +1801,8 @@
                                 5
                             ]
                         }
-                    ]
-                },
-                {
-                    "tileset": "Farm",
-                    "tileCoord": [
-                        9.5,
-                        0.5
                     ],
-                    "impassible": false,
-                    "isCharacter": false,
-                    "layers": []
-                },
-                {
-                    "tileset": "Farm",
-                    "tileCoord": [
-                        9.5,
-                        0.5
-                    ],
-                    "impassible": false,
-                    "isCharacter": false,
-                    "layers": [
-                        {
-                            "src": "Farm",
-                            "coord": [
-                                12,
-                                5
-                            ]
-                        }
-                    ]
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -1796,7 +1820,8 @@
                                 5
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -1806,7 +1831,106 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
+                },
+                {
+                    "tileset": "Farm",
+                    "tileCoord": [
+                        9.5,
+                        0.5
+                    ],
+                    "impassible": false,
+                    "isCharacter": false,
+                    "layers": [
+                        {
+                            "src": "Farm",
+                            "coord": [
+                                12,
+                                5
+                            ]
+                        }
+                    ],
+                    "isOnTop": false
+                },
+                {
+                    "tileset": "Farm",
+                    "tileCoord": [
+                        9.5,
+                        0.5
+                    ],
+                    "impassible": false,
+                    "isCharacter": false,
+                    "layers": [
+                        {
+                            "src": "Farm",
+                            "coord": [
+                                12,
+                                5
+                            ]
+                        }
+                    ],
+                    "isOnTop": false
+                },
+                {
+                    "tileset": "Farm",
+                    "tileCoord": [
+                        9.5,
+                        0.5
+                    ],
+                    "impassible": false,
+                    "isCharacter": false,
+                    "layers": [],
+                    "isOnTop": false
+                },
+                {
+                    "tileset": "Farm",
+                    "tileCoord": [
+                        9.5,
+                        0.5
+                    ],
+                    "impassible": false,
+                    "isCharacter": false,
+                    "layers": [
+                        {
+                            "src": "Farm",
+                            "coord": [
+                                12,
+                                5
+                            ]
+                        }
+                    ],
+                    "isOnTop": false
+                },
+                {
+                    "tileset": "Farm",
+                    "tileCoord": [
+                        9.5,
+                        0.5
+                    ],
+                    "impassible": false,
+                    "isCharacter": false,
+                    "layers": [
+                        {
+                            "src": "Farm",
+                            "coord": [
+                                12,
+                                5
+                            ]
+                        }
+                    ],
+                    "isOnTop": false
+                },
+                {
+                    "tileset": "Farm",
+                    "tileCoord": [
+                        9.5,
+                        0.5
+                    ],
+                    "impassible": false,
+                    "isCharacter": false,
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -1824,7 +1948,8 @@
                                 2
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -1834,7 +1959,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -1844,7 +1970,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -1862,7 +1989,8 @@
                                 13
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -1880,7 +2008,8 @@
                                 14
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -1898,7 +2027,8 @@
                                 15
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 }
             ]
         },
@@ -1912,7 +2042,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -1930,7 +2061,8 @@
                                 0
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -1948,7 +2080,8 @@
                                 1
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -1966,7 +2099,8 @@
                                 1
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -1984,7 +2118,8 @@
                                 1
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -2002,7 +2137,8 @@
                                 1
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -2020,7 +2156,8 @@
                                 2
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -2030,7 +2167,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -2048,7 +2186,8 @@
                                 5
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -2066,7 +2205,8 @@
                                 5
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -2076,7 +2216,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -2094,7 +2235,8 @@
                                 5
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -2112,7 +2254,8 @@
                                 5
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -2122,7 +2265,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -2140,7 +2284,8 @@
                                 5
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -2158,7 +2303,8 @@
                                 5
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -2168,25 +2314,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
-                },
-                {
-                    "tileset": "Farm",
-                    "tileCoord": [
-                        9.5,
-                        0.5
-                    ],
-                    "impassible": true,
-                    "isCharacter": false,
-                    "layers": [
-                        {
-                            "src": "Farm",
-                            "coord": [
-                                12,
-                                5
-                            ]
-                        }
-                    ]
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -2204,7 +2333,8 @@
                                 5
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -2214,7 +2344,27 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [
+                        {
+                            "src": "Farm",
+                            "coord": [
+                                12,
+                                5
+                            ]
+                        }
+                    ],
+                    "isOnTop": false
+                },
+                {
+                    "tileset": "Farm",
+                    "tileCoord": [
+                        9.5,
+                        0.5
+                    ],
+                    "impassible": false,
+                    "isCharacter": false,
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -2232,7 +2382,8 @@
                                 2
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -2242,7 +2393,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -2252,7 +2404,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -2270,7 +2423,8 @@
                                 13
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -2288,7 +2442,8 @@
                                 14
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -2306,7 +2461,8 @@
                                 15
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 }
             ]
         },
@@ -2320,7 +2476,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -2338,7 +2495,8 @@
                                 2
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -2348,35 +2506,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
-                },
-                {
-                    "tileset": "Farm",
-                    "tileCoord": [
-                        9.5,
-                        0.5
-                    ],
-                    "impassible": false,
-                    "isCharacter": false,
-                    "layers": [
-                        {
-                            "src": "Farm",
-                            "coord": [
-                                11,
-                                5
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "tileset": "Farm",
-                    "tileCoord": [
-                        9.5,
-                        0.5
-                    ],
-                    "impassible": false,
-                    "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -2394,7 +2525,19 @@
                                 5
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
+                },
+                {
+                    "tileset": "Farm",
+                    "tileCoord": [
+                        9.5,
+                        0.5
+                    ],
+                    "impassible": false,
+                    "isCharacter": false,
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -2412,7 +2555,8 @@
                                 5
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -2422,7 +2566,27 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [
+                        {
+                            "src": "Farm",
+                            "coord": [
+                                11,
+                                5
+                            ]
+                        }
+                    ],
+                    "isOnTop": false
+                },
+                {
+                    "tileset": "Farm",
+                    "tileCoord": [
+                        9.5,
+                        0.5
+                    ],
+                    "impassible": false,
+                    "isCharacter": false,
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -2440,7 +2604,8 @@
                                 5
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -2458,7 +2623,8 @@
                                 5
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -2468,25 +2634,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
-                },
-                {
-                    "tileset": "Farm",
-                    "tileCoord": [
-                        9.5,
-                        0.5
-                    ],
-                    "impassible": false,
-                    "isCharacter": false,
-                    "layers": [
-                        {
-                            "src": "Farm",
-                            "coord": [
-                                12,
-                                5
-                            ]
-                        }
-                    ]
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -2504,35 +2653,8 @@
                                 5
                             ]
                         }
-                    ]
-                },
-                {
-                    "tileset": "Farm",
-                    "tileCoord": [
-                        9.5,
-                        0.5
                     ],
-                    "impassible": false,
-                    "isCharacter": false,
-                    "layers": []
-                },
-                {
-                    "tileset": "Farm",
-                    "tileCoord": [
-                        9.5,
-                        0.5
-                    ],
-                    "impassible": false,
-                    "isCharacter": false,
-                    "layers": [
-                        {
-                            "src": "Farm",
-                            "coord": [
-                                12,
-                                5
-                            ]
-                        }
-                    ]
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -2550,7 +2672,8 @@
                                 5
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -2560,25 +2683,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
-                },
-                {
-                    "tileset": "Farm",
-                    "tileCoord": [
-                        9.5,
-                        0.5
-                    ],
-                    "impassible": false,
-                    "isCharacter": false,
-                    "layers": [
-                        {
-                            "src": "Farm",
-                            "coord": [
-                                12,
-                                5
-                            ]
-                        }
-                    ]
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -2596,7 +2702,8 @@
                                 5
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -2606,7 +2713,76 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [
+                        {
+                            "src": "Farm",
+                            "coord": [
+                                12,
+                                5
+                            ]
+                        }
+                    ],
+                    "isOnTop": false
+                },
+                {
+                    "tileset": "Farm",
+                    "tileCoord": [
+                        9.5,
+                        0.5
+                    ],
+                    "impassible": false,
+                    "isCharacter": false,
+                    "layers": [],
+                    "isOnTop": false
+                },
+                {
+                    "tileset": "Farm",
+                    "tileCoord": [
+                        9.5,
+                        0.5
+                    ],
+                    "impassible": false,
+                    "isCharacter": false,
+                    "layers": [
+                        {
+                            "src": "Farm",
+                            "coord": [
+                                12,
+                                5
+                            ]
+                        }
+                    ],
+                    "isOnTop": false
+                },
+                {
+                    "tileset": "Farm",
+                    "tileCoord": [
+                        9.5,
+                        0.5
+                    ],
+                    "impassible": false,
+                    "isCharacter": false,
+                    "layers": [
+                        {
+                            "src": "Farm",
+                            "coord": [
+                                12,
+                                5
+                            ]
+                        }
+                    ],
+                    "isOnTop": false
+                },
+                {
+                    "tileset": "Farm",
+                    "tileCoord": [
+                        9.5,
+                        0.5
+                    ],
+                    "impassible": false,
+                    "isCharacter": false,
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -2624,7 +2800,8 @@
                                 2
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Special",
@@ -2634,7 +2811,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Special",
@@ -2644,7 +2822,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -2654,7 +2833,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -2664,7 +2844,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -2674,7 +2855,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 }
             ]
         },
@@ -2688,7 +2870,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -2706,7 +2889,8 @@
                                 2
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -2716,35 +2900,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
-                },
-                {
-                    "tileset": "Farm",
-                    "tileCoord": [
-                        9.5,
-                        0.5
-                    ],
-                    "impassible": false,
-                    "isCharacter": false,
-                    "layers": [
-                        {
-                            "src": "Farm",
-                            "coord": [
-                                11,
-                                6
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "tileset": "Farm",
-                    "tileCoord": [
-                        9.5,
-                        0.5
-                    ],
-                    "impassible": false,
-                    "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -2762,7 +2919,19 @@
                                 6
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
+                },
+                {
+                    "tileset": "Farm",
+                    "tileCoord": [
+                        9.5,
+                        0.5
+                    ],
+                    "impassible": false,
+                    "isCharacter": false,
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -2780,35 +2949,8 @@
                                 6
                             ]
                         }
-                    ]
-                },
-                {
-                    "tileset": "Farm",
-                    "tileCoord": [
-                        9.5,
-                        0.5
                     ],
-                    "impassible": false,
-                    "isCharacter": false,
-                    "layers": []
-                },
-                {
-                    "tileset": "Farm",
-                    "tileCoord": [
-                        9.5,
-                        0.5
-                    ],
-                    "impassible": false,
-                    "isCharacter": false,
-                    "layers": [
-                        {
-                            "src": "Farm",
-                            "coord": [
-                                11,
-                                6
-                            ]
-                        }
-                    ]
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -2826,7 +2968,8 @@
                                 6
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -2836,25 +2979,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
-                },
-                {
-                    "tileset": "Farm",
-                    "tileCoord": [
-                        9.5,
-                        0.5
-                    ],
-                    "impassible": false,
-                    "isCharacter": false,
-                    "layers": [
-                        {
-                            "src": "Farm",
-                            "coord": [
-                                11,
-                                6
-                            ]
-                        }
-                    ]
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -2872,35 +2998,8 @@
                                 6
                             ]
                         }
-                    ]
-                },
-                {
-                    "tileset": "Farm",
-                    "tileCoord": [
-                        9.5,
-                        0.5
                     ],
-                    "impassible": false,
-                    "isCharacter": false,
-                    "layers": []
-                },
-                {
-                    "tileset": "Farm",
-                    "tileCoord": [
-                        9.5,
-                        0.5
-                    ],
-                    "impassible": false,
-                    "isCharacter": false,
-                    "layers": [
-                        {
-                            "src": "Farm",
-                            "coord": [
-                                11,
-                                6
-                            ]
-                        }
-                    ]
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -2918,7 +3017,8 @@
                                 6
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -2928,25 +3028,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
-                },
-                {
-                    "tileset": "Farm",
-                    "tileCoord": [
-                        9.5,
-                        0.5
-                    ],
-                    "impassible": false,
-                    "isCharacter": false,
-                    "layers": [
-                        {
-                            "src": "Farm",
-                            "coord": [
-                                11,
-                                6
-                            ]
-                        }
-                    ]
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -2964,7 +3047,8 @@
                                 6
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -2974,7 +3058,125 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [
+                        {
+                            "src": "Farm",
+                            "coord": [
+                                11,
+                                6
+                            ]
+                        }
+                    ],
+                    "isOnTop": false
+                },
+                {
+                    "tileset": "Farm",
+                    "tileCoord": [
+                        9.5,
+                        0.5
+                    ],
+                    "impassible": false,
+                    "isCharacter": false,
+                    "layers": [],
+                    "isOnTop": false
+                },
+                {
+                    "tileset": "Farm",
+                    "tileCoord": [
+                        9.5,
+                        0.5
+                    ],
+                    "impassible": false,
+                    "isCharacter": false,
+                    "layers": [
+                        {
+                            "src": "Farm",
+                            "coord": [
+                                11,
+                                6
+                            ]
+                        }
+                    ],
+                    "isOnTop": false
+                },
+                {
+                    "tileset": "Farm",
+                    "tileCoord": [
+                        9.5,
+                        0.5
+                    ],
+                    "impassible": false,
+                    "isCharacter": false,
+                    "layers": [
+                        {
+                            "src": "Farm",
+                            "coord": [
+                                11,
+                                6
+                            ]
+                        }
+                    ],
+                    "isOnTop": false
+                },
+                {
+                    "tileset": "Farm",
+                    "tileCoord": [
+                        9.5,
+                        0.5
+                    ],
+                    "impassible": false,
+                    "isCharacter": false,
+                    "layers": [],
+                    "isOnTop": false
+                },
+                {
+                    "tileset": "Farm",
+                    "tileCoord": [
+                        9.5,
+                        0.5
+                    ],
+                    "impassible": false,
+                    "isCharacter": false,
+                    "layers": [
+                        {
+                            "src": "Farm",
+                            "coord": [
+                                11,
+                                6
+                            ]
+                        }
+                    ],
+                    "isOnTop": false
+                },
+                {
+                    "tileset": "Farm",
+                    "tileCoord": [
+                        9.5,
+                        0.5
+                    ],
+                    "impassible": false,
+                    "isCharacter": false,
+                    "layers": [
+                        {
+                            "src": "Farm",
+                            "coord": [
+                                11,
+                                6
+                            ]
+                        }
+                    ],
+                    "isOnTop": false
+                },
+                {
+                    "tileset": "Farm",
+                    "tileCoord": [
+                        9.5,
+                        0.5
+                    ],
+                    "impassible": false,
+                    "isCharacter": false,
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -2992,7 +3194,8 @@
                                 2
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -3002,7 +3205,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -3020,7 +3224,8 @@
                                 2
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -3038,7 +3243,8 @@
                                 3
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -3048,7 +3254,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -3058,7 +3265,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 }
             ]
         },
@@ -3072,7 +3280,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -3090,7 +3299,8 @@
                                 2
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -3100,7 +3310,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -3110,7 +3321,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -3120,7 +3332,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -3130,7 +3343,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -3140,7 +3354,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -3150,7 +3365,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -3160,7 +3376,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -3170,7 +3387,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -3180,7 +3398,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -3190,7 +3409,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -3200,7 +3420,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -3210,7 +3431,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -3220,7 +3442,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -3230,7 +3453,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -3240,7 +3464,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -3250,7 +3475,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -3260,7 +3486,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -3270,7 +3497,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -3288,7 +3516,8 @@
                                 2
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -3298,7 +3527,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -3316,7 +3546,8 @@
                                 2
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -3334,7 +3565,8 @@
                                 3
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -3344,7 +3576,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -3354,7 +3587,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 }
             ]
         },
@@ -3368,7 +3602,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -3386,7 +3621,8 @@
                                 0
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -3404,7 +3640,8 @@
                                 1
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -3422,7 +3659,8 @@
                                 1
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -3440,7 +3678,8 @@
                                 1
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -3458,7 +3697,8 @@
                                 1
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -3476,7 +3716,8 @@
                                 1
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -3494,7 +3735,8 @@
                                 1
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -3512,7 +3754,8 @@
                                 1
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -3530,7 +3773,8 @@
                                 1
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -3548,7 +3792,8 @@
                                 1
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -3566,7 +3811,8 @@
                                 1
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -3584,7 +3830,8 @@
                                 1
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -3602,7 +3849,8 @@
                                 1
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -3620,7 +3868,8 @@
                                 1
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -3638,7 +3887,8 @@
                                 1
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -3656,7 +3906,8 @@
                                 1
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -3674,7 +3925,8 @@
                                 1
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -3692,7 +3944,8 @@
                                 1
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -3710,7 +3963,8 @@
                                 1
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm",
@@ -3728,7 +3982,8 @@
                                 2
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -3738,7 +3993,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -3748,7 +4004,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -3758,7 +4015,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -3768,7 +4026,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -3778,7 +4037,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 }
             ]
         },
@@ -3792,7 +4052,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -3802,7 +4063,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -3812,7 +4074,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -3822,7 +4085,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -3832,7 +4096,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -3842,7 +4107,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -3852,7 +4118,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -3862,7 +4129,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -3872,7 +4140,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -3882,7 +4151,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -3892,7 +4162,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -3902,7 +4173,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -3912,7 +4184,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -3922,7 +4195,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -3932,7 +4206,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -3942,7 +4217,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -3952,7 +4228,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -3962,7 +4239,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -3972,7 +4250,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -3982,7 +4261,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -3992,7 +4272,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Special",
@@ -4002,7 +4283,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -4012,7 +4294,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -4030,7 +4313,8 @@
                                 8
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -4048,7 +4332,8 @@
                                 9
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -4066,7 +4351,8 @@
                                 10
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 }
             ]
         },
@@ -4080,7 +4366,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -4090,7 +4377,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -4108,7 +4396,8 @@
                                 15
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -4118,7 +4407,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -4128,7 +4418,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -4138,7 +4429,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -4148,7 +4440,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -4158,7 +4451,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -4168,7 +4462,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -4178,7 +4473,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -4188,7 +4484,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -4198,7 +4495,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -4208,7 +4506,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -4218,7 +4517,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -4228,7 +4528,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -4238,7 +4539,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -4256,7 +4558,8 @@
                                 0
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -4274,7 +4577,8 @@
                                 1
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -4284,7 +4588,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -4294,7 +4599,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -4304,7 +4610,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -4314,7 +4621,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -4324,7 +4632,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -4342,7 +4651,8 @@
                                 8
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -4360,7 +4670,8 @@
                                 9
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Floors2",
@@ -4378,7 +4689,8 @@
                                 10
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 }
             ]
         }

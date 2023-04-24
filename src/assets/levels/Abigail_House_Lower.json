@@ -16,7 +16,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "WoodEdge0",
@@ -26,7 +27,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "WoodEdge0",
@@ -36,7 +38,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "WoodEdge0",
@@ -46,7 +49,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "WoodEdge0",
@@ -56,7 +60,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "WoodEdge0",
@@ -66,7 +71,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "WoodEdge0",
@@ -76,7 +82,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "WoodEdge0",
@@ -86,7 +93,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "WoodEdge0",
@@ -96,7 +104,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 }
             ]
         },
@@ -110,7 +119,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "WoodEdge0",
@@ -120,7 +130,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "HouseWall1",
@@ -130,7 +141,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "HouseWall1",
@@ -140,7 +152,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "HouseWall1",
@@ -150,7 +163,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "HouseWall1",
@@ -160,7 +174,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "WoodEdge0",
@@ -170,7 +185,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Beach_Indoor",
@@ -188,7 +204,8 @@
                                 1
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "WoodEdge0",
@@ -198,7 +215,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 }
             ]
         },
@@ -212,7 +230,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "WoodEdge0",
@@ -222,7 +241,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Beach_Indoor",
@@ -240,7 +260,8 @@
                                 1
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Beach_Indoor",
@@ -258,7 +279,8 @@
                                 1
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Beach_Indoor",
@@ -276,7 +298,8 @@
                                 1
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Beach_Indoor",
@@ -294,7 +317,8 @@
                                 1
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "WoodEdge0",
@@ -304,7 +328,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Bridges",
@@ -314,7 +339,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "WoodEdge0",
@@ -324,7 +350,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 }
             ]
         },
@@ -338,7 +365,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "WoodEdge0",
@@ -348,7 +376,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Beach_Indoor",
@@ -366,7 +395,8 @@
                                 14
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Beach_Indoor",
@@ -384,7 +414,8 @@
                                 15
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Beach_Indoor",
@@ -392,7 +423,7 @@
                         5,
                         10
                     ],
-                    "impassible": false,
+                    "impassible": true,
                     "isCharacter": false,
                     "layers": [
                         {
@@ -402,7 +433,8 @@
                                 12
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Beach_Indoor",
@@ -412,7 +444,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Beach_Indoor",
@@ -430,7 +463,8 @@
                                 3
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Bridges",
@@ -440,7 +474,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "WoodEdge0",
@@ -450,7 +485,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 }
             ]
         },
@@ -464,7 +500,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "WoodEdge0",
@@ -474,7 +511,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Beach_Indoor",
@@ -492,7 +530,8 @@
                                 14
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Beach_Indoor",
@@ -510,7 +549,8 @@
                                 15
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Beach_Indoor",
@@ -518,7 +558,7 @@
                         5,
                         10
                     ],
-                    "impassible": false,
+                    "impassible": true,
                     "isCharacter": false,
                     "layers": [
                         {
@@ -528,7 +568,8 @@
                                 12
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Beach_Indoor",
@@ -538,7 +579,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Beach_Indoor",
@@ -556,7 +598,8 @@
                                 3
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Beach_Indoor",
@@ -566,7 +609,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "WoodEdge0",
@@ -576,7 +620,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 }
             ]
         },
@@ -590,7 +635,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Beach_Indoor",
@@ -608,7 +654,8 @@
                                 2
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Beach_Indoor",
@@ -626,7 +673,8 @@
                                 12
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": true
                 },
                 {
                     "tileset": "Beach_Indoor",
@@ -644,7 +692,8 @@
                                 8
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Beach_Indoor",
@@ -662,7 +711,8 @@
                                 8.5
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Beach_Indoor",
@@ -680,7 +730,8 @@
                                 9
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Beach_Indoor",
@@ -690,7 +741,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Beach_Indoor",
@@ -708,7 +760,8 @@
                                 15
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": true
                 },
                 {
                     "tileset": "WoodEdge0",
@@ -718,7 +771,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 }
             ]
         },
@@ -732,7 +786,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "WoodEdge0",
@@ -742,7 +797,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Beach_Indoor",
@@ -760,7 +816,8 @@
                                 12
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Beach_Indoor",
@@ -778,7 +835,8 @@
                                 8
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Beach_Indoor",
@@ -796,7 +854,8 @@
                                 8.5
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Beach_Indoor",
@@ -814,7 +873,8 @@
                                 9
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Beach_Indoor",
@@ -824,7 +884,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Beach_Indoor",
@@ -842,7 +903,8 @@
                                 15
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "WoodEdge0",
@@ -852,7 +914,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 }
             ]
         },
@@ -866,7 +929,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "WoodEdge0",
@@ -876,7 +940,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "WoodEdge0",
@@ -886,7 +951,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "WoodEdge0",
@@ -896,7 +962,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Beach_Indoor",
@@ -914,7 +981,8 @@
                                 2
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "WoodEdge0",
@@ -924,7 +992,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "WoodEdge0",
@@ -934,7 +1003,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "WoodEdge0",
@@ -944,7 +1014,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "WoodEdge0",
@@ -954,7 +1025,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 }
             ]
         },
@@ -968,7 +1040,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm2",
@@ -978,7 +1051,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm2",
@@ -988,7 +1062,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "WoodEdge0",
@@ -998,7 +1073,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "WoodEdge0",
@@ -1008,7 +1084,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "WoodEdge0",
@@ -1018,7 +1095,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm2",
@@ -1028,7 +1106,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm2",
@@ -1038,7 +1117,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm2",
@@ -1048,7 +1128,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 }
             ]
         }

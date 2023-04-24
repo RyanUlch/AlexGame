@@ -37,6 +37,7 @@ interface Tile {
 	tileCoord: [number, number];
 	impassible: boolean;
 	isCharacter: boolean;
+	isOnTop: boolean;
 	layers: { src: string; coord: [number, number] }[];
 }
 
@@ -272,6 +273,7 @@ export const useLevelStore = defineStore('levelStore', () => {
 					tileCoord: column.tileCoord,
 					impassible: column.impassible,
 					isCharacter: column.isCharacter,
+					isOnTop: column.isOnTop,
 					layers: [],
 				});
 				for (const layer of column.layers) {

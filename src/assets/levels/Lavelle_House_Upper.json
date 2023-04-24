@@ -16,7 +16,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "WoodEdge0",
@@ -26,7 +27,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "WoodEdge0",
@@ -36,7 +38,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "WoodEdge0",
@@ -46,7 +49,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "WoodEdge0",
@@ -56,7 +60,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "WoodEdge0",
@@ -66,7 +71,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "WoodEdge0",
@@ -76,7 +82,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 }
             ]
         },
@@ -90,7 +97,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "HouseWall3",
@@ -100,7 +108,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "HouseWall3",
@@ -118,7 +127,8 @@
                                 8
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "HouseWall3",
@@ -136,7 +146,8 @@
                                 9
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "HouseWall3",
@@ -146,7 +157,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "HouseWall3",
@@ -156,7 +168,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "WoodEdge0",
@@ -166,7 +179,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 }
             ]
         },
@@ -180,7 +194,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "HouseWall3",
@@ -198,7 +213,8 @@
                                 3
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "HouseWall3",
@@ -216,7 +232,8 @@
                                 8
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "HouseWall3",
@@ -234,7 +251,8 @@
                                 9
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "HouseWall3",
@@ -252,7 +270,8 @@
                                 10
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "HouseWall3",
@@ -270,7 +289,8 @@
                                 3
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "WoodEdge0",
@@ -280,7 +300,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 }
             ]
         },
@@ -294,7 +315,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "HouseBases",
@@ -312,7 +334,8 @@
                                 3
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "HouseBases",
@@ -330,7 +353,8 @@
                                 8
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "HouseBases",
@@ -348,7 +372,8 @@
                                 9
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "HouseBases",
@@ -373,7 +398,8 @@
                                 12
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "HouseBases",
@@ -391,7 +417,8 @@
                                 3
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "WoodEdge0",
@@ -401,7 +428,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 }
             ]
         },
@@ -415,7 +443,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "HouseBases",
@@ -425,7 +454,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "HouseBases",
@@ -435,7 +465,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "HouseBases",
@@ -445,7 +476,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "HouseBases",
@@ -455,7 +487,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "HouseBases",
@@ -465,7 +498,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "WoodEdge0",
@@ -475,7 +509,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 }
             ]
         },
@@ -489,7 +524,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "HouseBases",
@@ -507,7 +543,8 @@
                                 9
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "HouseBases",
@@ -525,7 +562,8 @@
                                 10
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "HouseBases",
@@ -543,7 +581,8 @@
                                 11
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "HouseBases",
@@ -553,7 +592,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "HouseBases",
@@ -563,7 +603,8 @@
                     ],
                     "impassible": false,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "WoodEdge0",
@@ -573,7 +614,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 }
             ]
         },
@@ -587,7 +629,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "WoodEdge0",
@@ -597,7 +640,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "WoodEdge0",
@@ -607,7 +651,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "WoodEdge0",
@@ -617,7 +662,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "WoodEdge0",
@@ -627,7 +673,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "HouseBases",
@@ -645,7 +692,8 @@
                                 2
                             ]
                         }
-                    ]
+                    ],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "WoodEdge0",
@@ -655,7 +703,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 }
             ]
         },
@@ -669,7 +718,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm2",
@@ -679,7 +729,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm2",
@@ -689,7 +740,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "Farm2",
@@ -699,7 +751,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "WoodEdge0",
@@ -709,7 +762,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "WoodEdge0",
@@ -719,7 +773,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 },
                 {
                     "tileset": "WoodEdge0",
@@ -729,7 +784,8 @@
                     ],
                     "impassible": true,
                     "isCharacter": false,
-                    "layers": []
+                    "layers": [],
+                    "isOnTop": false
                 }
             ]
         }

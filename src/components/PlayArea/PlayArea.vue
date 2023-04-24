@@ -69,7 +69,7 @@
 									layer.coord[0] * (col.isCharacter ? 20 : 16)
 								}px`,
 								objectFit: 'none',
-								zIndex: col.impassible ? 0 : 5,
+								zIndex: col.isOnTop ? 5 : 0,
 							}"
 							:key="i" />
 						<template

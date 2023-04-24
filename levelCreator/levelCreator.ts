@@ -12,6 +12,7 @@ let jsonFile: {
 			impassible: boolean;
 			layers: { src: string; coord: [number, number] }[];
 			isCharacter: boolean;
+			isOnTop: boolean;
 		}[];
 		startX?: number;
 		startY?: number;
@@ -73,6 +74,7 @@ folder
 						impassible: cell[3] === 'true',
 						isCharacter: cell[4] === 'true',
 						layers: [],
+						isOnTop: false,
 					});
 					let indexMarker = 5;
 					while (cell[indexMarker]) {
@@ -82,13 +84,14 @@ folder
 						});
 						indexMarker += 3;
 					}
-				} else if (cell[0] === 'c') {
+				} else if (cell[0] === 'c' || cell[0] === 'd') {
 					jsonFile.rows[i].columns.push({
 						tileset: cell[1],
 						tileCoord: [+cell[2], +cell[3]],
 						impassible: cell[4] === 'true',
 						isCharacter: cell[5] === 'true',
 						layers: [],
+						isOnTop: cell[0] === 'd',
 					});
 					let indexMarker = 6;
 					while (cell[indexMarker]) {

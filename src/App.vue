@@ -108,7 +108,7 @@
 		height: 665px;
 		margin: 0 auto;
 		display: flex;
-		flex-wrap: wrap;
+		flex-wrap: nowrap;
 		border: var(--borderSize) solid var(--borderColor);
 		box-shadow: 20px 20px 30px black;
 	}
