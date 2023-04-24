@@ -17,14 +17,17 @@ export const audios: { [name: string]: AudioPlayer } = {
 
 // These prevent multiple of the same kind of audio from being played at the same time
 export const audioTracks: { [track: string]: AudioPlayer } = {};
+export const stopTrackAudio = async (track: string, options = { fadeInterval: 0 }) => {
+	if (audioTracks[track]) {
+		await audioTracks[track].stop(options.fadeInterval);
+	}
+};
 export const playTrackAudio = async (
 	track: string,
 	audio: AudioPlayer,
 	options = { fadeInterval: 0, loop: false },
 ) => {
-	if (audioTracks[track]) {
-		await audioTracks[track].stop(options.fadeInterval);
-	}
+	await stopTrackAudio(track, options);
 	audioTracks[track] = audio;
 	if (options.loop) audio.playLoop(options.fadeInterval);
 	else audio.play(options.fadeInterval);
