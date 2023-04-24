@@ -3,6 +3,8 @@ import { AudioPlayer } from './Audio';
 export const audios: { [name: string]: AudioPlayer } = {
 	// Scores
 	overworld: new AudioPlayer('src/assets/audio/overworld.mp3'),
+	final: new AudioPlayer('src/assets/audio/FinalTheme.mp3'),
+	inside: new AudioPlayer('src/assets/audio/inside.mp3'),
 
 	// Sound Effects
 	doorOpen: new AudioPlayer('src/assets/audio/dooropen.mp3'),
@@ -13,13 +15,19 @@ export const audios: { [name: string]: AudioPlayer } = {
 	interaction: new AudioPlayer('src/assets/audio/interactionStart.wav'),
 	break: new AudioPlayer('src/assets/audio/woodBreak.wav'),
 	splash: new AudioPlayer('src/assets/audio/splash.wav'),
+	stab: new AudioPlayer('src/assets/audio/knife.wav'),
+	steps: new AudioPlayer('src/assets/audio/steps.mp3'),
+	punch: new AudioPlayer('src/assets/audio/punch.mp3'),
+	warp: new AudioPlayer('src/assets/audio/warp.wav'),
 };
+
+let currentTrack = '';
 
 // These prevent multiple of the same kind of audio from being played at the same time
 export const audioTracks: { [track: string]: AudioPlayer } = {};
 export const stopTrackAudio = async (track: string, options = { fadeInterval: 0 }) => {
 	if (audioTracks[track]) {
-		await audioTracks[track].stop(options.fadeInterval);
+		await audioTracks[track].pause(options.fadeInterval);
 	}
 };
 export const playTrackAudio = async (
@@ -27,8 +35,12 @@ export const playTrackAudio = async (
 	audio: AudioPlayer,
 	options = { fadeInterval: 0, loop: false },
 ) => {
-	await stopTrackAudio(track, options);
-	audioTracks[track] = audio;
-	if (options.loop) audio.playLoop(options.fadeInterval);
-	else audio.play(options.fadeInterval);
+	console.log(track, audio, options);
+	if (track !== currentTrack) {
+		await stopTrackAudio(currentTrack, options);
+		currentTrack = track;
+		audioTracks[track] = audio;
+		if (options.loop) audio.playLoop(options.fadeInterval);
+		else audio.play(options.fadeInterval);
+	}
 };

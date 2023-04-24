@@ -54,7 +54,7 @@ const openLavelle_House_LowerClosedLevel = () => {
 		isAutoInteract: true,
 		position: [6, 4],
 		interactionName: 'openLevel',
-		interactionArgs: ['Village', [17, 14, 's']],
+		interactionArgs: ['Village', [17, 14, 's'], 'doorClose'],
 	};
 	pawnStore.registerSprite(Village);
 };

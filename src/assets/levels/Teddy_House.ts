@@ -62,7 +62,7 @@ const openTeddy_HouseLevel = () => {
 		isAutoInteract: true,
 		position: [8, 3],
 		interactionName: 'openLevel',
-		interactionArgs: ['Village', [33, 46, 's']],
+		interactionArgs: ['Village', [33, 46, 's'], 'doorClose'],
 	};
 	pawnStore.registerSprite(Village);
 };

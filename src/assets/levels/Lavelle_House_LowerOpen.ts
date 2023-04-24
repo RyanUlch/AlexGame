@@ -37,7 +37,7 @@ const openLavelle_House_LowerOpenLevel = () => {
 		isAutoInteract: false,
 		position: [2, 5],
 		interactionName: 'openLevel',
-		interactionArgs: ['2up', [5, 5, 'n']],
+		interactionArgs: ['2up', [5, 5, 'n'], 'doorOpen'],
 	};
 	pawnStore.registerSprite(LavelleHouse_Upper);
 
@@ -47,7 +47,7 @@ const openLavelle_House_LowerOpenLevel = () => {
 		isAutoInteract: true,
 		position: [6, 4],
 		interactionName: 'openLevel',
-		interactionArgs: ['Village', [17, 14, 's']],
+		interactionArgs: ['Village', [17, 14, 's'], 'doorClose'],
 	};
 	pawnStore.registerSprite(Village);
 };

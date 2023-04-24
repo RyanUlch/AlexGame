@@ -40,5 +40,15 @@ const openSam_House_BedLevel = () => {
 		interactionArgs: ['0n1', 'Sam'],
 	};
 	pawnStore.registerSprite(Sam);
+
+	const Village: Sprite = {
+		spriteId: 'Village',
+		isCharacter: false,
+		isAutoInteract: true,
+		position: [8, 5],
+		interactionName: 'openLevel',
+		interactionArgs: ['Village', [15, 41, 's'], 'doorClose'],
+	};
+	pawnStore.registerSprite(Village);
 };
 export default openSam_House_BedLevel;

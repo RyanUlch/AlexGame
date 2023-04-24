@@ -36,7 +36,7 @@ const openTavernLevel = () => {
 		isAutoInteract: true,
 		position: [9, 2],
 		interactionName: 'openLevel',
-		interactionArgs: ['Village', [34, 24, 's']],
+		interactionArgs: ['Village', [34, 24, 's'], 'doorClose'],
 	};
 	pawnStore.registerSprite(Exit);
 

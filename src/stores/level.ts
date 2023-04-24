@@ -7,7 +7,6 @@ import { useTimelineStore } from './timeline';
 import { useLogComposable } from '@/composables/logComposable';
 import { useFilterStore } from './filters';
 import { audios, playTrackAudio } from '@/Audio/audios';
-import { AudioPlayer } from '@/Audio/Audio';
 import openSam_House_EmptyLevel from '../assets/levels/Sam_House_Empty';
 import openSam_House_FullLevel from '@/assets/levels/Sam_House_Full';
 import openSam_House_BedLevel from '@/assets/levels/Sam_House_Bed';
@@ -75,6 +74,9 @@ const levels: { [levelName: string]: () => void } = {
 };
 
 const overworld = audios['overworld'];
+const final = audios['final'];
+const inside = audios['inside'];
+const doorOpen = audios['doorOpen'];
 
 export const useLevelStore = defineStore('levelStore', () => {
 	// State:
@@ -135,8 +137,7 @@ export const useLevelStore = defineStore('levelStore', () => {
 
 		switch (levelName) {
 			case 'Market':
-				playTrackAudio('overworld', overworld, { fadeInterval: 200, loop: true });
-				overworld.playLoop(200);
+				playTrackAudio('overworld', overworld, { fadeInterval: 500, loop: true });
 				if (timelineStore.currentTime === 0 || timelineStore.currentTime === 1) {
 					destination = 'Market_Full';
 				} else if (timelineStore.currentTime === 2 && timelineStore.Lavelle_home) {
@@ -148,6 +149,7 @@ export const useLevelStore = defineStore('levelStore', () => {
 				}
 				break;
 			case 'Farm':
+				playTrackAudio('overworld', overworld, { fadeInterval: 500, loop: true });
 				if (timelineStore.currentTime === 0 || timelineStore.currentTime === 1) {
 					destination = 'Farm_Full';
 				} else if (timelineStore.currentTime === 2) {
@@ -159,6 +161,11 @@ export const useLevelStore = defineStore('levelStore', () => {
 				}
 				break;
 			case 'Bluffs':
+				if (timelineStore.currentTime === 3) {
+					playTrackAudio('final', final, { fadeInterval: 500, loop: true });
+				} else {
+					playTrackAudio('overworld', overworld, { fadeInterval: 500, loop: true });
+				}
 				if (timelineStore.Alex_dead) {
 					destination = 'Bluffs_Broken';
 				} else {
@@ -166,12 +173,15 @@ export const useLevelStore = defineStore('levelStore', () => {
 				}
 				break;
 			case 'Village':
+				playTrackAudio('overworld', overworld, { fadeInterval: 500, loop: true });
 				destination = 'Village';
 				break;
 			case 'Tavern':
+				playTrackAudio('inside', inside, { fadeInterval: 500, loop: true });
 				destination = 'Tavern';
 				break;
 			case '0':
+				playTrackAudio('inside', inside, { fadeInterval: 500, loop: true });
 				if (timelineStore.Sam_Moving && timelineStore.currentTime === 3) {
 					destination = 'Sam_House_Empty';
 				} else if (
@@ -185,9 +195,11 @@ export const useLevelStore = defineStore('levelStore', () => {
 				}
 				break;
 			case '1':
+				playTrackAudio('inside', inside, { fadeInterval: 500, loop: true });
 				destination = 'Abigail_House_Lower';
 				break;
 			case '1up':
+				playTrackAudio('inside', inside, { fadeInterval: 500, loop: true });
 				if (timelineStore.currentTime === 3) {
 					if (!timelineStore.Abigail_angry && timelineStore.Sam_atFarm) {
 						destination = 'Abigail_House_UpperBedBoth';
@@ -205,11 +217,11 @@ export const useLevelStore = defineStore('levelStore', () => {
 					destination = 'Abigail_House_UpperBedBoth';
 				} else if (timelineStore.Abigail_GaveUp && timelineStore.currentTime === 3) {
 					destination = 'Abigail_House_UpperBed';
-				} else {
 				}
 
 				break;
 			case '2':
+				playTrackAudio('inside', inside, { fadeInterval: 500, loop: true });
 				if (timelineStore.currentTime === 0 || timelineStore.currentTime === 3) {
 					destination = 'Lavelle_House_LowerOpen';
 				} else {
@@ -217,16 +229,20 @@ export const useLevelStore = defineStore('levelStore', () => {
 				}
 				break;
 			case '2up':
+				playTrackAudio('inside', inside, { fadeInterval: 500, loop: true });
 				destination = 'Lavelle_House_Upper';
 				break;
 			case '3':
+				playTrackAudio('inside', inside, { fadeInterval: 500, loop: true });
 				destination = 'Teddy_House';
 				break;
 			case '4':
+				playTrackAudio('inside', inside, { fadeInterval: 500, loop: true });
 				destination = 'Alex_House';
 				break;
 
 			default:
+				playTrackAudio('inside', inside, { fadeInterval: 500, loop: true });
 				destination = 'Alex_House';
 		}
 		openLevel(destination, false, startingPos);

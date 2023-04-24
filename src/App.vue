@@ -15,6 +15,7 @@
 	import { onBeforeUpdate, onMounted } from 'vue';
 	import { openingCutscene } from './stores/cutscene';
 	import { useFilterStore } from './stores/filters';
+	import { AudioPlayer } from './Audio/Audio';
 	const timelineStore = useTimelineStore();
 	const settings = useSettingsStore();
 	const playerStore = usePawnStore();
@@ -38,15 +39,26 @@
 	});
 	// levelStore.openLevel('Alex_House', false, [4, 7, 'w']); //, //[30, 9, 'n']);
 	onMounted(() => {
-		// settings.openOpeningMenu();
+		const muted = localStorage.getItem('muted');
+		if (muted === 'true') {
+			AudioPlayer.mute();
+		} else {
+			AudioPlayer.unmute();
+		}
+
+		const volume = localStorage.getItem('volume');
+		if (volume) {
+			AudioPlayer.setVolume(+volume / 100);
+		}
+
+		settings.openOpeningMenu();
 		if (false) {
 			// openingCutscene();
 		} else {
-			timelineStore.currentTime = 1;
-
-			levelStore.openLevel('Bluffs_Full', false, [31, 9, 'n']);
-			timelineStore.gameStarted = true;
-			timelineStore.endingChoice = 1;
+			// timelineStore.currentTime = 0;
+			// levelStore.openLevel('Bluffs_Full', false, [31, 9, 'n']);
+			// timelineStore.gameStarted = true;
+			// timelineStore.endingChoice = 1;
 		}
 	});
 
@@ -74,7 +86,7 @@
 				<MenuButton
 					:modalHandler="settings.openSettingsMenu"
 					imgFileName="Menu"
-					tooltip="Open the settings" />
+					tooltip="Open settings" />
 				<MenuButton
 					:modalHandler="settings.openCreditsMenu"
 					imgFileName="Credits"
@@ -98,6 +110,7 @@
 		display: flex;
 		flex-wrap: wrap;
 		border: var(--borderSize) solid var(--borderColor);
+		box-shadow: 20px 20px 30px black;
 	}
 
 	#modal-target {

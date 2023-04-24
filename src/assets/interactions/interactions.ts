@@ -6,17 +6,17 @@ import { useLogComposable } from '@/composables/logComposable';
 import { useTimelineStore } from '@/stores/timeline';
 import { usePawnStore } from '@/stores/pawn';
 
-const openDoorSound = new AudioPlayer('src/assets/audio/doorOpen.mp3');
-const interact = audios['interaction'];
 // This is used both for player interacting with sprites, but also when a sprite "dies"
 export const runInteraction = async (interactionName: string, interactionArgs: any[]) => {
 	const levelStore = useLevelStore();
 	const timelineStore = useTimelineStore();
 	const pawnStore = usePawnStore();
 	const { addLogLine } = useLogComposable();
+	const interact = audios['interaction'];
 
 	switch (interactionName) {
 		case 'openLevel':
+			console.log(interactionArgs[2]);
 			if (typeof interactionArgs[2] === 'string') audios[interactionArgs[2]]?.play();
 			await levelStore.openLevelArea(interactionArgs[0], interactionArgs[1]);
 			break;
@@ -43,9 +43,6 @@ export const runInteraction = async (interactionName: string, interactionArgs: a
 			} else {
 				await usePromptStore().doConversation(interactionArgs[0]);
 				timelineStore.conversationsActivated[interactionArgs[0]] = true;
-				// if (interactionArgs[1] !== 'environment') {
-				// 	addLogLine(`Interacted with ${interactionArgs[1]} ${timelineStore.currentTimeString}`);
-				// }
 			}
 			break;
 

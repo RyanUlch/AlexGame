@@ -4,12 +4,12 @@ const openAbigail_House_LowerLevel = () => {
 	const pawnStore = usePawnStore();
 
 	const UpStairs: Sprite = {
-		spriteId: 'FarmPath',
+		spriteId: 'upstairs',
 		isCharacter: false,
 		isAutoInteract: true,
 		position: [3, 7],
 		interactionName: 'openLevel',
-		interactionArgs: ['1up', [3, 4, 's']],
+		interactionArgs: ['1up', [3, 4, 's'], 'steps'],
 	};
 	pawnStore.registerSprite(UpStairs);
 
@@ -19,7 +19,7 @@ const openAbigail_House_LowerLevel = () => {
 		isAutoInteract: true,
 		position: [7, 4],
 		interactionName: 'openLevel',
-		interactionArgs: ['Farm', [4, 22, 's']],
+		interactionArgs: ['Farm', [4, 22, 's'], 'doorClose'],
 	};
 	pawnStore.registerSprite(FarmPath);
 	const Farm: Sprite = {
@@ -28,7 +28,7 @@ const openAbigail_House_LowerLevel = () => {
 		isAutoInteract: true,
 		position: [5, 1],
 		interactionName: 'openLevel',
-		interactionArgs: ['Farm', [2, 19, 'w']],
+		interactionArgs: ['Farm', [2, 19, 'w'], 'doorClose'],
 	};
 	pawnStore.registerSprite(Farm);
 };

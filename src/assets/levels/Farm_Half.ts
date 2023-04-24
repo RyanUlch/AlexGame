@@ -80,7 +80,7 @@ const openFarm_HalfLevel = () => {
 		isAutoInteract: false,
 		position: [3, 22],
 		interactionName: 'openLevel',
-		interactionArgs: ['1', [6, 4, 'n']],
+		interactionArgs: ['1', [6, 4, 'n'], 'doorOpen'],
 	};
 	const House2: Sprite = {
 		spriteId: 'House2',
@@ -88,7 +88,7 @@ const openFarm_HalfLevel = () => {
 		isAutoInteract: true,
 		position: [2, 19],
 		interactionName: 'openLevel',
-		interactionArgs: ['1', [5, 2, 'e']],
+		interactionArgs: ['1', [5, 2, 'e'], 'doorOpen'],
 	};
 	pawnStore.registerSprite(House1);
 	pawnStore.registerSprite(House2);

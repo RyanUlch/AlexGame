@@ -56,7 +56,7 @@ const openAbigail_House_UpperLevel = () => {
 		isAutoInteract: true,
 		position: [3, 5],
 		interactionName: 'openLevel',
-		interactionArgs: ['1', [4, 7, 's']],
+		interactionArgs: ['1', [4, 7, 's'], 'steps'],
 	};
 	pawnStore.registerSprite(Lower);
 };

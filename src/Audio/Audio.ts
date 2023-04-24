@@ -3,7 +3,7 @@ function swing(p: number) {
 	return 0.5 - Math.cos(p * Math.PI) / 2;
 }
 
-const logging = true;
+const logging = false;
 
 const context = new AudioContext();
 const gain = context.createGain();
@@ -18,16 +18,26 @@ export class AudioPlayer {
 	static context = context;
 	static gain = gain;
 	static unmuteValue = 1;
+	static isMuted = false;
 
 	static mute() {
 		AudioPlayer.unmuteValue = AudioPlayer.gain.gain.value;
 		AudioPlayer.gain.gain.value = 0;
+		AudioPlayer.isMuted = true;
 	}
 	static unmute() {
 		AudioPlayer.gain.gain.value = AudioPlayer.unmuteValue;
+		AudioPlayer.isMuted = false;
 	}
 	static setVolume(volume: number) {
 		AudioPlayer.gain.gain.value = volume;
+	}
+
+	static getVolume() {
+		return AudioPlayer.gain.gain.value;
+	}
+	static getIsMuted() {
+		return AudioPlayer.isMuted;
 	}
 
 	audio: HTMLAudioElement;
@@ -81,6 +91,22 @@ export class AudioPlayer {
 			this.adjustVolume(0, { duration: fadeInterval }).then(() => {
 				this.audio.pause();
 				this.audio.currentTime = 0;
+				this.audio.volume = 1;
+				resolve();
+			});
+		});
+	}
+
+	pause(fadeInterval = 0): Promise<void> {
+		if (logging) console.log('stopped ' + this.audio.src);
+		if (this.loopListener) {
+			this.audio.removeEventListener('ended', this.loopListener);
+			this.loopListener = null;
+		}
+		return new Promise((resolve) => {
+			this.adjustVolume(0, { duration: fadeInterval }).then(() => {
+				this.audio.pause();
+				// this.audio.currentTime = 0;
 				this.audio.volume = 1;
 				resolve();
 			});

@@ -8,7 +8,7 @@ import { runInteraction } from '@/assets/interactions/interactions';
 import { useTimelineStore } from './timeline';
 import { useFilterStore } from './filters';
 import { useSettingsStore } from './settings';
-import { audios } from '@/Audio/audios';
+import { audios, playTrackAudio } from '@/Audio/audios';
 
 export type CutsceneSprite = {
 	imgSrc: string;
@@ -186,6 +186,7 @@ export const useCutsceneStore = defineStore('cutscene', () => {
 	};
 
 	return {
+		fadeCamera,
 		cutsceneActive,
 		cutsceneCameraPosition,
 		curtainOpacity,
@@ -204,6 +205,9 @@ export const openingCutscene = () => {
 			const levelStore = useLevelStore();
 			const wood = audios['break'];
 			const splash = audios['splash'];
+			const final = audios['final'];
+			const inside = audios['inside'];
+			playTrackAudio('final', final, { fadeInterval: 1000, loop: true });
 			filterStore.enableFilter('night');
 			const sprite: CutsceneSprite = {
 				imgSrc: 'PC_Dark',
@@ -226,7 +230,7 @@ export const openingCutscene = () => {
 			]);
 			splash.play(),
 				setTimeout(() => {
-					showImage('TitleScreen.png', 8000, { fade: 'in-out', fadeDurationMs: 2000 });
+					showImage('TitleScreen.png', 20000, { fade: 'in-out', fadeDurationMs: 2000 });
 				}, 2000);
 			await Promise.all([camera.move([8, 11], introLength)]);
 			await camera.fade('out', 1000);
@@ -237,6 +241,7 @@ export const openingCutscene = () => {
 			await camera.move([4, 7]);
 			levelStore.cutsceneMatrix = [];
 			await camera.fade('in', 1000);
+			playTrackAudio('inside', inside, { fadeInterval: 1000, loop: true });
 			useTimelineStore().gameStarted = true;
 		},
 	);
@@ -255,6 +260,7 @@ export const altarCutscene = () => {
 			turnSprite,
 			playAudio,
 		}) => {
+			const knife = audios['stab'];
 			// Add PC, Character 0, and Character 1
 			const LavelleSprite: CutsceneSprite = {
 				imgSrc: 'Lavelle',
@@ -296,7 +302,7 @@ export const altarCutscene = () => {
 			}, 100);
 
 			await Promise.all([
-				//playAudio('woodBreak.wav'),
+				knife.play(),
 				showImage('KnifeIndoor.png', 1000, { fade: 'in-out', fadeDurationMs: 500 }),
 			]);
 			await wait(1000);
@@ -538,6 +544,8 @@ export const BluffsCutscene = () => {
 			const levelStore = useLevelStore();
 			const wood = audios['break'];
 			const splash = audios['splash'];
+			const knife = audios['stab'];
+			const punch = audios['punch'];
 			const character = `PC_F`;
 			const smallWait = 300;
 			const longWait = 1000;
@@ -616,7 +624,7 @@ export const BluffsCutscene = () => {
 				}, 100);
 
 				await Promise.all([
-					//playAudio('woodBreak.wav'),
+					punch.play(),
 					showImage('punch1.png', longWait, { fade: 'in-out', fadeDurationMs: 500 }),
 				]);
 				await wait(longWait);
@@ -670,7 +678,7 @@ export const BluffsCutscene = () => {
 							}, 100);
 
 							await Promise.all([
-								//playAudio('woodBreak.wav'),
+								knife.play(),
 								showImage('Knife_2.png', longWait, { fade: 'in-out', fadeDurationMs: 500 }),
 							]);
 							await wait(smallWait);
@@ -685,7 +693,7 @@ export const BluffsCutscene = () => {
 							}, 100);
 
 							await Promise.all([
-								//playAudio('woodBreak.wav'),
+								knife.play(),
 								showImage('Knife_3.png', longWait, { fade: 'in-out', fadeDurationMs: 500 }),
 							]);
 							await camera.fade('out', endWait * 2);
@@ -703,7 +711,7 @@ export const BluffsCutscene = () => {
 							}, 100);
 
 							await Promise.all([
-								//playAudio('woodBreak.wav'),
+								knife.play(),
 								showImage('Knife_3.png', longWait, { fade: 'in-out', fadeDurationMs: 500 }),
 							]);
 
@@ -732,7 +740,7 @@ export const BluffsCutscene = () => {
 							}, 100);
 
 							await Promise.all([
-								//playAudio('woodBreak.wav'),
+								knife.play(),
 								showImage('Knife2.png', longWait, { fade: 'in-out', fadeDurationMs: 500 }),
 							]);
 							await wait(smallWait);
@@ -753,7 +761,7 @@ export const BluffsCutscene = () => {
 								}, 100);
 
 								await Promise.all([
-									//playAudio('woodBreak.wav'),
+									knife.play(),
 									showImage('Knife3.png', longWait, { fade: 'in-out', fadeDurationMs: 500 }),
 								]);
 								await camera.fade('out', endWait);
@@ -766,12 +774,12 @@ export const BluffsCutscene = () => {
 						case 1: {
 							await Promise.all([
 								walkSprite(CharacterSprite, [29, 11], smallWait),
-								//playAudio('woodBreak.wav'),
+								punch.play(),
 								showImage('Punch.png', longWait, { fade: 'in-out', fadeDurationMs: 500 }),
 							]);
 							await wait(smallWait);
 							await Promise.all([
-								//playAudio('woodBreak.wav'),
+								punch.play(),
 								showImage('Punch1.png', longWait, { fade: 'in-out', fadeDurationMs: 500 }),
 							]);
 							await wait(smallWait);
@@ -786,7 +794,7 @@ export const BluffsCutscene = () => {
 								addSprite(CharacterDeadSprite);
 							}, 100);
 							await Promise.all([
-								//playAudio('woodBreak.wav'),
+								knife.play(),
 								showImage('Knife_4.png', longWait, { fade: 'in-out', fadeDurationMs: 500 }),
 							]);
 							await wait(longWait);
@@ -861,7 +869,7 @@ export const BluffsCutscene = () => {
 							}, 100);
 							addSprite(LavelleDeadSprite);
 							await Promise.all([
-								//playAudio('woodBreak.wav'),
+								knife.play(),
 								showImage('Knife_2.png', longWait, { fade: 'in-out', fadeDurationMs: 500 }),
 							]);
 							await walkSprite(CharacterSprite, [29, 11], smallWait);
@@ -873,7 +881,7 @@ export const BluffsCutscene = () => {
 							}, 100);
 							addSprite(CharacterDeadSprite);
 							await Promise.all([
-								//playAudio('woodBreak.wav'),
+								knife.play(),
 								showImage('Knife_4.png', longWait, { fade: 'in-out', fadeDurationMs: 500 }),
 							]);
 							await camera.fade('out', endWait);
@@ -902,7 +910,7 @@ export const BluffsCutscene = () => {
 					}, 100);
 					addSprite(LavelleDeadSprite);
 					await Promise.all([
-						//playAudio('woodBreak.wav'),
+						knife.play(),
 						showImage('Knife_2.png', longWait, { fade: 'in-out', fadeDurationMs: 500 }),
 					]);
 					await walkSprite(CharacterSprite, [29, 11], smallWait);
@@ -914,7 +922,7 @@ export const BluffsCutscene = () => {
 					}, 100);
 					addSprite(CharacterDeadSprite);
 					await Promise.all([
-						//playAudio('woodBreak.wav'),
+						knife.play(),
 						showImage('Knife_4.png', longWait, { fade: 'in-out', fadeDurationMs: 500 }),
 					]);
 					await camera.fade('out', endWait);
@@ -947,10 +955,10 @@ export const BluffsCutscene = () => {
 					levelStore.levelMatrix[26][11].layers[1].coord = [6, 5];
 				}, 100);
 				await Promise.all([
-					//playAudio('woodBreak.wav'),
+					wood.play(),
 					showImage('fenceBreak.png', longWait, { fade: 'in-out', fadeDurationMs: 500 }),
 				]);
-
+				splash.play();
 				await runInteraction('returnDialogue', ['24n1']);
 				await wait(smallWait);
 				turnSprite(LavelleSprite, 0);

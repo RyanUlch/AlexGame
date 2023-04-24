@@ -68,7 +68,7 @@ const openSam_House_FullLevel = () => {
 		isAutoInteract: true,
 		position: [8, 5],
 		interactionName: 'openLevel',
-		interactionArgs: ['Village', [15, 41, 's']],
+		interactionArgs: ['Village', [15, 41, 's'], 'doorClose'],
 	};
 	pawnStore.registerSprite(Village);
 };

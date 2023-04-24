@@ -55,7 +55,7 @@ const openAlex_HouseLevel = () => {
 		isAutoInteract: true,
 		position: [10, 3],
 		interactionName: 'openLevel',
-		interactionArgs: ['Village', [31, 7, 's']],
+		interactionArgs: ['Village', [31, 7, 's'], 'doorClose'],
 	};
 	pawnStore.registerSprite(Village);
 };

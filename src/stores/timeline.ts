@@ -4,6 +4,8 @@ import { ref, computed } from 'vue';
 import { useLevelStore } from './level';
 import { usePawnStore } from './pawn';
 import { runInteraction } from '@/assets/interactions/interactions';
+import { audios } from '@/Audio/audios';
+import { useCutsceneStore } from './cutscene';
 
 export const useTimelineStore = defineStore('timelineStore', () => {
 	const currentTime = ref(0);
@@ -22,12 +24,17 @@ export const useTimelineStore = defineStore('timelineStore', () => {
 	const levelStore = useLevelStore();
 	const pawnStore = usePawnStore();
 
-	const advanceTime = () => {
-		console.log(levelStore.levelNameRef);
+	const warp = audios['warp'];
+
+	const advanceTime = async () => {
+		const { fadeCamera } = useCutsceneStore();
+
 		if (levelStore.levelNameRef === 'Bluffs' || levelStore.levelNameRef === 'Bluffs_Broken') {
 			runInteraction('readout', ['Something prevents you from advancing time here']);
 			return;
 		}
+		await fadeCamera('out', 250);
+		await warp.play();
 		if (currentTime.value === 3) {
 			currentTime.value = 0;
 			resetConversations();
@@ -39,6 +46,7 @@ export const useTimelineStore = defineStore('timelineStore', () => {
 			}
 			levelStore.openLevelArea(levelStore.levelNameRef, pawnStore.characterPosition);
 		}
+		await fadeCamera('in', 250);
 	};
 
 	const resetConversations = () => {
