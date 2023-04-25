@@ -85,10 +85,10 @@ const openMarket_FullLevel = () => {
 		const Alex: Sprite = {
 			spriteId: 'PC_',
 			spriteSrc: 'PC_',
-			isCharacter: false,
+			isCharacter: true,
 			isAutoInteract: false,
-			position: [14, 15],
-			coords: [0, 1],
+			position: [12, 16],
+			coords: [2, 1],
 			interactionName: 'noReturnDialogue',
 			interactionArgs: ['4a0', 'Alex'],
 		};

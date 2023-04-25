@@ -27,7 +27,7 @@ export const useTimelineStore = defineStore('timelineStore', () => {
 	const warp = audios['warp'];
 
 	const advanceTime = async () => {
-		const { fadeCamera } = useCutsceneStore();
+		const { fadeCamera, showImage } = useCutsceneStore();
 
 		if (
 			levelStore.levelNameRef === 'Bluffs' ||
@@ -37,8 +37,11 @@ export const useTimelineStore = defineStore('timelineStore', () => {
 			runInteraction('readout', ['Something prevents you from advancing time here']);
 			return;
 		}
-		await fadeCamera('out', 250);
-		await warp.play();
+		await Promise.all([
+			// fadeCamera('out', 250),
+			showImage(`Time_${currentTime.value}.png`, 2000, { fade: 'in-out', fadeDurationMs: 500 }),
+			warp.play(),
+		]);
 		if (currentTime.value === 3) {
 			currentTime.value = 0;
 			resetConversations();
@@ -50,7 +53,6 @@ export const useTimelineStore = defineStore('timelineStore', () => {
 			}
 			levelStore.openLevelArea(levelStore.levelNameRef, pawnStore.characterPosition);
 		}
-		await fadeCamera('in', 250);
 	};
 
 	const resetConversations = () => {

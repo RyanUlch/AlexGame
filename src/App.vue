@@ -1,5 +1,4 @@
 <script setup lang="ts">
-	import { useLevelStore } from './stores/level';
 	import PlayArea from './components/PlayArea/PlayArea.vue';
 	import MenuButton from './components/MenuButton/MenuButton.vue';
 	import EventLog from './components/EventLog/EventLog.vue';
@@ -13,13 +12,11 @@
 	import { useTimelineStore } from './stores/timeline';
 	import { useSettingsStore } from './stores/settings';
 	import { onBeforeUpdate, onMounted } from 'vue';
-	import { openingCutscene } from './stores/cutscene';
 	import { useFilterStore } from './stores/filters';
 	import { AudioPlayer } from './Audio/Audio';
 	const timelineStore = useTimelineStore();
 	const settings = useSettingsStore();
 	const playerStore = usePawnStore();
-	const levelStore = useLevelStore();
 
 	onBeforeUpdate(() => {
 		switch (timelineStore.currentTime) {
@@ -37,7 +34,6 @@
 				break;
 		}
 	});
-	// levelStore.openLevel('Alex_House', false, [4, 7, 'w']); //, //[30, 9, 'n']);
 	onMounted(() => {
 		const muted = localStorage.getItem('muted');
 		if (muted === 'true') {
@@ -52,22 +48,7 @@
 		}
 
 		settings.openOpeningMenu();
-		if (false) {
-			// openingCutscene();
-		} else {
-			// timelineStore.currentTime = 0;
-			// levelStore.openLevel('Bluffs_Full', false, [31, 9, 'n']);
-			// timelineStore.gameStarted = true;
-			// timelineStore.endingChoice = 1;
-		}
 	});
-
-	// Sam = Sam
-	// Abigail = Abigail
-	// Lavelle = Lavelle
-	// Teddy = Teddy
-	// Alex =
-	// Rebecca = Rebecca
 </script>
 <template>
 	<div class="gameArea">

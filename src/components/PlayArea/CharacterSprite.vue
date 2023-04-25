@@ -38,7 +38,7 @@
 </script>
 <template>
 	<img
-		:src="`src/assets/characters/${props.characterFilename}.png`"
+		:src="`src/assets/Characters/${props.characterFilename}.png`"
 		:style="{
 			objectFit: 'none',
 			objectPosition: `-${animation}px -${facing}px`,

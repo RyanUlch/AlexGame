@@ -7,9 +7,9 @@ export const audios: { [name: string]: AudioPlayer } = {
 	inside: new AudioPlayer('src/assets/audio/inside.mp3'),
 
 	// Sound Effects
-	doorOpen: new AudioPlayer('src/assets/audio/dooropen.mp3'),
+	doorOpen: new AudioPlayer('src/assets/audio/doorOpen.mp3'),
 	doorClose: new AudioPlayer('src/assets/audio/doorclose.mp3'),
-	newLog: new AudioPlayer('src/assets/audio/lilbeep.wav'),
+	newLog: new AudioPlayer('src/assets/audio/lilBeep.wav'),
 	select: new AudioPlayer('src/assets/audio/select.wav'),
 	blip: new AudioPlayer('src/assets/audio/menuBlip.wav'),
 	interaction: new AudioPlayer('src/assets/audio/interactionStart.wav'),

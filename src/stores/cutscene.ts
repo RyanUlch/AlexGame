@@ -187,6 +187,7 @@ export const useCutsceneStore = defineStore('cutscene', () => {
 
 	return {
 		fadeCamera,
+		showImage,
 		cutsceneActive,
 		cutsceneCameraPosition,
 		curtainOpacity,
@@ -230,7 +231,7 @@ export const openingCutscene = () => {
 			]);
 			splash.play(),
 				setTimeout(() => {
-					showImage('TitleScreen.png', 20000, { fade: 'in-out', fadeDurationMs: 2000 });
+					showImage('TitleScreen.png', 10000, { fade: 'in-out', fadeDurationMs: 2000 });
 				}, 2000);
 			await Promise.all([camera.move([8, 11], introLength)]);
 			await camera.fade('out', 1000);
@@ -625,7 +626,7 @@ export const BluffsCutscene = () => {
 
 				await Promise.all([
 					punch.play(),
-					showImage('punch1.png', longWait, { fade: 'in-out', fadeDurationMs: 500 }),
+					showImage('Punch1.png', longWait, { fade: 'in-out', fadeDurationMs: 500 }),
 				]);
 				await wait(longWait);
 				await turnSprite(TeddySprite, 3);
@@ -741,7 +742,7 @@ export const BluffsCutscene = () => {
 
 							await Promise.all([
 								knife.play(),
-								showImage('Knife2.png', longWait, { fade: 'in-out', fadeDurationMs: 500 }),
+								showImage('Knife_2.png', longWait, { fade: 'in-out', fadeDurationMs: 500 }),
 							]);
 							await wait(smallWait);
 							await walkSprite(CharacterSprite, [29, 11], smallWait);
@@ -762,7 +763,7 @@ export const BluffsCutscene = () => {
 
 								await Promise.all([
 									knife.play(),
-									showImage('Knife3.png', longWait, { fade: 'in-out', fadeDurationMs: 500 }),
+									showImage('Knife_3.png', longWait, { fade: 'in-out', fadeDurationMs: 500 }),
 								]);
 								await camera.fade('out', endWait);
 								break;

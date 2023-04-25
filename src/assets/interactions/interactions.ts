@@ -140,7 +140,7 @@ export const runInteraction = async (interactionName: string, interactionArgs: a
 							timelineStore.PCKillsTeddy = true;
 							break;
 						case 'yes':
-							levelStore.openLevel('Bluffs');
+							levelStore.openLevelArea('Bluffs');
 						case 'no':
 							pawnStore.characterPosition[2] = 's';
 						default:
