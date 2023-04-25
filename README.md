@@ -1,4 +1,4 @@
-# RE_Engine :rocket:   
+# The Death and Life of Alex :rocket:   
 
 Hello,  
 This is the repo for Ryan and Eric's entry into the GameDev.js [Game Jam](https://gamedevjs.com/jam/2023/).  
