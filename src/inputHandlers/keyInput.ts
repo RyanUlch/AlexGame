@@ -134,6 +134,7 @@ export const downHandler = (event: KeyboardEvent) => {
 	keyStatusMap[event.key] = true;
 	const handler = downHandlers[event.key];
 	if (!handler) return;
+	event.preventDefault();
 	handler(event);
 };
 
@@ -142,5 +143,6 @@ export const upHandler = (event: KeyboardEvent) => {
 	keyStatusMap[event.key] = false;
 	const handler = upHandlers[event.key];
 	if (!handler) return;
+	event.preventDefault();
 	handler(event);
 };

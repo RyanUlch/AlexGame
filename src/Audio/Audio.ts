@@ -7,9 +7,11 @@ const logging = false;
 
 const context = new AudioContext();
 const gain = context.createGain();
-gain.gain.value = 1;
-gain.connect(context.destination);
-
+const masterGain = context.createGain();
+gain.gain.value = 0.1;
+masterGain.gain.value = 1;
+gain.connect(masterGain);
+masterGain.connect(context.destination);
 window.addEventListener('click', () => {
 	context.resume();
 });
@@ -17,16 +19,16 @@ window.addEventListener('click', () => {
 export class AudioPlayer {
 	static context = context;
 	static gain = gain;
+	static masterGain = masterGain;
 	static unmuteValue = 1;
 	static isMuted = false;
 
 	static mute() {
-		AudioPlayer.unmuteValue = AudioPlayer.gain.gain.value;
-		AudioPlayer.gain.gain.value = 0;
+		AudioPlayer.masterGain.gain.value = 0;
 		AudioPlayer.isMuted = true;
 	}
 	static unmute() {
-		AudioPlayer.gain.gain.value = AudioPlayer.unmuteValue;
+		AudioPlayer.masterGain.gain.value = 1;
 		AudioPlayer.isMuted = false;
 	}
 	static setVolume(volume: number) {
