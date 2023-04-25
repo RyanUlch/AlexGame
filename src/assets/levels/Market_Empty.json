@@ -5464,7 +5464,7 @@
                         1.5,
                         6.5
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
                     "layers": [
                         {
@@ -5475,7 +5475,7 @@
                             ]
                         }
                     ],
-                    "isOnTop": false
+                    "isOnTop": true
                 },
                 {
                     "tileset": "Floors3",
@@ -5483,7 +5483,7 @@
                         1.5,
                         6.5
                     ],
-                    "impassible": true,
+                    "impassible": false,
                     "isCharacter": false,
                     "layers": [
                         {
@@ -5494,7 +5494,7 @@
                             ]
                         }
                     ],
-                    "isOnTop": false
+                    "isOnTop": true
                 },
                 {
                     "tileset": "Floors3",
@@ -5875,7 +5875,7 @@
                         1.5,
                         6.5
                     ],
-                    "impassible": false,
+                    "impassible": true,
                     "isCharacter": false,
                     "layers": [
                         {
@@ -5894,7 +5894,7 @@
                         1.5,
                         6.5
                     ],
-                    "impassible": false,
+                    "impassible": true,
                     "isCharacter": false,
                     "layers": [
                         {

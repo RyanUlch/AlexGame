@@ -61,6 +61,7 @@ export const useTimelineStore = defineStore('timelineStore', () => {
 		Sam_hate.value = false;
 		Sam_understanding.value = false;
 		Sam_atFarm.value = false;
+		Sam_inFight.value = false;
 		Sam_Moving.value = true;
 		Abigail_angry.value = false;
 		Abigail_GaveUp.value = true;
@@ -126,6 +127,7 @@ export const useTimelineStore = defineStore('timelineStore', () => {
 	const Sam_hate = ref(false);
 	const Sam_understanding = ref(false);
 	const Sam_atFarm = ref(false);
+	const Sam_inFight = ref(false);
 	const Sam_Moving = ref(true);
 
 	// Abigail
@@ -160,6 +162,7 @@ export const useTimelineStore = defineStore('timelineStore', () => {
 		advanceTime,
 		Sam_bitter,
 		Sam_hate,
+		Sam_inFight,
 		Sam_understanding,
 		Sam_atFarm,
 		Sam_Moving,

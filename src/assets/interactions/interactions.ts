@@ -78,6 +78,7 @@ export const runInteraction = async (interactionName: string, interactionArgs: a
 						case '1a0_2':
 							timelineStore.Abigail_angry = true;
 							break;
+
 						case '2a0_1':
 							timelineStore.Lavelle_home = false;
 							break;
@@ -100,7 +101,9 @@ export const runInteraction = async (interactionName: string, interactionArgs: a
 							break;
 						case '01e0_0':
 							timelineStore.Sam_atFarm = false;
+							timelineStore.Sam_inFight = true;
 							break;
+
 						case '014e0_1':
 							timelineStore.Abigail_angry = false;
 							break;

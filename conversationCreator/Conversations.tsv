@@ -21,7 +21,7 @@ Sam__Img0__0e1
 	I'm so glad I came to help Abigail. Honestly this is kind of fun.	Still can't believe Alex didn't come to help.																																		
 		Continue																																		
 Sam__Img0__0e2																																				
-	I come here to help, and this is the thanks I get.	Fine, they can finish this field by themself!																																		
+	I came here to help, and this is the thanks I get.	Fine, they can finish this field by themself!																																		
 		Continue																																		
 Sam__Img0__0n0																																				
 	This is good. Probably...	A new start, somewhere I can actually make friends.	Ugh. Abigail didn't come see me, Alex ignored me, Lavelle was right across the way and didn't even say hi.																																	
@@ -35,7 +35,7 @@ Sam__Img0__0n0
 			I can't be alone... I can't start over.	What am I doing?!	I need to tell Abigail how I feel.	Tomorrow morning, I'm going to march over there and ask them to marry me!	A desperate plea for marriage because you don't want to be alone always goes over smoothly...																													
 				*It doesn't* - Continue	0n0_2																															
 Sam__Img0_Sleep__0n1																																				
-	Abigail, I love you.	I'm so sorry Abigail didn't come and help.	Whoa, you're riding a giant bird?! can I join?	EEEEEAAAAAGLE!																																
+	Abigail, I love you.	I'm so sorry Alex didn't come and help.	Whoa, you're riding a giant bird?! can I join?	EEEEEAAAAAGLE!																																
 		Continue																																		
 Abigail__Img1__1m0																																				
 	Where is Alex!?	I'm not going to be able to get all this work done by myself	It's too bad Sam is busy with their stall.	It would be nice to hang out with them.	Oh no! We were supposed to meet later! I got to hurry with this.																															
@@ -49,7 +49,7 @@ Abigail__Img1__1a0
 			*Breath* It'll be ok.	The work will get done when it gets done.	I'll try to make it up to Sam as soon as I can.																															
 				Continue	1a0_1																															
 		Hate																																		
-			Fuck Alex.	You know what, Sam should also have been here if they cared about me.	I have to harvest this whole field by myself.	I'm so irate right now. I'm not usually get so upset.	Must just mean that I'm being treated so badly.																													
+			Fuck Alex.	You know what, Sam should also have been here if they cared about me.	I have to harvest this whole field by myself.	I'm so irate right now. I don't usually get so upset.	That must just mean that I'm being treated so badly.																													
 				Continue	1a0_2																															
 Abigail__Img1__1e0																																				
 	This is great.	We are making really good time, and this is much more enjoyable with Sam.	I should ask them to stay over after we are done.																																	
@@ -77,7 +77,7 @@ Abigail__Img1_Sleep__1n2
 Abigail__Img1__01e0																																				
 	"Why are you upset with me? I told you I had this entire field to harvest."																																			
 		continue																																		
-			Sam__Img0__"You said you were going to meet me at the martket. I was just waiting there."	"You stood me up."																																
+			Sam__Img0__"You said you were going to meet me at the martket. I was just waiting there."	Sam__Img0__"You stood me up."																																
 				Continue																																
 					Abigail__Img1__"I'm sorry, but look at this field I have so much more to go!"																															
 						Continue																														
@@ -110,7 +110,7 @@ Abigail__Img1__01e1
 									Abigail__Img1__"Nothing... There wasn't time to fill out the village. Just time constraints"	Abigail__Img1__"...Anyway, would you mind helping me with the field?"																										
 										Continue																										
 											Sam__Img0__"Let's do it!																									
-												Continue																								
+												Continue	01e1_0																							
 Lavelle__Img2__2m0																																				
 	"Wake up!"	How much did they drink last night.	I'm pretty sure they were supposed to do something this morning.	Oh shoot, I'm supposed to be at the markets myself!	"Alex, I have to go. Wake up!"																															
 		Continue																																		

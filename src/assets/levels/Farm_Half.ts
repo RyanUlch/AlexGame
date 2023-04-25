@@ -5,9 +5,8 @@ import type { Sprite } from '@/stores/pawn';
 const openFarm_HalfLevel = () => {
 	const pawnStore = usePawnStore();
 	const timelineStore = useTimelineStore();
-	console.log(timelineStore.conversationsActivated['014e0']);
-	if (timelineStore.Sam_atFarm) {
-		if (!timelineStore.conversationsActivated['014e0']) {
+	if (timelineStore.Sam_atFarm || timelineStore.Sam_inFight) {
+		if (!timelineStore.farmSceneOccurred) {
 			FarmBothCutscene();
 		}
 		if (timelineStore.Abigail_angry) {
@@ -58,7 +57,7 @@ const openFarm_HalfLevel = () => {
 			pawnStore.registerSprite(Abigail);
 		}
 	} else {
-		if (!timelineStore.conversationsActivated['14e0']) {
+		if (!timelineStore.farmSceneOccurred) {
 			FarmCutscene();
 		}
 		const Abigail: Sprite = {

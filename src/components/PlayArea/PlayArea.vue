@@ -128,6 +128,7 @@
 		height: 20px;
 		transform: translateY(-4px);
 		position: absolute;
+		z-index: 10;
 	}
 
 	.temp {
