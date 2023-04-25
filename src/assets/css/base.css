@@ -61,7 +61,7 @@ body {
 	overflow: hidden;
 	font-family: 'Press Start 2P', monospace;
 	/* background-color: hsl(var(--brandHue), 80%, 80%); */
-	background-image: url('src/assets/images/Back.png');
+	background-image: url('@/assets/images/Back.png');
 	background-size: 39rem;
 	image-rendering: crisp-edges;
 	image-rendering: pixelated;
